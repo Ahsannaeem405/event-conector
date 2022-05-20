@@ -18,6 +18,13 @@
     /* border-bottom-left-radius: 50px; */
 }
 
+.div h6{
+    background: linear-gradient(to right, #f32170, #ff6b08,#cf23cf, #eedd44);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
 .overlay::after {
     content: "";
     position: absolute;
