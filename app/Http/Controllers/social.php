@@ -61,6 +61,7 @@ class social extends Controller
     public function handleFacebookCallback()
     {
         try {
+            dd('d');
             $user = Socialite::driver('facebook')->user();
             $create['name'] = $user->getName();
             $create['email'] = $user->getEmail();
@@ -77,7 +78,7 @@ class social extends Controller
 
         } catch (Exception $e) {
 
-
+dd('d2');
             return redirect('auth/facebook');
 
 
