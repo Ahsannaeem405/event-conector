@@ -65,7 +65,7 @@ class social extends Controller
             
             
 
-          $user = Socialite::driver('facebook')->user();
+            $user = Socialite::driver('facebook')->user();
 
 
             $finduser = User::where('facebook_id', $user->id)->first();
@@ -115,7 +115,7 @@ class social extends Controller
             } 
         }catch (Exception $e) {
 
-             dd('creatr');
+             dd($e);
 
             return redirect('auth/facebook');
 
