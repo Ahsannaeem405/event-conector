@@ -55,8 +55,8 @@ body{margin-top:20px;}
     position: fixed;
     z-index: 1000;
     /* display: block; */
-    -webkit-transition: margin 2s;
-    transition: margin 2s;
+    -webkit-transition: margin 1s;
+    transition: margin 1s;
   flex:1;
 }
 #navbar-toggle {
