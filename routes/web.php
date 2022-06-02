@@ -72,7 +72,7 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
 
     Route::get('/', function () {
-        dd('user');
+        return view('/index');
     });
 
 

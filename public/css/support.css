@@ -1,0 +1,44 @@
+.supportText h1 {
+    font-weight: 800 !important;
+    font-size: 50px !important;
+}
+
+/* .supportText h6 {
+    color: #716f6f
+} */
+
+.supportText .img-wrapper {
+    width: 500px;
+}
+
+.supportText .img-wrapper img {
+    height: 100%;
+    width: 100%;
+}
+
+.supportform input,
+textarea,
+select {
+    background: #f7f9f8 !important;
+}
+
+.supportform .email-us {
+    text-decoration: underline;
+}
+
+.supportform label {
+    font-weight: 600;
+    color: #716f6f
+}
+
+.supportform button {
+    float: right;
+}
+
+.supportform button span {
+    margin-left: 8px;
+}
+
+.supportform button i {
+    margin: 0px 8px;
+}
