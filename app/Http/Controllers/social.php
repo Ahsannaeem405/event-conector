@@ -36,7 +36,7 @@ class social extends Controller
                     'email' => $user->email,
                     'google_id'=> $user->id,
                     'password' => encrypt('123456dummy'),
-                    'role'->3
+                    'role'=>3
                 ]);
       
                 Auth::login($newUser);
@@ -91,7 +91,7 @@ class social extends Controller
                             'email' => $str_mail."@gmail.com",
                             'password' => encrypt('123456dummy'),
                             'facebook_id'=> $user->id,
-                            'role'->3
+                            'role'=>3
                             
                             ]);
                            
@@ -105,7 +105,7 @@ class social extends Controller
                                 'email' => $user->email,
                                 'facebook_id'=> $user->id,
                                 'password' => encrypt('123456dummy'),
-                                'role'->3
+                                'role'=>3
                                 
 
                             ]);
