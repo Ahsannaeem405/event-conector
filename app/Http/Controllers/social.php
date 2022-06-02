@@ -77,7 +77,7 @@ class social extends Controller
 
                      
                     
-                    return redirect('/user');
+                    return redirect('/use');
 
 
 
@@ -114,7 +114,7 @@ class social extends Controller
                     }
                    
                     Auth::login($newUser);
-                    return redirect('/user');
+                    return redirect('/use');
 
 
             } 
