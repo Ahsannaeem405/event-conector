@@ -711,6 +711,17 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
     <script>
+
+var heart=document.querySelectorAll(".fa-heart");
+heart.forEach(function(colorChange){
+    colorChange.addEventListener('click',function(){
+        // alert("hello");
+       colorChange.classList.toggle('heart');
+    //    heart.classList.remove.toggle('text-grey-three');
+    });
+});
+
+
         $(function () {
             $("#datepicker2").datepicker({
                 dateFormat: 'dd-MM-yy',

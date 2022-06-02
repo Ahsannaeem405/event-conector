@@ -53,10 +53,10 @@ heart.addEventListener('click',function(){
 });
 
 
-var share=document.querySelector(".fa-share-alt");
-share.addEventListener('click',function(){
-   share.classList.toggle('share');
-});
+// var share=document.querySelector(".fa-share-alt");
+// share.addEventListener('click',function(){
+//    share.classList.toggle('share');
+// });
 
  
 

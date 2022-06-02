@@ -1052,6 +1052,15 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script>
+
+var heart=document.querySelectorAll(".fa-heart");
+heart.forEach(function(colorChange){
+    colorChange.addEventListener('click',function(){
+        // alert("hello");
+       colorChange.classList.toggle('heart');
+    //    heart.classList.remove.toggle('text-grey-three');
+    });
+});
         $(document).ready(function () {
 
 

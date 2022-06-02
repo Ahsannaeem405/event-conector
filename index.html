@@ -427,7 +427,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -491,7 +491,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -556,7 +556,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -626,7 +626,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -690,7 +690,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -754,7 +754,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -823,7 +823,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -887,7 +887,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -951,7 +951,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -1738,6 +1738,15 @@
 
 
     <script>
+
+var heart=document.querySelectorAll(".fa-heart");
+heart.forEach(function(colorChange){
+    colorChange.addEventListener('click',function(){
+        // alert("hello");
+       colorChange.classList.toggle('heart');
+    //    heart.classList.remove.toggle('text-grey-three');
+    });
+});
 
         $(function () {
             $("#datepicker").datepicker({
