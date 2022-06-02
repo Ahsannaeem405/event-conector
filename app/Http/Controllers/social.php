@@ -65,17 +65,58 @@ class social extends Controller
             
             
 
-            $user = Socialite::driver('facebook')->user();
-            $create['name'] = $user->getName();
-            $create['email'] = $user->getEmail();
-            $create['facebook_id'] = $user->getId();
-dd($create['name']);
+          $user = Socialite::driver('facebook')->user();
 
-            $userModel = new User;
-            $createdUser = $userModel->addNew($create);
-            Auth::loginUsingId($createdUser->id);
 
-            return redirect('/');
+            $finduser = User::where('facebook_id', $user->id)->first();
+
+
+            if($finduser){
+                
+
+                 
+                Auth::login($finduser);
+                Auth::user()->login_time =  date('Y-m-d H:i:s');
+                Auth::user()->save();
+                return redirect('/user');
+
+
+
+            }
+            else{
+                if ($user->getEmail() ==null or User::where('email',$user->getEmail())->exists()){
+                        
+                        $str_mail = Str::random(10);
+                        $newUser = User::create([
+                        'name' => $user->name,
+                        'email' => $str_mail."@gmail.com",
+                        'facebook_id'=> $user->id,
+                        'point'=>1,
+                        'password' => encrypt('Superman_test'),
+                        'login_time' => date('Y-m-d H:i:s'),
+                        'email_verified_at'=>date('Y-m-d H:i:s'),
+
+                        ]);
+                       
+                }
+                else 
+                {
+                   
+                        $newUser = User::create([
+                            'name' => $user->name,
+                            'email' => $user->email,
+                            'facebook_id'=> $user->id,
+                            'point'=>1,
+                            'password' => encrypt('Superman_test'),
+                            'login_time' => date('Y-m-d H:i:s'),
+                            'email_verified_at'=>date('Y-m-d H:i:s'),
+
+                        ]);
+
+
+                }
+               
+                Auth::login($newUser);
 
 
         } catch (Exception $e) {
