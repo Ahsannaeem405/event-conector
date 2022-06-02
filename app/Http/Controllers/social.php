@@ -41,7 +41,7 @@ class social extends Controller
       
                 Auth::login($newUser);
       
-                return redirect()->intended('dashboard');
+                 return redirect('/');
             }
       
         } catch (Exception $e) {
@@ -77,7 +77,7 @@ class social extends Controller
 
                      
                     
-                    return redirect('/use');
+                    return redirect('/user');
 
 
 
@@ -114,7 +114,8 @@ class social extends Controller
                     }
                    
                     Auth::login($newUser);
-                    return redirect('/use');
+                    dd( Auth::user()->name);
+                    return redirect('/user');
 
 
             } 
