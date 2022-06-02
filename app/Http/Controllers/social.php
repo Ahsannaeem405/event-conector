@@ -80,6 +80,8 @@ class social extends Controller
 
         } catch (Exception $e) {
 
+             dd('creatr');
+
             return redirect('auth/facebook');
 
 
