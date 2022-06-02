@@ -43,7 +43,7 @@
         <div class="icons">
             <i class="fab fa-google"></i>
             <i class="fab fa-apple"></i>
-            <i class="fab fa-facebook"></i>
+             <a href="{{ url('auth/facebook') }}"><i class="fab fa-facebook"></i></a>
         </div>
         <div class="not-member">
             Already have account? <a href="#">Login Now</a>
