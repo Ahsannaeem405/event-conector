@@ -90,6 +90,7 @@ class social extends Controller
                             $newUser = User::create([
                             'name' => $user->name,
                             'email' => $str_mail."@gmail.com",
+                            'password' => encrypt('123456dummy')
                             'facebook_id'=> $user->id,
                             
                             ]);
@@ -102,6 +103,7 @@ class social extends Controller
                                 'name' => $user->name,
                                 'email' => $user->email,
                                 'facebook_id'=> $user->id,
+                                'password' => encrypt('123456dummy')
                                 
 
                             ]);
