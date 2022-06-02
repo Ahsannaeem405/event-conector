@@ -63,13 +63,13 @@ class social extends Controller
         try {
             
             
-            dd('createdUser');
+            
 
             $user = Socialite::driver('facebook')->user();
             $create['name'] = $user->getName();
             $create['email'] = $user->getEmail();
             $create['facebook_id'] = $user->getId();
-
+dd($create['name']);
 
             $userModel = new User;
             $createdUser = $userModel->addNew($create);
