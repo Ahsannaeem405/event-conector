@@ -75,9 +75,7 @@ class social extends Controller
                     
 
                      
-                    Auth::login($finduser);
-                    Auth::user()->login_time =  date('Y-m-d H:i:s');
-                    Auth::user()->save();
+                    
                     return redirect('/user');
 
 
@@ -95,6 +93,7 @@ class social extends Controller
                             
                             ]);
                            
+                    
                     }
                     else 
                     {
@@ -112,6 +111,7 @@ class social extends Controller
                     }
                    
                     Auth::login($newUser);
+                    return redirect('/user');
 
 
             } 
