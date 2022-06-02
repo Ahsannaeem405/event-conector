@@ -29,11 +29,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/auth/google', [App\Http\Controllers\social::class, 'redirectToGoogle']);
-Route::get('/auth/google/callback', [App\Http\Controllers\social::class, 'handleGoogleCallback']);
 
-Route::get('auth/facebook', [App\Http\Controllers\social::class, 'redirectToFacebook']);
-Route::get('auth/facebook/callback', [App\Http\Controllers\social::class, 'handleFacebookCallback']);
 
 
 Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
