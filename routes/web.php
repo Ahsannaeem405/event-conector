@@ -16,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+ Route::get('/cls', function() {
+        $run = Artisan::call('config:clear');
+        $run = Artisan::call('cache:clear');
+        $run = Artisan::call('config:cache');
+        Session::flush();
+        return 'FINISHED';
+    });
 
 Auth::routes();
 
@@ -25,7 +32,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/auth/google', [App\Http\Controllers\social::class, 'redirectToGoogle']);
 Route::get('/auth/google/callback', [App\Http\Controllers\social::class, 'handleGoogleCallback']);
 
-
+Route::get('auth/facebook', [App\Http\Controllers\social::class, 'redirectToFacebook']);
+Route::get('auth/facebook/callback', [App\Http\Controllers\social::class, 'handleFacebookCallback']);
 
 
 Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){

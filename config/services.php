@@ -35,5 +35,10 @@ return [
         'client_secret' => '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',
         'redirect' => 'http://localhost/event-conector/backend/public/auth/google/callback',
     ],
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => env('FACEBOOK_CALLBACK_URL'),
+    ],
 
 ];
