@@ -71,55 +71,49 @@ class social extends Controller
             $finduser = User::where('facebook_id', $user->id)->first();
 
 
-            if($finduser){
-                
+                if($finduser){
+                    
 
-                 
-                Auth::login($finduser);
-                Auth::user()->login_time =  date('Y-m-d H:i:s');
-                Auth::user()->save();
-                return redirect('/user');
+                     
+                    Auth::login($finduser);
+                    Auth::user()->login_time =  date('Y-m-d H:i:s');
+                    Auth::user()->save();
+                    return redirect('/user');
 
 
 
-            }
-            else{
-                if ($user->getEmail() ==null or User::where('email',$user->getEmail())->exists()){
-                        
-                        $str_mail = Str::random(10);
-                        $newUser = User::create([
-                        'name' => $user->name,
-                        'email' => $str_mail."@gmail.com",
-                        'facebook_id'=> $user->id,
-                        'point'=>1,
-                        'password' => encrypt('Superman_test'),
-                        'login_time' => date('Y-m-d H:i:s'),
-                        'email_verified_at'=>date('Y-m-d H:i:s'),
-
-                        ]);
-                       
                 }
-                else 
-                {
-                   
-                        $newUser = User::create([
+                else{
+                    if ($user->getEmail() ==null or User::where('email',$user->getEmail())->exists()){
+                            
+                            $str_mail = Str::random(10);
+                            $newUser = User::create([
                             'name' => $user->name,
-                            'email' => $user->email,
+                            'email' => $str_mail."@gmail.com",
                             'facebook_id'=> $user->id,
-                            'point'=>1,
-                            'password' => encrypt('Superman_test'),
-                            'login_time' => date('Y-m-d H:i:s'),
-                            'email_verified_at'=>date('Y-m-d H:i:s'),
+                            
+                            ]);
+                           
+                    }
+                    else 
+                    {
+                       
+                            $newUser = User::create([
+                                'name' => $user->name,
+                                'email' => $user->email,
+                                'facebook_id'=> $user->id,
+                                
 
-                        ]);
+                            ]);
 
 
-                }
-               
-                Auth::login($newUser);
+                    }
+                   
+                    Auth::login($newUser);
 
 
-        } catch (Exception $e) {
+            } 
+        }catch (Exception $e) {
 
              dd('creatr');
 
