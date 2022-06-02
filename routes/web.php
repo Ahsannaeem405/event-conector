@@ -74,8 +74,26 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
     Route::get('/', function () {
         return view('/index');
     });
+    Route::get('/featured_rest', function () {
+        return view('/featured_rest');
+    });
 
+    Route::get('/restaurant', function () {
+        return view('/restaurant');
+    });
 
+    Route::get('/chatBoard', function () {
+        return view('/chatBoard');
+    });
+
+    Route::get('/event', function () {
+        return view('/event');
+    });
+    Route::get('/favourites', function () {
+        return view('/favourites');
+    });
+
+    
 
 
     

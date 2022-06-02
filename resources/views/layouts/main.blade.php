@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Management</title>
     <!-- Main CSS -->
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
 
     <!-- Bootstrap 5 link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -40,20 +40,20 @@
                     <ul class="navbar-nav  me-md-auto mb-2 mb-md-0" id="navbar-nav">
                         <li class="nav-item ">
                             <a class="nav-link active pt-md-3 fontw500" aria-current="page"
-                                href="./index.html">Home</a>
+                                href="{{ url('/user') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active pt-md-3 fontw500" href="./page3.html">Featured restaurants</a>
+                            <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/featured_rest') }}">Featured restaurants</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active pt-md-3 fontw500" href="./restaurant.html">My Restaurants</a>
+                            <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/restaurant') }}">My Restaurants</a>
                         </li>
                         
 							<li class="nav-item">
-                            <a class="nav-link active pt-md-3 fontw500" href="./chatBoard.html">Inbox</a>
+                            <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/chatBoard') }}">Inbox</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active pt-md-3 fontw500" href="./page2.html">favourites</a>
+                            <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/favourites') }}">favourites</a>
                         </li>
 						<!-- <li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle pt-md-3 fontw500 text-black" href="#"
@@ -79,11 +79,16 @@
                     </ul>
 
                     <div class="hostEvent">
-                        <h6 class="pe-3 pt-2 fontw700 font-18"><a href="./event.html">Host An Event</a></h6>
+                        <h6 class="pe-3 pt-2 fontw700 font-18"><a href="{{ url('/user/event') }}">Host An Event</a></h6>
                     </div>
                     <form class="d-flex">
-                        <a href="./login.html"><button class="btn" type="submit">Login</button></a>
-                        <a href="./register.html"><button class="btn rounded-pill btn-green" type="button">Sign up</button></a>
+                        @auth
+                        <a href="{{ route('/logout') }}"><button class="btn rounded-pill btn-danger" type="button">logout</button></a>
+                        @else
+                        <a href="{{ ('/login') }}"><button class="btn" type="submit">Login</button></a>
+                        <a href="{{ ('/register') }}"><button class="btn rounded-pill btn-green" type="button">Sign up</button></a>
+                        @endauth                    
+            
                     </form>
                 </div>
             </div>
