@@ -75,7 +75,8 @@ class social extends Controller
                 if($finduser){
                     
 
-                     
+                     Auth::login($finduser);
+                
                     
                     return redirect('/user');
 
