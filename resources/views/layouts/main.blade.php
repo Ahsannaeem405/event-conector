@@ -67,7 +67,7 @@
 								<li><a class="dropdown-item" href="./page3.html">Favorite</a></li>
 							</ul>
 						</li> -->
-<!--                         
+                        <!--                         
                         <li>
                             <div class="search-box ps-md-4">
                                 <input class="search-input mt-2 me-md-2" type="text" name="" placeholder="Search Venue">
@@ -81,15 +81,25 @@
                     <div class="hostEvent">
                         <h6 class="pe-3 pt-2 fontw700 font-18"><a href="{{ url('/user/event') }}">Host An Event</a></h6>
                     </div>
-                    <form class="d-flex">
+                   
                         @auth
-                        <a href="{{ route('/logout') }}"><button class="btn rounded-pill btn-danger" type="button">logout</button></a>
+                        
+                        
+                        <a class="btn rounded-pill btn-danger" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                         @else
                         <a href="{{ ('/login') }}"><button class="btn" type="submit">Login</button></a>
                         <a href="{{ ('/register') }}"><button class="btn rounded-pill btn-green" type="button">Sign up</button></a>
                         @endauth                    
             
-                    </form>
+                    
                 </div>
             </div>
         </nav>
