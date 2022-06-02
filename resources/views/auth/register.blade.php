@@ -41,8 +41,9 @@
             ----- or continue with -----
         </p>
         <div class="icons">
-            <i class="fab fa-google"></i>
-            <i class="fab fa-apple"></i>
+            <a href="{{ url('auth/google') }}">
+                    
+                <i class="fab fa-google"></i></a>
              <a href="{{ url('auth/facebook') }}"><i class="fab fa-facebook"></i></a>
         </div>
         <div class="not-member">
