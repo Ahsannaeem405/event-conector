@@ -33,7 +33,7 @@ return [
     'google' => [
         'client_id' => '269346009379-cf9eut02br08r8v3sim0itp347uucqhg.apps.googleusercontent.com',
         'client_secret' => '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',
-        'redirect' => 'http://localhost/event-conector/backend/public/auth/google/callback',
+        'redirect' => 'http://eventsbti.herokuapp.com/public/auth/google/callback',
     ],
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
