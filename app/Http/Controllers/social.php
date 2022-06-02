@@ -71,7 +71,7 @@ class social extends Controller
             $createdUser = $userModel->addNew($create);
             Auth::loginUsingId($createdUser->id);
 
-
+dd($createdUser);
             return redirect('/');
 
 
