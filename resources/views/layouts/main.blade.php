@@ -17,7 +17,7 @@
     <!-- Bootstrap 5 link -->
     <!-- jquery css -->
     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
-    <link rel="stylesheet" href="./css/jqueryui.css">
+    <link rel="stylesheet" href="{{ asset('css/jqueryui.css') }}">
 
     <!--  font awesome cdn  -->
     <script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
@@ -98,8 +98,7 @@
                         <a href="{{ ('/login') }}"><button class="btn" type="submit">Login</button></a>
                         <a href="{{ ('/register') }}"><button class="btn rounded-pill btn-green" type="button">Sign up</button></a>
                         @endauth                    
-            
-                    
+                              
                 </div>
             </div>
         </nav>

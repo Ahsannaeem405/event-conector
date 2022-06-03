@@ -1,6 +1,5 @@
 @extends('layouts.main')
 
-
 @section('body')
 	<!-- NavBar section end -->
 
