@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="./css/login.css">
+        <link rel="stylesheet" href="{{asset('css/login.css')}}">
+
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
@@ -36,11 +37,11 @@
               <a href="{{ url('auth/google') }}">
                     
                 <i class="fab fa-google"></i></a>
-            <i class="fab fa-apple"></i>
+           
             <a href="{{ url('auth/facebook') }}"><i class="fab fa-facebook"></i></a>
         </div>
         <div class="not-member">
-            Not a member? <a href="#">Register Now</a>
+            Not a member? <a href="{{url('register')}}">Register Now</a>
         </div>
     </div>
 </body>

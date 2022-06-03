@@ -51,11 +51,11 @@ unset($__errorArgs, $__bag); ?>" name="password" required autocomplete="current-
               <a href="<?php echo e(url('auth/google')); ?>">
                     
                 <i class="fab fa-google"></i></a>
-            <i class="fab fa-apple"></i>
+           
             <a href="<?php echo e(url('auth/facebook')); ?>"><i class="fab fa-facebook"></i></a>
         </div>
         <div class="not-member">
-            Not a member? <a href="#">Register Now</a>
+            Not a member? <a href="<?php echo e(url('register')); ?>">Register Now</a>
         </div>
     </div>
 </body>

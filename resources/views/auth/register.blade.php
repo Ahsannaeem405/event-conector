@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" href="./css/login.css">
+        <link rel="stylesheet" href="{{asset('css/login.css')}}">
+
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
@@ -47,7 +48,7 @@
              <a href="{{ url('auth/facebook') }}"><i class="fab fa-facebook"></i></a>
         </div>
         <div class="not-member">
-            Already have account? <a href="#">Login Now</a>
+            Already have account? <a href="{{url('login')}}">Login Now</a>
         </div>
     </div>
 </body>
@@ -65,7 +66,7 @@
     <script>
         @if (Session::has('success'))
             toastr.options = {
-                "closeButton": true,
+               
                 "progressBar": true
             }
             toastr.success("{{ session('success') }}");
@@ -93,7 +94,7 @@
 
         @if (Session::has('warning'))
             toastr.options = {
-                "closeButton": true,
+              
                 "progressBar": true
             }
             toastr.warning("{{ session('warning') }}");
