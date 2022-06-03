@@ -115,7 +115,7 @@ class social extends Controller
                     }
                    
                     Auth::login($newUser);
-                    dd( Auth::user()->name);
+                   
                     return redirect('/user');
 
 
