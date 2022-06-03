@@ -64,7 +64,7 @@ class social extends Controller
         try {
             
             
-            
+            dd('dd');
 
             $user = Socialite::driver('facebook')->user();
 
