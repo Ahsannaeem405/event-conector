@@ -1,95 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main')
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Event Management</title>
-	<!-- Main CSS -->
-	<link rel="stylesheet" href="./css/main.css">
-	<link rel="stylesheet" href="./css/reset.css">
-	<link rel="stylesheet" href="./css/chatboard.css">
 
-	<!-- Bootstrap 5 link -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<!-- Bootstrap 5 link -->
-	<!-- jquery css -->
-	<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
-	<link rel="stylesheet" href="./css/jqueryui.css">
-
-	<!--  font awesome cdn  -->
-	<script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
-	<!--  font awesome cdn  -->
-	<!-- owl  -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-</head>
-
-<body>
-	<section class="navigationBar pb-5 mt-4">
-		<nav class="navbar navbar-expand-lg shadowDiv fixed-top bg-white navbar-light py-md-3 text-black px-lg-3">
-			<div class="container-fluid">
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-					data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon "></span>
-				</button>
-				<a class="navbar-brand fontw700 font-24" href="./index.html">Emprise</a>
-				<div class="collapse navbar-collapse ps-md-3" id="navbarTogglerDemo03">
-					<ul class="navbar-nav  me-md-auto mb-2 mb-md-0" id="navbar-nav">
-						<li class="nav-item ">
-							<a class="nav-link active pt-md-3 fontw500" aria-current="page" href="./index.html">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active pt-md-3 fontw500" href="./page3.html">Featured restaurants</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active pt-md-3 fontw500" href="./restaurant.html">My Restaurants</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link active pt-md-3 fontw500" href="./chatBoard.html">Inbox</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active pt-md-3 fontw500" href="./page2.html">Favorites</a>
-						</li>
-						<!-- <li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle pt-md-3 fontw500 text-black" href="#"
-								id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-								aria-expanded="false">
-								More
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-								<li><a class="dropdown-item" href="./chatBoard.html">Inbox</a></li>
-								<li><a class="dropdown-item" href="./restaurant.html">My Restaurants</a></li>
-								<li><a class="dropdown-item" href="./page3.html">Favorite</a></li>
-							</ul>
-						</li> -->
-						<!--                         
-                        <li>
-                            <div class="search-box ps-md-4">
-                                <input class="search-input mt-2 me-md-2" type="text" name="" placeholder="Search Venue">
-                                <div class="search-btn mt-2 mt-md-0 float-lg-right">
-                                    <i class="fas fa-search text-white"></i>
-                                </div>
-                            </div>
-                        </li> -->
-					</ul>
-
-					<div class="hostEvent">
-						<h6 class="pe-3 pt-2 fontw700 font-18"><a href="./event.html">Host An Event</a></h6>
-					</div>
-					<form class="d-flex">
-						<a href="./login.html"><button class="btn" type="submit">Login</button></a>
-						<a href="./register.html"><button class="btn rounded-pill btn-green" type="button">Sign
-								up</button></a>
-					</form>
-				</div>
-			</div>
-		</nav>
-	</section>
-
+@section('body')
 	<!-- NavBar section end -->
 
 	<!-- chatBoard section -->
@@ -592,7 +504,4 @@ $('#navbar-toggle').click(function() {
 });
 	</script>
 
-</body>
-
-
-</html>
+@endsection
