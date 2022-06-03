@@ -329,7 +329,7 @@
 
 
                     <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
                         <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                             <span class="badge bg-creamy text-danger font-9">4.9</span>
                         </div>
@@ -398,77 +398,7 @@
 
 
                     <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
-                        <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
-                            <span class="badge bg-creamy text-danger font-9">4.9</span>
-                        </div>
-                        <div class="card-body pb-0">
-                            <div class="d-flex justify-content-between">
-                                <h4 class="card-title font-16">Montain Hiking Tour</h4>
-                                <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                            </div>
-                            <div class="div">
-                                <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                    Trent</p>
-                            </div>
-
-                            <div>
-                                <p class="font-9 mb-0 my-3">From</p>
-
-                            </div>
-
-                            <div class="pricing-review d-flex justify-content-between">
-                                <div class="pricing">
-                                    <h4 class="font-15">$895.44</h4>
-                                </div>
-                                <div class="font-10">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <div class="varies">
-                                        <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="variesDiv px-3">
-                            <div class="pricing-varies">
-                                <p class="mb-3 text-grey-one font-13">Price Varies</p>
-                            </div>
-                        </div>
-                        <div class="proceding px-3 d-flex justify-content-evenly">
-                            <div class="">
-                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" title="Add">
-                                    <i class="fa fa-plus-circle  text-white font-24" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                            <div class="">
-                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" title="View">
-                                    <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                            <div class="">
-                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                    data-bs-placement="left" title="Edit">
-                                    <i class="fa fa-pencil-square-o text-white font-24" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-12 col-sm-6 my-2">
-
-
-                    <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
                         <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                             <span class="badge bg-creamy text-danger font-9">4.9</span>
                         </div>
@@ -538,7 +468,77 @@
 
 
                     <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
+                            <span class="badge bg-creamy text-danger font-9">4.9</span>
+                        </div>
+                        <div class="card-body pb-0">
+                            <div class="d-flex justify-content-between">
+                                <h4 class="card-title font-16">Montain Hiking Tour</h4>
+                                <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                            </div>
+                            <div class="div">
+                                <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
+                                    Trent</p>
+                            </div>
+
+                            <div>
+                                <p class="font-9 mb-0 my-3">From</p>
+
+                            </div>
+
+                            <div class="pricing-review d-flex justify-content-between">
+                                <div class="pricing">
+                                    <h4 class="font-15">$895.44</h4>
+                                </div>
+                                <div class="font-10">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <div class="varies">
+                                        <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="variesDiv px-3">
+                            <div class="pricing-varies">
+                                <p class="mb-3 text-grey-one font-13">Price Varies</p>
+                            </div>
+                        </div>
+                        <div class="proceding px-3 d-flex justify-content-evenly">
+                            <div class="">
+                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="right" title="Add">
+                                    <i class="fa fa-plus-circle  text-white font-24" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="right" title="View">
+                                    <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="Edit">
+                                    <i class="fa fa-pencil-square-o text-white font-24" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-12 col-sm-6 my-2">
+
+
+                    <div class="card shadowDiv border-rounded-1 border-1 pb-3">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
                         <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                             <span class="badge bg-creamy text-danger font-9">4.9</span>
                         </div>
@@ -611,7 +611,7 @@
 
 
                     <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
                         <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                             <span class="badge bg-creamy text-danger font-9">4.9</span>
                         </div>
@@ -680,77 +680,7 @@
 
 
                     <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
-                        <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
-                            <span class="badge bg-creamy text-danger font-9">4.9</span>
-                        </div>
-                        <div class="card-body pb-0">
-                            <div class="d-flex justify-content-between">
-                                <h4 class="card-title font-16">Montain Hiking Tour</h4>
-                                <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                            </div>
-                            <div class="div">
-                                <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                    Trent</p>
-                            </div>
-
-                            <div>
-                                <p class="font-9 mb-0 my-3">From</p>
-
-                            </div>
-
-                            <div class="pricing-review d-flex justify-content-between">
-                                <div class="pricing">
-                                    <h4 class="font-15">$895.44</h4>
-                                </div>
-                                <div class="font-10">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <div class="varies">
-                                        <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="variesDiv px-3">
-                            <div class="pricing-varies">
-                                <p class="mb-3 text-grey-one font-13">Price Varies</p>
-                            </div>
-                        </div>
-                        <div class="proceding px-3 d-flex justify-content-evenly">
-                            <div class="">
-                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" title="Add">
-                                    <i class="fa fa-plus-circle  text-white font-24" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                            <div class="">
-                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" title="View">
-                                    <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                            <div class="">
-                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                    data-bs-placement="left" title="Edit">
-                                    <i class="fa fa-pencil-square-o text-white font-24" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-12 col-sm-6 my-2">
-
-
-                    <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
                         <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                             <span class="badge bg-creamy text-danger font-9">4.9</span>
                         </div>
@@ -820,7 +750,77 @@
 
 
                     <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
+                            <span class="badge bg-creamy text-danger font-9">4.9</span>
+                        </div>
+                        <div class="card-body pb-0">
+                            <div class="d-flex justify-content-between">
+                                <h4 class="card-title font-16">Montain Hiking Tour</h4>
+                                <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                            </div>
+                            <div class="div">
+                                <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
+                                    Trent</p>
+                            </div>
+
+                            <div>
+                                <p class="font-9 mb-0 my-3">From</p>
+
+                            </div>
+
+                            <div class="pricing-review d-flex justify-content-between">
+                                <div class="pricing">
+                                    <h4 class="font-15">$895.44</h4>
+                                </div>
+                                <div class="font-10">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <div class="varies">
+                                        <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="variesDiv px-3">
+                            <div class="pricing-varies">
+                                <p class="mb-3 text-grey-one font-13">Price Varies</p>
+                            </div>
+                        </div>
+                        <div class="proceding px-3 d-flex justify-content-evenly">
+                            <div class="">
+                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="right" title="Add">
+                                    <i class="fa fa-plus-circle  text-white font-24" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="right" title="View">
+                                    <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="Edit">
+                                    <i class="fa fa-pencil-square-o text-white font-24" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-12 col-sm-6 my-2">
+
+
+                    <div class="card shadowDiv border-rounded-1 border-1 pb-3">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
                         <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                             <span class="badge bg-creamy text-danger font-9">4.9</span>
                         </div>
@@ -904,7 +904,7 @@
             <div class="row py-3">
                 <div class="col-lg-3 col-12 col-sm-6 my-2">
                     <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
                         <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                             <span class="badge bg-creamy text-danger font-9">4.9</span>
                         </div>
@@ -973,77 +973,7 @@
 
 
                     <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
-                        <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
-                            <span class="badge bg-creamy text-danger font-9">4.9</span>
-                        </div>
-                        <div class="card-body pb-0">
-                            <div class="d-flex justify-content-between">
-                                <h4 class="card-title font-16">Montain Hiking Tour</h4>
-                                <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                            </div>
-                            <div class="div">
-                                <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                    Trent</p>
-                            </div>
-
-                            <div>
-                                <p class="font-9 mb-0 my-3">From</p>
-
-                            </div>
-
-                            <div class="pricing-review d-flex justify-content-between">
-                                <div class="pricing">
-                                    <h4 class="font-15">$895.44</h4>
-                                </div>
-                                <div class="font-10">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <div class="varies">
-                                        <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="variesDiv px-3">
-                            <div class="pricing-varies">
-                                <p class="mb-3 text-grey-one font-13">Price Varies</p>
-                            </div>
-                        </div>
-                        <div class="proceding px-3 d-flex justify-content-evenly">
-                            <div class="">
-                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" title="Add">
-                                    <i class="fa fa-plus-circle  text-white font-24" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                            <div class="">
-                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" title="View">
-                                    <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                            <div class="">
-                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                    data-bs-placement="left" title="Edit">
-                                    <i class="fa fa-pencil-square-o text-white font-24" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-12 col-sm-6 my-2">
-
-
-                    <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
                         <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                             <span class="badge bg-creamy text-danger font-9">4.9</span>
                         </div>
@@ -1113,7 +1043,77 @@
 
 
                     <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
+                            <span class="badge bg-creamy text-danger font-9">4.9</span>
+                        </div>
+                        <div class="card-body pb-0">
+                            <div class="d-flex justify-content-between">
+                                <h4 class="card-title font-16">Montain Hiking Tour</h4>
+                                <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                            </div>
+                            <div class="div">
+                                <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
+                                    Trent</p>
+                            </div>
+
+                            <div>
+                                <p class="font-9 mb-0 my-3">From</p>
+
+                            </div>
+
+                            <div class="pricing-review d-flex justify-content-between">
+                                <div class="pricing">
+                                    <h4 class="font-15">$895.44</h4>
+                                </div>
+                                <div class="font-10">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <div class="varies">
+                                        <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="variesDiv px-3">
+                            <div class="pricing-varies">
+                                <p class="mb-3 text-grey-one font-13">Price Varies</p>
+                            </div>
+                        </div>
+                        <div class="proceding px-3 d-flex justify-content-evenly">
+                            <div class="">
+                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="right" title="Add">
+                                    <i class="fa fa-plus-circle  text-white font-24" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="right" title="View">
+                                    <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="Edit">
+                                    <i class="fa fa-pencil-square-o text-white font-24" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-12 col-sm-6 my-2">
+
+
+                    <div class="card shadowDiv border-rounded-1 border-1 pb-3">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
                         <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                             <span class="badge bg-creamy text-danger font-9">4.9</span>
                         </div>
@@ -1186,7 +1186,7 @@
 
 
                     <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
                         <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                             <span class="badge bg-creamy text-danger font-9">4.9</span>
                         </div>
@@ -1255,77 +1255,7 @@
 
 
                     <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
-                        <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
-                            <span class="badge bg-creamy text-danger font-9">4.9</span>
-                        </div>
-                        <div class="card-body pb-0">
-                            <div class="d-flex justify-content-between">
-                                <h4 class="card-title font-16">Montain Hiking Tour</h4>
-                                <i class="fa fa-heart-o text-grey-three pt-2"></i>
-                            </div>
-                            <div class="div">
-                                <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                    Trent</p>
-                            </div>
-
-                            <div>
-                                <p class="font-9 mb-0 my-3">From</p>
-
-                            </div>
-
-                            <div class="pricing-review d-flex justify-content-between">
-                                <div class="pricing">
-                                    <h4 class="font-15">$895.44</h4>
-                                </div>
-                                <div class="font-10">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <div class="varies">
-                                        <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="variesDiv px-3">
-                            <div class="pricing-varies">
-                                <p class="mb-3 text-grey-one font-13">Price Varies</p>
-                            </div>
-                        </div>
-                        <div class="proceding px-3 d-flex justify-content-evenly">
-                            <div class="">
-                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" title="Add">
-                                    <i class="fa fa-plus-circle  text-white font-24" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                            <div class="">
-                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                    data-bs-placement="right" title="View">
-                                    <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                            <div class="">
-                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                    data-bs-placement="left" title="Edit">
-                                    <i class="fa fa-pencil-square-o text-white font-24" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-12 col-sm-6 my-2">
-
-
-                    <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
                         <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                             <span class="badge bg-creamy text-danger font-9">4.9</span>
                         </div>
@@ -1395,7 +1325,77 @@
 
 
                     <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                        <img src="./img/banner.jpg" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
+                        <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
+                            <span class="badge bg-creamy text-danger font-9">4.9</span>
+                        </div>
+                        <div class="card-body pb-0">
+                            <div class="d-flex justify-content-between">
+                                <h4 class="card-title font-16">Montain Hiking Tour</h4>
+                                <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                            </div>
+                            <div class="div">
+                                <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
+                                    Trent</p>
+                            </div>
+
+                            <div>
+                                <p class="font-9 mb-0 my-3">From</p>
+
+                            </div>
+
+                            <div class="pricing-review d-flex justify-content-between">
+                                <div class="pricing">
+                                    <h4 class="font-15">$895.44</h4>
+                                </div>
+                                <div class="font-10">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <div class="varies">
+                                        <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="variesDiv px-3">
+                            <div class="pricing-varies">
+                                <p class="mb-3 text-grey-one font-13">Price Varies</p>
+                            </div>
+                        </div>
+                        <div class="proceding px-3 d-flex justify-content-evenly">
+                            <div class="">
+                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="right" title="Add">
+                                    <i class="fa fa-plus-circle  text-white font-24" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="right" title="View">
+                                    <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="left" title="Edit">
+                                    <i class="fa fa-pencil-square-o text-white font-24" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-12 col-sm-6 my-2">
+
+
+                    <div class="card shadowDiv border-rounded-1 border-1 pb-3">
+                        <img src="{{ asset('img/banner.jpg') }}" alt="" class="img-fluid position-relative border-rounded p-2">
                         <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                             <span class="badge bg-creamy text-danger font-9">4.9</span>
                         </div>
@@ -1653,5 +1653,5 @@
         });
     </script>
 
-<script src="./js/event.js"></script>
+<script src="{{ asset('js/event.js') }}"></script>
 @endsection

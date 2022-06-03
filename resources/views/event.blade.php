@@ -2,7 +2,7 @@
 
 
 @section('body')
-    <section class="event-step" style="background-image: url('./img/banner4.jpg'); background-position: center; background-size: cover;">
+    <section class="event-step" style="background-image: url('{{ asset('img/banner4.jpg') }}'); background-position: center; background-size: cover;">
         <div class="container bg-transparent">
             <div class="card border-0">
                 <div class="form">

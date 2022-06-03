@@ -22,7 +22,7 @@
 
         <div id="thumbnails" class="thumbnails"></div>
         <div class="main-image-section">
-            <img id="main-view" class="main-view rounded-3" src="images/1.jpg" onclick="fullScreenImage();" />
+            <img id="main-view" class="main-view rounded-3" src="{{ asset('images/1.jpg') }}" onclick="fullScreenImage();" />
 
         </div>
     </div>
@@ -441,7 +441,7 @@
                                             Styling where guests go wow. A room which allows you to celebrate.</p>
                                         <div class="row py-2">
                                             <div class="col-md-7 col-5">
-                                                <img src="./img/hall.webp" class="img-fluid rounded-2" alt="">
+                                                <img src="{{ asset('img/hall.webp') }}" class="img-fluid rounded-2" alt="">
                                             </div>
                                             <div class="col-md-5 col-7">
                                                 <div class="d-flex justify-content-between">
@@ -465,13 +465,13 @@
                                                 <p class="font-14 pt-3 text-blue fontw600">Images</p>
                                             </div>
                                             <div class="col-4 ">
-                                                <img src="./img/hall4.jpg" class="img-fluid rounded-3" alt="">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
                                             </div>
                                             <div class="col-4 ">
-                                                <img src="./img/hall3.jpg" class="img-fluid rounded-3" alt="">
+                                                <img src="{{ asset('img/hall3.jpg') }}" class="img-fluid rounded-3" alt="">
                                             </div>
                                             <div class="col-4 ">
-                                                <img src="./img/hall4.jpg" class="img-fluid rounded-3" alt="">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -496,7 +496,7 @@
                                             Styling where guests go wow. A room which allows you to celebrate.</p>
                                         <div class="row py-2">
                                             <div class="col-md-7 col-5">
-                                                <img src="./img/hall.webp" class="img-fluid rounded-2" alt="">
+                                                <img src="{{ asset('img/hall.webp') }}" class="img-fluid rounded-2" alt="">
                                             </div>
                                             <div class="col-md-5 col-7">
                                                 <div class="d-flex justify-content-between">
@@ -520,13 +520,13 @@
                                                 <p class="font-14 pt-3 text-blue fontw600">Images</p>
                                             </div>
                                             <div class="col-4 ">
-                                                <img src="./img/hall4.jpg" class="img-fluid rounded-3" alt="">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
                                             </div>
                                             <div class="col-4 ">
-                                                <img src="./img/hall3.jpg" class="img-fluid rounded-3" alt="">
+                                                <img src="{{ asset('img/hall3.jpg') }}" class="img-fluid rounded-3" alt="">
                                             </div>
                                             <div class="col-4 ">
-                                                <img src="./img/hall4.jpg" class="img-fluid rounded-3" alt="">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -551,7 +551,7 @@
                                             Styling where guests go wow. A room which allows you to celebrate.</p>
                                         <div class="row py-2">
                                             <div class="col-md-7 col-5">
-                                                <img src="./img/hall.webp" class="img-fluid rounded-2" alt="">
+                                                <img src="{{ asset('img/hall.webp') }}" class="img-fluid rounded-2" alt="">
                                             </div>
                                             <div class="col-md-5 col-7">
                                                 <div class="d-flex justify-content-between">
@@ -575,13 +575,13 @@
                                                 <p class="font-14 pt-3 text-blue fontw600">Images</p>
                                             </div>
                                             <div class="col-4 ">
-                                                <img src="./img/hall4.jpg" class="img-fluid rounded-3" alt="">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
                                             </div>
                                             <div class="col-4 ">
-                                                <img src="./img/hall3.jpg" class="img-fluid rounded-3" alt="">
+                                                <img src="{{ asset('img/hall3.jpg') }}" class="img-fluid rounded-3" alt="">
                                             </div>
                                             <div class="col-4 ">
-                                                <img src="./img/hall4.jpg" class="img-fluid rounded-3" alt="">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
                                             </div>
 
                                         </div>
