@@ -69,7 +69,7 @@ unset($__errorArgs, $__bag); ?>" name="password" required autocomplete="new-pass
              <a href="<?php echo e(url('auth/facebook')); ?>"><i class="fab fa-facebook"></i></a>
         </div>
         <div class="not-member">
-            Already have account? <a href="#">Login Now</a>
+            Already have account? <a href="<?php echo e(url('login')); ?>">Login Now</a>
         </div>
     </div>
 </body>
