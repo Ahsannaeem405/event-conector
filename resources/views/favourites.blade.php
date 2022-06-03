@@ -762,7 +762,7 @@
                 <div class="owl-carousel">
                     <div class="item">
                         <div class="image_div py-3 px-3 position-relative"
-                            style="background-image:url('./img/hall.webp');">
+                            style="background-image:url('{{ asset('img/hall.webp') }}');">
                             <div class="row">
                                 <div class="col-12">
                                     <span class="badge bg-green float-end">30%</span>
@@ -795,7 +795,7 @@
                     </div>
                     <div class="item">
                         <div class="image_div py-3 px-3 position-relative"
-                            style="background-image:url('./img/hall.webp');">
+                            style="background-image:url('{{ asset('img/hall.webp') }}');">
 
                         </div>
                         <div class="text-center py-3">

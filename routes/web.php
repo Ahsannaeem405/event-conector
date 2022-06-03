@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,13 +42,21 @@ Route::get('auth/facebook/callback', [App\Http\Controllers\social::class, 'handl
 
 Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
 
-
     Route::get('/', function () {
         return view('admin/index');
        
     })->withoutMiddleware(['auth','admin']);
+    
 
 
+
+    Route::get('/users', [AdminController::class, 'users']);
+    Route::get('/planners', [AdminController::class, 'planners']);
+    Route::post('/edituser/{id}', [AdminController::class, 'edituser']);
+    Route::post('/dltuser/{id}', [AdminController::class, 'dltuser']);
+
+    
+    
 });
 
 
