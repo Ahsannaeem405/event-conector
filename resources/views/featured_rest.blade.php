@@ -287,7 +287,7 @@
                         <div class="col-md-6 col-12 mb-3">
                             <div class="card p-3 shadowDiv border-rounded-1  pb-3">
                                 <div class="image_div py-3 px-3 position-relative"
-                                    style="background-image:url('./img/hall.webp');">
+                                    style="background-image:url('{{ asset('img/hall.webp') }}');">
                                     <span class="badge bg-danger float-end">30%</span>
 
 
@@ -346,7 +346,7 @@
                         <div class="col-md-6 col-12 mb-3">
                             <div class="card shadowDiv border-rounded-1 p-3  pb-3">
                                 <div class="image_div py-3 px-3 position-relative"
-                                    style="background-image:url('./img/hall.webp');">
+                                    style="background-image:url('{{ asset('img/hall.webp') }}');">
                                     <span class="badge bg-danger float-end">30%</span>
 
 
@@ -420,7 +420,7 @@
 
             <div class="owl-carousel">
                 <div class="item">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('./img/hall.webp');">
+                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('{{ asset('img/hall.webp') }}');">
                         <div class="row">
                             <div class="col-12">
                                 <span class="badge bg-green float-end">30%</span>
@@ -452,7 +452,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('./img/hall.webp');">
+                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('{{ asset('img/hall.webp') }}');">
 
                     </div>
                     <div class="text-center py-3">
