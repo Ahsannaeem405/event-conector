@@ -21,6 +21,7 @@ Route::get('/', function () {
         $run = Artisan::call('config:clear');
         $run = Artisan::call('cache:clear');
         $run = Artisan::call('config:cache');
+        $run = Artisan::call('view:clear');
         Session::flush();
         return 'FINISHED';
     });
