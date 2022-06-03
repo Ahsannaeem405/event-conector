@@ -72,25 +72,26 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
     Route::get('/', function () {
         return view('/index');
-    });
+    })->withoutMiddleware(['auth','user']);
+
     Route::get('/featured_rest', function () {
         return view('/featured_rest');
-    });
+    })->withoutMiddleware(['auth','user']);
 
     Route::get('/restaurant', function () {
         return view('/restaurant');
-    });
+    })->withoutMiddleware(['auth','user']);
 
     Route::get('/chatBoard', function () {
         return view('/chatBoard');
-    });
+    })->withoutMiddleware(['auth','user']);
 
     Route::get('/event', function () {
         return view('/event');
-    });
+    })->withoutMiddleware(['auth','user']);
     Route::get('/favourites', function () {
         return view('/favourites');
-    });
+    })->withoutMiddleware(['auth','user']);
 
     
 
