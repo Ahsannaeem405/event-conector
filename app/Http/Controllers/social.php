@@ -31,16 +31,27 @@ class social extends Controller
                 return redirect('/');
        
             }else{
-                $newUser = User::create([
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'google_id'=> $user->id,
-                    'password' => encrypt('123456dummy'),
-                    'role'=>3
-                ]);
+                $finduser_by_email = User::where('email', $user->email)->first();
+                if($finduser_by_email){
+                    Auth::login($finduser_by_email);
       
-                Auth::login($newUser);
+                    return redirect('/');
+
+                }
+                else{
+                        $newUser = User::create([
+                        'name' => $user->name,
+                        'email' => $user->email,
+                        'google_id'=> $user->id,
+                        'password' => encrypt('123456dummy'),
+                        'role'=>3
+                    ]);
+          
+                    Auth::login($newUser);
       
+
+                }
+                
                  return redirect('/');
             }
       

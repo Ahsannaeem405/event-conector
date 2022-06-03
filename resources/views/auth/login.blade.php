@@ -12,7 +12,7 @@
 
 <body>
     <div class="wrapper">
-        <h1>Helllo Again!</h1>
+        <h1>Hello Again!</h1>
         <p>Event Management</p>
          <form method="POST" action="{{ route('login') }}">
                         @csrf
