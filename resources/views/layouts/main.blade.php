@@ -100,8 +100,8 @@
                             @csrf
                         </form>
                         @else
-                        <a href="{{ url('/login') }}"><button class="btn" type="submit">Login</button></a>
-                        <a href="{{ url('/register') }}"><button class="btn rounded-pill btn-green" type="button">Sign up</button></a>
+                        <a href="{{ ('/login') }}"><button class="btn" type="submit">Login</button></a>
+                        <a href="{{ ('/register') }}"><button class="btn rounded-pill btn-green" type="button">Sign up</button></a>
                         @endauth                    
                               
                 </div>
