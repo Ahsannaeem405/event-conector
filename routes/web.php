@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
- Route::get('/use', function () {
-        dd('user');
-    });
+ 
  Route::get('/cls', function() {
         $run = Artisan::call('config:clear');
         $run = Artisan::call('cache:clear');

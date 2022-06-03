@@ -122,7 +122,7 @@ class social extends Controller
             } 
         }catch (Exception $e) {
 
-             dd($e);
+            
 
             return redirect('auth/facebook');
 
