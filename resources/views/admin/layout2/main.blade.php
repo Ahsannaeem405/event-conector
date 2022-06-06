@@ -8,9 +8,9 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
   <!-- iCheck -->
@@ -58,9 +58,10 @@
     <script src="{{ asset('dist/js/demo.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
-
-
-
+  
+    <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
+    <!-- <script src="{{ asset('plugins/sweetalert2/sweetalert2.min.js') }}"></script> -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -68,7 +69,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -206,13 +207,13 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="btn rounded-pill btn-danger" href="/logout"
+        <a class="btn rounded-pill btn-danger" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                 Logout
             </a>
       </li>
-      <form id="logout-form" action="/logout" method="POST" class="d-none">
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
         @csrf
       </form>
 
@@ -254,7 +255,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
           <li class="nav-item">
-            <a href="/admins/users" class="nav-link">
+            <a href="{{ url('/admins/users') }}" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Users
@@ -263,11 +264,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admins/planners" class="nav-link">
+            <a href="{{ url('/admins/planners') }}" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Planners
                 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/admins/categories') }}" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Categories                
               </p>
             </a>
           </li>

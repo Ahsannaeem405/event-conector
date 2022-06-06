@@ -2,6 +2,7 @@
 
 
 @section('body')
+<link rel="stylesheet" href="{{ asset('css/event.css') }}">
 
     <!-- NavBar section end -->
     <section class="breadCrumbs mt-lg-5 pt-lg-5">
@@ -1654,4 +1655,32 @@
     </script>
 
 <script src="{{ asset('js/event.js') }}"></script>
+
+
+<script>
+    @if(Session::has('success'))
+
+    toastr.success("{{ session('success') }}");
+
+    @endif
+
+    @if(Session::has('error'))
+
+    toastr.error("{{ session('error') }}");
+
+    @endif
+
+
+
+
+    @if($errors->any())
+    
+    
+        @foreach ($errors->all() as $error)
+        toastr.error("{{ $error }}");
+    
+        @endforeach
+    @endif
+
+</script>
 @endsection

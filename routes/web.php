@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,21 +39,23 @@ Route::get('/auth/google/callback', [App\Http\Controllers\social::class, 'handle
 Route::get('auth/facebook', [App\Http\Controllers\social::class, 'redirectToFacebook']);
 Route::get('auth/facebook/callback', [App\Http\Controllers\social::class, 'handleFacebookCallback']);
 
+Route::post('/addplanner', [App\Http\Controllers\EventController::class, 'addplanner']);
+
 
 Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
 
-    Route::get('/', function () {
-        return view('admin/index');
-       
-    })->withoutMiddleware(['auth','admin']);
     
-
-
+    Route::get('/', [AdminController::class, 'index'])->withoutMiddleware(['auth','admin']);
 
     Route::get('/users', [AdminController::class, 'users']);
     Route::get('/planners', [AdminController::class, 'planners']);
     Route::post('/edituser/{id}', [AdminController::class, 'edituser']);
+    Route::post('/editcatg/{id}', [AdminController::class, 'editcatg']);
     Route::post('/dltuser/{id}', [AdminController::class, 'dltuser']);
+    Route::post('/dltcatg/{id}', [AdminController::class, 'dltcatg']);
+    Route::get('/categories', [AdminController::class, 'categories']);
+    Route::post('/addcategory', [AdminController::class, 'addcategory']);
+
 
     
     
@@ -65,11 +68,8 @@ Route::prefix('/planner')->middleware(['auth','planner'])->group(function (){
 
 
     Route::get('/', function () {
-        dd('planner');
+        return view('/restaurant');
     });
-
-
-
     
 });
 
@@ -95,9 +95,13 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
         return view('/chatBoard');
     })->withoutMiddleware(['auth','user']);
 
-    Route::get('/event', function () {
-        return view('/event');
-    })->withoutMiddleware(['auth','user']);
+    // Route::get('/event', function () {
+    //     return view('/event');
+    // })->withoutMiddleware(['auth','user']);
+    
+
+    Route::get('/event', [EventController::class, 'event'])->withoutMiddleware(['auth','user']);
+
     Route::get('/favourites', function () {
         return view('/favourites');
     })->withoutMiddleware(['auth','user']);

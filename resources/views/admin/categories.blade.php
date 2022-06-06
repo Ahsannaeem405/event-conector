@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>All Planners</h1>
+            <h1>Categories</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-              <li class="breadcrumb-item active">Planner</li>
+              <li class="breadcrumb-item active">Categories</li>
             </ol>
           </div>
         </div>
@@ -33,13 +33,13 @@
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
+                    
                     <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
+                      <button type="button" data-toggle="modal" data-target="#modal-category" class="btn rounded-pill btn-success">
+                        Add New Category
                       </button>
                     </div>
+                    
                   </div>
                 </div>
               </div>
@@ -49,10 +49,8 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Name</th>
-                      <th>Phone #</th>
-                      <th>Address</th>
-                      <th>Email</th>
+                      <th>Category Name</th>
+                      
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -61,48 +59,36 @@
                     $k=0;
                     @endphp
 
-                    @foreach($users as $user)
+                    @foreach($catgs as $catg)
                       @php
                       $k++;
                       @endphp
                     <tr>
                       <td>{{$k}}</td>
-                      <td>{{ $user->name }}</td>
-                      <td>{{ $user->phone }}</td>
-                      <td>{{ $user->address }}</td>
-                      <td>{{ $user->email }}</td>
-                      <td><a class="btn rounded-pill btn-info" href="#" data-toggle="modal" data-target="#modal-{{ $user->id }}">Edit</a>
-                      <form action="{{ url('/admins/dltuser') }}/{{ ($user->id) }}" method="POST">
+                      <td>{{ $catg->name }}</td>
+                      <td><a class="btn rounded-pill btn-info" href="#" data-toggle="modal" data-target="#modal-{{ $catg->id }}">Edit</a>
+                      <form action="{{ url('/admins/dltcatg') }}/{{ ($catg->id) }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn rounded-pill btn-danger" onclick="return confirm('Are you sure you want to delete this planner?')">Delete </button></td>
+                        <button type="submit" class="btn rounded-pill btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete </button></td>
                       </form>
                     </tr>
                     
-                    <div class="modal fade" id="modal-{{ $user->id }}">
+                    <div class="modal fade" id="modal-{{ $catg->id }}">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                <h4 class="modal-title">Edit User</h4>
+                                <h4 class="modal-title">Edit Category</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 </div>
-                                <form method="POST" action="{{ url('/admins/edituser') }}/{{ ($user->id) }}">
+                                <form method="POST" action="{{ url('/admins/editcatg') }}/{{ ($catg->id) }}">
                                     @csrf
                                     <div class="modal-body">
 
                                     <label> Name</label>
-                                    <input type="text" required name="name" value="{{ $user->name }}" class="form-control"></input>
-
-                                    <label> Email</label>
-                                    <input type="email" required name="email" value="{{ $user->email }}" class="form-control"></input>
-
-                                    <label> Phone</label>
-                                    <input type="text" required name="phone" value="{{ $user->phone }}" class="form-control"></input>
-
-                                    <label> address</label>
-                                    <input type="text" name="address" value="{{ $user->address }}" class="form-control"></input>
-
+                                    <input type="text" required name="name" value="{{ $catg->name }}" class="form-control"></input>
+                                    
                                     </div>
                                     <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -126,7 +112,40 @@
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+
+
+    <div class="modal fade" id="modal-category">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Add Category</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form method="POST" action="{{ url('/admins/addcategory') }}">
+                @csrf
+                <div class="modal-body">
+
+                  <label> Name</label>
+                  <input type="text" required name="catgname" value="" class="form-control"></input>
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+          </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
   </div>
+
+
+
+
   <script>
   @if(Session::has('success'))
 
@@ -141,5 +160,6 @@
   @endif
 
 </script>
+  
 
 @endsection
