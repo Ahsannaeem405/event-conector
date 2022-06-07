@@ -552,6 +552,7 @@ class ComposerStaticInitde91648244b76be312f1472af88e305d
         'App\\Http\\Middleware\\planner' => __DIR__ . '/../..' . '/app/Http/Middleware/planner.php',
         'App\\Http\\Middleware\\user' => __DIR__ . '/../..' . '/app/Http/Middleware/user.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
+        'App\\Models\\Restaurant' => __DIR__ . '/../..' . '/app/Models/Restaurant.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

@@ -66,10 +66,8 @@ Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
 
 Route::prefix('/planner')->middleware(['auth','planner'])->group(function (){
 
-
-    Route::get('/', function () {
-        return view('/restaurant');
-    });
+    Route::get('/', [EventController::class, 'restaurant']);
+    Route::post('/addrest', [EventController::class, 'addrest']);
     
 });
 

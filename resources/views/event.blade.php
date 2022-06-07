@@ -56,7 +56,7 @@
 
                             <div class="input-text">
                                 <div class="input-div">
-                                    <input type="text" required require name="business" value="{{ old('business') }}">
+                                    <input type="text" required require name="business" value="{{ old('business') }}" id="business">
                                     <span>Business Name</span>
                                 </div>
                             </div>
@@ -65,15 +65,15 @@
                                 
                             <div class="input-text">
                                 
-                                    <input type="tel" class="form-control" placeholder="Phone #" required require name="phone"  id="phone" value="{{ old('phone') }}">
-                                
+                                    <input type="number" class="form-control" placeholder="Phone #" required require name="phone"  id="phone" value="{{ old('phone') }}">
+                                    <input type="hidden" id="contrycode" name="contrycode">
                             </div>
 
 
 
 
                             <div class="buttons py-6">
-                                <button class="next_button">Next Step</button>
+                                <button class="next_button" id="subbtn">Next Step</button>
                             </div>
                         </div>
 
@@ -262,6 +262,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
     <script>
         var telInput = $("#phone"),
+        
   errorMsg = $("#error-msg"),
   validMsg = $("#valid-msg");
 // initialise plugin
@@ -307,6 +308,29 @@ telInput.blur(function() {
 });
 // on keyup / change flag: reset
 telInput.on("keyup change", reset);
-    </script>
+</script>
+
+
+
+<script>
+
+$( document ).ready(function() {
+       
+        $(".selected-flag").bind("DOMSubtreeModified",function(){
+            
+            $("#contrycode").val($(this).text()+$("#phone").val());
+        });
+
+        $("#subbtn").click(function(){
+            $("#contrycode").val($('.selected-flag').text()+$("#phone").val());
+        });
+
+
+        
+
+});
+
+
+</script>
 
 @endsection
