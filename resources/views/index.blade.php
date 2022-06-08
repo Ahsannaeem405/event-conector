@@ -1,69 +1,80 @@
-
 @extends('layouts.main')
 
-
 @section('body')
+
+
 <style type="text/css">
-    .form-control,.form-select{
-        border: 1px solid #fff;
-        padding-left: 0%;
-    }
-    .input-group-text{
-        border: 1px solid #fff!important;
-    }
-    .form-control:focus {
-        border-color: #fff!important;
-        box-shadow: unset!important;
+.form-control,
+.form-select {
+    border: 1px solid #fff;
+    padding-left: 0%;
+}
 
-    }
-    .form-select:focus {
-        border-color: #fff!important;
-        box-shadow: unset!important;
+.input-group-text {
+    border: 1px solid #fff !important;
+}
 
-    }
-    .time-fotm:focus {
-        border-color: #fff!important;
-        box-shadow: unset!important;
+.form-control:focus {
+    border-color: #fff !important;
+    box-shadow: unset !important;
 
-    }
+}
+
+.form-select:focus {
+    border-color: #fff !important;
+    box-shadow: unset !important;
+
+}
+
+.time-fotm:focus {
+    border-color: #fff !important;
+    box-shadow: unset !important;
+
+}
+
 .form-control::placeholder {
-  color: #a5aeb7;
-  border-bottom: 1px solid #a5aeb7;
+    color: #a5aeb7;
+    border-bottom: 1px solid #a5aeb7;
 }
-.form-select{
-  color: #a5aeb7;
-  border-bottom: 1px solid #a5aeb7;
-  padding-top: 0px;
+
+.form-select {
+    color: #a5aeb7;
+    border-bottom: 1px solid #a5aeb7;
+    padding-top: 0px;
 }
-.time-fotm{
-  color: #a5aeb7!important;;
-  border-bottom: 1px solid #a5aeb7!important;;
-  padding-top: 0px!important;;
+
+.time-fotm {
+    color: #a5aeb7 !important;
+    ;
+    border-bottom: 1px solid #a5aeb7 !important;
+    padding-top: 0px !important;
 }
 </style>
-<section class="Banner mx-3 mx-md-0 mt-5">
-        <div class="container position-relative main mt-md-5 mt-3">
-            <div class="position-absolute overlay w-100 h-100">
 
+
+<section class="Banner mx-3 mx-md-0 mt-5">
+    <div class="container position-relative main mt-md-5 mt-3" style="background-image: url('http://localhost/event-conector/public/img/banner4.jpg');">
+        <div class="position-absolute overlay w-100 h-100">
+
+        </div>
+        <div class="row px-md-5 mx-md-2 mb-5 pb-5">
+            <div class="col-md-12 z1">
+                <div class="bannerText">
+                    <p class="text-white fontw500 pt-5 m-0"><span><i class="fa fa-minus fa-lg"
+                                aria-hidden="true"></i></span> The Himaliyan Mountain Ranges</p>
+                </div>
             </div>
-            <div class="row px-md-5 mx-md-2 mb-5 pb-5">
-                <div class="col-md-12 z1">
-                    <div class="bannerText">
-                        <p class="text-white fontw500 pt-5 m-0"><span><i class="fa fa-minus fa-lg"
-                                    aria-hidden="true"></i></span> The Himaliyan Mountain Ranges</p>
-                    </div>
+            <div class="col-md-12 col-sm-6 z1">
+                <div class="banner-heading">
+                    <h1 class="fontw700 font-70 text-white m-0 py-3">Event Management</h1>
                 </div>
-                <div class="col-md-12 col-sm-6 z1">
-                    <div class="banner-heading">
-                        <h1 class="fontw700 font-70 text-white m-0 py-3">Event Management</h1>
-                    </div>
+            </div>
+            <div class="col-md-6 z1">
+                <div class="temp">
+                    <p class="text-white">-02<sup class="font-15 p-0">&deg;</sup>C very Cold</p>
                 </div>
-                <div class="col-md-6 z1">
-                    <div class="temp">
-                        <p class="text-white">-02<sup class="font-15 p-0">&deg;</sup>C very Cold</p>
-                    </div>
-                </div>
-                <!-- <div class="offset-lg-2 col-lg-4 z1">
+            </div>
+            <!-- <div class="offset-lg-2 col-lg-4 z1">
                         <div class="banking d-flex">
                             <div class="bankingCard pe-3">
                                 <a href="#"><i class="fa fa-credit-card-alt p-3 faa-icon" aria-hidden="true"></i></a>
@@ -74,97 +85,98 @@
                             <a href="#" class="z1 text-white fontw500">Book Now!</a>
                         </div>
                     </div> -->
-            </div>
+        </div>
 
-            <div class="row z1 selectDestination d-flex justify-content-center position-relative">
-                <div class="col-md-12 selectionLocation bg-white position-absolute px-4">
-                    <div class="search location">
-                        <div class="row py-4">
-                            <div class="col-lg-3 location">
-                                <div class="location-heading">
-                                    <h3 class="font-20 fontw700 mb-0">Location:</h3>
-                                </div>
-                                <div class="input-group mb-3 mt-2">
-                                    <input type="text" placeholder="Enter Location"
-                                        class="form-control border-right-0 hasDatepicker"
-                                        aria-describedby="basic-addon2">
-                                    <span class="input-group-text btn bg-transparent border" id="basic-addon2"><i
-                                            class="fa fa-map-marker"></i></span>
-                                </div>
+        <div class="row z1 selectDestination d-flex justify-content-center position-relative">
+            <div class="col-md-12 selectionLocation bg-white position-absolute px-4">
+                <div class="search location">
+                    <div class="row py-4">
+                        <div class="col-lg-3 location">
+                            <div class="location-heading">
+                                <h3 class="font-20 fontw700 mb-0">Location:</h3>
                             </div>
-                            <div class="col-lg-8">
-                                <div class="row">
-                                    <div class="col-lg-4 activities">
-                                        <div class="location-heading">
-                                            <h3 class="font-20 fontw700 mb-0">Category:</h3>
-                                        </div>
-                                        <div class="input-group mb-3 mt-2">
-                                            <select class="form-select" id="inputGroupSelect03"
-                                                aria-label="Example select with button addon">
-                                                <option selected>Choose...</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
+                            <div class="input-group mb-3 mt-2">
+                                <input type="text" placeholder="Enter Location"
+                                    class="form-control border-right-0 hasDatepicker" aria-describedby="basic-addon2">
+                                <span class="input-group-text btn bg-transparent border" id="basic-addon2"><i
+                                        class="fa fa-map-marker"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-4 activities">
+                                    <div class="location-heading">
+                                        <h3 class="font-20 fontw700 mb-0">Category:</h3>
+                                    </div>
+                                    <div class="input-group mb-3 mt-2">
+                                        <select class="form-select" id="inputGroupSelect03"
+                                            aria-label="Example select with button addon">
+                                            <option selected>Choose...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 Datepicking">
+                                    <div class="location-heading">
+                                        <h3 class="font-20 fontw700 mb-0">Date:</h3>
                                     </div>
 
-                                    <div class="col-lg-4 Datepicking">
-                                        <div class="location-heading">
-                                            <h3 class="font-20 fontw700 mb-0">Date:</h3>
-                                        </div>
-
-                                        <!-- <div class="input-group mb-3 py-3">
+                                    <!-- <div class="input-group mb-3 py-3">
                                             <input type="text" placeholder="Enter Date" class="form-control border-right-0 hasDatepicker" id="datepicker" aria-describedby="basic-addon2">
                                             <span class="input-group-text bg-transparent border-left-0" id="basic-addon2"><i
                                          class="fa fa-calendar text-grey-three"></i></span>
                                         </div> -->
 
-                                        <div class="input-group mb-3 mt-2">
-                                            <input type="text" placeholder="dd-mm-yyyy" class="form-control border-right-0" id="datepicker"
-                                                aria-describedby="basic-addon2" autocomplete="off">
-                                            <span class="input-group-text btn bg-transparent border" id="basic-addon2"><i
-                                                    class="fa fa-calendar"></i></span>
-                                        </div>
-
+                                    <div class="input-group mb-3 mt-2">
+                                        <input type="text" placeholder="dd-mm-yyyy" class="form-control border-right-0"
+                                            id="datepicker" aria-describedby="basic-addon2" autocomplete="off">
+                                        <span class="input-group-text btn bg-transparent border" id="basic-addon2"><i
+                                                class="fa fa-calendar"></i></span>
                                     </div>
 
+                                </div>
 
-                                    <!-- <div class="col-md-3 searchbtn d-flex justify-content-center align-items-center">
+
+                                <!-- <div class="col-md-3 searchbtn d-flex justify-content-center align-items-center">
                                          <form class="location-input" action="">
                                             <button class="btn btn-green p-3" type="button"><i class="fa fa-search font-30"
                                                     aria-hidden="true"></i></button>
                                         </form> 
                                     </div> -->
 
-                                    <div class="col-lg-4">
-                                        <div class="time-heading">
-                                            <h3 class="font-20 fontw700 mb-0">Time:</h3>
-                                        </div>
-                                        <div class="time mb-3">
-                                            <input type="time" class="pe-0 py-0 form-control time-fotm">
-                                        </div>
+                                <div class="col-lg-4">
+                                    <div class="time-heading">
+                                        <h3 class="font-20 fontw700 mb-0">Time:</h3>
+                                    </div>
+                                    <div class="time mb-3">
+                                        <input type="time" class="pe-0 py-0 form-control time-fotm">
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            
 
-                            <div class="col-lg-1 searchbtn d-flex justify-content-center align-items-center">
-                                <form class="location-input" action="">
-                                    <a href="./detailFeature.html"><button class="btn btn-green px-3 py-2" type="button"><i class="fa fa-search font-30"
-                                            aria-hidden="true"></i></button></a>
-                                </form>
-                            </div>
+
+                        <div class="col-lg-1 searchbtn d-flex justify-content-center align-items-center">
+                            <form class="location-input" action="">
+                                <a href="./detailFeature.html"><button class="btn btn-green px-3 py-2" type="button"><i
+                                            class="fa fa-search font-30" aria-hidden="true"></i></button></a>
+                            </form>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </section>
 
-    <section class="categories pt-5 my-5">
+        </div>
+    </div>
+</div>
+
+</section>
+
+<section class="categories pt-5 my-5">
         <div class="container">
             <div class="row ">
                 <div class="col-6">
@@ -373,7 +385,7 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
                                         <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="{{ asset('img/banner.jpg ')}}" alt=""
+                                            <img src="./img/banner.jpg" alt=""
                                                 class="img-fluid position-relative border-rounded p-2">
                                             <div class="reviewTag text-end pe-3 py-3 position-absolute"
                                                 style="left: 80%;">
@@ -382,7 +394,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -437,7 +449,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="{{ asset('img/banner1.jpg')}}" alt=""
+                                            <img src="./img/banner1.jpg" alt=""
                                                 class="img-fluid position-relative border-rounded p-2">
                                             <div class="reviewTag text-end pe-3 py-3 position-absolute"
                                                 style="left: 80%;">
@@ -446,7 +458,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -502,7 +514,7 @@
 
                                     <div class="col-md-4 mb-3">
                                         <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="{{ asset('img/banner3.jpg')}}" alt=""
+                                            <img src="./img/banner3.jpg" alt=""
                                                 class="img-fluid position-relative border-rounded p-2">
                                             <div class="reviewTag text-end pe-3 py-3 position-absolute"
                                                 style="left: 80%;">
@@ -511,7 +523,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -572,7 +584,7 @@
 
                                     <div class="col-md-4 mb-3">
                                         <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="{{ asset('img/banner.jpg')}}" alt=""
+                                            <img src="./img/banner.jpg" alt=""
                                                 class="img-fluid position-relative border-rounded p-2">
                                             <div class="reviewTag text-end pe-3 py-3 position-absolute"
                                                 style="left: 80%;">
@@ -581,7 +593,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -636,7 +648,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="{{ asset('img/banner2.jpg')}}" alt=""
+                                            <img src="./img/banner2.jpg" alt=""
                                                 class="img-fluid position-relative border-rounded p-2">
                                             <div class="reviewTag text-end pe-3 py-3 position-absolute"
                                                 style="left: 80%;">
@@ -645,7 +657,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -700,7 +712,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="{{ asset('img/banner1.jpg')}}" alt=""
+                                            <img src="./img/banner1.jpg" alt=""
                                                 class="img-fluid position-relative border-rounded p-2">
                                             <div class="reviewTag text-end pe-3 py-3 position-absolute"
                                                 style="left: 80%;">
@@ -709,7 +721,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -769,7 +781,7 @@
 
                                     <div class="col-md-4 mb-3">
                                         <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="{{ asset('img/banner3.jpg')}}" alt=""
+                                            <img src="./img/banner3.jpg" alt=""
                                                 class="img-fluid position-relative border-rounded p-2">
                                             <div class="reviewTag text-end pe-3 py-3 position-absolute"
                                                 style="left: 80%;">
@@ -778,7 +790,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -833,7 +845,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="{{ asset('img/banner.jpg')}}" alt=""
+                                            <img src="./img/banner.jpg" alt=""
                                                 class="img-fluid position-relative border-rounded p-2">
                                             <div class="reviewTag text-end pe-3 py-3 position-absolute"
                                                 style="left: 80%;">
@@ -842,7 +854,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -897,7 +909,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="{{ asset('img/banner.jpg')}}" alt=""
+                                            <img src="./img/banner.jpg" alt=""
                                                 class="img-fluid position-relative border-rounded p-2">
                                             <div class="reviewTag text-end pe-3 py-3 position-absolute"
                                                 style="left: 80%;">
@@ -906,7 +918,7 @@
                                             <div class="card-body pb-0">
                                                 <div class="d-flex justify-content-between">
                                                     <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
                                                 </div>
                                                 <div class="div">
                                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -1003,33 +1015,33 @@
                                     <div class="col-lg-4 mb-4 mb-lg-0">
 
 
-                                        <img src="{{asset('img/img (73).webp')}}"
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
                                             class="w-100 border-rounded-40 mb-4 position-relative"
                                             style="height: 46% !important;" alt="Boat on Calm Water" />
 
 
 
 
-                                        <img src="{{ asset('img/banner2.jpg')}}" class="w-100 h-50 border-rounded-40 mb-4"
+                                        <img src="./img/banner2.jpg" class="w-100 h-50 border-rounded-40 mb-4"
                                             alt="Wintry Mountain Landscape" />
                                     </div>
 
                                     <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="{{asset('img/mountain2.webp')}}"
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
                                             class="w-100 h-100 border-rounded-40 mb-4" alt="Mountains in the Clouds" />
                                     </div>
 
                                     <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="{{ asset('img/banner3.jpg')}}" class="w-100 border-rounded-40 mb-4"
+                                        <img src="./img/banner3.jpg" class="w-100 border-rounded-40 mb-4"
                                             style="height: 46%;" alt="Waves at Sea" />
 
                                         <div class="row h-50">
                                             <div class="col-5">
-                                                <img src="{{ asset('img/banner1.jpg')}}" class="h-100 w-100 border-rounded-40 mb-4"
+                                                <img src="./img/banner1.jpg" class="h-100 w-100 border-rounded-40 mb-4"
                                                     alt="Yosemite National Park" />
                                             </div>
                                             <div class="col-7">
-                                                <img src="{{ asset('img/banner.jpg')}}" class="w-100 h-100 border-rounded-40 mb-4"
+                                                <img src="./img/banner.jpg" class="w-100 h-100 border-rounded-40 mb-4"
                                                     alt="Yosemite National Park" />
                                             </div>
                                         </div>
@@ -1040,30 +1052,30 @@
                             <div class="carousel-item p-4">
                                 <div class="row">
                                     <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="{{asset('img/img (73).webp')}}"
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
                                             class="w-100 h-50 border-rounded-40 mb-4" style="height: 46% !important;"
                                             alt="Boat on Calm Water" />
 
-                                        <img src="{{ asset('img/banner2.jpg')}}" class="w-100 h-50 border-rounded-40 mb-4"
+                                        <img src="./img/banner2.jpg" class="w-100 h-50 border-rounded-40 mb-4"
                                             alt="Wintry Mountain Landscape" />
                                     </div>
 
                                     <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="{{asset('img/mountain2.webp')}}"
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
                                             class="w-100 h-100 border-rounded-40 mb-4" alt="Mountains in the Clouds" />
                                     </div>
 
                                     <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="{{ asset('img/banner3.jpg')}}" class="w-100 border-rounded-40 mb-4"
+                                        <img src="./img/banner3.jpg" class="w-100 border-rounded-40 mb-4"
                                             style="height: 46%;" alt="Waves at Sea" />
 
                                         <div class="row h-50">
                                             <div class="col-5">
-                                                <img src="{{ asset('img/banner1.jpg')}}" class="h-100 w-100 border-rounded-40 mb-4"
+                                                <img src="./img/banner1.jpg" class="h-100 w-100 border-rounded-40 mb-4"
                                                     alt="Yosemite National Park" />
                                             </div>
                                             <div class="col-7">
-                                                <img src="{{ asset('img/banner.jpg')}}" class="w-100 h-100 border-rounded-40 mb-4"
+                                                <img src="./img/banner.jpg" class="w-100 h-100 border-rounded-40 mb-4"
                                                     alt="Yosemite National Park" />
                                             </div>
                                         </div>
@@ -1074,30 +1086,30 @@
                             <div class="carousel-item p-4">
                                 <div class="row">
                                     <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="{{asset('img/img (73).webp')}}"
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
                                             class="w-100 h-50 border-rounded-40 mb-4" style="height: 46% !important;"
                                             alt="Boat on Calm Water" />
 
-                                        <img src="{{ asset('img/banner2.jpg')}}" class="w-100 h-50 border-rounded-40 mb-4"
+                                        <img src="./img/banner2.jpg" class="w-100 h-50 border-rounded-40 mb-4"
                                             alt="Wintry Mountain Landscape" />
                                     </div>
 
                                     <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="{{asset('img/mountain2.webp')}}"
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
                                             class="w-100 h-100 border-rounded-40 mb-4" alt="Mountains in the Clouds" />
                                     </div>
 
                                     <div class="col-lg-4 mb-4 mb-lg-0">
-                                        <img src="{{ asset('img/banner3.jpg')}}" class="w-100 border-rounded-40 mb-4"
+                                        <img src="./img/banner3.jpg" class="w-100 border-rounded-40 mb-4"
                                             style="height: 46%;" alt="Waves at Sea" />
 
                                         <div class="row h-50">
                                             <div class="col-5">
-                                                <img src="{{ asset('img/banner1.jpg')}}" class="h-100 w-100 border-rounded-40 mb-4"
+                                                <img src="./img/banner1.jpg" class="h-100 w-100 border-rounded-40 mb-4"
                                                     alt="Yosemite National Park" />
                                             </div>
                                             <div class="col-7">
-                                                <img src="{{ asset('img/banner.jpg')}}" class="w-100 h-100 border-rounded-40 mb-4"
+                                                <img src="./img/banner.jpg" class="w-100 h-100 border-rounded-40 mb-4"
                                                     alt="Yosemite National Park" />
                                             </div>
                                         </div>
@@ -1145,7 +1157,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div>
-                                            <img src="{{ asset('img/banner2.jpg')}}" style="height: 400px !important;" alt=""
+                                            <img src="./img/banner2.jpg" style="height: 400px !important;" alt=""
                                                 class="img-fluid border-rounded-40">
                                         </div>
                                     </div>
@@ -1194,7 +1206,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div>
-                                            <img src="{{ asset('img/banner2.jpg')}}" style="height: 400px !important;" alt=""
+                                            <img src="./img/banner2.jpg" style="height: 400px !important;" alt=""
                                                 class="img-fluid border-rounded-40">
                                         </div>
                                     </div>
@@ -1243,7 +1255,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div>
-                                            <img src="{{ asset('img/banner2.jpg')}}" style="height: 400px !important;" alt=""
+                                            <img src="./img/banner2.jpg" style="height: 400px !important;" alt=""
                                                 class="img-fluid border-rounded-40">
                                         </div>
                                     </div>
@@ -1311,7 +1323,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-12 mt-2">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('{{ asset('img/hall.webp')}}');">
+                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('./img/hall.webp');">
                         <div class="row">
                             <div class="col-12">
                                 <span class="badge bg-green float-end">30%</span>
@@ -1333,7 +1345,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-12 mt-2">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('{{ asset('img/hall.webp')}}');">
+                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('./img/hall.webp');">
                         <div class="row">
                             <div class="col-12">
                                 <span class="badge bg-green float-end">30%</span>
@@ -1355,7 +1367,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-12 mt-2">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('{{ asset('img/hall.webp')}}');">
+                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('./img/hall.webp');">
                         <div class="row">
                             <div class="col-12">
                                 <span class="badge bg-green float-end">30%</span>
@@ -1415,19 +1427,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <img src="{{asset('img/mountain2.webp')}}"
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
                         class="w-100 h-100 rounded mb-4" alt="Mountains in the Clouds" />
                 </div>
                 <div class="col-md-3 mb-4 mb-lg-0">
 
 
-                    <img src="{{asset('img/img (73).webp')}}"
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
                         class="w-100 rounded mb-4 position-relative" style="height: 45% !important;"
                         alt="Boat on Calm Water" />
 
 
 
-                    <img src="{{ asset('img/banner2.jpg')}}" class="w-100 h-50 rounded mb-4" alt="Wintry Mountain Landscape" />
+                    <img src="./img/banner2.jpg" class="w-100 h-50 rounded mb-4" alt="Wintry Mountain Landscape" />
                 </div>
 
                 <div class="col-md-6">
@@ -1536,4 +1548,22 @@
         </div>
     </section>
     <!-- Still have a question -->
-    @endsection
+
+
+<!-- Trending -->
+
+
+<!-- Trending -->
+
+<!-- TopVenue -->
+
+<!-- TopVenue -->
+
+<!-- Menu Guides -->
+
+<!-- Menu Guide -->
+
+<!-- Best seller -->
+
+<!-- Still have a question -->
+@endsection

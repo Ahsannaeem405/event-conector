@@ -4,47 +4,82 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Category;
 
 class AdminController extends Controller
 {
     //
+    public function index()
+    {
+        $users = User::where('role', '3')->orderBy('id', 'DESC')->get();
+        return view('admin/index', compact('users'));
+    }
 
     public function users()
     {
         $users = User::where('role', '3')->get();
-// dd($users);
         return view('admin/users', compact('users'));
     }
 
     public function planners()
     {
-
-        return view('admin/planners');
+        $users = User::where('role', '2')->get();
+        return view('admin/planners', compact('users'));
     }
 
     public function edituser(Request $request)
     {
-
-        // dd('yyy');
         $user = User::find($request->id);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->update();
-        return back();
-       
-        
+        return redirect()->back()->with('success','Record Updated Successfully');
+
     }
 
     public function dltuser(Request $request)
     {      
         $user = User::where('id', $request->id)->delete();
-        return back();
+        return redirect()->back()->with('error','Record Deleted Successfully');
+        
+    }
+
+    public function categories()
+    {
+        $catgs = Category::all();
+
+        return view('admin/categories', compact('catgs'));
+    }
+
+    public function addcategory(Request $request)
+    {
+        $catg = new Category;
+        $catg->name = $request->catgname;
+        $catg->save();
+
+        return redirect()->back()->with('success','Cateory added Successfully');
+    }
+
+    public function editcatg(Request $request)
+    {
+        $catg = Category::find($request->id);
+        $catg->name = $request->name;
+        $catg->update();
+        return redirect()->back()->with('success','Category Updated Successfully');
+        
+    }
+
+    public function dltcatg(Request $request)
+    {      
+        $user = Category::where('id', $request->id)->delete();
+        return redirect()->back()->with('success','Category Deleted Successfully');
         
     }
 
     
-
+        
+    
     
 }

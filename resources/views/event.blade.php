@@ -2,6 +2,8 @@
 
 
 @section('body')
+    <link rel="stylesheet" href="{{ asset('css/event.css') }}">
+
     <section class="event-step" style="background-image: url('{{ asset('img/banner4.jpg') }}'); background-position: center; background-size: cover;">
         <div class="container bg-transparent">
             <div class="card border-0">
@@ -29,7 +31,9 @@
 
                     </div>
                     <div class="right-side">
-                        <div class="main active">
+                    <form action="{{ url('/addplanner') }}" method="POST" id="first_form">
+                        @csrf
+                        <div class="main active py-2">
                             <div class="text">
                                 <h2>Welcome Onboard</h2>
                                 <p>Please provide the following information</p>
@@ -37,59 +41,39 @@
 
                             <div class="input-text">
                                 <div class="dropdown">
-                                    <a class="btn border text-grey-three dropdown-toggle" href="#" role="button"
-                                        id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Business Category
-                                    </a>
-
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="input-text">
-                                <div class="input-div">
-                                    <input type="text" required require>
-                                    <span>Business Name</span>
-                                </div>
-                            </div>
-
-                            <div class="input-text">
-                                <div class="input-div">
-                                    <select>
-
-                                        <option data-countryCode="US" value="1">Pakistan (+92)</option>
-                                        <option>Algeria (+213)</option>
-                                        <option>Andorra (+376)</option>
-                                        <option>Angola (+244)</option>
-                                        <option>Anguilla (+1264)</option>
-                                        <option>Antigua &amp; Barbuda (+1268)</option>
-                                        <option>Argentina (+54)</option>
-                                        <option>Armenia (+374)</option>
-                                        <option>Aruba (+297)</option>
-                                        <option>Australia (+61)</option>
-                                        <option>Austria (+43)</option>
-                                        <option>Azerbaijan (+994)</option>
-                                        <option>Bahamas (+1242)</option>
-                                        <option>Bahrain (+973)</option>
-                                        <option>Bangladesh (+880)</option>
-                                        <option>Barbados (+1246)</option>
-                                        <option>Belarus (+375)</option>
-                                        <option>UK (+44)</option>
-                                        <option>USA (+1)</option>
+                                    
+                                <span>Business Category</span>
+                                    <select name="category" required>
+                                            
+                                        
+                                        @foreach($catgs as $catg)
+                                            <option value="{{ $catg->id }}"><a class="dropdown-item"  href="#">{{ $catg->name}}</a></option>
+                                        @endforeach
 
                                     </select>
                                 </div>
                             </div>
 
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" required require name="business" value="{{ old('business') }}" id="business">
+                                    <span>Business Name</span>
+                                </div>
+                            </div>
+
+                            
+                                
+                            <div class="input-text">
+                                
+                                    <input type="number" class="form-control" placeholder="Phone #" required require name="phone"  id="phone" value="{{ old('phone') }}">
+                                    <input type="hidden" id="contrycode" name="contrycode">
+                            </div>
 
 
 
-                            <div class="buttons py-4">
-                                <button class="next_button">Next Step</button>
+
+                            <div class="buttons py-6">
+                                <button class="next_button" id="subbtn">Next Step</button>
                             </div>
                         </div>
 
@@ -108,7 +92,7 @@
                             </div>
                             <div class="input-text">
                                 <div class="input-div">
-                                    <input type="text" required require>
+                                    <input type="text" required require name="address" value="{{ old('address') }}">
                                     <span>Address</span>
                                 </div>
                             </div>
@@ -127,28 +111,29 @@
                             </div>
                             <div class="input-text">
                                 <div class="input-div">
-                                    <input type="text" required require id="user_name">
+                                    <input type="text" class="@error('name') is-invalid @enderror" id="user_name" name="name" id="name" value="{{ old('name') }}">
                                     <span>First Name</span>
                                 </div>
                                 <div class="input-div">
-                                    <input type="text" required>
+                                    <input type="text"  name="lastname"  id="lastname" value="{{ old('lastname') }}">
                                     <span>Last Name</span>
                                 </div>
                             </div>
                             <div class="input-text">
                                 <div class="input-div">
-                                    <input type="text" required require>
+                                    <input type="email"  name="email"  id="email" value="{{ old('email') }}">
                                     <span>E-mail Address</span>
                                 </div>
                             </div>
                             <div class="input-text">
                                 <div class="input-div">
-                                    <input type="password" required require>
-                                    <span>Password</span>
+                                    <input id="password" type="password" required class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Password">
+
+                                    <!-- <span>Password</span> -->
                                 </div>
                                 <div class="input-div">
-                                    <input type="password" required require>
-                                    <span>Confirm password</span>
+                                    <input id="password-confirm" placeholder="Confirm password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+
                                 </div>
                             </div>
                             <!-- <div class="input-text">
@@ -186,6 +171,8 @@
                                 <button class="next_button">Next Step</button>
                             </div>
                         </div>
+
+                    </form>
 
 
                         <div class="main">
@@ -230,5 +217,120 @@
  
 
     <script src="{{ asset('js/event.js') }}"></script>
+
+<script>
+    
+  @if(Session::has('success'))
+
+  toastr.success("{{ session('success') }}");
+
+  @endif
+
+  @if(Session::has('error'))
+
+  toastr.error("{{ session('error') }}");
+
+  @endif
+
+
+
+
+@if($errors->any())
+    
+    
+        @foreach ($errors->all() as $error)
+            toastr.error("{{ $error }}");
+    
+        @endforeach
+@endif
+
+
+</script>
+
+
+<script>
+
+</script>
+
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/css/intlTelInput.css" rel="stylesheet" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
+    <script>
+        var telInput = $("#phone"),
+        
+  errorMsg = $("#error-msg"),
+  validMsg = $("#valid-msg");
+// initialise plugin
+telInput.intlTelInput({
+  allowExtensions: true,
+  formatOnDisplay: true,
+  autoFormat: true,
+  autoHideDialCode: true,
+  autoPlaceholder: true,
+  defaultCountry: "auto",
+  ipinfoToken: "yolo",
+  nationalMode: false,
+  numberType: "MOBILE",
+  //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+  preferredCountries: ['sa', 'ae', 'qa','om','bh','kw','ma'],
+  preventInvalidNumbers: true,
+  separateDialCode: true,
+  initialCountry: "auto",
+  geoIpLookup: function(callback) {
+  $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+    var countryCode = (resp && resp.country) ? resp.country : "";
+    callback(countryCode);
+  });
+},
+   utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"
+});
+var reset = function() {
+  telInput.removeClass("error");
+  errorMsg.addClass("hide");
+  validMsg.addClass("hide");
+};
+// on blur: validate
+telInput.blur(function() {
+  reset();
+  if ($.trim(telInput.val())) {
+    if (telInput.intlTelInput("isValidNumber")) {
+      validMsg.removeClass("hide");
+    } else {
+      telInput.addClass("error");
+      errorMsg.removeClass("hide");
+    }
+  }
+});
+// on keyup / change flag: reset
+telInput.on("keyup change", reset);
+</script>
+
+
+
+<script>
+
+$( document ).ready(function() {
+       
+        $(".selected-flag").bind("DOMSubtreeModified",function(){
+            
+            $("#contrycode").val($(this).text()+$("#phone").val());
+        });
+
+        $("#subbtn").click(function(){
+            $("#contrycode").val($('.selected-flag').text()+$("#phone").val());
+        });
+
+
+        
+
+});
+
+
+</script>
 
 @endsection

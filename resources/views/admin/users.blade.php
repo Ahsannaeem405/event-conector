@@ -12,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
               <li class="breadcrumb-item active">Users</li>
             </ol>
           </div>
@@ -72,9 +72,9 @@
                       <td>{{ $user->address }}</td>
                       <td>{{ $user->email }}</td>
                       <td><a class="btn rounded-pill btn-info" href="#" data-toggle="modal" data-target="#modal-{{ $user->id }}">Edit</a>
-                      <form action="{{ ('/admins/dltuser') }}/{{ ($user->id) }}" method="POST">
+                      <form action="{{ url('/admins/dltuser') }}/{{ ($user->id) }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn rounded-pill btn-danger">Delete </button></td>
+                        <button type="submit" class="btn rounded-pill btn-danger" onclick="return confirm('Are you sure You want to delete this user?')">Delete </button></td>
                       </form>
                     </tr>
                     
@@ -87,7 +87,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 </div>
-                                <form method="POST" action="{{ ('/admins/edituser') }}/{{ ($user->id) }}">
+                                <form method="POST" action="{{ url('/admins/edituser') }}/{{ ($user->id) }}">
                                     @csrf
                                     <div class="modal-body">
 
@@ -127,5 +127,18 @@
     </section>
     <!-- /.content -->
   </div>
+  <script>
+  @if(Session::has('success'))
 
+  toastr.success("{{ session('success') }}");
+
+  @endif
+
+  @if(Session::has('error'))
+
+  toastr.error("{{ session('error') }}");
+
+  @endif
+
+</script>
 @endsection
