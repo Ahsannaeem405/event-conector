@@ -45,7 +45,7 @@ Route::post('/addplanner', [App\Http\Controllers\EventController::class, 'addpla
 Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
 
     
-    Route::get('/', [AdminController::class, 'index'])->withoutMiddleware(['auth','admin']);
+    Route::get('/', [AdminController::class, 'index']);
 
     Route::get('/users', [AdminController::class, 'users']);
     Route::get('/planners', [AdminController::class, 'planners']);
