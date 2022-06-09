@@ -228,9 +228,9 @@
                                                             <input type="checkbox" id="holiday1" name="holiday1">
                                                             <label for="holiday1"> Holiday </label>
 
-                                                            <div class="monday">
-                                                                <div class="main1 input-text mb-2" >
-                                                                    <div class="main2 input-div">
+                                                            <div class="monday main1">
+                                                                <div class="main2 input-text mb-2" >
+                                                                    <div class="main3 input-div">
 
                                                                         <input type="time" id="user_name" name="mondayopen[]" class="starttime"> 
                                                                         <span>Opening</span>
@@ -256,10 +256,10 @@
 
                                                             <input type="checkbox" id="holiday2" name="holiday2">
                                                             <label for="holiday2"> Holiday </label>
-                                                            <div class="tuesday">
-                                                                <div class="input-text mb-2">
-                                                                    <div class="input-div">
-                                                                        <input type="time" id="user_name"
+                                                            <div class="tuesday main1">
+                                                                <div class="main2 input-text mb-2">
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" id="user_name" class="starttime"
                                                                             name="tuesdayopen[]">
                                                                         <span>Opening</span>
                                                                     </div>
@@ -282,11 +282,11 @@
 
                                                             <input type="checkbox" id="holiday3" name="holiday3">
                                                             <label for="holiday3"> Holiday </label>
-                                                            <div class="wednesday">
-                                                                <div class="input-text mb-2">
+                                                            <div class="wednesday main1">
+                                                                <div class="main2 input-text mb-2">
 
-                                                                    <div class="input-div">
-                                                                        <input type="time" id="user_name"
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" id="user_name" class="starttime"
                                                                             name="wednesdayopen[]">
                                                                         <span>Opening</span>
                                                                     </div>
@@ -309,11 +309,11 @@
 
                                                             <input type="checkbox" id="holiday4" name="holiday4">
                                                             <label for="holiday4"> Holiday </label>
-                                                            <div class="thursday">
-                                                                <div class="input-text mb-2">
+                                                            <div class="thursday main1">
+                                                                <div class="main2 input-text mb-2">
 
-                                                                    <div class="input-div">
-                                                                        <input type="time" id="user_name"
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" id="user_name" class="starttime"
                                                                             name="thursdayopen[]">
                                                                         <span>Opening</span>
                                                                     </div>
@@ -337,11 +337,11 @@
                                                             <input type="checkbox" id="holiday5" name="holiday5">
                                                             <label for="holiday5"> Holiday </label>
 
-                                                            <div class="friday">
-                                                                <div class="input-text mb-2">
+                                                            <div class="friday main1">
+                                                                <div class="main2 input-text mb-2">
 
-                                                                    <div class="input-div">
-                                                                        <input type="time" id="user_name" name="fridayopen[]">
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" id="user_name" name="fridayopen[]" class="starttime">
                                                                         <span>Opening</span>
                                                                     </div>
                                                                     <div class="input-div">
@@ -364,11 +364,11 @@
                                                             <input type="checkbox" id="holiday6" name="holiday6">
                                                             <label for="holiday6"> Holiday </label>
 
-                                                            <div class="saturday">
-                                                                <div class="input-text mb-2">
+                                                            <div class="saturday main1">
+                                                                <div class="main2 input-text mb-2">
 
-                                                                    <div class="input-div">
-                                                                        <input type="time" id="user_name"
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" id="user_name" class="starttime"
                                                                             name="saturdayopen[]">
                                                                         <span>Opening</span>
                                                                     </div>
@@ -392,11 +392,11 @@
                                                             <input type="checkbox" id="holiday7" name="holiday7">
                                                             <label for="holiday7"> Holiday </label>
 
-                                                            <div class="sunday">
-                                                                <div class="input-text mb-2">
+                                                            <div class="sunday main1">
+                                                                <div class="main2 input-text mb-2">
 
-                                                                    <div class="input-div">
-                                                                        <input type="time" placeholder="dss" id="user_name"
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" placeholder="dss" id="user_name" class="starttime"
                                                                             name="sundayopen[]">
                                                                         <span>Opening</span>
                                                                     </div>
@@ -417,7 +417,8 @@
 
                                                     <div class="buttons button_space">
                                                         <button class="back_button" type="button">Back</button>
-                                                        <button class="next_button">Next Step</button>
+                                                        <button class="next_button testbtn">Next Step</button>
+                                                        <button type="button" class="">test button Step</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -2139,15 +2140,15 @@ $(document).ready(function() {
             });
             
 
-            $('.monday').append(`<div class="input-text mb-2 day1">
-            <div class="input-div">
-                <input type="time" id="user_name" name="mondayopen[]">
+            $('.monday').append(`<div class="main2 input-text mb-2 day1">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="mondayopen[]" class="starttime">
                 <span>Opening</span>
             </div>
 
             <div class="input-div">
                 <input type="time" id="user_name"
-                    name="mondayclose[]">
+                    name="mondayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
             <i  class="fa fa-close clos_icon"></i>
@@ -2158,15 +2159,15 @@ $(document).ready(function() {
             $('.count2').val( function(i, oldval) {
                 return ++oldval;
             });
-            $('.tuesday').append(`<div class="input-text mb-2 day2">
-            <div class="input-div">
-                <input type="time" id="user_name" name="tuesdayopen[]">
+            $('.tuesday').append(`<div class="main2 input-text mb-2 day2">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="tuesdayopen[]" class="starttime">
                 <span>Opening</span>
             </div>
 
             <div class="input-div">
                 <input type="time" id="user_name"
-                    name="tuesdayclose[]">
+                    name="tuesdayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
             <i  class="fa fa-close clos_icon"></i>
@@ -2177,15 +2178,15 @@ $(document).ready(function() {
             $('.count3').val( function(i, oldval) {
                 return ++oldval;
             });
-            $('.wednesday').append(`<div class="input-text mb-2 day3">
-            <div class="input-div">
-                <input type="time" id="user_name" name="wednesdayopen[]">
+            $('.wednesday').append(`<div class="main2 input-text mb-2 day3">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="wednesdayopen[]" class="starttime">
                 <span>Opening</span>
             </div>
 
             <div class="input-div">
                 <input type="time" id="user_name"
-                    name="wednesdayclose[]">
+                    name="wednesdayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
             <i  class="fa fa-close clos_icon"></i>
@@ -2196,15 +2197,15 @@ $(document).ready(function() {
             $('.count4').val( function(i, oldval) {
                 return ++oldval;
             });
-            $('.thursday').append(`<div class="input-text mb-2 day4">
-            <div class="input-div">
-                <input type="time" id="user_name" name="thursdayopen[]">
+            $('.thursday').append(`<div class="main2 input-text mb-2 day4">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="thursdayopen[]" class="starttime">
                 <span>Opening</span>
             </div>
 
             <div class="input-div">
                 <input type="time" id="user_name"
-                    name="thursdayclose[]">
+                    name="thursdayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
             <i  class="fa fa-close clos_icon"></i>
@@ -2215,15 +2216,15 @@ $(document).ready(function() {
             $('.count5').val( function(i, oldval) {
                 return ++oldval;
             });
-            $('.friday').append(`<div class="input-text mb-2 day5">
-            <div class="input-div">
-                <input type="time" id="user_name" name="fridayopen[]">
+            $('.friday').append(`<div class="main2 input-text mb-2 day5">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="fridayopen[]" class="starttime">
                 <span>Opening</span>
             </div>
 
             <div class="input-div">
                 <input type="time" id="user_name"
-                    name="fridayclose[]">
+                    name="fridayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
             <i  class="fa fa-close clos_icon"></i>
@@ -2234,15 +2235,15 @@ $(document).ready(function() {
             $('.count6').val( function(i, oldval) {
                 return ++oldval;
             });
-            $('.saturday').append(`<div class="input-text mb-2 day6">
-            <div class="input-div">
-                <input type="time" id="user_name" name="saturdayopen[]">
+            $('.saturday').append(`<div class="main2 input-text mb-2 day6">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="saturdayopen[]" class="starttime">
                 <span>Opening</span>
             </div>
 
             <div class="input-div">
                 <input type="time" id="user_name"
-                    name="saturdayclose[]">
+                    name="saturdayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
             <i  class="fa fa-close clos_icon"></i>
@@ -2253,15 +2254,15 @@ $(document).ready(function() {
             $('.count7').val( function(i, oldval) {
                 return ++oldval;
             });
-            $('.sunday').append(`<div class="input-text mb-2 day7">
-            <div class="input-div">
-                <input type="time" id="user_name" name="sundayopen[]">
+            $('.sunday').append(`<div class="main2 input-text mb-2 day7">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="sundayopen[]" class="starttime">
                 <span>Opening</span>
             </div>
 
             <div class="input-div">
                 <input type="time" id="user_name"
-                    name="sundayclose[]">
+                    name="sundayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
             <i  class="fa fa-close clos_icon"></i>
@@ -2280,27 +2281,39 @@ $(document).ready(function() {
     
     });
 
-    // $('.endtime').each(function(i, obj) {
-            //test
     $(document).on("blur", ".endtime", function() {
-        $end = $(this).val();
-        $star = $(this).closest('.main1').children('.main2').children('.starttime').val()
-        alert($star);
-        if($star > $end)
+        $(this).closest('.input-div').children('.errormsg').remove();
+        var end = $(this).val();
+        var star = $(this).closest('.main2').children('.main3').children('.starttime').val();
+        //convert both time into timestamp
+        var stt = new Date("November 13, 2013 " + star);
+        stt = stt.getTime();
+        var endt = new Date("November 13, 2013 " + end);
+        endt = endt.getTime();
+        if(stt >= endt) 
         {
-            alert('star date us less');
+            $(this).closest('.input-div').append('<p class="errormsg" style="color:red;">closing time must be greater then opening.</p>');
+            // alert('end date is less');
             
+        }else{
+
         }
-        else{
-            alert('end date is less')
+    });
+
+
+    $(document).on("click", ".testbtn", function() {
+        
+        if ($(".errormsg")[0]){
+            alert('error calss exist');
+            toastr.error('please remove all the errors');
+        } else {
+            alert('does not error calss exist');
+
+            // Do something if class does not exist
         }
-            
-        // });
     });
 
     
-
-
     
 
     
