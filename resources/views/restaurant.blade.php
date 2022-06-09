@@ -14,9 +14,30 @@
     .add_btn{
         color: green;
     }
+    .modal-content
+    {
+        background-color: transparent!important;
+        border: unset!important;
+        border-radius:unset!important;
+
+    }
+    .modal-header,.modal-footer{
+        border-bottom: unset!important;
+        border-top: unset!important;
+
+    }
+    .event-step .container {
+    min-height: unset!important;
+    }
+    .btn-close{
+        background-color: white!important;
+        padding: 3%!important;
+    }
+
 
 </style>
 <link rel="stylesheet" href="{{ asset('css/event.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/addpackage.css')}}">
 
 <!-- NavBar section end -->
 <section class="breadCrumbs mt-lg-5 pt-lg-5">
@@ -90,7 +111,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Add Restaurant</h5>
+                       
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -431,11 +452,7 @@
                             </div>
                         </section>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <a href="./restaurant.html"><button type="button" class="btn btn-green">Go to
-                                Dashboard</button></a>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -1022,7 +1039,9 @@
                 <h3 class="mb-3 fontw700">Packages </h3>
             </div>
             <div class="col-6 text-right d-flex justify-content-end py-4">
-                <button class="btn btn-green rounded-pill">Add New Package</button>
+                 <button class="btn btn-green rounded-pill"
+                                                            data-bs-target="#packageSection" data-bs-toggle="modal"
+                                                            data-bs-dismiss="modal">Add New Package</button>
             </div>
         </div>
         <div class="row py-3">
@@ -1596,7 +1615,166 @@
         </div>
     </div>
 </section>
+ <div class="modal fade" id="packageSection" aria-hidden="true" aria-labelledby="addPackageLabel"
+                tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                  
+                        <div class="modal-body">
+                            <!-- MultiStep Form -->
+                            <div class="closeBtn text-end pt-3">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="container-fluid" id="grad1">
+                                <div class="row justify-content-center mt-0">
+                                    <div
+                                        class="main-column col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2 ">
+                                        <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                                            <h2><strong>Add Your Package</strong></h2>
+                                            <!-- <p>Fill all form field to go to next step</p> -->
+                                            <div class="row">
+                                                <div class="col-md-12 mx-0">
+                                                    <form id="msform">
+                                                        <!-- progressbar -->
+                                                        <ul id="progressbar">
+                                                            <li class="active" id="account"><strong>Welcome</strong>
+                                                            </li>
+                                                            <li id="personal"><strong>Offer</strong></li>
+                                                            <li id="payment"><strong>Upload Menu</strong></li>
+                                                            <li id="confirm"><strong>Availability</strong></li>
+                                                            <li id="finish"><strong>Finish</strong></li>
+                                                        </ul>
+                                                        <!-- fieldsets -->
+                                                        <fieldset>
+                                                            <div class="form-card">
+                                                                <h2 class="fs-title">Your Business</h2>
+                                                                <select class="list-dt" id="selectBNS" name="expmonth">
+                                                                    <option selected>Please Select Business</option>
+                                                                    <option>Lorem</option>
+                                                                    <option>ABCW</option>
+                                                                    <option>XYXN</option>
+                                                                    <option>ADUSD</option>
+                                                                    <option>SDIFWI</option>
+                                                                    <option>FJWWI</option>
+                                                                </select>
+                                                              
+                                                            </div>
+                                                            <input type="button" name="next" class="next action-button"
+                                                                value="Next Step" />
+                                                        </fieldset>
+                                                        <fieldset >
+                                                            <div class="form-card">
+                                                                <h2 class="fs-title">Package Range</h2>
 
+                                                                <input type="text" name="lname"
+                                                                    placeholder="Package Name" />
+                                                                <div class="mb-4">
+                                                                    <label for="allow"
+                                                                        class="label-text pb-2 font-17 fontw500">Allowed
+                                                                        Member</label>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <div class="quantity border rounded-2 px-2">
+                                                                            <a href="#"
+                                                                                class="quantity__minus"><span>-</span></a>
+                                                                            <input name="quantity" type="text"
+                                                                                class="quantity__input mb-0 border-0"
+                                                                                value="1">
+                                                                            <a href="#"
+                                                                                class="quantity__plus"><span>+</span></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="price-radio">
+                                                                    <label for="allow"
+                                                                        class="label-text font-17 fontw500">Price</label>
+                                                                    <div class="d-flex">
+
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio"
+                                                                                name="flexRadioDefault"
+                                                                                id="flexRadioDefault1">
+                                                                            <label class="form-check-label"
+                                                                                for="flexRadioDefault1">
+                                                                                Person
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check ms-3">
+
+                                                                            <label class="form-check-label"
+                                                                                for="flexRadioDefault2">
+                                                                                Menu
+                                                                            </label>
+                                                                            <input class="form-check-input" type="radio"
+                                                                                name="flexRadioDefault"
+                                                                                id="flexRadioDefault2" checked>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="button" name="previous"
+                                                                class="previous action-button-previous"
+                                                                value="Previous" />
+                                                            <input type="button" name="next" class="next action-button"
+                                                                value="Next Step" />
+                                                        </fieldset>
+                                                        <fieldset class="custom_pre_model">
+                                                            <div class="form-card">
+                                                                <h2 class="fs-title">Upload Menu</h2>
+                                                                <div class="dropi" style="width:364px;">
+                                                                    <input name="file1" type="file" class="dropify"
+                                                                        data-height="100" />
+                                                                </div>
+                                                            </div>
+                                                            <input type="button" name="previous"
+                                                            class=" previous action-button-previous"
+                                                            value="Previous" />
+                                                        <input type="button" name="next" class="next action-button"
+                                                            value="Next Step" />
+                                                        </fieldset>
+                                                        <fieldset class="custom_pre_model2">
+                                                           <div class="availability">
+                                                            <div class="text-start ps-2">
+                                                                <label for="dateandTime" class="label-text font-17 fontw500">Pick Your Date and Time</label>
+                                                                <input id="datetimepicker" type="text" class="w-75" placeholder="Date and Time">
+                                                          </div>
+
+                                                          <input type="button" name="previous"
+                                                            class="custom_pre"
+                                                            value="Previous" />
+                                                          <input type="button" name="make_payment" class="next action-button" value="Finish"/>
+                                                           </div>
+
+                                                        </fieldset>
+                                                        <fieldset>
+                                                            
+                                                                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                                                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                                                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                                                </svg>
+                                    
+                                                                <div class="text congrats">
+                                                                    <h2>Congratulations!</h2>
+                                                                    <p>Processing your information to help you onboard</p>
+                                                                </div>
+                                                            
+                                                        </fieldset>
+                                                      
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
 <!-- Still have a question -->
 <section class="faqs my-5 pt-5">
     <div class="container">
@@ -1670,6 +1848,7 @@
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <!-- Jquery CDN -->
 
+    <script src="{{ asset('js/addPackage.js')}}"></script>
 
 <!-- owl carousel -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
@@ -1822,6 +2001,23 @@ $(document).ready(function() {
         $('.hoursdiv1').remove();
         
     });
+
+
+    
+    $('.custom_pre').click(function() {
+        $('.custom_pre_model').css({"opacity": "1","position":"relative", "display":" block"});
+        $('.custom_pre_model2').css({"opacity": "0","position":"relative", "display":" none"});
+
+        
+         $('.payment').addClass('active');
+         $('.finish').removeClass('active');
+         $('.confirm').removeClass('active');
+        
+        
+        
+    });
+
+    
 
 
 
