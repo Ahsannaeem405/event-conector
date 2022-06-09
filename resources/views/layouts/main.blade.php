@@ -53,9 +53,11 @@
                             <a class="nav-link active pt-md-3 fontw500" aria-current="page"
                                 href="{{ url('/user') }}">Home</a>
                         </li>
+                        @auth
                         <li class="nav-item">
                             <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/featured_rest') }}">Featured restaurants</a>
                         </li>
+                        @endauth
                         <li class="nav-item">
                             <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/restaurant') }}">My Restaurants</a>
                         </li>
