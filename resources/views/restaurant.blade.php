@@ -108,7 +108,7 @@
         <!-- Modal -->
         <div class="modal  fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                        
@@ -187,12 +187,162 @@
                                                     </div>
                                                     <div class="map-section">
                                                         <div id="map">
-                                                            <iframe
-                                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d435521.40805866005!2d74.05418685157167!3d31.482635201814045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1652960345553!5m2!1sen!2s"
-                                                                width="100%" height="100%"
-                                                                style="border:0; border-radius: 24px;"
-                                                                allowfullscreen="" loading="lazy"
-                                                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                           
+
+<input type="text" name="" id="lati" class="d-none">
+<div id="map1">
+
+
+
+
+                                <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+                                <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+                                <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY">
+                                </script>
+                                <script type="text/javascript" src="{{ asset('downloadxml.js') }}"></script>
+                                <style type="text/css">
+                                    html,
+                                    body {
+                                        height: 100%;
+                                    }
+
+                                    .gm-style-iw-t {
+                                        display: none;
+                                    }
+                                    #map1{
+                                        max-height: 200px;
+                                    }
+
+                                </style>
+                                <script type="text/javascript">
+                                    var map = null;
+                                    var marker = null;
+
+                                    var infowindow = new google.maps.InfoWindow({
+                                        size: new google.maps.Size(150, 50)
+                                    });
+
+                                    function createMarker(latlng, name, html) {
+                                        var contentString = html;
+                                        var marker = new google.maps.Marker({
+                                            position: latlng,
+                                            map: map,
+                                            zIndex: Math.round(latlng.lat() * -100000) << 5
+                                        });
+
+                                        google.maps.event.addListener(marker, 'click', function() {
+                                            infowindow.setContent(contentString);
+                                            infowindow.open(map, marker);
+                                        });
+                                        google.maps.event.trigger(marker, 'click');
+                                        return marker;
+                                    }
+
+
+
+                                    function initialize() {
+
+
+                                        var myOptions = {
+                                            zoom: 8,
+                                            center: new google.maps.LatLng(43.907787, -79.359741),
+                                            mapTypeControl: true,
+                                            mapTypeControlOptions: {
+                                                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+                                            },
+                                            navigationControl: true,
+                                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                                        }
+                                        map = new google.maps.Map(document.getElementById("map_canvas"),
+                                            myOptions);
+
+                                        google.maps.event.addListener(map, 'click', function() {
+                                            infowindow.close();
+                                        });
+
+                                        google.maps.event.addListener(map, 'click', function(event) {
+                                            //call function to create marker
+
+
+
+
+
+                                            var s = event.latLng;
+                                            $("#lati").val(s);
+                                            var lat = $("#lati").val();
+                                            var divided = lat.split(" ");
+                                            var divided2 = divided[0].split("(");
+                                            var divided3 = divided2[1].split(",");
+                                            var final_lat = divided3[0];
+
+                                           
+
+
+
+
+                                            var div_lag1 = divided[1].split(")");
+                                            var final_log = div_lag1[0];
+
+                                            
+
+
+                                            if (marker) {
+                                                marker.setMap(null);
+                                                marker = null;
+                                            }
+                                            marker = createMarker(event.latLng, "name", "<b>Location</b><br>" + event.latLng);
+                                        });
+
+                                    }
+                                </script>
+
+                                <body style="margin:0px; padding:0px;" onload="initialize()">
+
+                                    <!-- you can use tables or divs for the overall layout -->
+                                    <table border="1">
+                                        <tr>
+                                            <td>
+                                                <div id="map_canvas" style="width: 400px; height:200px"></div>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+
+                                    <noscript>
+                                        <p><b>JavaScript must be enabled in order for you to use Google Maps.</b>
+                                            However, it seems JavaScript is either disabled or not supported by your
+                                            browser.
+                                            To view Google Maps, enable JavaScript by changing your browser options, and
+                                            then
+                                            try again.</p>
+                                    </noscript>
+                                    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+                                    </script>
+                                    <script type="text/javascript">
+                                        _uacct = "UA-162157-1";
+                                        urchinTracker();
+                                    </script>
+                                    <script type="text/javascript">
+                                        <!--
+                                        google_ad_client = "pub-8586773609818529";
+                                        google_ad_width = 728;
+                                        google_ad_height = 90;
+                                        google_ad_format = "728x90_as";
+                                        google_ad_type = "text";
+                                        google_ad_channel = "";
+                                        google_color_border = "CCCCCC";
+                                        google_color_bg = "FFFFFF";
+                                        google_color_link = "000000";
+                                        google_color_url = "666666";
+                                        google_color_text = "333333";
+                                        //
+                                        -->
+                                    </script>
+                                    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                                    </script>
+                                </body>
+
+                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="input-text">

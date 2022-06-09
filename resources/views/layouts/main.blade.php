@@ -247,7 +247,7 @@
                                             style="border-radius: unset;" placeholder="Email Address"
                                             aria-label="Example text with button addon"
                                             aria-describedby="button-addon1">
-                                        <button class="btn btn-green py-4" style="border-radius: unset;" type="button"
+                                        <button class="btn btn-green" style="border-radius: unset;" type="button"
                                             id="button-addon1">Send
                                             Now</button>
                                     </div>
