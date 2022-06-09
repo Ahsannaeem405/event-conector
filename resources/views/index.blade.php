@@ -53,7 +53,7 @@
 
 
 <section class="Banner mx-3 mx-md-0 mt-5">
-    <div class="container position-relative main mt-md-5 mt-3" style="background-image: url('http://localhost/event-conector/public/img/banner4.jpg');">
+    <div class="container position-relative main mt-md-5 mt-3" style="background-image: url('{{ asset('img/banner4.jpg')}}');">
         <div class="position-absolute overlay w-100 h-100">
 
         </div>
