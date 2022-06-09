@@ -151,14 +151,15 @@
                                                     </div>
 
                                                     <div class="input-text">
-                                                        <div class="dropdown">
-                                                            <span>Business Category</span>
+                                                        <div class="input-div">
+                                                            
                                                             <select name="category" required require >
                                                                 @foreach($catgs as $catg)
                                                                 <option value="{{ $catg->id }}"><a class="dropdown-item"
                                                                         href="#">{{ $catg->name}}</a></option>
                                                                 @endforeach
                                                             </select>
+                                                            <span>Business Category</span>
                                                         </div>
                                                     </div>
 
@@ -215,12 +216,12 @@
                                                         <p>Please provide your restaurant opening and closing hours</p>
                                                     </div>
                                                     <div class="hoursmaindiv">
-                                                    
+                                                        <input type="hidden" value="0" name="repeatt" class="repeatt">
                                                         <input type="checkbox" id="_24by7" name="_24by7">
                                                         <label for="_24by7"> Available 24/7 Hours</label>
                                                         <div class="hoursdiv">
                                                             <h4 class="mb-0">Monday</h4>
-                                                            <input type="number" name="count[]" class="count1" value="0">
+                                                            <input type="number" name="count[]" class="count1 d-none" value="0">
                                                             <input type="checkbox" id="_24_1stday" name="_24_1stday">
                                                             <label for="_24_1stday"> Available 24 Hours </label>
                                                             <br>
@@ -249,7 +250,7 @@
                                                                 
                                                             </div>
                                                             <h4 class="mb-0">Tuesday</h4>
-                                                            <input type="number" name="count[]" class="count2" value="0">
+                                                            <input type="number" name="count[]" class="count2 d-none" value="0">
                                                             <input type="checkbox" id="_24_2ndday" name="_24_2ndday">
                                                             <label for="_24_2ndday"> Available 24 Hours </label>
                                                             <br>
@@ -275,7 +276,7 @@
                                                                
                                                             </div>
                                                             <h4 class="mb-0">Wednesday</h4>
-                                                            <input type="number" name="count[]" class="count3" value="0">
+                                                            <input type="number" name="count[]" class="count3 d-none" value="0">
                                                             <input type="checkbox" id="_24_3rdday" name="_24_3rdday">
                                                             <label for="_24_3rdday"> Available 24 Hours </label>
                                                             <br>
@@ -302,7 +303,7 @@
                                                             
                                                             </div>
                                                             <h4 class="mb-0">Thursday</h4>
-                                                            <input type="number" name="count[]" class="count4" value="0">
+                                                            <input type="number" name="count[]" class="count4 d-none" value="0">
                                                             <input type="checkbox" id="_24_4thday" name="_24_4thday">
                                                             <label for="_24_4thday"> Available 24 Hours </label>
                                                             <br>
@@ -329,7 +330,7 @@
                                                             
                                                             </div>
                                                             <h4 class="mb-0">Friday</h4>
-                                                            <input type="number" name="count[]" class="count5" value="0">
+                                                            <input type="number" name="count[]" class="count5 d-none" value="0">
                                                             <input type="checkbox" id="_24_5thday" name="_24_5thday">
                                                             <label for="_24_5thday"> Available 24 Hours </label>
                                                             <br>
@@ -356,7 +357,7 @@
                                                             
                                                             </div>
                                                             <h4 class="mb-0">Saturday</h4>
-                                                            <input type="number" name="count[]" class="count6" value="0">
+                                                            <input type="number" name="count[]" class="count6 d-none" value="0">
                                                             <input type="checkbox" id="_24_6thday" name="_24_6thday">
                                                             <label for="_24_6thday"> Available 24 Hours </label>
                                                             <br>
@@ -384,7 +385,7 @@
                                                             
                                                             </div>
                                                             <h4 class="mb-0">Sunday</h4>
-                                                            <input type="number" name="count[]" class="count7" value="0">
+                                                            <input type="number" name="count[]" class="count7 d-none" value="0">
                                                             <input type="checkbox" id="_24_7thday" name="_24_7thday">
                                                             <label for="_24_7thday"> Available 24 Hours </label>
                                                             <br>
@@ -417,8 +418,7 @@
 
                                                     <div class="buttons button_space">
                                                         <button class="back_button" type="button">Back</button>
-                                                        <button class="next_button testbtn">Next Step</button>
-                                                        <button type="button" class="">test button Step</button>
+                                                        <button class="testbtn">Next Step</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -2300,18 +2300,29 @@ $(document).ready(function() {
         }
     });
 
-
-    $(document).on("click", ".testbtn", function() {
+    $(document).on("click", ".testbtn", function(event) {
         
         if ($(".errormsg")[0]){
-            alert('error calss exist');
-            toastr.error('please remove all the errors');
+            event.preventDefault();
+            toastr.error('Please select valid time for opening and closing');
         } else {
-            alert('does not error calss exist');
-
             // Do something if class does not exist
         }
     });
+
+    $(document).on("blur", ".starttime", function() {
+        if($(this).val()){
+            $(this).closest('.main2').children('.input-div').children('.endtime').attr("required", "true");
+
+            $('.repeatt').val("1");
+            
+        } else{
+        }
+
+
+    
+    });
+
 
     
     
