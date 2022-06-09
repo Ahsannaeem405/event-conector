@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\userController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -77,33 +79,18 @@ Route::prefix('/planner')->middleware(['auth','planner'])->group(function (){
 Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
 
-    Route::get('/', function () {
-        return view('/index');
-    })->withoutMiddleware(['auth','user']);
+    Route::get('/', [userController::class, 'index'])->withoutMiddleware(['auth','user']);
+    Route::get('/featured_rest', [userController::class, 'featured_rest'])->withoutMiddleware(['auth','user']);
+    Route::get('/chatBoard', [userController::class, 'chatBoard'])->withoutMiddleware(['user']);
+    Route::get('/favourites', [userController::class, 'favourites']);
 
-    Route::get('/featured_rest', function () {
-        return view('/featured_rest');
-    })->withoutMiddleware(['auth','user']);
-
-    Route::get('/restaurant', function () {
-        return view('/restaurant');
-    })->withoutMiddleware(['auth','user']);
-
-    Route::get('/chatBoard', function () {
-        return view('/chatBoard');
-    })->withoutMiddleware(['auth','user']);
-
-    // Route::get('/event', function () {
-    //     return view('/event');
-    // })->withoutMiddleware(['auth','user']);
-    
 
     Route::get('/event', [EventController::class, 'event'])->withoutMiddleware(['auth','user']);
+    Route::get('/login/event', [EventController::class, 'login_event']);    
+    Route::get('/planner', [EventController::class, 'restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
+    Route::get('/restaurant', [EventController::class, 'restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
 
-    Route::get('/favourites', function () {
-        return view('/favourites');
-    })->withoutMiddleware(['auth','user']);
-
+    
     
 
 

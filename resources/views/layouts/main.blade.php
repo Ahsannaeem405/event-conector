@@ -53,14 +53,21 @@
                             <a class="nav-link active pt-md-3 fontw500" aria-current="page"
                                 href="{{ url('/user') }}">Home</a>
                         </li>
+                        
+
+
+                            <li class="nav-item">
+                                <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/featured_rest') }}">Featured restaurants</a>
+                            </li>
+                       
                         @auth
-                        <li class="nav-item">
-                            <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/featured_rest') }}">Featured restaurants</a>
-                        </li>
-                        @endauth
+                        @if(auth()->user()->role=='2')
                         <li class="nav-item">
                             <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/restaurant') }}">My Restaurants</a>
                         </li>
+                        @endif
+                        
+                        @endauth
                         
 							<li class="nav-item">
                             <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/chatBoard') }}">Inbox</a>
@@ -90,11 +97,24 @@
                             </div>
                         </li> -->
                     </ul>
+                    @guest
+
 
                     <div class="hostEvent">
                         <h6 class="pe-3 pt-2 fontw700 font-18"><a href="{{ url('/user/event') }}">Host An Event</a></h6>
                     </div>
-                   
+                    @endguest
+
+                    @auth
+                    @if(auth()->user()->role=='3')
+
+
+                    <div class="hostEvent">
+                        <h6 class="pe-3 pt-2 fontw700 font-18"><a href="{{ url('/user/login/event') }}">Host An Event</a></h6>
+                    </div>
+                    @endif
+                    @endauth
+
                         @auth
                         
                         

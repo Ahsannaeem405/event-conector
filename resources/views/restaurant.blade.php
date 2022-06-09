@@ -1740,7 +1740,7 @@
                                                           </div>
 
                                                           <input type="button" name="previous"
-                                                            class="custom_pre"
+                                                            class="custom_pre action-button-previous"
                                                             value="Previous" />
                                                           <input type="button" name="make_payment" class="next action-button" value="Finish"/>
                                                            </div>
@@ -2008,9 +2008,9 @@ $(document).ready(function() {
         $('.custom_pre_model2').css({"opacity": "0","position":"relative", "display":" none"});
 
         
-         $('.payment').addClass('active');
-         $('.finish').removeClass('active');
-         $('.confirm').removeClass('active');
+        
+         $('#finish').removeClass('active');
+         $('#confirm').removeClass('active');
         
         
         

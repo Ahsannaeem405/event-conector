@@ -22,6 +22,12 @@ class EventController extends Controller
         $catgs = Category::all();
         return view('event', compact('catgs'));
     }
+    public function login_event()
+    {
+
+        $catgs = Category::all();
+        return view('login_event', compact('catgs'));
+    }
 
     public function addplanner(Request $request)
     {

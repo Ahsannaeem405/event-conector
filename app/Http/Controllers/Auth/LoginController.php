@@ -38,7 +38,7 @@ class LoginController extends Controller
         }
         else if(Auth::user()->role=='2')
         {
-            return 'planner/';
+            return 'user/planner';
         }
         elseif (Auth::user()->role=='3') {
             return 'user/';
