@@ -51,6 +51,125 @@ class EventController extends Controller
             'password' => Hash::make($request->password),
         ]);
         Auth()->login($user);
+        $rest = new Restaurant;
+            $rest->planner_id = auth()->user()->id;
+            $rest->categoryid = $request->category;                    
+            $rest->business = $request->business;
+            $rest->address = $request->address;
+
+            if ($request->hasFile('file')) {
+                          
+        
+                    $file = $request->file('file');
+                    $extension = $request->file->extension();
+                    $fileName2 = time(). "1_." .$extension;
+                    $request->file->move('upload/', $fileName2);
+                    $rest->logo = $fileName2;
+            }
+            
+
+            if($request->has('_24by7'))
+            {
+                $rest->availalltime = 1;
+                $saveresult = $rest->save();
+            }
+            else
+            {
+                $rest->availalltime = 0;
+
+                for($j = 1; $j < 8; $j++)
+                {
+                    $holiday='holiday'.$j;
+                    if($request->has($holiday))
+                    {
+                        $rest->$holiday = 1;
+
+                    }
+                    else{
+                        $rest->$holiday = 0;
+                    }
+
+                }
+                $saveresult = $rest->save();
+                if($request->repeatt == 1)
+                {      
+                    $maxlop = max($request->count);
+                    for ($i = 0; $i <= $maxlop; $i++) {
+                        // echo $i;
+                        $time = new Timing;
+                        $time->restaurant_id =  $rest->id;
+                        if(isset($request->mondayopen[$i]))
+                        {
+                            $time->mondyopen = $request->mondayopen[$i];
+
+                        }
+                        
+                        if(isset($request->mondayclose[$i]))
+                        {
+                            $time->mondyclose = $request->mondayclose[$i];
+                        }
+                        if(isset($request->tuesdayopen[$i]))
+                        {
+                            $time->tuedyopen = $request->tuesdayopen[$i];
+                        }
+                        if(isset($request->tuesdayclose[$i]))
+                        {
+                            $time->tuedyclose = $request->tuesdayclose[$i];
+                        }
+                        if(isset($request->wednesdayopen[$i]))
+                        {
+                            $time->wedopen = $request->wednesdayopen[$i];
+                        }
+                        if(isset($request->wednesdayclose[$i]))
+                        {
+                            $time->wedclose = $request->wednesdayclose[$i];
+                        }
+                        if(isset($request->thursdayopen[$i]))
+                        {
+                            $time->thurdyopen = $request->thursdayopen[$i];
+                        }
+                        if(isset($request->thursdayclose[$i]))
+                        {
+                            $time->thurdyclose = $request->thursdayclose[$i];
+                        }
+                        if(isset($request->fridayopen[$i]))
+                        {
+                            $time->fridyopen = $request->fridayopen[$i];
+                        }
+                        if(isset($request->fridayclose[$i]))
+                        {
+                            $time-> fridyclose = $request->fridayclose[$i];
+                        }
+                        if(isset($request->saturdayopen[$i]))
+                        {
+                            $time->satdyopen = $request->saturdayopen[$i];
+                        }
+                        if(isset($request->saturdayclose[$i]))
+                        {
+                            $time->satdyclose = $request->saturdayclose[$i];
+                        }
+                        
+                        if(isset($request->sundayopen[$i]))
+                        {
+                            $time->sundyopen = $request->sundayopen[$i];
+                        }
+                        if(isset($request->sundayclose[$i]))
+                        {
+                            $time->sundyclose = $request->sundayclose[$i];
+                        }
+                    
+                        $time->save();
+                    
+                    }
+                }
+
+
+                
+            }
+                        
+           
+
+      
         if($user){
             return redirect('/planner')->with('success','Planner Created Successfully');
         }
@@ -67,15 +186,23 @@ class EventController extends Controller
 
     public function addrest(Request $request)
     {
-        // dd(max($request->count));
-        // dd(max($request->count));        
-        // $maxlop = max($request->count);
-        // for ($i = 0; $i < $maxlop; $i++) {
+      
             $rest = new Restaurant;
             $rest->planner_id = auth()->user()->id;
             $rest->categoryid = $request->category;                    
             $rest->business = $request->business;
             $rest->address = $request->address;
+
+            if ($request->hasFile('file')) {
+                          
+        
+                    $file = $request->file('file');
+                    $extension = $request->file->extension();
+                    $fileName2 = time(). "1_." .$extension;
+                    $request->file->move('upload/', $fileName2);
+                    $rest->logo = $fileName2;
+            }
+            
 
             if($request->has('_24by7'))
             {

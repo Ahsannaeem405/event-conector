@@ -21,21 +21,6 @@ class CreateRestaurantsTable extends Migration
             $table->string('categoryid')->nullable();
             $table->string('business')->nullable();
             $table->string('address')->nullable();
-            $table->time('mondyopen')->nullable();
-            $table->time('mondyclose')->nullable();
-            $table->time('tuedyopen')->nullable();
-            $table->time('tuedyclose')->nullable();
-            $table->time('wedopen')->nullable();
-            $table->time('wedclose')->nullable();
-            $table->time('thurdyopen')->nullable();
-            $table->time('thurdyclose')->nullable();
-            $table->time('fridyopen')->nullable();
-            $table->time('fridyclose')->nullable();
-            $table->time('satdyopen')->nullable();
-            $table->time('satdyclose')->nullable();
-            $table->time('sundyopen')->nullable();
-            $table->time('sundyclose')->nullable();
-
             $table->timestamps();
         });
     }

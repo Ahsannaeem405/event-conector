@@ -142,8 +142,8 @@
 
                                         </div>
                                         <div class="right-side">
-                                            <form method="post" action="{{ url('/planner/addrest') }}">
-                                                @csrf
+                                            <form method="post" action="{{ url('/planner/addrest') }}" enctype="multipart/form-data">
+                                                @csrf 
                                                 <div class="main active">
                                                     <div class="text">
                                                         <h2>Welcome Onboard</h2>
@@ -153,22 +153,29 @@
                                                     <div class="input-text">
                                                         <div class="input-div">
                                                             
+                                                            <label>Business Category</label>
                                                             <select name="category" required require >
                                                                 @foreach($catgs as $catg)
                                                                 <option value="{{ $catg->id }}"><a class="dropdown-item"
                                                                         href="#">{{ $catg->name}}</a></option>
                                                                 @endforeach
                                                             </select>
-                                                            <span>Business Category</span>
                                                         </div>
                                                     </div>
 
                                                     <div class="input-text">
                                                         <div class="input-div">
+                                                            <label>Business Name</label>
                                                             <input type="text" name="business"  required require>
-                                                            <span>Business Name</span>
                                                         </div>
                                                     </div>
+                                                    <div class="input-text">
+                                                        <div class="input-div">
+                                                            <label>Business Logo</label>
+                                                            <input type="file" name="file"  required require>
+                                                        </div>
+                                                    </div>
+
 
 
 
@@ -190,160 +197,160 @@
                                                         <div id="map">
                                                            
 
-<input type="text" name="" id="lati" class="d-none">
-<div id="map1">
+                                                            <input type="text" name="" id="lati" class="d-none">
+                                                            <div id="map1">
 
 
 
 
-                                <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-                                <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-                                <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY">
-                                </script>
-                                <script type="text/javascript" src="{{ asset('downloadxml.js') }}"></script>
-                                <style type="text/css">
-                                    html,
-                                    body {
-                                        height: 100%;
-                                    }
+                                                                <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+                                                                <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+                                                                <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY">
+                                                                </script>
+                                                                <script type="text/javascript" src="{{ asset('downloadxml.js') }}"></script>
+                                                                <style type="text/css">
+                                                                    html,
+                                                                    body {
+                                                                        height: 100%;
+                                                                    }
 
-                                    .gm-style-iw-t {
-                                        display: none;
-                                    }
-                                    #map1{
-                                        max-height: 200px;
-                                    }
+                                                                    .gm-style-iw-t {
+                                                                        display: none;
+                                                                    }
+                                                                    #map1{
+                                                                        max-height: 200px;
+                                                                    }
 
-                                </style>
-                                <script type="text/javascript">
-                                    var map = null;
-                                    var marker = null;
+                                                                </style>
+                                                                <script type="text/javascript">
+                                                                    var map = null;
+                                                                    var marker = null;
 
-                                    var infowindow = new google.maps.InfoWindow({
-                                        size: new google.maps.Size(150, 50)
-                                    });
+                                                                    var infowindow = new google.maps.InfoWindow({
+                                                                        size: new google.maps.Size(150, 50)
+                                                                    });
 
-                                    function createMarker(latlng, name, html) {
-                                        var contentString = html;
-                                        var marker = new google.maps.Marker({
-                                            position: latlng,
-                                            map: map,
-                                            zIndex: Math.round(latlng.lat() * -100000) << 5
-                                        });
+                                                                    function createMarker(latlng, name, html) {
+                                                                        var contentString = html;
+                                                                        var marker = new google.maps.Marker({
+                                                                            position: latlng,
+                                                                            map: map,
+                                                                            zIndex: Math.round(latlng.lat() * -100000) << 5
+                                                                        });
 
-                                        google.maps.event.addListener(marker, 'click', function() {
-                                            infowindow.setContent(contentString);
-                                            infowindow.open(map, marker);
-                                        });
-                                        google.maps.event.trigger(marker, 'click');
-                                        return marker;
-                                    }
-
-
-
-                                    function initialize() {
-
-
-                                        var myOptions = {
-                                            zoom: 8,
-                                            center: new google.maps.LatLng(43.907787, -79.359741),
-                                            mapTypeControl: true,
-                                            mapTypeControlOptions: {
-                                                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-                                            },
-                                            navigationControl: true,
-                                            mapTypeId: google.maps.MapTypeId.ROADMAP
-                                        }
-                                        map = new google.maps.Map(document.getElementById("map_canvas"),
-                                            myOptions);
-
-                                        google.maps.event.addListener(map, 'click', function() {
-                                            infowindow.close();
-                                        });
-
-                                        google.maps.event.addListener(map, 'click', function(event) {
-                                            //call function to create marker
+                                                                        google.maps.event.addListener(marker, 'click', function() {
+                                                                            infowindow.setContent(contentString);
+                                                                            infowindow.open(map, marker);
+                                                                        });
+                                                                        google.maps.event.trigger(marker, 'click');
+                                                                        return marker;
+                                                                    }
 
 
 
+                                                                    function initialize() {
 
 
-                                            var s = event.latLng;
-                                            $("#lati").val(s);
-                                            var lat = $("#lati").val();
-                                            var divided = lat.split(" ");
-                                            var divided2 = divided[0].split("(");
-                                            var divided3 = divided2[1].split(",");
-                                            var final_lat = divided3[0];
+                                                                        var myOptions = {
+                                                                            zoom: 8,
+                                                                            center: new google.maps.LatLng(43.907787, -79.359741),
+                                                                            mapTypeControl: true,
+                                                                            mapTypeControlOptions: {
+                                                                                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+                                                                            },
+                                                                            navigationControl: true,
+                                                                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                                                                        }
+                                                                        map = new google.maps.Map(document.getElementById("map_canvas"),
+                                                                            myOptions);
 
-                                           
+                                                                        google.maps.event.addListener(map, 'click', function() {
+                                                                            infowindow.close();
+                                                                        });
+
+                                                                        google.maps.event.addListener(map, 'click', function(event) {
+                                                                            //call function to create marker
 
 
 
 
-                                            var div_lag1 = divided[1].split(")");
-                                            var final_log = div_lag1[0];
 
-                                            
+                                                                            var s = event.latLng;
+                                                                            $("#lati").val(s);
+                                                                            var lat = $("#lati").val();
+                                                                            var divided = lat.split(" ");
+                                                                            var divided2 = divided[0].split("(");
+                                                                            var divided3 = divided2[1].split(",");
+                                                                            var final_lat = divided3[0];
+
+                                                                           
 
 
-                                            if (marker) {
-                                                marker.setMap(null);
-                                                marker = null;
-                                            }
-                                            marker = createMarker(event.latLng, "name", "<b>Location</b><br>" + event.latLng);
-                                        });
 
-                                    }
-                                </script>
 
-                                <body style="margin:0px; padding:0px;" onload="initialize()">
+                                                                            var div_lag1 = divided[1].split(")");
+                                                                            var final_log = div_lag1[0];
 
-                                    <!-- you can use tables or divs for the overall layout -->
-                                    <table border="1">
-                                        <tr>
-                                            <td>
-                                                <div id="map_canvas" style="width: 400px; height:200px"></div>
-                                            </td>
+                                                                            
 
-                                        </tr>
-                                    </table>
 
-                                    <noscript>
-                                        <p><b>JavaScript must be enabled in order for you to use Google Maps.</b>
-                                            However, it seems JavaScript is either disabled or not supported by your
-                                            browser.
-                                            To view Google Maps, enable JavaScript by changing your browser options, and
-                                            then
-                                            try again.</p>
-                                    </noscript>
-                                    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-                                    </script>
-                                    <script type="text/javascript">
-                                        _uacct = "UA-162157-1";
-                                        urchinTracker();
-                                    </script>
-                                    <script type="text/javascript">
-                                        <!--
-                                        google_ad_client = "pub-8586773609818529";
-                                        google_ad_width = 728;
-                                        google_ad_height = 90;
-                                        google_ad_format = "728x90_as";
-                                        google_ad_type = "text";
-                                        google_ad_channel = "";
-                                        google_color_border = "CCCCCC";
-                                        google_color_bg = "FFFFFF";
-                                        google_color_link = "000000";
-                                        google_color_url = "666666";
-                                        google_color_text = "333333";
-                                        //
-                                        -->
-                                    </script>
-                                    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-                                    </script>
-                                </body>
+                                                                            if (marker) {
+                                                                                marker.setMap(null);
+                                                                                marker = null;
+                                                                            }
+                                                                            marker = createMarker(event.latLng, "name", "<b>Location</b><br>" + event.latLng);
+                                                                        });
 
-                            </div>
+                                                                    }
+                                                                </script>
+
+                                                                <body style="margin:0px; padding:0px;" onload="initialize()">
+
+                                                                    <!-- you can use tables or divs for the overall layout -->
+                                                                    <table border="1">
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div id="map_canvas" style="width: 400px; height:200px"></div>
+                                                                            </td>
+
+                                                                        </tr>
+                                                                    </table>
+
+                                                                    <noscript>
+                                                                        <p><b>JavaScript must be enabled in order for you to use Google Maps.</b>
+                                                                            However, it seems JavaScript is either disabled or not supported by your
+                                                                            browser.
+                                                                            To view Google Maps, enable JavaScript by changing your browser options, and
+                                                                            then
+                                                                            try again.</p>
+                                                                    </noscript>
+                                                                    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+                                                                    </script>
+                                                                    <script type="text/javascript">
+                                                                        _uacct = "UA-162157-1";
+                                                                        urchinTracker();
+                                                                    </script>
+                                                                    <script type="text/javascript">
+                                                                        <!--
+                                                                        google_ad_client = "pub-8586773609818529";
+                                                                        google_ad_width = 728;
+                                                                        google_ad_height = 90;
+                                                                        google_ad_format = "728x90_as";
+                                                                        google_ad_type = "text";
+                                                                        google_ad_channel = "";
+                                                                        google_color_border = "CCCCCC";
+                                                                        google_color_bg = "FFFFFF";
+                                                                        google_color_link = "000000";
+                                                                        google_color_url = "666666";
+                                                                        google_color_text = "333333";
+                                                                        //
+                                                                        -->
+                                                                    </script>
+                                                                    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                                                                    </script>
+                                                                </body>
+
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="input-text">
@@ -2141,350 +2148,8 @@ toastr.error("{{ $error }}");
 
 
 
-<script>
-$(document).ready(function() {
-    $('.addbtn').click(function() {
-        
-    });
 
-    $('.removbtn').click(function() {
-        $('.hoursdiv1').remove();
-        
-    });
-
-
-    
-    $('.custom_pre').click(function() {
-        $('.custom_pre_model').css({"opacity": "1","position":"relative", "display":" block"});
-        $('.custom_pre_model2').css({"opacity": "0","position":"relative", "display":" none"});
-
-        
-        
-         $('#finish').removeClass('active');
-         $('#confirm').removeClass('active');
-        
-        
-        
-    });
-
-    
-
-
-
-    // 
-
-    $('#_24by7').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.hoursdiv').addClass('d-none');
-        }
-        else{
-            $('.hoursdiv').removeClass('d-none');
-           
-        }
-        
-        
-    });
-
-    $('#_24_1stday').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.monday').addClass('disableddiv');
-        }
-        else{
-            $('.monday').removeClass('disableddiv');
-        
-        }
-
-
-    });
-    $('#_24_2ndday').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.tuesday').addClass('disableddiv');
-        }
-        else{
-            $('.tuesday').removeClass('disableddiv');
-        
-        }
-
-
-    });
-    $('#_24_3rdday').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.wednesday').addClass('disableddiv');
-        }
-        else{
-            $('.wednesday').removeClass('disableddiv');
-        
-        }
-
-
-    });
-    $('#_24_4thday').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.thursday').addClass('disableddiv');
-        }
-        else{
-            $('.thursday').removeClass('disableddiv');
-        
-        }
-
-
-    });
-    $('#_24_5thday').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.friday').addClass('disableddiv');
-        }
-        else{
-            $('.friday').removeClass('disableddiv');
-        
-        }
-
-
-    });
-    $('#_24_6thday').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.saturday').addClass('disableddiv');
-        }
-        else{
-            $('.saturday').removeClass('disableddiv');
-        
-        }
-
-
-    });
-    $('#_24_7thday').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.sunday').addClass('disableddiv');
-        }
-        else{
-            $('.sunday').removeClass('disableddiv');
-
-        }
-
-
-    });
-
-    
-    
-
-    $('.add_btn').click(function() {
-        if($(this).attr('att') == 1)
-        {
-            $('.count1').val( function(i, oldval) {
-                return ++oldval;
-            });
-            
-
-            $('.monday').append(`<div class="main2 input-text mb-2 day1">
-            <div class="main3 input-div">
-                <input type="time" id="user_name" name="mondayopen[]" class="starttime">
-                <span>Opening</span>
-            </div>
-
-            <div class="input-div">
-                <input type="time" id="user_name"
-                    name="mondayclose[]" class="endtime">
-                <span>Closing</span>
-            </div>
-            <i  class="fa fa-close clos_icon"></i>
-            </div>`);
-        }
-        else if($(this).attr('att') == 2)
-        {
-            $('.count2').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.tuesday').append(`<div class="main2 input-text mb-2 day2">
-            <div class="main3 input-div">
-                <input type="time" id="user_name" name="tuesdayopen[]" class="starttime">
-                <span>Opening</span>
-            </div>
-
-            <div class="input-div">
-                <input type="time" id="user_name"
-                    name="tuesdayclose[]" class="endtime">
-                <span>Closing</span>
-            </div>
-            <i  class="fa fa-close clos_icon"></i>
-            </div>`);
-        }
-        else if($(this).attr('att') == 3)
-        {
-            $('.count3').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.wednesday').append(`<div class="main2 input-text mb-2 day3">
-            <div class="main3 input-div">
-                <input type="time" id="user_name" name="wednesdayopen[]" class="starttime">
-                <span>Opening</span>
-            </div>
-
-            <div class="input-div">
-                <input type="time" id="user_name"
-                    name="wednesdayclose[]" class="endtime">
-                <span>Closing</span>
-            </div>
-            <i  class="fa fa-close clos_icon"></i>
-            </div>`);
-        }
-        else if($(this).attr('att') == 4)
-        {
-            $('.count4').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.thursday').append(`<div class="main2 input-text mb-2 day4">
-            <div class="main3 input-div">
-                <input type="time" id="user_name" name="thursdayopen[]" class="starttime">
-                <span>Opening</span>
-            </div>
-
-            <div class="input-div">
-                <input type="time" id="user_name"
-                    name="thursdayclose[]" class="endtime">
-                <span>Closing</span>
-            </div>
-            <i  class="fa fa-close clos_icon"></i>
-            </div>`);
-        }
-        else if($(this).attr('att') == 5)
-        {
-            $('.count5').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.friday').append(`<div class="main2 input-text mb-2 day5">
-            <div class="main3 input-div">
-                <input type="time" id="user_name" name="fridayopen[]" class="starttime">
-                <span>Opening</span>
-            </div>
-
-            <div class="input-div">
-                <input type="time" id="user_name"
-                    name="fridayclose[]" class="endtime">
-                <span>Closing</span>
-            </div>
-            <i  class="fa fa-close clos_icon"></i>
-            </div>`);
-        }
-        else if($(this).attr('att') == 6)
-        {
-            $('.count6').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.saturday').append(`<div class="main2 input-text mb-2 day6">
-            <div class="main3 input-div">
-                <input type="time" id="user_name" name="saturdayopen[]" class="starttime">
-                <span>Opening</span>
-            </div>
-
-            <div class="input-div">
-                <input type="time" id="user_name"
-                    name="saturdayclose[]" class="endtime">
-                <span>Closing</span>
-            </div>
-            <i  class="fa fa-close clos_icon"></i>
-            </div>`);
-        }
-        else if($(this).attr('att') == 7)
-        {
-            $('.count7').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.sunday').append(`<div class="main2 input-text mb-2 day7">
-            <div class="main3 input-div">
-                <input type="time" id="user_name" name="sundayopen[]" class="starttime">
-                <span>Opening</span>
-            </div>
-
-            <div class="input-div">
-                <input type="time" id="user_name"
-                    name="sundayclose[]" class="endtime">
-                <span>Closing</span>
-            </div>
-            <i  class="fa fa-close clos_icon"></i>
-            </div>`);
-        }
-        
-
-    });    
-
-    $(document).on("click",".clos_icon",function() {
-
-        
-        $(this).parent().remove();
-        
-
-    
-    });
-
-    $(document).on("blur", ".endtime", function() {
-        $(this).closest('.input-div').children('.errormsg').remove();
-        var end = $(this).val();
-        var star = $(this).closest('.main2').children('.main3').children('.starttime').val();
-        //convert both time into timestamp
-        var stt = new Date("November 13, 2013 " + star);
-        stt = stt.getTime();
-        var endt = new Date("November 13, 2013 " + end);
-        endt = endt.getTime();
-        if(stt >= endt) 
-        {
-            $(this).closest('.input-div').append('<p class="errormsg" style="color:red;">closing time must be greater then opening.</p>');
-            // alert('end date is less');
-            
-        }else{
-
-        }
-    });
-
-    $(document).on("click", ".testbtn", function(event) {
-        
-        if ($(".errormsg")[0]){
-            event.preventDefault();
-            toastr.error('Please select valid time for opening and closing');
-        } else {
-            // Do something if class does not exist
-        }
-    });
-
-    $(document).on("blur", ".starttime", function() {
-        if($(this).val()){
-            $(this).closest('.main2').children('.input-div').children('.endtime').attr("required", "true");
-
-            $('.repeatt').val("1");
-            
-        } else{
-        }
-
-
-    
-    });
-
-
-    
-    
-
-    
-});
-</script>
-<script>
-    
-    
-</script>
-
+ <script type="text/javascript" src="{{ asset('js/bussiness.js') }}"></script>
 
 
 
