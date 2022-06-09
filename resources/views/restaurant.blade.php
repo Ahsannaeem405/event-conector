@@ -153,7 +153,7 @@
                                                     <div class="input-text">
                                                         <div class="dropdown">
                                                             <span>Business Category</span>
-                                                            <select name="category" required require>
+                                                            <select name="category" required require >
                                                                 @foreach($catgs as $catg)
                                                                 <option value="{{ $catg->id }}"><a class="dropdown-item"
                                                                         href="#">{{ $catg->name}}</a></option>
@@ -229,16 +229,16 @@
                                                             <label for="holiday1"> Holiday </label>
 
                                                             <div class="monday">
-                                                                <div class="input-text mb-2" >
-                                                                    <div class="input-div">
+                                                                <div class="main1 input-text mb-2" >
+                                                                    <div class="main2 input-div">
 
-                                                                        <input type="time" id="user_name" name="mondayopen[]">
+                                                                        <input type="time" id="user_name" name="mondayopen[]" class="starttime"> 
                                                                         <span>Opening</span>
                                                                     </div>
 
                                                                     <div class="input-div">
                                                                         <input type="time" id="user_name"
-                                                                            name="mondayclose[]" >
+                                                                            name="mondayclose[]" class="endtime">
                                                                         <span>Closing</span>
                                                                     </div>
                                                                 </div>
@@ -264,7 +264,7 @@
                                                                         <span>Opening</span>
                                                                     </div>
                                                                     <div class="input-div">
-                                                                        <input type="time" placeholder="none" id="user_name"
+                                                                        <input type="time" placeholder="none" id="user_name" class="endtime"
                                                                             name="tuesdayclose[]">
                                                                         <span>Closing</span>
                                                                     </div>
@@ -291,7 +291,7 @@
                                                                         <span>Opening</span>
                                                                     </div>
                                                                     <div class="input-div">
-                                                                        <input type="time" placeholder="none" id="user_name"
+                                                                        <input type="time" placeholder="none" id="user_name" class="endtime"
                                                                             name="wednesdayclose[]">
                                                                         <span>Closing</span>
                                                                     </div>
@@ -318,7 +318,7 @@
                                                                         <span>Opening</span>
                                                                     </div>
                                                                     <div class="input-div">
-                                                                        <input type="time" placeholder="none" id="user_name"
+                                                                        <input type="time" placeholder="none" id="user_name" class="endtime"
                                                                             name="thursdayclose[]">
                                                                         <span>Closing</span>
                                                                     </div>
@@ -345,7 +345,7 @@
                                                                         <span>Opening</span>
                                                                     </div>
                                                                     <div class="input-div">
-                                                                        <input type="time" placeholder="none" id="user_name"
+                                                                        <input type="time" placeholder="none" id="user_name" class="endtime"
                                                                             name="fridayclose[]">
                                                                         <span>Closing</span>
                                                                     </div>
@@ -373,7 +373,7 @@
                                                                         <span>Opening</span>
                                                                     </div>
                                                                     <div class="input-div">
-                                                                        <input type="time" id="user_name"
+                                                                        <input type="time" id="user_name" class="endtime"
                                                                             name="saturdayclose[]">
                                                                         <span>Closing</span>
                                                                     </div>
@@ -401,7 +401,7 @@
                                                                         <span>Opening</span>
                                                                     </div>
                                                                     <div class="input-div">
-                                                                        <input type="time" placeholder="none" id="user_name"
+                                                                        <input type="time" placeholder="none" id="user_name" class="endtime"
                                                                             name="sundayclose[]">
                                                                         <span>Closing</span>
                                                                     </div>
@@ -2280,6 +2280,27 @@ $(document).ready(function() {
     
     });
 
+    // $('.endtime').each(function(i, obj) {
+            //test
+    $(document).on("blur", ".endtime", function() {
+        $end = $(this).val();
+        $star = $(this).closest('.main1').children('.main2').children('.starttime').val()
+        alert($star);
+        if($star > $end)
+        {
+            alert('star date us less');
+            
+        }
+        else{
+            alert('end date is less')
+        }
+            
+        // });
+    });
+
+    
+
+
     
 
     
@@ -2287,37 +2308,7 @@ $(document).ready(function() {
 </script>
 <script>
     
-function TimePickerCtrl($) {
-  var startTime = $('#starttime').datetimepicker({
-    format: 'HH:mm'
-  });
-  
-  var endTime = $('#endtime').datetimepicker({
-    format: 'HH:mm',
-    minDate: startTime.data("DateTimePicker").date()
-  });
-  
-  function setMinDate() {
-    return endTime
-      .data("DateTimePicker").minDate(
-        startTime.data("DateTimePicker").date()
-      )
-    ;
-  }
-  
-  var bound = false;
-  function bindMinEndTimeToStartTime() {
-  
-    return bound || startTime.on('dp.change', setMinDate);
-  }
-  
-  endTime.on('dp.change', () => {
-    bindMinEndTimeToStartTime();
-    bound = true;
-    setMinDate();
-  });
-}
-$(document).ready(TimePickerCtrl);
+    
 </script>
 
 
