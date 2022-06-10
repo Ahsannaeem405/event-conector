@@ -29,23 +29,10 @@
         <div class="row">
           <div class="col-12">
             <div class="card">
-              <div class="card-header">
-
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0" style="height: 300px;">
-                <table class="table table-head-fixed text-nowrap">
+              <div class="card-body">
+                <table  id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -71,7 +58,7 @@
                       <td>{{ $user->phone }}</td>
                       <td>{{ $user->address }}</td>
                       <td>{{ $user->email }}</td>
-                      <td><a class="btn rounded-pill btn-info" href="#" data-toggle="modal" data-target="#modal-{{ $user->id }}">Edit</a>
+                      <td  class="d-flex"><a class="btn rounded-pill btn-info" href="#" data-toggle="modal" data-target="#modal-{{ $user->id }}">Edit</a>
                       <form action="{{ url('/admins/dltuser') }}/{{ ($user->id) }}" method="POST">
                         @csrf
                         <button type="submit" class="btn rounded-pill btn-danger" onclick="return confirm('Are you sure You want to delete this user?')">Delete </button></td>
@@ -140,5 +127,14 @@
 
   @endif
 
+</script>
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+  });
 </script>
 @endsection

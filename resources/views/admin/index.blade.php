@@ -93,8 +93,8 @@
             <div class="card">
             <h3 class="" style="padding-left: 12px; padding-top: 12px;">Recent Users</h3>
                 <!-- Left col -->
-                <div class="card-body table-responsive p-0" style="height: 300px;">
-                      <table class="table table-head-fixed text-nowrap">
+                <div class="card-body">
+                      <table  id="example1" class="table table-bordered table-striped">
                         <thead>
                           <tr>
                             <th>#</th>
@@ -120,7 +120,7 @@
                             <td>{{ $user->phone }}</td>
                             <td>{{ $user->address }}</td>
                             <td>{{ $user->email }}</td>
-                            <td><a class="btn rounded-pill btn-info" href="#" data-toggle="modal" data-target="#modal-{{ $user->id }}">Edit</a>
+                            <td class="d-flex"><a class="btn rounded-pill btn-info" href="#" data-toggle="modal" data-target="#modal-{{ $user->id }}">Edit</a>
                             <form action="{{ url('/admins/dltuser') }}/{{ $user->id }}" method="POST">
                               @csrf
                               <button type="submit" class="btn rounded-pill btn-danger">Delete </button></td>
@@ -172,4 +172,13 @@
       </div><!-- /.container-fluid -->
     </section>
   </div>
+  <script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+  });
+</script>
 @endsection
