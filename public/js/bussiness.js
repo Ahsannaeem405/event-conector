@@ -28,16 +28,18 @@
 
 
     // 
+    $(document).on("click", "._24by7open", function() {
 
-    $('#_24by7').click(function() {
+   
 
-        if ($(this).is(":checked"))
+        var val1 = $(this).val();
+        // alert(val1);
+        if( val1 == 1)
         {
             $('.hoursdiv').addClass('d-none');
         }
         else{
             $('.hoursdiv').removeClass('d-none');
-           
         }
         
         
@@ -157,7 +159,7 @@
                     name="mondayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
-            <i  class="fa fa-close clos_icon"></i>
+            <i att="1" class="fa fa-close clos_icon"></i>
             </div>`);
         }
         else if($(this).attr('att') == 2)
@@ -176,7 +178,7 @@
                     name="tuesdayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
-            <i  class="fa fa-close clos_icon"></i>
+            <i att="2"  class="fa fa-close clos_icon"></i>
             </div>`);
         }
         else if($(this).attr('att') == 3)
@@ -195,7 +197,7 @@
                     name="wednesdayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
-            <i  class="fa fa-close clos_icon"></i>
+            <i att="3"  class="fa fa-close clos_icon"></i>
             </div>`);
         }
         else if($(this).attr('att') == 4)
@@ -214,7 +216,7 @@
                     name="thursdayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
-            <i  class="fa fa-close clos_icon"></i>
+            <i att="4"  class="fa fa-close clos_icon"></i>
             </div>`);
         }
         else if($(this).attr('att') == 5)
@@ -233,7 +235,7 @@
                     name="fridayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
-            <i  class="fa fa-close clos_icon"></i>
+            <i att="5"  class="fa fa-close clos_icon"></i>
             </div>`);
         }
         else if($(this).attr('att') == 6)
@@ -252,7 +254,7 @@
                     name="saturdayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
-            <i  class="fa fa-close clos_icon"></i>
+            <i att="6"  class="fa fa-close clos_icon"></i>
             </div>`);
         }
         else if($(this).attr('att') == 7)
@@ -271,7 +273,7 @@
                     name="sundayclose[]" class="endtime">
                 <span>Closing</span>
             </div>
-            <i  class="fa fa-close clos_icon"></i>
+            <i att="7"  class="fa fa-close clos_icon"></i>
             </div>`);
         }
         
@@ -279,7 +281,48 @@
     });    
 
     $(document).on("click",".clos_icon",function() {
-
+        if($(this).attr('att') == 1)
+        {
+            $('.count1').val( function(i, oldval) {
+                return --oldval;
+            });
+        }
+        if($(this).attr('att') == 2)
+        {
+            $('.count2').val( function(i, oldval) {
+                return --oldval;
+            });
+        }
+        if($(this).attr('att') == 3)
+        {
+            $('.count3').val( function(i, oldval) {
+                return --oldval;
+            });
+        }
+        if($(this).attr('att') == 4)
+        {
+            $('.count4').val( function(i, oldval) {
+                return --oldval;
+            });
+        }
+        if($(this).attr('att') == 5)
+        {
+            $('.count5').val( function(i, oldval) {
+                return --oldval;
+            });
+        }
+        if($(this).attr('att') == 6)
+        {
+            $('.count6').val( function(i, oldval) {
+                return --oldval;
+            });
+        }
+        if($(this).attr('att') == 7)
+        {
+            $('.count7').val( function(i, oldval) {
+                return --oldval;
+            });
+        }
         
         $(this).parent().remove();
         

@@ -63,7 +63,7 @@
                         @auth
                         @if(auth()->user()->role=='2')
                         <li class="nav-item">
-                            <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/restaurant') }}">My Restaurants</a>
+                            <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/planner') }}">My Restaurants</a>
                         </li>
                         @endif
                         

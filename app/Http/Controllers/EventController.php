@@ -68,7 +68,7 @@ class EventController extends Controller
             }
             
 
-            if($request->has('_24by7'))
+            if($request->_24by7 == 1 )
             {
                 $rest->availalltime = 1;
                 $saveresult = $rest->save();
@@ -179,13 +179,15 @@ class EventController extends Controller
     public function restaurant()
     {
         $catgs = Category::all();
-        // dd($catgs);
-        return view('restaurant', compact('catgs'));
+        $rests = Restaurant::where('planner_id', auth()->user()->id)->get();
+        // dd($rests);
+        return view('restaurant', compact('catgs', 'rests'));
 
     }
 
     public function addrest(Request $request)
     {
+        // dd($request->count);
       
             $rest = new Restaurant;
             $rest->planner_id = auth()->user()->id;
@@ -204,7 +206,7 @@ class EventController extends Controller
             }
             
 
-            if($request->has('_24by7'))
+            if($request->_24by7 == 1 )
             {
                 $rest->availalltime = 1;
                 $saveresult = $rest->save();
