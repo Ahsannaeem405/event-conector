@@ -70,6 +70,7 @@ Route::prefix('/planner')->middleware(['auth','planner'])->group(function (){
 
     Route::get('/', [EventController::class, 'restaurant']);
     Route::post('/addrest', [EventController::class, 'addrest']);
+
     
 });
 
@@ -86,7 +87,8 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
 
     Route::get('/event', [EventController::class, 'event'])->withoutMiddleware(['auth','user']);
-    Route::get('/login/event', [EventController::class, 'login_event']);    
+    Route::get('/login/event', [EventController::class, 'login_event']); 
+       
     Route::get('/planner', [EventController::class, 'restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
     Route::get('/restaurant', [EventController::class, 'restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
 
