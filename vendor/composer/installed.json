@@ -433,6 +433,48 @@
             "install-path": "../dragonmantank/cron-expression"
         },
         {
+            "name": "eastwest/json",
+            "version": "v3.0",
+            "version_normalized": "3.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jannejava/laravel-json.git",
+                "reference": "d422d6c1523ff3f8c2094dc8cb6087b71f76272e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jannejava/laravel-json/zipball/d422d6c1523ff3f8c2094dc8cb6087b71f76272e",
+                "reference": "d422d6c1523ff3f8c2094dc8cb6087b71f76272e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.2"
+            },
+            "time": "2018-06-14T09:20:22+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Eastwest\\Json\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Jan Östlund",
+                    "email": "janne@eastwest.se"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/jannejava/laravel-json/issues",
+                "source": "https://github.com/jannejava/laravel-json/tree/v3.0"
+            },
+            "install-path": "../eastwest/json"
+        },
+        {
             "name": "egulias/email-validator",
             "version": "2.1.25",
             "version_normalized": "2.1.25.0",

@@ -1,5 +1,6 @@
 
-    $('.addbtn').click(function() {
+   
+   $('.addbtn').click(function() {
         
     });
 
@@ -45,97 +46,23 @@
         
     });
 
-    $('#_24_1stday').click(function() {
+    $(document).on("click", "._24byopen", function() {
 
-        if ($(this).is(":checked"))
+   
+
+        var val1 = $(this).val();
+        // alert(val1);
+        if( val1 == 1)
         {
-            $('.monday').addClass('disableddiv');
+            $('.hoursdiv2').addClass('d-none');
         }
         else{
-            $('.monday').removeClass('disableddiv');
+            $('.hoursdiv2').removeClass('d-none');
+        }
         
-        }
-
-
-    });
-    $('#_24_2ndday').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.tuesday').addClass('disableddiv');
-        }
-        else{
-            $('.tuesday').removeClass('disableddiv');
         
-        }
-
-
     });
-    $('#_24_3rdday').click(function() {
 
-        if ($(this).is(":checked"))
-        {
-            $('.wednesday').addClass('disableddiv');
-        }
-        else{
-            $('.wednesday').removeClass('disableddiv');
-        
-        }
-
-
-    });
-    $('#_24_4thday').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.thursday').addClass('disableddiv');
-        }
-        else{
-            $('.thursday').removeClass('disableddiv');
-        
-        }
-
-
-    });
-    $('#_24_5thday').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.friday').addClass('disableddiv');
-        }
-        else{
-            $('.friday').removeClass('disableddiv');
-        
-        }
-
-
-    });
-    $('#_24_6thday').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.saturday').addClass('disableddiv');
-        }
-        else{
-            $('.saturday').removeClass('disableddiv');
-        
-        }
-
-
-    });
-    $('#_24_7thday').click(function() {
-
-        if ($(this).is(":checked"))
-        {
-            $('.sunday').addClass('disableddiv');
-        }
-        else{
-            $('.sunday').removeClass('disableddiv');
-
-        }
-
-
-    });
 
     
     
@@ -144,6 +71,9 @@
         if($(this).attr('att') == 1)
         {
             $('.count1').val( function(i, oldval) {
+                return ++oldval;
+            });
+            $('.count21').val( function(i, oldval) {
                 return ++oldval;
             });
             
@@ -167,6 +97,9 @@
             $('.count2').val( function(i, oldval) {
                 return ++oldval;
             });
+            $('.count22').val( function(i, oldval) {
+                return ++oldval;
+            });
             $('.tuesday').append(`<div class="main2 input-text mb-2 day2">
             <div class="main3 input-div">
                 <input type="time" id="user_name" name="tuesdayopen[]" class="starttime">
@@ -184,6 +117,9 @@
         else if($(this).attr('att') == 3)
         {
             $('.count3').val( function(i, oldval) {
+                return ++oldval;
+            });
+            $('.count23').val( function(i, oldval) {
                 return ++oldval;
             });
             $('.wednesday').append(`<div class="main2 input-text mb-2 day3">
@@ -205,6 +141,9 @@
             $('.count4').val( function(i, oldval) {
                 return ++oldval;
             });
+            $('.count24').val( function(i, oldval) {
+                return ++oldval;
+            });
             $('.thursday').append(`<div class="main2 input-text mb-2 day4">
             <div class="main3 input-div">
                 <input type="time" id="user_name" name="thursdayopen[]" class="starttime">
@@ -222,6 +161,9 @@
         else if($(this).attr('att') == 5)
         {
             $('.count5').val( function(i, oldval) {
+                return ++oldval;
+            });
+            $('.count25').val( function(i, oldval) {
                 return ++oldval;
             });
             $('.friday').append(`<div class="main2 input-text mb-2 day5">
@@ -243,6 +185,9 @@
             $('.count6').val( function(i, oldval) {
                 return ++oldval;
             });
+            $('.count26').val( function(i, oldval) {
+                return ++oldval;
+            });
             $('.saturday').append(`<div class="main2 input-text mb-2 day6">
             <div class="main3 input-div">
                 <input type="time" id="user_name" name="saturdayopen[]" class="starttime">
@@ -260,6 +205,9 @@
         else if($(this).attr('att') == 7)
         {
             $('.count7').val( function(i, oldval) {
+                return ++oldval;
+            });
+            $('.count27').val( function(i, oldval) {
                 return ++oldval;
             });
             $('.sunday').append(`<div class="main2 input-text mb-2 day7">
@@ -280,10 +228,15 @@
 
     });    
 
+    
+
     $(document).on("click",".clos_icon",function() {
         if($(this).attr('att') == 1)
         {
             $('.count1').val( function(i, oldval) {
+                return --oldval;
+            });
+            $('.count21').val( function(i, oldval) {
                 return --oldval;
             });
         }
@@ -292,10 +245,16 @@
             $('.count2').val( function(i, oldval) {
                 return --oldval;
             });
+            $('.count22').val( function(i, oldval) {
+                return --oldval;
+            });
         }
         if($(this).attr('att') == 3)
         {
             $('.count3').val( function(i, oldval) {
+                return --oldval;
+            });
+            $('.count23').val( function(i, oldval) {
                 return --oldval;
             });
         }
@@ -304,10 +263,16 @@
             $('.count4').val( function(i, oldval) {
                 return --oldval;
             });
+            $('.count24').val( function(i, oldval) {
+                return --oldval;
+            });
         }
         if($(this).attr('att') == 5)
         {
             $('.count5').val( function(i, oldval) {
+                return --oldval;
+            });
+            $('.count25').val( function(i, oldval) {
                 return --oldval;
             });
         }
@@ -316,10 +281,16 @@
             $('.count6').val( function(i, oldval) {
                 return --oldval;
             });
+            $('.count26').val( function(i, oldval) {
+                return --oldval;
+            });
         }
         if($(this).attr('att') == 7)
         {
             $('.count7').val( function(i, oldval) {
+                return --oldval;
+            });
+            $('.count27').val( function(i, oldval) {
                 return --oldval;
             });
         }
@@ -371,8 +342,40 @@
 
     
     });
+    $(document).on("click",".quantity__minus",function() {
+            if($('.quantity__input').val() >1)
+            {
+                $('.quantity__input').val( function(i, oldval) {
+                    return --oldval;
+                });
+            }
+        
+    });
+    $(document).on("click",".quantity__plus",function() {
+            
+        $('.quantity__input').val( function(i, oldval) {
+            return ++oldval;
+        });
+    
+    });
+    $(document).on("click",".add_btnpkg",function() {
+        $('.dropi_parent').append(`<div class="parent-div"><input name="image[]" type="file" class="dropify2n col-6"
+        data-width="60" data-height="40" />
+        <i class="fa fa-close clos_iconpkg col-1"></i></div>`);
+
+    });
+
+    $(document).on("click",".clos_iconpkg",function() {
+        $(this).closest(".parent-div").remove();
+    });
+    
+    
 
 
+    
+
+
+    
     
     
 

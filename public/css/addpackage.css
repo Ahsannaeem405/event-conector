@@ -270,6 +270,7 @@ select.list-dt:focus {
     text-decoration: none;
     text-align: center;
     line-height: 23px;
+    cursor: pointer;
 }
 .quantity__minus:hover,
 .quantity__plus:hover {

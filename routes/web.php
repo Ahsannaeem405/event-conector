@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\PackageController;
 
 
 /*
@@ -42,6 +43,7 @@ Route::get('auth/facebook', [App\Http\Controllers\social::class, 'redirectToFace
 Route::get('auth/facebook/callback', [App\Http\Controllers\social::class, 'handleFacebookCallback']);
 
 Route::post('/addplanner', [App\Http\Controllers\EventController::class, 'addplanner']);
+
 
 
 Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
@@ -91,6 +93,11 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
        
     Route::get('/planner', [EventController::class, 'restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
     Route::get('/restaurant', [EventController::class, 'restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
+
+    Route::get('/editrest', [EventController::class, 'editrest'])->withoutMiddleware(['user'])->middleware(['planner']);
+    Route::post('/update_restaurant/{id}', [EventController::class, 'update_restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
+   
+    Route::post('/add_package', [PackageController::class, 'add_package'])->withoutMiddleware(['user'])->middleware(['planner']);
 
     
     

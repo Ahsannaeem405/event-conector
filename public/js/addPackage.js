@@ -4,13 +4,17 @@ $(document).ready(function(){
     var opacity;
     
     $(".next").click(function(){
-        
+        if(!validateform()){
+            return false
+        }
         current_fs = $(this).parent();
+        // alert($(this).parent().children('.fs-title').text)
         next_fs = $(this).parent().next();
         
         //Add Class Active
         $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-        
+        current_fs.removeClass("active");
+        next_fs.addClass("active");
         //show the next fieldset
         next_fs.show(); 
         //hide the current fieldset with style
@@ -36,7 +40,8 @@ $(document).ready(function(){
         
         //Remove class active
         $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-        
+        current_fs.removeClass("active");
+        previous_fs.addClass("active");
         //show the previous fieldset
         previous_fs.show();
     
@@ -64,5 +69,21 @@ $(document).ready(function(){
     $(".submit").click(function(){
         return false;
     })
+
+    function validateform(){
+        validate=true;
+        var validate_inputs=document.querySelectorAll("fieldset.active input");
+        validate_inputs.forEach(function(vaildate_input){
+            vaildate_input.classList.remove('warning');
+            if(vaildate_input.hasAttribute('require')){
+                if(vaildate_input.value.length==0){
+                    validate=false;
+                    vaildate_input.classList.add('warning');
+                }
+            }
+        });
+        return validate;
+        
+    }
         
     });
