@@ -1,12 +1,5 @@
 
-<link rel="stylesheet" href="{{ asset('css/event2.css') }}">
 
-<style>
-    .dum
-    {
-        color: transparent;
-    }
-</style>
 <section class="event-step">
     <div class="container bg-transparent">
         <div class="card border-0">
@@ -91,185 +84,185 @@
 
 
                                     <input type="text" name="" id="lati" class="d-none">
-                                    <div id="map1">
+{{--                                    <div id="map1">--}}
 
 
 
 
-                                        <meta name="viewport"
-                                            content="initial-scale=1.0, user-scalable=no" />
-                                        <meta http-equiv="content-type"
-                                            content="text/html; charset=UTF-8" />
-                                        <script type="text/javascript"
-                                            src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY">
-                                        </script>
-                                        <script type="text/javascript"
-                                            src="{{ asset('downloadxml.js') }}"></script>
-                                        <style type="text/css">
-                                        html,
-                                        body {
-                                            height: 100%;
-                                        }
+{{--                                        <meta name="viewport"--}}
+{{--                                            content="initial-scale=1.0, user-scalable=no" />--}}
+{{--                                        <meta http-equiv="content-type"--}}
+{{--                                            content="text/html; charset=UTF-8" />--}}
+{{--                                        <script type="text/javascript"--}}
+{{--                                            src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY">--}}
+{{--                                        </script>--}}
+{{--                                        <script type="text/javascript"--}}
+{{--                                            src="{{ asset('downloadxml.js') }}"></script>--}}
+{{--                                        <style type="text/css">--}}
+{{--                                        html,--}}
+{{--                                        body {--}}
+{{--                                            height: 100%;--}}
+{{--                                        }--}}
 
-                                        .gm-style-iw-t {
-                                            display: none;
-                                        }
+{{--                                        .gm-style-iw-t {--}}
+{{--                                            display: none;--}}
+{{--                                        }--}}
 
-                                        #map1 {
-                                            max-height: 200px;
-                                        }
-                                        </style>
-                                        <script type="text/javascript">
-                                        var map = null;
-                                        var marker = null;
+{{--                                        #map1 {--}}
+{{--                                            max-height: 200px;--}}
+{{--                                        }--}}
+{{--                                        </style>--}}
+{{--                                        <script type="text/javascript">--}}
+{{--                                        var map = null;--}}
+{{--                                        var marker = null;--}}
 
-                                        var infowindow = new google.maps.InfoWindow({
-                                            size: new google.maps.Size(150, 50)
-                                        });
+{{--                                        var infowindow = new google.maps.InfoWindow({--}}
+{{--                                            size: new google.maps.Size(150, 50)--}}
+{{--                                        });--}}
 
-                                        function createMarker(latlng, name, html) {
-                                            var contentString = html;
-                                            var marker = new google.maps.Marker({
-                                                position: latlng,
-                                                map: map,
-                                                zIndex: Math.round(latlng.lat() * -
-                                                    100000) << 5
-                                            });
+{{--                                        function createMarker(latlng, name, html) {--}}
+{{--                                            var contentString = html;--}}
+{{--                                            var marker = new google.maps.Marker({--}}
+{{--                                                position: latlng,--}}
+{{--                                                map: map,--}}
+{{--                                                zIndex: Math.round(latlng.lat() * ---}}
+{{--                                                    100000) << 5--}}
+{{--                                            });--}}
 
-                                            google.maps.event.addListener(marker, 'click',
-                                                function() {
-                                                    infowindow.setContent(
-                                                        contentString);
-                                                    infowindow.open(map, marker);
-                                                });
-                                            google.maps.event.trigger(marker, 'click');
-                                            return marker;
-                                        }
-
-
-
-                                        function initialize() {
-
-
-                                            var myOptions = {
-                                                zoom: 8,
-                                                center: new google.maps.LatLng(
-                                                    43.907787, -79.359741),
-                                                mapTypeControl: true,
-                                                mapTypeControlOptions: {
-                                                    style: google.maps
-                                                        .MapTypeControlStyle
-                                                        .DROPDOWN_MENU
-                                                },
-                                                navigationControl: true,
-                                                mapTypeId: google.maps.MapTypeId.ROADMAP
-                                            }
-                                            map = new google.maps.Map(document
-                                                .getElementById("map_canvas"),
-                                                myOptions);
-
-                                            google.maps.event.addListener(map, 'click',
-                                                function() {
-                                                    infowindow.close();
-                                                });
-
-                                            google.maps.event.addListener(map, 'click',
-                                                function(event) {
-                                                    //call function to create marker
+{{--                                            google.maps.event.addListener(marker, 'click',--}}
+{{--                                                function() {--}}
+{{--                                                    infowindow.setContent(--}}
+{{--                                                        contentString);--}}
+{{--                                                    infowindow.open(map, marker);--}}
+{{--                                                });--}}
+{{--                                            google.maps.event.trigger(marker, 'click');--}}
+{{--                                            return marker;--}}
+{{--                                        }--}}
 
 
 
+{{--                                        function initialize() {--}}
 
 
-                                                    var s = event.latLng;
-                                                    $("#lati").val(s);
-                                                    var lat = $("#lati").val();
-                                                    var divided = lat.split(" ");
-                                                    var divided2 = divided[0].split(
-                                                        "(");
-                                                    var divided3 = divided2[1].split(
-                                                        ",");
-                                                    var final_lat = divided3[0];
+{{--                                            var myOptions = {--}}
+{{--                                                zoom: 8,--}}
+{{--                                                center: new google.maps.LatLng(--}}
+{{--                                                    43.907787, -79.359741),--}}
+{{--                                                mapTypeControl: true,--}}
+{{--                                                mapTypeControlOptions: {--}}
+{{--                                                    style: google.maps--}}
+{{--                                                        .MapTypeControlStyle--}}
+{{--                                                        .DROPDOWN_MENU--}}
+{{--                                                },--}}
+{{--                                                navigationControl: true,--}}
+{{--                                                mapTypeId: google.maps.MapTypeId.ROADMAP--}}
+{{--                                            }--}}
+{{--                                            map = new google.maps.Map(document--}}
+{{--                                                .getElementById("map_canvas"),--}}
+{{--                                                myOptions);--}}
+
+{{--                                            google.maps.event.addListener(map, 'click',--}}
+{{--                                                function() {--}}
+{{--                                                    infowindow.close();--}}
+{{--                                                });--}}
+
+{{--                                            google.maps.event.addListener(map, 'click',--}}
+{{--                                                function(event) {--}}
+{{--                                                    //call function to create marker--}}
 
 
 
 
 
+{{--                                                    var s = event.latLng;--}}
+{{--                                                    $("#lati").val(s);--}}
+{{--                                                    var lat = $("#lati").val();--}}
+{{--                                                    var divided = lat.split(" ");--}}
+{{--                                                    var divided2 = divided[0].split(--}}
+{{--                                                        "(");--}}
+{{--                                                    var divided3 = divided2[1].split(--}}
+{{--                                                        ",");--}}
+{{--                                                    var final_lat = divided3[0];--}}
 
-                                                    var div_lag1 = divided[1].split(
-                                                        ")");
-                                                    var final_log = div_lag1[0];
 
 
 
 
-                                                    if (marker) {
-                                                        marker.setMap(null);
-                                                        marker = null;
-                                                    }
-                                                    marker = createMarker(event.latLng,
-                                                        "name",
-                                                        "<b>Location</b><br>" +
-                                                        event.latLng);
-                                                });
 
-                                        }
-                                        </script>
+{{--                                                    var div_lag1 = divided[1].split(--}}
+{{--                                                        ")");--}}
+{{--                                                    var final_log = div_lag1[0];--}}
 
-                                        <body style="margin:0px; padding:0px;" onload="initialize()">
 
-                                            <!-- you can use tables or divs for the overall layout -->
-                                            <table border="1">
-                                                <tr>
-                                                    <td>
-                                                        <div id="map_canvas"
-                                                            style="width: 400px; height:200px">
-                                                        </div>
-                                                    </td>
 
-                                                </tr>
-                                            </table>
 
-                                            <noscript>
-                                                <p><b>JavaScript must be enabled in order
-                                                        for you to use Google Maps.</b>
-                                                    However, it seems JavaScript is either
-                                                    disabled or not supported by your
-                                                    browser.
-                                                    To view Google Maps, enable JavaScript
-                                                    by changing your browser options, and
-                                                    then
-                                                    try again.</p>
-                                            </noscript>
-                                            <script src="http://www.google-analytics.com/urchin.js"
-                                                type="text/javascript">
-                                            </script>
-                                            <script type="text/javascript">
-                                            _uacct = "UA-162157-1";
-                                            urchinTracker();
-                                            </script>
-                                            <script type="text/javascript">
-                                            <!--
-                                            google_ad_client = "pub-8586773609818529";
-                                            google_ad_width = 728;
-                                            google_ad_height = 90;
-                                            google_ad_format = "728x90_as";
-                                            google_ad_type = "text";
-                                            google_ad_channel = "";
-                                            google_color_border = "CCCCCC";
-                                            google_color_bg = "FFFFFF";
-                                            google_color_link = "000000";
-                                            google_color_url = "666666";
-                                            google_color_text = "333333";
-                                            //
-                                            -->
-                                            </script>
-                                            <script type="text/javascript"
-                                                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-                                            </script>
-                                        </body>
+{{--                                                    if (marker) {--}}
+{{--                                                        marker.setMap(null);--}}
+{{--                                                        marker = null;--}}
+{{--                                                    }--}}
+{{--                                                    marker = createMarker(event.latLng,--}}
+{{--                                                        "name",--}}
+{{--                                                        "<b>Location</b><br>" +--}}
+{{--                                                        event.latLng);--}}
+{{--                                                });--}}
 
-                                    </div>
+{{--                                        }--}}
+{{--                                        </script>--}}
+
+{{--                                        <body style="margin:0px; padding:0px;" onload="initialize()">--}}
+
+{{--                                            <!-- you can use tables or divs for the overall layout -->--}}
+{{--                                            <table border="1">--}}
+{{--                                                <tr>--}}
+{{--                                                    <td>--}}
+{{--                                                        <div id="map_canvas"--}}
+{{--                                                            style="width: 400px; height:200px">--}}
+{{--                                                        </div>--}}
+{{--                                                    </td>--}}
+
+{{--                                                </tr>--}}
+{{--                                            </table>--}}
+
+{{--                                            <noscript>--}}
+{{--                                                <p><b>JavaScript must be enabled in order--}}
+{{--                                                        for you to use Google Maps.</b>--}}
+{{--                                                    However, it seems JavaScript is either--}}
+{{--                                                    disabled or not supported by your--}}
+{{--                                                    browser.--}}
+{{--                                                    To view Google Maps, enable JavaScript--}}
+{{--                                                    by changing your browser options, and--}}
+{{--                                                    then--}}
+{{--                                                    try again.</p>--}}
+{{--                                            </noscript>--}}
+{{--                                            <script src="http://www.google-analytics.com/urchin.js"--}}
+{{--                                                type="text/javascript">--}}
+{{--                                            </script>--}}
+{{--                                            <script type="text/javascript">--}}
+{{--                                            _uacct = "UA-162157-1";--}}
+{{--                                            urchinTracker();--}}
+{{--                                            </script>--}}
+{{--                                            <script type="text/javascript">--}}
+{{--                                            <!----}}
+{{--                                            google_ad_client = "pub-8586773609818529";--}}
+{{--                                            google_ad_width = 728;--}}
+{{--                                            google_ad_height = 90;--}}
+{{--                                            google_ad_format = "728x90_as";--}}
+{{--                                            google_ad_type = "text";--}}
+{{--                                            google_ad_channel = "";--}}
+{{--                                            google_color_border = "CCCCCC";--}}
+{{--                                            google_color_bg = "FFFFFF";--}}
+{{--                                            google_color_link = "000000";--}}
+{{--                                            google_color_url = "666666";--}}
+{{--                                            google_color_text = "333333";--}}
+{{--                                            //--}}
+{{--                                            -->--}}
+{{--                                            </script>--}}
+{{--                                            <script type="text/javascript"--}}
+{{--                                                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">--}}
+{{--                                            </script>--}}
+{{--                                        </body>--}}
+
+{{--                                    </div>--}}
                                 </div>
                             </div>
                             <div class="input-text">
@@ -294,12 +287,12 @@
                             </div>
                             <div class="hoursmaindiv">
                                                 @php
-                                                $countval=0;    
-                                                @endphp 
+                                                $countval=0;
+                                                @endphp
                                             @foreach($rest->time as $time)
                                                 @php
-                                                $countval=1;    
-                                                @endphp    
+                                                $countval=1;
+                                                @endphp
                                             @endforeach
                                 <input type="hidden" value="{{$countval}}" name="repeatt" class="repeatt">
 
@@ -323,16 +316,16 @@
 
                                         <div class="monday main1 {{ $rest->holiday1 == 24 ? "disableddiv" : "" }}">
                                                 @php
-                                                $k1=0;   
+                                                $k1=0;
                                                 $count21=0;
 
                                                 @endphp
                                             @foreach($rest->time as $time)
-                                                                            
+
                                                 @if($time->mondyopen != null)
                                                     @php
-                                                    $k1=1;   
-                                                    $count21++; 
+                                                    $k1=1;
+                                                    $count21++;
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
                                                         <div class="main3 input-div">
@@ -349,7 +342,7 @@
                                                         </div>
                                                         @if($loop->first)
                                                             <i att="1" class="fa fa-plus add_btn2"
-                                                            aria-hidden="true"></i>                                                   
+                                                            aria-hidden="true"></i>
                                                         @else
                                                             <i class="fa fa-plus dum"
                                                             aria-hidden="true"></i>
@@ -371,12 +364,12 @@
                                                         <span>Closing</span>
                                                     </div>
                                                         <i att="1" class="fa fa-plus add_btn2"
-                                                        aria-hidden="true"></i>                                                   
+                                                        aria-hidden="true"></i>
                                                 </div>
                                             @endif
-                                        
-                                            
-                                            
+
+
+
                                         </div>
                                     </div>
                                     <input type="number" name="count2[]" class="count21 d-none" value="{{$count21}}">
@@ -397,19 +390,19 @@
                                                 class="setbtn">
                                             <label for="holiday22"> Holiday </label>
                                         </div>
-                                        
+
                                         <div class="tuesday main1  {{ $rest->holiday2 == 24 ? "disableddiv" : "" }}">
-                                                @php 
-                                                $k2=0;   
+                                                @php
+                                                $k2=0;
                                                 $count22=0;
 
                                                 @endphp
                                             @foreach($rest->time as $time)
-                                                                                
+
                                                 @if($time->tuedyopen != null)
                                                 @php
-                                                $k2=1;  
-                                                $count22++;  
+                                                $k2=1;
+                                                $count22++;
                                                 @endphp
                                                     <div class="main2 input-text mb-2">
                                                         <div class="main3 input-div">
@@ -424,7 +417,7 @@
                                                         </div>
                                                         @if($loop->first)
                                                         <i att="2" class="fa fa-plus add_btn2"
-                                                            aria-hidden="true"></i>                                                   
+                                                            aria-hidden="true"></i>
                                                         @else
                                                         <i class="fa fa-plus dum"
                                                             aria-hidden="true"></i>
@@ -445,10 +438,10 @@
                                                             class="endtime" name="tuesdayclose[]">
                                                         <span>Closing</span>
                                                     </div>
-                                                    
+
                                                     <i att="2" class="fa fa-plus add_btn2"
-                                                        aria-hidden="true"></i>                                                   
-                                                
+                                                        aria-hidden="true"></i>
+
                                                 </div>
 
                                             @endif
@@ -475,15 +468,15 @@
 
                                         <div class="wednesday main1  {{ $rest->holiday3 == 24 ? "disableddiv" : "" }}">
                                                 @php
-                                                $k3=0; 
+                                                $k3=0;
                                                 $count23=0;
                                                 @endphp
                                             @foreach($rest->time as $time)
-                                                
+
                                                 @if($time->wedopen != null)
                                                     @php
-                                                    $k3=1;  
-                                                    $count23++;  
+                                                    $k3=1;
+                                                    $count23++;
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
@@ -499,7 +492,7 @@
                                                         </div>
                                                         @if($loop->first)
                                                             <i att="3" class="fa fa-plus add_btn2"
-                                                                aria-hidden="true"></i>                                                   
+                                                                aria-hidden="true"></i>
                                                             @else
                                                             <i class="fa fa-plus dum"
                                                                 aria-hidden="true"></i>
@@ -522,7 +515,7 @@
                                                         <span>Closing</span>
                                                     </div>
                                                         <i att="3" class="fa fa-plus add_btn2"
-                                                            aria-hidden="true"></i>                                                   
+                                                            aria-hidden="true"></i>
                                                 </div>
                                             @endif
                                         </div>
@@ -548,14 +541,14 @@
 
                                         <div class="thursday main1  {{ $rest->holiday4 == 24 ? "disableddiv" : "" }}">
                                                 @php
-                                                $k4=0;    
+                                                $k4=0;
                                                 $count24=0;
                                                 @endphp
                                             @foreach($rest->time as $time)
                                                 @if($time->thurdyopen != null)
                                                     @php
-                                                    $k4=1;   
-                                                    $count24++; 
+                                                    $k4=1;
+                                                    $count24++;
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
@@ -571,7 +564,7 @@
                                                         </div>
                                                         @if($loop->first)
                                                         <i att="4" class="fa fa-plus add_btn2"
-                                                            aria-hidden="true"></i>                                                   
+                                                            aria-hidden="true"></i>
                                                         @else
                                                         <i class="fa fa-plus dum"
                                                             aria-hidden="true"></i>
@@ -593,7 +586,7 @@
                                                         <span>Closing</span>
                                                     </div>
                                                     <i att="4" class="fa fa-plus add_btn2"
-                                                        aria-hidden="true"></i>                                                   
+                                                        aria-hidden="true"></i>
                                                 </div>
 
                                             @endif
@@ -620,14 +613,14 @@
 
                                         <div class="friday main1 {{ $rest->holiday5 == 24 ? "disableddiv" : "" }}">
                                                 @php
-                                                $k5=0;    
+                                                $k5=0;
                                                 $count25=0;
                                                 @endphp
                                             @foreach($rest->time as $time)
                                                 @if($time->fridyopen != null)
                                                     @php
-                                                    $k5=1;  
-                                                    $count25++;  
+                                                    $k5=1;
+                                                    $count25++;
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
@@ -643,7 +636,7 @@
                                                         </div>
                                                         @if($loop->first)
                                                         <i att="5" class="fa fa-plus add_btn2"
-                                                            aria-hidden="true"></i>                                                   
+                                                            aria-hidden="true"></i>
                                                         @else
                                                         <i class="fa fa-plus dum"
                                                             aria-hidden="true"></i>
@@ -664,10 +657,10 @@
                                                             class="endtime" name="fridayclose[]">
                                                         <span>Closing</span>
                                                     </div>
-                                                    
+
                                                     <i att="5" class="fa fa-plus add_btn2"
-                                                        aria-hidden="true"></i>                                                   
-                                                    
+                                                        aria-hidden="true"></i>
+
                                                 </div>
 
                                             @endif
@@ -695,15 +688,15 @@
 
                                         <div class="saturday main1 {{ $rest->holiday6 == 24 ? "disableddiv" : "" }}">
                                                 @php
-                                                $k6=0;  
-                                                $count26=0;  
-                                                @endphp 
+                                                $k6=0;
+                                                $count26=0;
+                                                @endphp
                                             @foreach($rest->time as $time)
                                                 @if($time->satdyopen != null)
                                                     @php
-                                                    $k6=1;  
-                                                    $count26++;  
-                                                    @endphp 
+                                                    $k6=1;
+                                                    $count26++;
+                                                    @endphp
                                                     <div class="main2 input-text mb-2">
 
                                                         <div class="main3 input-div">
@@ -718,7 +711,7 @@
                                                         </div>
                                                         @if($loop->first)
                                                         <i att="6" class="fa fa-plus add_btn2"
-                                                            aria-hidden="true"></i>                                                   
+                                                            aria-hidden="true"></i>
                                                         @else
                                                         <i class="fa fa-plus dum"
                                                             aria-hidden="true"></i>
@@ -740,10 +733,10 @@
                                                                 name="saturdayclose[]">
                                                             <span>Closing</span>
                                                         </div>
-                                                        
+
                                                         <i att="6" class="fa fa-plus add_btn2"
-                                                            aria-hidden="true"></i>                                                   
-                                                        
+                                                            aria-hidden="true"></i>
+
                                                     </div>
                                             @endif
                                         </div>
@@ -770,14 +763,14 @@
 
                                         <div class="sunday main1 {{ $rest->holiday7 == 24 ? "disableddiv" : "" }}">
                                                 @php
-                                                $k7=0;    
-                                                $count27=0;  
+                                                $k7=0;
+                                                $count27=0;
                                                 @endphp
                                             @foreach($rest->time as $time)
                                                 @if($time->sundyopen != null)
                                                     @php
-                                                    $k7=1;  
-                                                    $count27++;    
+                                                    $k7=1;
+                                                    $count27++;
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
@@ -793,7 +786,7 @@
                                                         </div>
                                                         @if($loop->first)
                                                         <i att="7" class="fa fa-plus add_btn2"
-                                                            aria-hidden="true"></i>                                                   
+                                                            aria-hidden="true"></i>
                                                         @else
                                                         <i class="fa fa-plus dum"
                                                             aria-hidden="true"></i>
@@ -816,10 +809,10 @@
                                                                 class="endtime" name="sundayclose[]">
                                                             <span>Closing</span>
                                                         </div>
-                                                        
+
                                                         <i att="7" class="fa fa-plus add_btn2"
-                                                            aria-hidden="true"></i>                                                   
-                                                    
+                                                            aria-hidden="true"></i>
+
                                                     </div>
 
                                             @endif
@@ -869,44 +862,7 @@
     </div>
 </section>
 
-<script src="{{ asset('js/event2.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/bussiness2.js') }}"></script>
-
-<script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
-
-<script>
-    $(document).ready(function(){
-        // jQuery.noConflict();
-            $('.dropify').dropify();
-            $('.setbtn').click(function(){
 
 
-                $(this).siblings('input:checkbox').prop('checked',false);
-                // alert($(this).attr("name"));
 
-                // $(this).closest(".disabl_prnt").children(".main1").addClass('disableddiv');
-
-                if($(this).attr("atty")== 1)
-                {
-                    if($(this).is(":checked"))
-                    {
-                        $(this).closest(".disabl_prnt").children(".main1").addClass('disableddiv');
-                    }
-                    else{
-                        $(this).closest(".disabl_prnt").children(".main1").removeClass('disableddiv');
-                    }
-                }
-                else{
-                    $(this).closest(".disabl_prnt").children(".main1").removeClass('disableddiv');
-                }
-                
-
-            });
-
-            
-            
-
-        });
-</script>
 

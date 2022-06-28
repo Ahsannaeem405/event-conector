@@ -2,6 +2,14 @@
 
 
 @section('body')
+    <link rel="stylesheet" href="{{ asset('css/event2.css') }}">
+
+    <style>
+        .dum
+        {
+            color: transparent;
+        }
+    </style>
 <style>
 .touch-fallback, .has-preview {
     height: 106px !important;
@@ -476,7 +484,7 @@
                                                                     <input type="checkbox" id="holiday1" name="holiday1"
                                                                         class="setbtn">
                                                                     <label for="holiday1"> Holiday </label>
-                                                                    
+
                                                                 </div>
 
                                                                 <input type="number" name="count[]" class="count1 d-none"
@@ -935,7 +943,7 @@
                                 <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
                             </div>
                         </div>
-                                                                
+
                         <div class="">
                             <div pkgid="{{$pkg->id}}" class="d-inline-block rounded-1 bg-green-two p-2 pkgedit" data-bs-toggle="tooltip"
                                 data-bs-placement="left" title="Edit">
@@ -984,13 +992,13 @@
                                                 <div class="form-card">
                                                     <h2 class="fs-title">Your Business</h2>
                                                     <select class="list-dt" id="selectBNS" name="restaurant">
-                                                        
+
                                                         @foreach($rests as $rest)
 
                                                             <option value="{{$rest->id}}">{{$rest->business}}</option>
-                                                            
+
                                                         @endforeach
-                                                        
+
                                                     </select>
 
                                                 </div>
@@ -1063,7 +1071,7 @@
                                             </fieldset>
                                             <fieldset class="custom_pre_model2">
                                                 <div class="availability"  style="overflow-y: scroll; height: 460px;">
-                                                    <div class="">   
+                                                    <div class="">
                                                         <div class="text">
                                                             <h2>Openning And Closing Hours</h2>
                                                             <p>Please provide your restaurant opening and closing hours</p>
@@ -1459,7 +1467,870 @@
                 <button type="button" class="btn-close croos_btn" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"  id="modalbod">
-                
+
+
+                <section class="event-step">
+                    <div class="container bg-transparent">
+                        <div class="card border-0">
+                            <div class="form">
+                                <div class="left-side">
+                                    <div class="left-heading">
+                                        <h3>Edit Restaurants</h3>
+                                    </div>
+                                    <div class="steps-content">
+                                        <h3>Step <span class="step-number2">1</span></h3>
+                                        <!-- <p class="step-number-content active">Please provide the following information</p>
+                                        <p class="step-number-content d-none">Where is your business located</p>
+                                        <p class="step-number-content d-none">Please provide some of your information</p>
+                                        <p class="step-number-content d-none">Processing your information to help you onboard</p> -->
+                                    </div>
+                                    <ul class="progress-bar-2 p-0 mt-0"
+                                        style="display: flex;flex-direction: column;justify-content: center;overflow: hidden;color: #fff;text-align: center;white-space: nowrap;transition: width .6s ease;">
+                                        <li class="active2">Welcome Onboard</li>
+                                        <li>Location</li>
+                                        <li>Opening Hours</li>
+                                        <li>Processing</li>
+                                    </ul>
+
+
+
+                                </div>
+                                <div class="right-side">
+                                    <form method="post" action="{{ url('/user/update_restaurant') }}/{{$restData->id}}"
+                                          enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="main2nd active2"  style="overflow-y: scroll; height: 496px;">
+                                            <div class="text">
+                                                <h2>Welcome Onboard</h2>
+                                                <p>Please provide the following information</p>
+                                            </div>
+
+                                            <div class="input-text">
+                                                <div class="input-div">
+                                                    <label>Business Category</label>
+                                                    <select name="category">
+                                                        @foreach($catgs as $catg)
+                                                            <option value="{{ $catg->id }}"  {{ $restData->categoryid == $catg->id ? "selected" : "" }}><a class="dropdown-item"
+                                                                                                                                                       href="#">{{ $catg->name}}</a></option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="input-text">
+                                                <div class="input-div">
+                                                    <label>Business Name</label>
+                                                    <input id="business" type="text" name="business" value="{{$restData->business}}"  required require>
+                                                </div>
+                                            </div>
+                                            <div class="input-text">
+                                                <div class="input-div">
+                                                    <label>Business Logo</label>
+                                                    <input id="logo" type="file" name="file" value="" class="dropify"  required require
+                                                           data-default-file="{{asset('upload') }}/{{$restData->logo}}">
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                            <div class="buttons py-4">
+                                                <button type="button" class="next_button2">Next Step</button>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="main2nd">
+
+                                            <div class="text">
+                                                <h2>Location</h2>
+                                                <p>Where is your busniess located</p>
+                                            </div>
+                                            <div class="map-section">
+                                                <div id="map">
+
+
+                                                    <input type="text" name="" id="lati" class="d-none">
+                                                    {{--                                    <div id="map1">--}}
+
+
+
+
+                                                    {{--                                        <meta name="viewport"--}}
+                                                    {{--                                            content="initial-scale=1.0, user-scalable=no" />--}}
+                                                    {{--                                        <meta http-equiv="content-type"--}}
+                                                    {{--                                            content="text/html; charset=UTF-8" />--}}
+                                                    {{--                                        <script type="text/javascript"--}}
+                                                    {{--                                            src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY">--}}
+                                                    {{--                                        </script>--}}
+                                                    {{--                                        <script type="text/javascript"--}}
+                                                    {{--                                            src="{{ asset('downloadxml.js') }}"></script>--}}
+                                                    {{--                                        <style type="text/css">--}}
+                                                    {{--                                        html,--}}
+                                                    {{--                                        body {--}}
+                                                    {{--                                            height: 100%;--}}
+                                                    {{--                                        }--}}
+
+                                                    {{--                                        .gm-style-iw-t {--}}
+                                                    {{--                                            display: none;--}}
+                                                    {{--                                        }--}}
+
+                                                    {{--                                        #map1 {--}}
+                                                    {{--                                            max-height: 200px;--}}
+                                                    {{--                                        }--}}
+                                                    {{--                                        </style>--}}
+                                                    {{--                                        <script type="text/javascript">--}}
+                                                    {{--                                        var map = null;--}}
+                                                    {{--                                        var marker = null;--}}
+
+                                                    {{--                                        var infowindow = new google.maps.InfoWindow({--}}
+                                                    {{--                                            size: new google.maps.Size(150, 50)--}}
+                                                    {{--                                        });--}}
+
+                                                    {{--                                        function createMarker(latlng, name, html) {--}}
+                                                    {{--                                            var contentString = html;--}}
+                                                    {{--                                            var marker = new google.maps.Marker({--}}
+                                                    {{--                                                position: latlng,--}}
+                                                    {{--                                                map: map,--}}
+                                                    {{--                                                zIndex: Math.round(latlng.lat() * ---}}
+                                                    {{--                                                    100000) << 5--}}
+                                                    {{--                                            });--}}
+
+                                                    {{--                                            google.maps.event.addListener(marker, 'click',--}}
+                                                    {{--                                                function() {--}}
+                                                    {{--                                                    infowindow.setContent(--}}
+                                                    {{--                                                        contentString);--}}
+                                                    {{--                                                    infowindow.open(map, marker);--}}
+                                                    {{--                                                });--}}
+                                                    {{--                                            google.maps.event.trigger(marker, 'click');--}}
+                                                    {{--                                            return marker;--}}
+                                                    {{--                                        }--}}
+
+
+
+                                                    {{--                                        function initialize() {--}}
+
+
+                                                    {{--                                            var myOptions = {--}}
+                                                    {{--                                                zoom: 8,--}}
+                                                    {{--                                                center: new google.maps.LatLng(--}}
+                                                    {{--                                                    43.907787, -79.359741),--}}
+                                                    {{--                                                mapTypeControl: true,--}}
+                                                    {{--                                                mapTypeControlOptions: {--}}
+                                                    {{--                                                    style: google.maps--}}
+                                                    {{--                                                        .MapTypeControlStyle--}}
+                                                    {{--                                                        .DROPDOWN_MENU--}}
+                                                    {{--                                                },--}}
+                                                    {{--                                                navigationControl: true,--}}
+                                                    {{--                                                mapTypeId: google.maps.MapTypeId.ROADMAP--}}
+                                                    {{--                                            }--}}
+                                                    {{--                                            map = new google.maps.Map(document--}}
+                                                    {{--                                                .getElementById("map_canvas"),--}}
+                                                    {{--                                                myOptions);--}}
+
+                                                    {{--                                            google.maps.event.addListener(map, 'click',--}}
+                                                    {{--                                                function() {--}}
+                                                    {{--                                                    infowindow.close();--}}
+                                                    {{--                                                });--}}
+
+                                                    {{--                                            google.maps.event.addListener(map, 'click',--}}
+                                                    {{--                                                function(event) {--}}
+                                                    {{--                                                    //call function to create marker--}}
+
+
+
+
+
+                                                    {{--                                                    var s = event.latLng;--}}
+                                                    {{--                                                    $("#lati").val(s);--}}
+                                                    {{--                                                    var lat = $("#lati").val();--}}
+                                                    {{--                                                    var divided = lat.split(" ");--}}
+                                                    {{--                                                    var divided2 = divided[0].split(--}}
+                                                    {{--                                                        "(");--}}
+                                                    {{--                                                    var divided3 = divided2[1].split(--}}
+                                                    {{--                                                        ",");--}}
+                                                    {{--                                                    var final_lat = divided3[0];--}}
+
+
+
+
+
+
+                                                    {{--                                                    var div_lag1 = divided[1].split(--}}
+                                                    {{--                                                        ")");--}}
+                                                    {{--                                                    var final_log = div_lag1[0];--}}
+
+
+
+
+                                                    {{--                                                    if (marker) {--}}
+                                                    {{--                                                        marker.setMap(null);--}}
+                                                    {{--                                                        marker = null;--}}
+                                                    {{--                                                    }--}}
+                                                    {{--                                                    marker = createMarker(event.latLng,--}}
+                                                    {{--                                                        "name",--}}
+                                                    {{--                                                        "<b>Location</b><br>" +--}}
+                                                    {{--                                                        event.latLng);--}}
+                                                    {{--                                                });--}}
+
+                                                    {{--                                        }--}}
+                                                    {{--                                        </script>--}}
+
+                                                    {{--                                        <body style="margin:0px; padding:0px;" onload="initialize()">--}}
+
+                                                    {{--                                            <!-- you can use tables or divs for the overall layout -->--}}
+                                                    {{--                                            <table border="1">--}}
+                                                    {{--                                                <tr>--}}
+                                                    {{--                                                    <td>--}}
+                                                    {{--                                                        <div id="map_canvas"--}}
+                                                    {{--                                                            style="width: 400px; height:200px">--}}
+                                                    {{--                                                        </div>--}}
+                                                    {{--                                                    </td>--}}
+
+                                                    {{--                                                </tr>--}}
+                                                    {{--                                            </table>--}}
+
+                                                    {{--                                            <noscript>--}}
+                                                    {{--                                                <p><b>JavaScript must be enabled in order--}}
+                                                    {{--                                                        for you to use Google Maps.</b>--}}
+                                                    {{--                                                    However, it seems JavaScript is either--}}
+                                                    {{--                                                    disabled or not supported by your--}}
+                                                    {{--                                                    browser.--}}
+                                                    {{--                                                    To view Google Maps, enable JavaScript--}}
+                                                    {{--                                                    by changing your browser options, and--}}
+                                                    {{--                                                    then--}}
+                                                    {{--                                                    try again.</p>--}}
+                                                    {{--                                            </noscript>--}}
+                                                    {{--                                            <script src="http://www.google-analytics.com/urchin.js"--}}
+                                                    {{--                                                type="text/javascript">--}}
+                                                    {{--                                            </script>--}}
+                                                    {{--                                            <script type="text/javascript">--}}
+                                                    {{--                                            _uacct = "UA-162157-1";--}}
+                                                    {{--                                            urchinTracker();--}}
+                                                    {{--                                            </script>--}}
+                                                    {{--                                            <script type="text/javascript">--}}
+                                                    {{--                                            <!----}}
+                                                    {{--                                            google_ad_client = "pub-8586773609818529";--}}
+                                                    {{--                                            google_ad_width = 728;--}}
+                                                    {{--                                            google_ad_height = 90;--}}
+                                                    {{--                                            google_ad_format = "728x90_as";--}}
+                                                    {{--                                            google_ad_type = "text";--}}
+                                                    {{--                                            google_ad_channel = "";--}}
+                                                    {{--                                            google_color_border = "CCCCCC";--}}
+                                                    {{--                                            google_color_bg = "FFFFFF";--}}
+                                                    {{--                                            google_color_link = "000000";--}}
+                                                    {{--                                            google_color_url = "666666";--}}
+                                                    {{--                                            google_color_text = "333333";--}}
+                                                    {{--                                            //--}}
+                                                    {{--                                            -->--}}
+                                                    {{--                                            </script>--}}
+                                                    {{--                                            <script type="text/javascript"--}}
+                                                    {{--                                                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">--}}
+                                                    {{--                                            </script>--}}
+                                                    {{--                                        </body>--}}
+
+                                                    {{--                                    </div>--}}
+                                                </div>
+                                            </div>
+                                            <div class="input-text">
+                                                <div class="input-div">
+                                                    <input id="address" type="text" name="address" value="{{$restData->address}}"  required require>
+                                                    <span>Address</span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="buttons button_space">
+                                                <button class="back_button2" type="button">Back</button>
+                                                <button class="next_button2" type="button">Next Step</button>
+                                            </div>
+                                        </div>
+                                        <div class="main2nd" style="overflow-y: scroll; height:496px;">
+
+                                            <div class="text">
+                                                <h2>Openning And Closing Hours</h2>
+                                                <p>Please provide your restaurant opening and closing hours
+                                                </p>
+                                            </div>
+                                            <div class="hoursmaindiv">
+                                                @php
+                                                    $countval=0;
+                                                @endphp
+                                                @foreach($restData->time as $time)
+                                                    @php
+                                                        $countval=1;
+                                                    @endphp
+                                                @endforeach
+                                                <input type="hidden" value="{{$countval}}" name="repeatt" class="repeatt">
+
+                                                <input type="radio" id="_24by" name="_24by" value="1" {{ $restData->availalltime == 1 ? "checked" : "" }} class="_24byopen" >
+                                                <label for="_24by"> Available 24/7 </label>
+
+                                                <input type="radio" id="timet" name="_24by" value="0" {{ $restData->availalltime != 1 ? "checked" : "" }} class="_24byopen">
+                                                <label for="timet"> Open in specific hours</label>
+
+                                                <div class="hoursdiv2 {{ $restData->availalltime == 1 ? "d-none" : "" }}">
+                                                    <h4 class="mb-0 days">Monday</h4>
+                                                    <div class="disabl_prnt">
+                                                        <div class="d-flex checkbtn">
+                                                            <input type="checkbox" id="_24_1stday2" name="_24_day1" atty="1" {{ $restData->holiday1 == 24 ? "checked" : "" }} class="setbtn">
+                                                            <label for="_24_1stday2"> Available 24 Hours </label>
+
+
+                                                            <input type="checkbox" id="holiday12" name="holiday1" {{ $restData->holiday1 == 1 ? "checked" : "" }} class="setbtn">
+                                                            <label for="holiday12"> Holiday </label>
+                                                        </div>
+
+                                                        <div class="monday main1 {{ $restData->holiday1 == 24 ? "disableddiv" : "" }}">
+                                                            @php
+                                                                $k1=0;
+                                                                $count21=0;
+
+                                                            @endphp
+                                                            @foreach($restData->time as $time)
+
+                                                                @if($time->mondyopen != null)
+                                                                    @php
+                                                                        $k1=1;
+                                                                        $count21++;
+                                                                    @endphp
+                                                                    <div class="main2 input-text mb-2">
+                                                                        <div class="main3 input-div">
+
+                                                                            <input type="time" id="user_name" name="mondayopen[]" value="{{$time->mondyopen}}"
+                                                                                   class="starttime">
+                                                                            <span>Opening</span>
+                                                                        </div>
+
+                                                                        <div class="input-div">
+                                                                            <input type="time" id="user_name" name="mondayclose[]" value="{{$time->mondyclose}}"
+                                                                                   class="endtime">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        @if($loop->first)
+                                                                            <i att="1" class="fa fa-plus add_btn2"
+                                                                               aria-hidden="true"></i>
+                                                                        @else
+                                                                            <i class="fa fa-plus dum"
+                                                                               aria-hidden="true"></i>
+
+                                                                        @endif
+                                                                    </div>
+                                                                @endif
+                                                            @endforeach
+                                                            @if($k1 != 1)
+                                                                <div class="main2 input-text mb-2">
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" id="user_name" name="mondayopen[]"
+                                                                               class="starttime">
+                                                                        <span>Opening</span>
+                                                                    </div>
+                                                                    <div class="input-div">
+                                                                        <input type="time" id="user_name" name="mondayclose[]"
+                                                                               class="endtime">
+                                                                        <span>Closing</span>
+                                                                    </div>
+                                                                    <i att="1" class="fa fa-plus add_btn2"
+                                                                       aria-hidden="true"></i>
+                                                                </div>
+                                                            @endif
+
+
+
+                                                        </div>
+                                                    </div>
+                                                    <input type="number" name="count2[]" class="count21 d-none" value="{{$count21}}">
+
+
+                                                    <div class="div mb-2 text-end">
+
+
+                                                    </div>
+
+                                                    <h4 class="mb-0 days">Tuesday</h4>
+                                                    <div class="disabl_prnt">
+                                                        <div class="d-flex checkbtn">
+                                                            <input type="checkbox" id="_24_2ndday2" name="_24_day2" atty="1" {{ $restData->holiday2 == 24 ? "checked" : "" }}
+                                                            class="setbtn">
+                                                            <label for="_24_2ndday2"> Available 24 Hours </label>
+                                                            <input type="checkbox" id="holiday22" name="holiday2" {{ $restData->holiday2 == 1 ? "checked" : "" }}
+                                                            class="setbtn">
+                                                            <label for="holiday22"> Holiday </label>
+                                                        </div>
+
+                                                        <div class="tuesday main1  {{ $restData->holiday2 == 24 ? "disableddiv" : "" }}">
+                                                            @php
+                                                                $k2=0;
+                                                                $count22=0;
+
+                                                            @endphp
+                                                            @foreach($restData->time as $time)
+
+                                                                @if($time->tuedyopen != null)
+                                                                    @php
+                                                                        $k2=1;
+                                                                        $count22++;
+                                                                    @endphp
+                                                                    <div class="main2 input-text mb-2">
+                                                                        <div class="main3 input-div">
+                                                                            <input type="time" id="user_name" class="starttime" value="{{$time->tuedyopen}}"
+                                                                                   name="tuesdayopen[]">
+                                                                            <span>Opening</span>
+                                                                        </div>
+                                                                        <div class="input-div">
+                                                                            <input type="time" placeholder="none" id="user_name" value="{{$time->tuedyclose}}"
+                                                                                   class="endtime" name="tuesdayclose[]">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        @if($loop->first)
+                                                                            <i att="2" class="fa fa-plus add_btn2"
+                                                                               aria-hidden="true"></i>
+                                                                        @else
+                                                                            <i class="fa fa-plus dum"
+                                                                               aria-hidden="true"></i>
+
+                                                                        @endif
+                                                                    </div>
+                                                                @endif
+                                                            @endforeach
+                                                            @if($k2 != 1)
+                                                                <div class="main2 input-text mb-2">
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" id="user_name" class="starttime"
+                                                                               name="tuesdayopen[]">
+                                                                        <span>Opening</span>
+                                                                    </div>
+                                                                    <div class="input-div">
+                                                                        <input type="time" placeholder="none" id="user_name"
+                                                                               class="endtime" name="tuesdayclose[]">
+                                                                        <span>Closing</span>
+                                                                    </div>
+
+                                                                    <i att="2" class="fa fa-plus add_btn2"
+                                                                       aria-hidden="true"></i>
+
+                                                                </div>
+
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <input type="number" name="count2[]" class="count22 d-none" value="{{$count22}}">
+
+
+                                                    <div class="div mb-2 text-end">
+
+
+                                                    </div>
+
+                                                    <h4 class="mb-0 days">Wednesday</h4>
+                                                    <div class="disabl_prnt">
+                                                        <div class="d-flex checkbtn">
+                                                            <input type="checkbox" id="_24_3rdday2" name="_24_day3" atty="1" {{ $restData->holiday3 == 24 ? "checked" : "" }}
+                                                            class="setbtn">
+                                                            <label for="_24_3rdday2"> Available 24 Hours </label>
+                                                            <input type="checkbox" id="holiday32" name="holiday3" {{ $restData->holiday3 == 1 ? "checked" : "" }}
+                                                            class="setbtn">
+                                                            <label for="holiday32"> Holiday </label>
+                                                        </div>
+
+                                                        <div class="wednesday main1  {{ $restData->holiday3 == 24 ? "disableddiv" : "" }}">
+                                                            @php
+                                                                $k3=0;
+                                                                $count23=0;
+                                                            @endphp
+                                                            @foreach($restData->time as $time)
+
+                                                                @if($time->wedopen != null)
+                                                                    @php
+                                                                        $k3=1;
+                                                                        $count23++;
+                                                                    @endphp
+                                                                    <div class="main2 input-text mb-2">
+
+                                                                        <div class="main3 input-div">
+                                                                            <input type="time" id="user_name" class="starttime"  value="{{$time->wedopen}}"
+                                                                                   name="wednesdayopen[]">
+                                                                            <span>Opening</span>
+                                                                        </div>
+                                                                        <div class="input-div">
+                                                                            <input type="time" placeholder="none" id="user_name"  value="{{$time->wedclose}}"
+                                                                                   class="endtime" name="wednesdayclose[]">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        @if($loop->first)
+                                                                            <i att="3" class="fa fa-plus add_btn2"
+                                                                               aria-hidden="true"></i>
+                                                                        @else
+                                                                            <i class="fa fa-plus dum"
+                                                                               aria-hidden="true"></i>
+
+                                                                        @endif
+                                                                    </div>
+
+                                                                @endif
+                                                            @endforeach
+                                                            @if($k3 != 1)
+                                                                <div class="main2 input-text mb-2">
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" id="user_name" class="starttime"
+                                                                               name="wednesdayopen[]">
+                                                                        <span>Opening</span>
+                                                                    </div>
+                                                                    <div class="input-div">
+                                                                        <input type="time" placeholder="none" id="user_name"
+                                                                               class="endtime" name="wednesdayclose[]">
+                                                                        <span>Closing</span>
+                                                                    </div>
+                                                                    <i att="3" class="fa fa-plus add_btn2"
+                                                                       aria-hidden="true"></i>
+                                                                </div>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <input type="number" name="count2[]" class="count23 d-none" value="{{$count23}}">
+
+                                                    <div class="div mb-2 text-end">
+
+
+                                                    </div>
+
+                                                    <h4 class="mb-0 days">Thursday</h4>
+                                                    <div class="disabl_prnt">
+                                                        <div class="d-flex checkbtn">
+                                                            <input type="checkbox" id="_24_4thday2" name="_24_day4" atty="1" {{ $restData->holiday4 == 24 ? "checked" : "" }}
+                                                            class="setbtn">
+                                                            <label for="_24_4thday2"> Available 24 Hours </label>
+
+                                                            <input type="checkbox" id="holiday42" name="holiday4" {{ $restData->holiday4 == 1 ? "checked" : "" }}
+                                                            class="setbtn">
+                                                            <label for="holiday42"> Holiday </label>
+                                                        </div>
+
+                                                        <div class="thursday main1  {{ $restData->holiday4 == 24 ? "disableddiv" : "" }}">
+                                                            @php
+                                                                $k4=0;
+                                                                $count24=0;
+                                                            @endphp
+                                                            @foreach($restData->time as $time)
+                                                                @if($time->thurdyopen != null)
+                                                                    @php
+                                                                        $k4=1;
+                                                                        $count24++;
+                                                                    @endphp
+                                                                    <div class="main2 input-text mb-2">
+
+                                                                        <div class="main3 input-div">
+                                                                            <input type="time" id="user_name" class="starttime" value="{{$time->thurdyopen}}"
+                                                                                   name="thursdayopen[]">
+                                                                            <span>Opening</span>
+                                                                        </div>
+                                                                        <div class="input-div">
+                                                                            <input type="time" placeholder="none" id="user_name" value="{{$time->thurdyclose}}"
+                                                                                   class="endtime" name="thursdayclose[]">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        @if($loop->first)
+                                                                            <i att="4" class="fa fa-plus add_btn2"
+                                                                               aria-hidden="true"></i>
+                                                                        @else
+                                                                            <i class="fa fa-plus dum"
+                                                                               aria-hidden="true"></i>
+
+                                                                        @endif
+                                                                    </div>
+                                                                @endif
+                                                            @endforeach
+                                                            @if($k4 != 1)
+                                                                <div class="main2 input-text mb-2">
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" id="user_name" class="starttime"
+                                                                               name="thursdayopen[]">
+                                                                        <span>Opening</span>
+                                                                    </div>
+                                                                    <div class="input-div">
+                                                                        <input type="time" placeholder="none" id="user_name"
+                                                                               class="endtime" name="thursdayclose[]">
+                                                                        <span>Closing</span>
+                                                                    </div>
+                                                                    <i att="4" class="fa fa-plus add_btn2"
+                                                                       aria-hidden="true"></i>
+                                                                </div>
+
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <input type="number" name="count2[]" class="count24 d-none" value="{{$count24}}">
+                                                    <div class="div mb-2 text-end">
+
+
+                                                    </div>
+
+                                                    <h4 class="mb-0 days">Friday</h4>
+                                                    <div class="disabl_prnt">
+                                                        <div class="d-flex checkbtn">
+                                                            <input type="checkbox" id="_24_5thday2" name="_24_day5" atty="1" {{ $restData->holiday5 == 24 ? "checked" : "" }}
+                                                            class="setbtn">
+                                                            <label for="_24_5thday2"> Available 24 Hours </label>
+
+                                                            <input type="checkbox" id="holiday52" name="holiday5" {{ $restData->holiday5 == 1 ? "checked" : "" }}
+                                                            class="setbtn">
+                                                            <label for="holiday52"> Holiday </label>
+                                                        </div>
+
+
+                                                        <div class="friday main1 {{ $restData->holiday5 == 24 ? "disableddiv" : "" }}">
+                                                            @php
+                                                                $k5=0;
+                                                                $count25=0;
+                                                            @endphp
+                                                            @foreach($restData->time as $time)
+                                                                @if($time->fridyopen != null)
+                                                                    @php
+                                                                        $k5=1;
+                                                                        $count25++;
+                                                                    @endphp
+                                                                    <div class="main2 input-text mb-2">
+
+                                                                        <div class="main3 input-div">
+                                                                            <input type="time" id="user_name" name="fridayopen[]" value="{{$time->fridyopen}}"
+                                                                                   class="starttime">
+                                                                            <span>Opening</span>
+                                                                        </div>
+                                                                        <div class="input-div">
+                                                                            <input type="time" placeholder="none" id="user_name" value="{{$time->fridyclose}}"
+                                                                                   class="endtime" name="fridayclose[]">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        @if($loop->first)
+                                                                            <i att="5" class="fa fa-plus add_btn2"
+                                                                               aria-hidden="true"></i>
+                                                                        @else
+                                                                            <i class="fa fa-plus dum"
+                                                                               aria-hidden="true"></i>
+
+                                                                        @endif
+                                                                    </div>
+                                                                @endif
+                                                            @endforeach
+                                                            @if($k5 != 1)
+                                                                <div class="main2 input-text mb-2">
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" id="user_name" name="fridayopen[]"
+                                                                               class="starttime">
+                                                                        <span>Opening</span>
+                                                                    </div>
+                                                                    <div class="input-div">
+                                                                        <input type="time" placeholder="none" id="user_name"
+                                                                               class="endtime" name="fridayclose[]">
+                                                                        <span>Closing</span>
+                                                                    </div>
+
+                                                                    <i att="5" class="fa fa-plus add_btn2"
+                                                                       aria-hidden="true"></i>
+
+                                                                </div>
+
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <input type="number" name="count2[]" class="count25 d-none" value="{{$count25}}">
+
+                                                    <div class="div mb-2 text-end">
+
+
+                                                    </div>
+
+                                                    <h4 class="mb-0 days">Saturday</h4>
+                                                    <div class="disabl_prnt">
+                                                        <div class="d-flex checkbtn">
+                                                            <input type="checkbox" id="_24_6thday2" name="_24_day6" atty="1" {{ $restData->holiday6 == 24 ? "checked" : "" }}
+                                                            class="setbtn">
+                                                            <label for="_24_6thday2"> Available 24 Hours </label>
+
+                                                            <input type="checkbox" id="holiday62" name="holiday6" {{ $restData->holiday6 == 1 ? "checked" : "" }}
+                                                            class="setbtn">
+                                                            <label for="holiday62"> Holiday </label>
+                                                        </div>
+
+
+                                                        <div class="saturday main1 {{ $restData->holiday6 == 24 ? "disableddiv" : "" }}">
+                                                            @php
+                                                                $k6=0;
+                                                                $count26=0;
+                                                            @endphp
+                                                            @foreach($restData->time as $time)
+                                                                @if($time->satdyopen != null)
+                                                                    @php
+                                                                        $k6=1;
+                                                                        $count26++;
+                                                                    @endphp
+                                                                    <div class="main2 input-text mb-2">
+
+                                                                        <div class="main3 input-div">
+                                                                            <input type="time" id="user_name" class="starttime"  value="{{$time->satdyopen}}"
+                                                                                   name="saturdayopen[]">
+                                                                            <span>Opening</span>
+                                                                        </div>
+                                                                        <div class="input-div">
+                                                                            <input type="time" id="user_name" class="endtime"  value="{{$time->satdyclose}}"
+                                                                                   name="saturdayclose[]">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        @if($loop->first)
+                                                                            <i att="6" class="fa fa-plus add_btn2"
+                                                                               aria-hidden="true"></i>
+                                                                        @else
+                                                                            <i class="fa fa-plus dum"
+                                                                               aria-hidden="true"></i>
+
+                                                                        @endif
+                                                                    </div>
+                                                                @endif
+                                                            @endforeach
+                                                            @if($k6 != 1)
+                                                                <div class="main2 input-text mb-2">
+
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" id="user_name" class="starttime"
+                                                                               name="saturdayopen[]">
+                                                                        <span>Opening</span>
+                                                                    </div>
+                                                                    <div class="input-div">
+                                                                        <input type="time" id="user_name" class="endtime"
+                                                                               name="saturdayclose[]">
+                                                                        <span>Closing</span>
+                                                                    </div>
+
+                                                                    <i att="6" class="fa fa-plus add_btn2"
+                                                                       aria-hidden="true"></i>
+
+                                                                </div>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <input type="number" name="count2[]" class="count26 d-none" value="{{$count26}}">
+
+                                                    <div class="div mb-2 text-end">
+
+
+                                                    </div>
+
+                                                    <h4 class="mb-0 days">Sunday</h4>
+                                                    <div class="disabl_prnt">
+                                                        <div class="d-flex checkbtn">
+                                                            <input type="checkbox" id="_24_7thday2" name="_24_day7" atty="1" {{ $restData->holiday7 == 24 ? "checked" : "" }}
+                                                            class="setbtn">
+                                                            <label for="_24_7thday2"> Available 24 Hours </label>
+
+                                                            <input type="checkbox" id="holiday72" name="holiday7" {{ $restData->holiday7 == 1 ? "checked" : "" }}
+                                                            class="setbtn">
+                                                            <label for="holiday72"> Holiday </label>
+                                                        </div>
+
+
+                                                        <div class="sunday main1 {{ $restData->holiday7 == 24 ? "disableddiv" : "" }}">
+                                                            @php
+                                                                $k7=0;
+                                                                $count27=0;
+                                                            @endphp
+                                                            @foreach($restData->time as $time)
+                                                                @if($time->sundyopen != null)
+                                                                    @php
+                                                                        $k7=1;
+                                                                        $count27++;
+                                                                    @endphp
+                                                                    <div class="main2 input-text mb-2">
+
+                                                                        <div class="main3 input-div">
+                                                                            <input type="time" placeholder="dss" id="user_name" value="{{$time->sundyopen}}"
+                                                                                   class="starttime" name="sundayopen[]">
+                                                                            <span>Opening</span>
+                                                                        </div>
+                                                                        <div class="input-div">
+                                                                            <input type="time" placeholder="none" id="user_name"  value="{{$time->sundyclose}}"
+                                                                                   class="endtime" name="sundayclose[]">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        @if($loop->first)
+                                                                            <i att="7" class="fa fa-plus add_btn2"
+                                                                               aria-hidden="true"></i>
+                                                                        @else
+                                                                            <i class="fa fa-plus dum"
+                                                                               aria-hidden="true"></i>
+
+                                                                        @endif
+                                                                    </div>
+                                                                @endif
+                                                            @endforeach
+
+                                                            @if($k7 != 1)
+                                                                <div class="main2 input-text mb-2">
+
+                                                                    <div class="main3 input-div">
+                                                                        <input type="time" placeholder="dss" id="user_name"
+                                                                               class="starttime" name="sundayopen[]">
+                                                                        <span>Opening</span>
+                                                                    </div>
+                                                                    <div class="input-div">
+                                                                        <input type="time" placeholder="none" id="user_name"
+                                                                               class="endtime" name="sundayclose[]">
+                                                                        <span>Closing</span>
+                                                                    </div>
+
+                                                                    <i att="7" class="fa fa-plus add_btn2"
+                                                                       aria-hidden="true"></i>
+
+                                                                </div>
+
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <input type="number" name="count2[]" class="count27 d-none" value="{{$count27}}">
+
+                                                    <div class="div mb-2 text-end">
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="buttons button_space">
+                                                <button class="back_button2" type="button">Back</button>
+                                                <button class="testbtn">Next Step</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+
+                                    <div class="main2nd">
+                                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                                            <path class="checkmark__check" fill="none"
+                                                  d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                        </svg>
+
+                                        <div class="text congrats">
+                                            <h2>Congratulations!</h2>
+                                            <p>Your Business has been in our record. Please give sometime
+                                                for
+                                                review.</p>
+                                        </div>
+
+
+                                        <div class="dashBoard d-flex justify-content-end align-items-end mt-5 pt-5">
+                                            <a href=""><button class="btn btn-green">Add New
+                                                    Package</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
 
         </div>
@@ -1474,7 +2345,7 @@
 
             <div class="modal-body" id="modelbody2">
                 <!-- MultiStep Form -->
-                
+
 
 
             </div>
@@ -1499,6 +2370,13 @@
 
 <!-- owl carousel -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+<script src="{{ asset('js/event2.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bussiness2.js') }}"></script>
+
+
+
 <script>
 $(document).ready(function() {
     (function($) {
@@ -1651,18 +2529,18 @@ toastr.error("{{ $error }}");
                 type:'get',
                 url:'{{url('user/editrest')}}',
                 data:{'id':id},
-                success:function(data){  
-                    
+                success:function(data){
+
                     // jQuery.noConflict();
                         $('#modalbod').empty().append(data);
                         $('#editmodel').click();
-                        
+
                         // $('#staticBackdrop2').modal('show');
-                    
+
 
                 },
 
-            });  
+            });
         });
 
         $(document).on("click", ".pkgedit", function(){
@@ -1674,20 +2552,20 @@ toastr.error("{{ $error }}");
                 type:'get',
                 url:'{{url('user/edit_package')}}',
                 data:{'id':id},
-                success:function(data){  
-                    
+                success:function(data){
+
                     // jQuery.noConflict();
                         $('#modelbody2').empty().append(data);
                         $('.editpakkage').click();
-                        
+
                         // $('#staticBackdrop2').modal('show');
-                    
+
 
                 },
 
-            });  
+            });
         });
-        
+
     });
 </script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
@@ -1700,10 +2578,10 @@ toastr.error("{{ $error }}");
         jQuery.noConflict();
             $('.dropify2').dropify();
             $('.dropify2nd').dropify();
-            
+
                 //Near checkboxes
             $('.setbtn').click(function(){
-                
+
 
                 $(this).siblings('input:checkbox').prop('checked',false);
                 // alert($(this).attr("name"));
@@ -1723,11 +2601,11 @@ toastr.error("{{ $error }}");
                 else{
                     $(this).closest(".disabl_prnt").children(".main1").removeClass('disableddiv');
                 }
-                
+
 
             });
 
-            
+
             $(document).on("click",".croos_btn",function() {
                 $('#modalbod').empty()
             //     alert('fgfg');
@@ -1740,7 +2618,7 @@ toastr.error("{{ $error }}");
 
             //     // }
             });
-                                                                
+
     });
 </script>
 

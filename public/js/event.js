@@ -22,7 +22,7 @@ next_click.forEach(function(next_click_form){
        progress_forward();
        contentchange();
     });
-}); 
+});
 
 var back_click=document.querySelectorAll(".back_button");
 back_click.forEach(function(back_click_form){
@@ -36,63 +36,53 @@ back_click.forEach(function(back_click_form){
 
 var username=document.querySelector("#user_name");
 var shownname=document.querySelector(".shown_name");
- 
+
 
 var submit_click=document.querySelectorAll(".submit_button");
 submit_click.forEach(function(submit_click_form){
     submit_click_form.addEventListener('click',function(){
        shownname.innerHTML= username.value;
        formnumber++;
-       updateform(); 
+       updateform();
     });
 });
 
-var heart=document.querySelector(".fa-heart");
-heart.addEventListener('click',function(){
-   heart.classList.toggle('heart');
-});
 
 
-var share=document.querySelector(".fa-share-alt");
-share.addEventListener('click',function(){
-   share.classList.toggle('share');
-});
-
- 
 
 function updateform(){
     main_form.forEach(function(mainform_number){
         mainform_number.classList.remove('active');
     })
     main_form[formnumber].classList.add('active');
-} 
- 
+}
+
 function progress_forward(){
-    
-    
-     
+
+
+
     num.innerHTML = formnumber+1;
     step_list[formnumber].classList.add('active');
-}  
+}
 
 function progress_backward(){
     var form_num = formnumber+1;
     step_list[form_num].classList.remove('active');
     num.innerHTML = form_num;
-} 
- 
+}
+
 var step_num_content=document.querySelectorAll(".step-number-content");
 
  function contentchange(){
      step_num_content.forEach(function(content){
-        content.classList.remove('active'); 
+        content.classList.remove('active');
         content.classList.add('d-none');
-     }); 
+     });
      step_num_content[formnumber].classList.add('active');
- } 
+ }
 
 
- 
+
 function validateform(){
     validate=true;
     var validate_inputs=document.querySelectorAll(".main.active input");
@@ -106,60 +96,60 @@ function validateform(){
         }
     });
     return validate;
-    
+
 }
 
 
-           
-var telInput = $("#phone"),
-errorMsg = $("#error-msg"),
-validMsg = $("#valid-msg");
 
-// initialise plugin
-telInput.intlTelInput({
-
-allowExtensions: true,
-formatOnDisplay: true,
-autoFormat: true,
-autoHideDialCode: true,
-autoPlaceholder: true,
-defaultCountry: "auto",
-ipinfoToken: "yolo",
-
-nationalMode: false,
-numberType: "MOBILE",
-//onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-preferredCountries: ['sa', 'ae', 'qa','om','bh','kw','ma'],
-preventInvalidNumbers: true,
-separateDialCode: true,
-initialCountry: "auto",
-geoIpLookup: function(callback) {
-$.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-  var countryCode = (resp && resp.country) ? resp.country : "";
-  callback(countryCode);
-});
-},
- utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"
-});
-
-var reset = function() {
-telInput.removeClass("error");
-errorMsg.addClass("hide");
-validMsg.addClass("hide");
-};
-
-// on blur: validate
-telInput.blur(function() {
-reset();
-if ($.trim(telInput.val())) {
-  if (telInput.intlTelInput("isValidNumber")) {
-    validMsg.removeClass("hide");
-  } else {
-    telInput.addClass("error");
-    errorMsg.removeClass("hide");
-  }
-}
-});
+// var telInput = $("#phone"),
+// errorMsg = $("#error-msg"),
+// validMsg = $("#valid-msg");
+//
+// // initialise plugin
+// telInput.intlTelInput({
+//
+// allowExtensions: true,
+// formatOnDisplay: true,
+// autoFormat: true,
+// autoHideDialCode: true,
+// autoPlaceholder: true,
+// defaultCountry: "auto",
+// ipinfoToken: "yolo",
+//
+// nationalMode: false,
+// numberType: "MOBILE",
+// //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+// preferredCountries: ['sa', 'ae', 'qa','om','bh','kw','ma'],
+// preventInvalidNumbers: true,
+// separateDialCode: true,
+// initialCountry: "auto",
+// geoIpLookup: function(callback) {
+// $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+//   var countryCode = (resp && resp.country) ? resp.country : "";
+//   callback(countryCode);
+// });
+// },
+//  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"
+// });
+//
+// var reset = function() {
+// telInput.removeClass("error");
+// errorMsg.addClass("hide");
+// validMsg.addClass("hide");
+// };
+//
+// // on blur: validate
+// telInput.blur(function() {
+// reset();
+// if ($.trim(telInput.val())) {
+//   if (telInput.intlTelInput("isValidNumber")) {
+//     validMsg.removeClass("hide");
+//   } else {
+//     telInput.addClass("error");
+//     errorMsg.removeClass("hide");
+//   }
+// }
+// });
 
     // // on keyup / change flag: reset
     // telInput.on("keyup change", reset);
@@ -182,7 +172,7 @@ if ($.trim(telInput.val())) {
     // //     autoPlaceholder: true,
     // //     defaultCountry: "auto",
     // //     ipinfoToken: "yolo",
-        
+
     // //     nationalMode: false,
     // //     numberType: "MOBILE",
     // //     //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
@@ -198,7 +188,7 @@ if ($.trim(telInput.val())) {
     // //     },
     // //      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"
     // //     });
-        
+
 
     // var reset = function() {
     //   telInput.removeClass("error");

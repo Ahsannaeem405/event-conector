@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/chatboard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page2.css') }}">
 
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -53,22 +53,22 @@
                             <a class="nav-link active pt-md-3 fontw500" aria-current="page"
                                 href="{{ url('/user') }}">Home</a>
                         </li>
-                        
+
 
 
                             <li class="nav-item">
                                 <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/featured_rest') }}">Featured restaurants</a>
                             </li>
-                       
+
                         @auth
                         @if(auth()->user()->role=='2')
                         <li class="nav-item">
                             <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/planner') }}">My Restaurants</a>
                         </li>
                         @endif
-                        
+
                         @endauth
-                        
+
 							<li class="nav-item">
                             <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/chatBoard') }}">Inbox</a>
                         </li>
@@ -87,7 +87,7 @@
 								<li><a class="dropdown-item" href="./page3.html">Favorite</a></li>
 							</ul>
 						</li> -->
-                        <!--                         
+                        <!--
                         <li>
                             <div class="search-box ps-md-4">
                                 <input class="search-input mt-2 me-md-2" type="text" name="" placeholder="Search Venue">
@@ -116,8 +116,8 @@
                     @endauth
 
                         @auth
-                        
-                        
+
+
                         <a class="btn rounded-pill btn-danger" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
@@ -130,8 +130,8 @@
                         @else
                         <a href="{{ url('/login') }}"><button class="btn" type="submit">Login</button></a>
                         <a href="{{ url('/register') }}"><button class="btn rounded-pill btn-green" type="button">Sign up</button></a>
-                        @endauth                    
-                              
+                        @endauth
+
                 </div>
             </div>
         </nav>
@@ -145,7 +145,7 @@
 
 
 
-@section("footer")    
+@section("footer")
 
     <!-- footer section -->
     <section class="footer mt-5 pt-5">
