@@ -260,6 +260,150 @@
         $(this).parent().remove();
     
     });
+    $('.add_btn3').click(function() {
+        if($(this).attr('att') == 1)
+        {
+            
+            
+            $('.count41').val( function(i, oldval) {
+                return ++oldval;
+            });
+            
+
+            $('.monday').append(`<div class="main2 input-text mb-2 day1">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="mondayopen[]" class="starttime">
+                <span>Opening</span>
+            </div>
+
+            <div class="input-div">
+                <input type="time" id="user_name"
+                    name="mondayclose[]" class="endtime">
+                <span>Closing</span>
+            </div>
+            <i att="1" class="fa fa-close clos_icon2"></i>
+            </div>`);
+        }
+        else if($(this).attr('att') == 2)
+        {
+            
+            $('.count42').val( function(i, oldval) {
+                return ++oldval;
+            });
+            $('.tuesday').append(`<div class="main2 input-text mb-2 day2">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="tuesdayopen[]" class="starttime">
+                <span>Opening</span>
+            </div>
+
+            <div class="input-div">
+                <input type="time" id="user_name"
+                    name="tuesdayclose[]" class="endtime">
+                <span>Closing</span>
+            </div>
+            <i att="2"  class="fa fa-close clos_icon2"></i>
+            </div>`);
+        }
+        else if($(this).attr('att') == 3)
+        {
+            
+            $('.count43').val( function(i, oldval) {
+                return ++oldval;
+            });
+            $('.wednesday').append(`<div class="main2 input-text mb-2 day3">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="wednesdayopen[]" class="starttime">
+                <span>Opening</span>
+            </div>
+
+            <div class="input-div">
+                <input type="time" id="user_name"
+                    name="wednesdayclose[]" class="endtime">
+                <span>Closing</span>
+            </div>
+            <i att="3"  class="fa fa-close clos_icon2"></i>
+            </div>`);
+        }
+        else if($(this).attr('att') == 4)
+        {
+            
+            $('.count44').val( function(i, oldval) {
+                return ++oldval;
+            });
+            $('.thursday').append(`<div class="main2 input-text mb-2 day4">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="thursdayopen[]" class="starttime">
+                <span>Opening</span>
+            </div>
+
+            <div class="input-div">
+                <input type="time" id="user_name"
+                    name="thursdayclose[]" class="endtime">
+                <span>Closing</span>
+            </div>
+            <i att="4"  class="fa fa-close clos_icon2"></i>
+            </div>`);
+        }
+        else if($(this).attr('att') == 5)
+        {
+            $('.count45').val( function(i, oldval) {
+                return ++oldval;
+            });
+            $('.friday').append(`<div class="main2 input-text mb-2 day5">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="fridayopen[]" class="starttime">
+                <span>Opening</span>
+            </div>
+
+            <div class="input-div">
+                <input type="time" id="user_name"
+                    name="fridayclose[]" class="endtime">
+                <span>Closing</span>
+            </div>
+            <i att="5"  class="fa fa-close clos_icon2"></i>
+            </div>`);
+        }
+        else if($(this).attr('att') == 6)
+        {
+            $('.count46').val( function(i, oldval) {
+                return ++oldval;
+            });
+            $('.saturday').append(`<div class="main2 input-text mb-2 day6">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="saturdayopen[]" class="starttime">
+                <span>Opening</span>
+            </div>
+
+            <div class="input-div">
+                <input type="time" id="user_name"
+                    name="saturdayclose[]" class="endtime">
+                <span>Closing</span>
+            </div>
+            <i att="6"  class="fa fa-close clos_icon2"></i>
+            </div>`);
+        }
+        else if($(this).attr('att') == 7)
+        {
+            $('.count47').val( function(i, oldval) {
+                return ++oldval;
+            });
+            $('.sunday').append(`<div class="main2 input-text mb-2 day7">
+            <div class="main3 input-div">
+                <input type="time" id="user_name" name="sundayopen[]" class="starttime">
+                <span>Opening</span>
+            </div>
+
+            <div class="input-div">
+                <input type="time" id="user_name"
+                    name="sundayclose[]" class="endtime">
+                <span>Closing</span>
+            </div>
+            <i att="7"  class="fa fa-close clos_icon2"></i>
+            </div>`);
+        }
+        
+
+    });  
 
     $(document).on("blur", ".endtime", function() {
         $(this).closest('.input-div').children('.errormsg').remove();

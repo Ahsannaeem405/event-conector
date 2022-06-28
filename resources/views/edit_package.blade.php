@@ -158,6 +158,7 @@
                                                                     <div class="monday main1 {{ $pkg->holiday1 == 24 ? "disableddiv" : "" }}">
                                                                             @php
                                                                             $k1=0;   
+                                                                            $j1=0;   
                                                                             $count21=0;
 
                                                                             @endphp
@@ -165,7 +166,8 @@
                                                                                                         
                                                                             @if($time->mondyopen != null)
                                                                                 @php
-                                                                                $k1=1;   
+                                                                                $k1=1;
+                                                                                $j1++;   
                                                                                 $count21++; 
                                                                                 @endphp
                                                                                 <div class="main2 input-text mb-2">
@@ -181,7 +183,7 @@
                                                                                             name="mondayclose[]" class="endtime"  value="{{$time->mondyclose}}">
                                                                                         <span>Closing</span>
                                                                                     </div>
-                                                                                    @if($loop->first)
+                                                                                    @if($j1==1)
                                                                                         <i att="1" class="fa fa-plus add_btn2"
                                                                                         aria-hidden="true"></i>                                                   
                                                                                     @else
@@ -209,7 +211,7 @@
                                                                             </div>
                                                                         @endif
                                                                     </div>
-                                                                    <input type="number" name="count[]" class="count1 d-none"
+                                                                    <input type="number" name="count[]" class="count41 d-none"
                                                                         value="{{$count21}}">
                                                                 </div>
 
@@ -229,13 +231,10 @@
                                                                         <label for="holiday321"> Holiday </label>
                                                                     </div>
 
-                                                                    <input type="number" name="count[]" class="count2 d-none"
-                                                                        value="0">
-
                                                                     <div class="tuesday main1 {{ $pkg->holiday2 == 24 ? "disableddiv" : "" }}">
                                                                             @php 
                                                                             $k2=0;  
-                                                                            $j=0; 
+                                                                            $j2=0; 
                                                                             $count22=0;
 
                                                                             @endphp
@@ -244,7 +243,7 @@
                                                                             @if($time->tuedyopen != null)
                                                                                 @php
                                                                                 $k2=1;  
-                                                                                $j++;
+                                                                                $j2++;
                                                                                 $count22++;  
                                                                                 @endphp
                                                                                 <div class="main2 input-text mb-2">
@@ -259,7 +258,7 @@
                                                                                             name="tuesdayclose[]">
                                                                                         <span>Closing</span>
                                                                                     </div>
-                                                                                    @if($loop->first)
+                                                                                    @if($j2==1)
                                                                                         <i att="2" class="fa fa-plus add_btn2"
                                                                                         aria-hidden="true"></i>                                                   
                                                                                     @else
@@ -290,6 +289,8 @@
 
                                                                         @endif
                                                                     </div>
+                                                                    <input type="number" name="count[]" class="count42 d-none"
+                                                                        value="{{ $count22 }}">
                                                                 </div>
                                                                 <div class="div mb-2 text-end">
 
@@ -307,18 +308,19 @@
                                                                         <label for="holiday331"> Holiday </label>
                                                                     </div>
 
-                                                                    <input type="number" name="count[]" class="count3 d-none"
-                                                                        value="0">
+                                                                    
                                                                     <div class="wednesday main1 {{ $pkg->holiday3 == 24 ? "disableddiv" : "" }}">
                                                                             @php
                                                                             $k3=0; 
+                                                                            $j3=0; 
                                                                             $count23=0;
                                                                             @endphp
                                                                         @foreach($pkg->pkgtime as $time)
                                                                             
                                                                             @if($time->wedopen != null)
                                                                                 @php
-                                                                                $k3=1;  
+                                                                                $k3=1; 
+                                                                                $j3++; 
                                                                                 $count23++;  
                                                                                 @endphp
                                                                                     <div class="main2 input-text mb-2">
@@ -334,7 +336,7 @@
                                                                                                 name="wednesdayclose[]">
                                                                                             <span>Closing</span>
                                                                                         </div>
-                                                                                        @if($loop->first)
+                                                                                        @if($j3==1)
                                                                                             <i att="3" class="fa fa-plus add_btn2"
                                                                                             aria-hidden="true"></i>                                                   
                                                                                         @else
@@ -362,6 +364,8 @@
                                                                             </div>
                                                                         @endif
                                                                     </div>
+                                                                    <input type="number" name="count[]" class="count43 d-none"
+                                                                        value="{{ $count23 }}">
                                                                 </div>
                                                                 <div class="div mb-2 text-end">
 
@@ -380,17 +384,18 @@
                                                                         <label for="holiday341"> Holiday </label>
                                                                     </div>
 
-                                                                    <input type="number" name="count[]" class="count4 d-none"
-                                                                        value="0">
+                                                                    
                                                                     <div class="thursday main1 {{ $pkg->holiday4 == 24 ? "disableddiv" : "" }}">
                                                                             @php
                                                                             $k4=0;    
+                                                                            $j4=0;
                                                                             $count24=0;
                                                                             @endphp
                                                                         @foreach($pkg->pkgtime as $time)
                                                                             @if($time->thurdyopen != null)
                                                                                 @php
-                                                                                $k4=1;   
+                                                                                $k4=1;
+                                                                                $j4++;   
                                                                                 $count24++; 
                                                                                 @endphp
                                                                                     <div class="main2 input-text mb-2">
@@ -406,7 +411,7 @@
                                                                                                 name="thursdayclose[]">
                                                                                             <span>Closing</span>
                                                                                         </div>
-                                                                                        @if($loop->first)
+                                                                                        @if($j4==1)
                                                                                             <i att="4" class="fa fa-plus add_btn2"
                                                                                             aria-hidden="true"></i>                                                   
                                                                                         @else
@@ -435,6 +440,8 @@
 
                                                                         @endif
                                                                     </div>
+                                                                    <input type="number" name="count[]" class="count44 d-none"
+                                                                        value="{{ $count24 }}">
                                                                 </div>
                                                                 <div class="div mb-2 text-end">
 
@@ -453,18 +460,19 @@
                                                                         <label for="holiday351"> Holiday </label>
                                                                     </div>
 
-                                                                    <input type="number" name="count[]" class="count5 d-none"
-                                                                        value="0">
+                                            
 
                                                                     <div class="friday main1 {{ $pkg->holiday5 == 24 ? "disableddiv" : "" }}">
                                                                             @php
                                                                             $k5=0;    
+                                                                            $j5=0;    
                                                                             $count25=0;
                                                                             @endphp
                                                                         @foreach($pkg->pkgtime as $time)
                                                                             @if($time->fridyopen != null)
                                                                                 @php
-                                                                                $k5=1;  
+                                                                                $k5=1;
+                                                                                $j5++;    
                                                                                 $count25++;  
                                                                                 @endphp
                                                                                     <div class="main2 input-text mb-2">
@@ -480,7 +488,7 @@
                                                                                                 name="fridayclose[]">
                                                                                             <span>Closing</span>
                                                                                         </div>
-                                                                                        @if($loop->first)
+                                                                                        @if($j5==1)
                                                                                             <i att="5" class="fa fa-plus add_btn2"
                                                                                             aria-hidden="true"></i>                                                   
                                                                                         @else
@@ -529,18 +537,20 @@
                                                                         <label for="holiday361"> Holiday </label>
                                                                     </div>
 
-                                                                    <input type="number" name="count[]" class="count6 d-none"
+                                                                    <input type="number" name="count[]" class="count46 d-none"
                                                                         value="0">
 
                                                                     <div class="saturday main1 {{ $pkg->holiday6 == 24 ? "disableddiv" : "" }}">
                                                                             @php
                                                                             $k6=0;  
+                                                                            $j6=0;  
                                                                             $count26=0;  
                                                                             @endphp 
                                                                         @foreach($pkg->pkgtime as $time)
                                                                             @if($time->satdyopen != null)
                                                                                 @php
                                                                                 $k6=1;  
+                                                                                $j6++;
                                                                                 $count26++;  
                                                                                 @endphp 
                                                                                     <div class="main2 input-text mb-2">
@@ -555,7 +565,7 @@
                                                                                                 class="endtime" name="saturdayclose[]" value="{{$time->satdyclose}}">
                                                                                             <span>Closing</span>
                                                                                         </div>
-                                                                                        @if($loop->first)
+                                                                                        @if($j6==1)
                                                                                             <i att="6" class="fa fa-plus add_btn2"
                                                                                             aria-hidden="true"></i>                                                   
                                                                                         @else
@@ -610,12 +620,14 @@
                                                                     <div class="sunday main1 {{ $pkg->holiday7 == 24 ? "disableddiv" : "" }}">
                                                                             @php
                                                                             $k7=0;    
+                                                                            $j7=0;    
                                                                             $count27=0;  
                                                                             @endphp
                                                                         @foreach($pkg->pkgtime as $time)
                                                                             @if($time->sundyopen != null)
                                                                                 @php
                                                                                 $k7=1;  
+                                                                                $j7++;
                                                                                 $count27++;    
                                                                                 @endphp
                                                                                     <div class="main2 input-text mb-2">
@@ -632,7 +644,7 @@
                                                                                                 name="sundayclose[]">
                                                                                             <span>Closing</span>
                                                                                         </div>
-                                                                                        @if($loop->first)
+                                                                                        @if($j7==1)
                                                                                             <i att="7" class="fa fa-plus add_btn2"
                                                                                             aria-hidden="true"></i>                                                   
                                                                                         @else

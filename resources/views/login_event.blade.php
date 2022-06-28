@@ -73,7 +73,7 @@
 
 
                             <div class="buttons py-6">
-                                <button class="next_button" id="subbtn">Next Step</button>
+                                <button type="button" class="next_button" id="subbtn">Next Step</button>
                             </div>
                         </div>
 
@@ -99,8 +99,8 @@
 
 
                             <div class="buttons button_space">
-                                <button class="back_button">Back</button>
-                                <button class="next_button">Next Step</button>
+                                <button type="button" class="back_button">Back</button>
+                                <button type="button" class="next_button">Next Step</button>
                             </div>
                         </div>
                         <div class="main">
