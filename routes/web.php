@@ -21,7 +21,7 @@ use App\Http\Controllers\PackageController;
 Route::get('/', function () {
     return view('/index');
 });
- 
+
  Route::get('/cls', function() {
         $run = Artisan::call('config:clear');
         $run = Artisan::call('cache:clear');
@@ -48,7 +48,7 @@ Route::post('/addplanner', [App\Http\Controllers\EventController::class, 'addpla
 
 Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
 
-    
+
     Route::get('/', [AdminController::class, 'index']);
 
     Route::get('/users', [AdminController::class, 'users']);
@@ -61,8 +61,8 @@ Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
     Route::post('/addcategory', [AdminController::class, 'addcategory']);
 
 
-    
-    
+
+
 });
 
 
@@ -73,7 +73,7 @@ Route::prefix('/planner')->middleware(['auth','planner'])->group(function (){
     Route::get('/', [EventController::class, 'restaurant']);
     Route::post('/addrest', [EventController::class, 'addrest']);
 
-    
+
 });
 
 
@@ -89,8 +89,8 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
 
     Route::get('/event', [EventController::class, 'event'])->withoutMiddleware(['auth','user']);
-    Route::get('/login/event', [EventController::class, 'login_event']); 
-       
+    Route::get('/login/event', [EventController::class, 'login_event']);
+
     Route::get('/planner', [EventController::class, 'restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
     Route::get('/restaurant', [EventController::class, 'restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
 
@@ -99,14 +99,14 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
     Route::post('/update_package', [PackageController::class, 'update_package'])->withoutMiddleware(['user'])->middleware(['planner']);
 
     Route::post('/update_restaurant/{id}', [EventController::class, 'update_restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
-   
+
     Route::post('/add_package', [PackageController::class, 'add_package'])->withoutMiddleware(['user'])->middleware(['planner']);
 
-    
-    
 
 
-    
+
+
+
 });
 
 
