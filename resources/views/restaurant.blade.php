@@ -7,7 +7,10 @@
     height: 106px !important;
     width: 200px !important;
 }
-
+.dropify-wrapper {
+    height: 106px!important;
+    background:green;
+    }
 .disableddiv {
     pointer-events: none;
     opacity: 0.4;
@@ -866,6 +869,11 @@
                 <button class="btn btn-green rounded-pill" data-bs-target="#packageSection" data-bs-toggle="modal"
                     data-bs-dismiss="modal">Add New Package</button>
             </div>
+            <div class="col-6 text-right d-flex justify-content-end py-4">
+                <button class="btn btn-green rounded-pill editpakkage d-none" data-bs-target="#packageSection2" data-bs-toggle="modal"
+                    data-bs-dismiss="modal">editPackage</button>
+            </div>
+
         </div>
         <div class="row py-3">
         @foreach($pkgs as $pkg)
@@ -929,7 +937,7 @@
                         </div>
                                                                 
                         <div class="">
-                            <div restid="{{$pkg->id}}" class="d-inline-block rounded-1 bg-green-two p-2 restedit" data-bs-toggle="tooltip"
+                            <div pkgid="{{$pkg->id}}" class="d-inline-block rounded-1 bg-green-two p-2 pkgedit" data-bs-toggle="tooltip"
                                 data-bs-placement="left" title="Edit">
                                 <i class="fa fa-pencil-square-o text-white font-24" aria-hidden="true"></i>
                             </div>
@@ -1460,6 +1468,21 @@
 
 <!--  -->
 
+<div class="modal fade" id="packageSection2" aria-hidden="true" aria-labelledby="addPackageLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body" id="modelbody2">
+                <!-- MultiStep Form -->
+                
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <!-- Bootstrap5 CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
@@ -1641,6 +1664,29 @@ toastr.error("{{ $error }}");
 
             });  
         });
+
+        $(document).on("click", ".pkgedit", function(){
+
+            var id = $(this).attr('pkgid');
+            // alert();
+
+            $.ajax({
+                type:'get',
+                url:'{{url('user/edit_package')}}',
+                data:{'id':id},
+                success:function(data){  
+                    
+                    // jQuery.noConflict();
+                        $('#modelbody2').empty().append(data);
+                        $('.editpakkage').click();
+                        
+                        // $('#staticBackdrop2').modal('show');
+                    
+
+                },
+
+            });  
+        });
         
     });
 </script>
@@ -1650,12 +1696,15 @@ toastr.error("{{ $error }}");
 
 <script>
     $(document).ready(function(){
+        // alert('fff');
         jQuery.noConflict();
             $('.dropify2').dropify();
             $('.dropify2nd').dropify();
             
                 //Near checkboxes
             $('.setbtn').click(function(){
+                
+
                 $(this).siblings('input:checkbox').prop('checked',false);
                 // alert($(this).attr("name"));
 
@@ -1690,9 +1739,9 @@ toastr.error("{{ $error }}");
             //     //     $('.sunday').removeClass('disableddiv');
 
             //     // }
-            // });
+            });
                                                                 
-        });
+    });
 </script>
 
 @endsection

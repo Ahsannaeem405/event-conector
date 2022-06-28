@@ -879,8 +879,9 @@
     $(document).ready(function(){
         // jQuery.noConflict();
             $('.dropify').dropify();
-
             $('.setbtn').click(function(){
+
+
                 $(this).siblings('input:checkbox').prop('checked',false);
                 // alert($(this).attr("name"));
 

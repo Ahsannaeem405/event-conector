@@ -183,7 +183,8 @@ class EventController extends Controller
         $catgs = Category::all();
         $rests = Restaurant::where('planner_id', auth()->user()->id)->get();
         $pkgs = Package::where('planner_id', auth()->user()->id)->get();
-        // dd($rests);
+
+        // dd($pkgs->getimage);
         return view('restaurant', compact('catgs', 'rests', 'pkgs'));
 
     }

@@ -145,18 +145,18 @@ select.list-dt:focus {
 }
 
 /*progressbar*/
-#progressbar {
+#progressbar, #progressbar2 {
     margin-bottom: 30px;
     overflow: hidden;
     color: lightgrey;
     padding-left: 0;
 }
 
-#progressbar .active {
+#progressbar .active, #progressbar2 .active {
     color: #000000;
 }
 
-#progressbar li {
+#progressbar li, #progressbar2 li {
     list-style-type: none;
     font-size: 12px;
     width: 20%;
@@ -165,32 +165,32 @@ select.list-dt:focus {
 }
 
 /*Icons in the ProgressBar*/
-#progressbar #account:before {
+#progressbar #account:before, #progressbar2 #account:before {
     /* font-family: FontAwesome; */
     content: "1";
 }
 
-#progressbar #personal:before {
+#progressbar #personal:before, #progressbar2 #personal:before {
     /* font-family: FontAwesome; */
     content: "2";
 }
 
-#progressbar #payment:before {
+#progressbar #payment:before, #progressbar2 #payment:before {
     /* font-family: FontAwesome; */
     content: "3";
 }
-#progressbar #confirm:before {
+#progressbar #confirm:before, #progressbar2 #confirm:before {
     /* font-family: FontAwesome; */
     content: "4";
 }
 
-#progressbar #finish:before {
+#progressbar #finish:before, #progressbar2 #finish:before {
     /* font-family: FontAwesome; */
     content: "5";
 }
 
 /*ProgressBar before any progress*/
-#progressbar li:before {
+#progressbar li:before, #progressbar2 li:before  {
     width: 50px;
     height: 50px;
     line-height: 45px;
@@ -204,7 +204,7 @@ select.list-dt:focus {
 }
 
 /*ProgressBar connectors*/
-#progressbar li:after {
+#progressbar li:after, #progressbar2 li:after {
     content: '';
     width: 100%;
     height: 2px;
@@ -217,6 +217,9 @@ select.list-dt:focus {
 
 /*Color number of the step and the connector before it*/
 #progressbar li.active:before, #progressbar li.active:after {
+    background: skyblue;
+}
+#progressbar2 li.active:before, #progressbar2 li.active:after {
     background: skyblue;
 }
 
