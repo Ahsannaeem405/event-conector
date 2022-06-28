@@ -102,7 +102,7 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
     Route::post('/add_package', [PackageController::class, 'add_package'])->withoutMiddleware(['user'])->middleware(['planner']);
 
-
+    Route::post('/hostevent', [App\Http\Controllers\EventController::class, 'hostevent']);
 
 
 

@@ -31,7 +31,7 @@
 
                     </div>
                     <div class="right-side">
-                    <form action="{{ url('/addplanner') }}" method="POST" id="first_form">
+                    <form action="{{ url('/user/hostevent') }}" method="POST" id="first_form">
                         @csrf
                         <div class="main active py-2">
                             <div class="text">
@@ -111,17 +111,17 @@
                             </div>
                             <div class="input-text">
                                 <div class="input-div">
-                                    <input type="text" class="@error('name') is-invalid @enderror" id="user_name" name="name" id="name" value="{{ old('name') }}">
+                                    <input type="text" class="@error('name') is-invalid @enderror" id="user_name" name="name" id="name" value="{{ auth()->user()->name }}">
                                     <span>First Name</span>
                                 </div>
                                 <div class="input-div">
-                                    <input type="text"  name="lastname"  id="lastname" value="{{ old('lastname') }}">
+                                    <input type="text"  name="lastname"  id="lastname" value="{{auth()->user()->lastname }}">
                                     <span>Last Name</span>
                                 </div>
                             </div>
                             <div class="input-text">
                                 <div class="input-div">
-                                    <input type="email"  name="email"  id="email" value="{{ old('email') }}">
+                                    <input type="email" readonly name="email"  id="email" value="{{ auth()->user()->email }}">
                                     <span>E-mail Address</span>
                                 </div>
                             </div>
