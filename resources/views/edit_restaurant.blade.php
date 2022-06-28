@@ -17,10 +17,10 @@
                     </div>
                     <ul class="progress-bar-2 p-0 mt-0"
                         style="display: flex;flex-direction: column;justify-content: center;overflow: hidden;color: #fff;text-align: center;white-space: nowrap;transition: width .6s ease;">
-                        <li class="active2">Welcome Onboard</li>
-                        <li>Location</li>
-                        <li>Opening Hours</li>
-                        <li>Processing</li>
+                        <li class="active2 progresss">Welcome Onboard</li>
+                        <li class="progresss">Location</li>
+                        <li class="progresss">Opening Hours</li>
+                        <li class="progresss">Processing</li>
                     </ul>
 
 
@@ -57,7 +57,7 @@
                             <div class="input-text">
                                 <div class="input-div">
                                     <label>Business Logo</label>
-                                    <input id="logo" type="file" name="file" value="" class="dropify"  required require
+                                    <input id="logo" type="file" name="file" value="{{$rest->logo}}" class="dropify" 
                                     data-default-file="{{asset('upload') }}/{{$rest->logo}}">
                                 </div>
                             </div>
@@ -861,6 +861,18 @@
         </div>
     </div>
 </section>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
+<script>
+$(document).ready(function(){
+        
+        // alert('fff');
+        jQuery.noConflict();
+       
+            $('.dropify').dropify();
+});
 
 
 

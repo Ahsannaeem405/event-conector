@@ -2531,7 +2531,8 @@ toastr.error("{{ $error }}");
                 data:{'id':id},
                 success:function(data){
 
-                    // jQuery.noConflict();
+                    jQuery.noConflict();
+                    
                         $('#modalbod').empty().append(data);
                         $('#editmodel').click();
 
@@ -2554,9 +2555,12 @@ toastr.error("{{ $error }}");
                 data:{'id':id},
                 success:function(data){
 
-                    // jQuery.noConflict();
+                    
+
                         $('#modelbody2').empty().append(data);
                         $('.editpakkage').click();
+                        // jQuery.noConflict();
+                        
 
                         // $('#staticBackdrop2').modal('show');
 
@@ -2574,13 +2578,14 @@ toastr.error("{{ $error }}");
 
 <script>
     $(document).ready(function(){
+        
         // alert('fff');
         jQuery.noConflict();
             $('.dropify2').dropify();
             $('.dropify2nd').dropify();
 
                 //Near checkboxes
-            $('.setbtn').click(function(){
+            $(document).on('click','.setbtn',function(){
 
 
                 $(this).siblings('input:checkbox').prop('checked',false);
@@ -2607,6 +2612,7 @@ toastr.error("{{ $error }}");
 
 
             $(document).on("click",".croos_btn",function() {
+                 formnumbert2=0;
                 $('#modalbod').empty()
             //     alert('fgfg');
             //     // if ( $('#_24_7thday').is(":checked"))

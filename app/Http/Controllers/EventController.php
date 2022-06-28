@@ -476,15 +476,16 @@ class EventController extends Controller
         // dd($request->count2,max($request->count2));
 
         // dd('update restaurant section',$request->id);
-        DB::table('restaurants')
-            ->where('id', $request->id)
-            ->delete();
+        // DB::table('restaurants')
+        //     ->where('id', $request->id)
+        //     ->delete();
+
         DB::table('timings')
         ->where('restaurant_id', $request->id)
         ->delete();
 
-        $rest = new Restaurant;
-            $rest->planner_id = auth()->user()->id;
+        $rest = Restaurant::find($request->id);
+            // $rest->planner_id = auth()->user()->id;
             $rest->categoryid = $request->category;
             $rest->business = $request->business;
             $rest->address = $request->address;
@@ -503,7 +504,7 @@ class EventController extends Controller
             if($request->_24by == 1 )
             {
                 $rest->availalltime = 1;
-                $result = $rest->save();
+                $result = $rest->update();
             }
             else
             {
@@ -523,7 +524,7 @@ class EventController extends Controller
                     }
 
                 }
-                $result = $rest->save();
+                $result = $rest->update();
                 if($request->repeatt == 1)
                 {
                     $maxlop = max($request->count2);

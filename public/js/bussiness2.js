@@ -68,7 +68,8 @@
     
     
 
-    $('.add_btn2').click(function() {
+    $(document).on('click','.add_btn2',function() {
+        alert('ddddd');
         if($(this).attr('att') == 1)
         {
             
