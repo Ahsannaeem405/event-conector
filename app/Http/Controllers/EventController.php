@@ -195,17 +195,6 @@ class EventController extends Controller
         $user->categoryid = $request->category;
         $user->address = $request->address;
         $user->update();
-        // $user = User::create([
-        //     'name' => $request->name,
-        //     'role' => 2,
-        //     'lastname' => $request->lastname,
-        //     'categoryid' => $request->category,
-        //     'business' => $request->business,
-        //     'email' => $request->email,
-        //     'phone' =>  $request->contrycode,
-        //     'address' => $request->address,
-        //     'password' => Hash::make($request->password),
-        // ]);
 
         Auth()->login($user);
         $rest = new Restaurant;
@@ -223,8 +212,8 @@ class EventController extends Controller
                     $request->file->move('upload/', $fileName2);
                     $rest->logo = $fileName2;
             }
-
-
+            
+ 
             if($request->_24by7 == 1 )
             {
                 $rest->availalltime = 1;
