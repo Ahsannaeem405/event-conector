@@ -196,7 +196,7 @@ class EventController extends Controller
         $user->categoryid = $request->category;
         $user->address = $request->address;
         $user->update();
-        
+
         Auth()->login($user);
         $rest = new Restaurant;
             $rest->planner_id = auth()->user()->id;
@@ -213,7 +213,7 @@ class EventController extends Controller
                     $request->file->move('upload/', $fileName2);
                     $rest->logo = $fileName2;
             }
-            
+
 
 
             if($request->_24by7 == 1 )
@@ -475,12 +475,7 @@ class EventController extends Controller
     }
     public function update_restaurant(Request $request)
     {
-        // dd($request->count2,max($request->count2));
 
-        // dd('update restaurant section',$request->id);
-        // DB::table('restaurants')
-        //     ->where('id', $request->id)
-        //     ->delete();
 
         DB::table('timings')
         ->where('restaurant_id', $request->id)
@@ -529,7 +524,7 @@ class EventController extends Controller
                 $result = $rest->update();
                 if($request->repeatt == 1)
                 {
-                    $maxlop = max($request->count2);
+                    $maxlop = max($request->count);
                     for ($i = 0; $i < $maxlop; $i++) {
                         // echo $i;
                         $time = new Timing;
