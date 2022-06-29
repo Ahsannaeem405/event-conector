@@ -177,7 +177,7 @@
     <!-- restaurant -->
 
     <section class="restaurant my-5">
-        <input type="hidden" value="" id="current_form">
+        <input type="text" value="" id="current_form">
         <div class="container">
             <div class="row">
                 <div class="col-6 py-4">
@@ -286,12 +286,12 @@
                     <h3 class="mb-3 fontw700">Packages </h3>
                 </div>
                 <div class="col-6 text-right d-flex justify-content-end py-4">
-                    <button class="btn btn-green rounded-pill" data-bs-target="#packageSection" data-bs-toggle="modal"
+                    <button class="btn btn-green rounded-pill change_model" data-bs-target="#packageSection" form-id="addpackageForm"  data-bs-toggle="modal"
                             data-bs-dismiss="modal">Add New Package
                     </button>
                 </div>
                 <div class="col-6 text-right d-flex justify-content-end py-4">
-                    <button class="btn btn-green rounded-pill editpakkage d-none" data-bs-target="#packageSection2"
+                    <button class="btn btn-green rounded-pill editpakkage d-none"  data-bs-target="#packageSection2"
                             data-bs-toggle="modal"
                             data-bs-dismiss="modal">editPackage
                     </button>
@@ -360,7 +360,7 @@
                                 </div>
 
                                 <div class="">
-                                    <div pkgid="{{$pkg->id}}" class="d-inline-block rounded-1 bg-green-two p-2 pkgedit"
+                                    <div pkgid="{{$pkg->id}}" class="d-inline-block rounded-1 bg-green-two p-2 pkgedit change_model" form-id="editPackageForm"
                                          data-bs-toggle="tooltip"
                                          data-bs-placement="left" title="Edit">
                                         <i class="fa fa-pencil-square-o text-white font-24" aria-hidden="true"></i>
