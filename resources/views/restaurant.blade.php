@@ -173,7 +173,7 @@
 <!-- restaurant -->
 
 <section class="restaurant my-5">
-    <input type="text" value="" id="current_form">
+    <input type="hidden" value="" id="current_form">
     <div class="container">
         <div class="row">
             <div class="col-6 py-4">
@@ -2167,8 +2167,8 @@ $(document).ready(function() {
 });
 </script>
 
-<script src="{{ asset('js/event.js') }}"></script>
-
+    <script src="{{ asset('js/event.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bussiness.js') }}"></script>
 
 <script>
 @if(Session::has('success'))
@@ -2194,11 +2194,6 @@ toastr.error("{{ $error }}");
 @endforeach
 @endif
 </script>
-
-
-
-
-<script type="text/javascript" src="{{ asset('js/bussiness.js') }}"></script>
 <script>
     $( document ).ready(function() {
         $(document).on("click", ".restedit", function(){
@@ -2343,7 +2338,7 @@ toastr.error("{{ $error }}");
 
         }
     </script>
-{
+
 
 <script>
     $(document).ready(function(){

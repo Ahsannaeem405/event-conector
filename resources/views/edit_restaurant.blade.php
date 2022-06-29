@@ -215,7 +215,7 @@
 
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count1 d-none" value="{{$count21}}">
+                                    <input type="number" name="count[]" class="count1 d-none" value="{{$count21}}">
 
 
                                     <div class="div mb-2 text-end">
@@ -290,7 +290,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count2 d-none" value="{{$count22}}">
+                                    <input type="number" name="count[]" class="count2 d-none" value="{{$count22}}">
 
 
                                     <div class="div mb-2 text-end">
@@ -363,7 +363,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count3 d-none" value="{{$count23}}">
+                                    <input type="number" name="count[]" class="count3 d-none" value="{{$count23}}">
 
                                     <div class="div mb-2 text-end">
 
@@ -435,7 +435,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count4 d-none" value="{{$count24}}">
+                                    <input type="number" name="count[]" class="count4 d-none" value="{{$count24}}">
                                     <div class="div mb-2 text-end">
 
 
@@ -509,7 +509,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count5 d-none" value="{{$count25}}">
+                                    <input type="number" name="count[]" class="count5 d-none" value="{{$count25}}">
 
                                     <div class="div mb-2 text-end">
 
@@ -584,7 +584,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count6 d-none" value="{{$count26}}">
+                                    <input type="number" name="count[]" class="count6 d-none" value="{{$count26}}">
 
                                     <div class="div mb-2 text-end">
 
@@ -661,7 +661,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count7 d-none" value="{{$count27}}">
+                                    <input type="number" name="count[]" class="count7 d-none" value="{{$count27}}">
 
                                     <div class="div mb-2 text-end">
 
