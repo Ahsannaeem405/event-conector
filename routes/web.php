@@ -18,9 +18,7 @@ use App\Http\Controllers\PackageController;
 |
 */
 
-Route::get('/', function () {
-    return view('/index');
-});
+Route::get('/',[userController::class, 'index']);
 
  Route::get('/cls', function() {
         $run = Artisan::call('config:clear');
@@ -68,13 +66,13 @@ Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
 
 
 
-Route::prefix('/planner')->middleware(['auth','planner'])->group(function (){
-
-    Route::get('/', [EventController::class, 'restaurant']);
-    Route::post('/addrest', [EventController::class, 'addrest']);
-
-
-});
+//Route::prefix('/planner')->middleware(['auth','planner'])->group(function (){
+//
+//    Route::get('/', [EventController::class, 'restaurant']);
+//    Route::post('/addrest', [EventController::class, 'addrest']);
+//
+//
+//});
 
 
 
@@ -93,6 +91,7 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
     Route::get('/planner', [EventController::class, 'restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
     Route::get('/restaurant', [EventController::class, 'restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
+    Route::post('/addrest', [EventController::class, 'addrest']);
 
     Route::get('/editrest', [EventController::class, 'editrest'])->withoutMiddleware(['user'])->middleware(['planner']);
     Route::get('/edit_package', [PackageController::class, 'edit_package'])->withoutMiddleware(['user'])->middleware(['planner']);
