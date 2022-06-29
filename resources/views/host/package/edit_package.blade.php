@@ -26,7 +26,7 @@
                                 <!-- <p>Fill all form field to go to next step</p> -->
                                 <div class="row">
                                     <div class="col-md-12 mx-0">
-                                        <form id="msform2" method="post" action="{{ url('/user/update_package') }}"
+                                        <form id="msform2" method="post" class="editPackageForm" action="{{ url('/user/update_package') }}"
                                                 enctype="multipart/form-data">
                                             <!-- progressbar -->
                                             @csrf
