@@ -31,7 +31,7 @@
 
                     </div>
                     <div class="right-side">
-                    <form action="{{ url('/user/hostevent') }}" method="POST" id="first_form">
+                    <form action="{{ url('/user/hostevent') }}" method="POST" id="first_form" enctype="multipart/form-data">
                         @csrf
                         <div class="main active py-2">
                             <div class="text">
@@ -58,6 +58,12 @@
                                 <div class="input-div">
                                     <input type="text" required require name="business" value="{{ old('business') }}" id="business">
                                     <span>Business Name</span>
+                                </div>
+                            </div>
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <label>Business Logo</label>
+                                    <input type="file" name="file"  required require>
                                 </div>
                             </div>
 
@@ -157,7 +163,7 @@
                                 </div>
                             </div> -->
                             <div class="buttons button_space">
-                                <button class="back_button">Back</button>
+                                <button type="button" class="back_button">Back</button>
                                 <button class="next_button">Next Step</button>
                             </div>
                         </div>

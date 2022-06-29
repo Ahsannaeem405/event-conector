@@ -179,6 +179,7 @@ class EventController extends Controller
     }
     public function hostevent(Request $request)
     {
+        // dd($request);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'category' => ['required', 'min:1'],
@@ -195,7 +196,7 @@ class EventController extends Controller
         $user->categoryid = $request->category;
         $user->address = $request->address;
         $user->update();
-
+        
         Auth()->login($user);
         $rest = new Restaurant;
             $rest->planner_id = auth()->user()->id;
@@ -203,15 +204,16 @@ class EventController extends Controller
             $rest->business = $request->business;
             $rest->address = $request->address;
 
-            if ($request->hasFile('file')) {
-
+            if($request->hasFile('file')) {
 
                     $file = $request->file('file');
                     $extension = $request->file->extension();
+                    // dd($extension);
                     $fileName2 = time(). "1_." .$extension;
                     $request->file->move('upload/', $fileName2);
                     $rest->logo = $fileName2;
             }
+            
 
 
             if($request->_24by7 == 1 )
