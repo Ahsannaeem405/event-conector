@@ -2,7 +2,7 @@ $(document).ready(function(){
     
     var current_fs, next_fs, previous_fs; //fieldsets
     var opacity;
-    
+    var form_id=$('#current_form').val();
     // $(".next").click(function(){
         $(document).on("click",".next",function() {
         // alert('ggg');
@@ -18,7 +18,7 @@ $(document).ready(function(){
         next_fs = $(this).parent().next();
         
         //Add Class Active
-        $(".progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+        $('.'+form_id+" .progressbar li.active").next().addClass("active");
         current_fs.removeClass("active");
         next_fs.addClass("active");
         //show the next fieldset
@@ -47,6 +47,7 @@ $(document).ready(function(){
         previous_fs = $(this).parent().prev();
         
         //Remove class active
+        
         $(".progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
         current_fs.removeClass("active");
         previous_fs.addClass("active");
@@ -80,8 +81,13 @@ $(document).ready(function(){
     })
 
     function validateform(){
+        var form_id=$('#current_form').val();
+        alert(form_id);
+
         validate=true;
-        var validate_inputs=document.querySelectorAll("fieldset.active input");
+        var validate_inputs=document.querySelectorAll('.'+form_id+" fieldset.active input");
+        // var validate_inputs=$('.'+form_id).find('fieldset.active input');
+        // alert(validate_inputs);
         validate_inputs.forEach(function(vaildate_input){
             vaildate_input.classList.remove('warning');
             if(vaildate_input.hasAttribute('require')){
