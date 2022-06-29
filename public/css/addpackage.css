@@ -12,13 +12,13 @@
     color: #2C3E50 !important;
     
 }
-#msform {
+#msform, #msform2 {
     text-align: center;
     position: relative;
     margin-top: 20px;
 }
 
-#msform fieldset .form-card {
+#msform fieldset .form-card, #msform2 fieldset .form-card {
     background: white;
     border: 0 none;
     border-radius: 0px;
@@ -32,7 +32,7 @@
     position: relative;
 }
 
-#msform fieldset {
+#msform fieldset, #msform2 fieldset {
     background: white;
     border: 0 none;
     border-radius: 0.5rem;
@@ -46,16 +46,16 @@
 }
 
 /*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
+#msform fieldset:not(:first-of-type), #msform2 fieldset:not(:first-of-type) {
     display: none;
 }
 
-#msform fieldset .form-card {
+#msform fieldset .form-card, #msform2 fieldset .form-card {
     text-align: left;
     color: #9E9E9E;
 }
 
-#msform input[type="text"], #msform textarea {
+#msform input[type="text"], #msform textarea, #msform2 input[type="text"], #msform2 textarea {
     padding: 0px 8px 4px 8px;
     border: none;
     border-bottom: 1px solid #ccc;
@@ -70,7 +70,7 @@
     letter-spacing: 1px;
 }
 
-#msform input:focus, #msform textarea:focus {
+#msform input:focus, #msform textarea:focus, #msform2 input:focus, #msform2 textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -81,7 +81,7 @@
 }
 
 /*Blue Buttons*/
-#msform .action-button {
+#msform .action-button, #msform2 .action-button {
     width: 100px;
     background: skyblue;
     font-weight: bold;
@@ -93,12 +93,12 @@
     margin: 10px 5px;
 }
 
-#msform .action-button:hover, #msform .action-button:focus {
+#msform .action-button:hover, #msform .action-button:focus, #msform2 .action-button:hover, #msform2 .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue;
 }
 
 /*Previous Buttons*/
-#msform .action-button-previous {
+#msform .action-button-previous, #msform2 .action-button-previous {
     width: 100px;
     background: #616161;
     font-weight: bold;
@@ -110,7 +110,7 @@
     margin: 10px 5px;
 }
 
-#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+#msform .action-button-previous:hover, #msform .action-button-previous:focus,   #msform2 .action-button-previous:hover, #msform2 .action-button-previous:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #616161;
 }
 
@@ -145,18 +145,18 @@ select.list-dt:focus {
 }
 
 /*progressbar*/
-#progressbar, #progressbar2 {
+.progressbar, #progressbar2 {
     margin-bottom: 30px;
     overflow: hidden;
     color: lightgrey;
     padding-left: 0;
 }
 
-#progressbar .active, #progressbar2 .active {
+.progressbar .active, #progressbar2 .active {
     color: #000000;
 }
 
-#progressbar li, #progressbar2 li {
+.progressbar li, #progressbar2 li {
     list-style-type: none;
     font-size: 12px;
     width: 20%;
@@ -165,32 +165,32 @@ select.list-dt:focus {
 }
 
 /*Icons in the ProgressBar*/
-#progressbar #account:before, #progressbar2 #account:before {
+.progressbar #account:before, #progressbar2 #account:before {
     /* font-family: FontAwesome; */
     content: "1";
 }
 
-#progressbar #personal:before, #progressbar2 #personal:before {
+.progressbar #personal:before, #progressbar2 #personal:before {
     /* font-family: FontAwesome; */
     content: "2";
 }
 
-#progressbar #payment:before, #progressbar2 #payment:before {
+.progressbar #payment:before, #progressbar2 #payment:before {
     /* font-family: FontAwesome; */
     content: "3";
 }
-#progressbar #confirm:before, #progressbar2 #confirm:before {
+.progressbar #confirm:before, #progressbar2 #confirm:before {
     /* font-family: FontAwesome; */
     content: "4";
 }
 
-#progressbar #finish:before, #progressbar2 #finish:before {
+.progressbar #finish:before, #progressbar2 #finish:before {
     /* font-family: FontAwesome; */
     content: "5";
 }
 
 /*ProgressBar before any progress*/
-#progressbar li:before, #progressbar2 li:before  {
+.progressbar li:before, #progressbar2 li:before  {
     width: 50px;
     height: 50px;
     line-height: 45px;
@@ -204,7 +204,7 @@ select.list-dt:focus {
 }
 
 /*ProgressBar connectors*/
-#progressbar li:after, #progressbar2 li:after {
+.progressbar li:after, #progressbar2 li:after {
     content: '';
     width: 100%;
     height: 2px;
@@ -216,7 +216,7 @@ select.list-dt:focus {
 }
 
 /*Color number of the step and the connector before it*/
-#progressbar li.active:before, #progressbar li.active:after {
+.progressbar li.active:before, .progressbar li.active:after {
     background: skyblue;
 }
 #progressbar2 li.active:before, #progressbar2 li.active:after {

@@ -3,7 +3,13 @@ $(document).ready(function(){
     var current_fs, next_fs, previous_fs; //fieldsets
     var opacity;
     
-    $(".next").click(function(){
+    // $(".next").click(function(){
+        $(document).on("click",".next",function() {
+        // alert('ggg');
+        // $(this).closest("#msform").css({
+           
+        //         'background': 'saddlebrown'
+        // });
         if(!validateform()){
             return false
         }
@@ -12,7 +18,7 @@ $(document).ready(function(){
         next_fs = $(this).parent().next();
         
         //Add Class Active
-        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+        $(".progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
         current_fs.removeClass("active");
         next_fs.addClass("active");
         //show the next fieldset
@@ -33,13 +39,15 @@ $(document).ready(function(){
         });
     });
     
-    $(".previous").click(function(){
+    // $(".previous").click(function(){
+        $(document).on("click",".previous",function() {
         
+
         current_fs = $(this).parent();
         previous_fs = $(this).parent().prev();
         
         //Remove class active
-        $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+        $(".progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
         current_fs.removeClass("active");
         previous_fs.addClass("active");
         //show the previous fieldset
@@ -66,7 +74,8 @@ $(document).ready(function(){
     //     $(this).addClass('selected');
     // });
     
-    $(".submit").click(function(){
+    // $(".submit").click(function(){
+    $(document).on("click",".submit",function() {
         return false;
     })
 

@@ -1,8 +1,8 @@
 <!-- <link rel="stylesheet" href="{{ asset('css/event2.css') }}"> -->
 
-<link rel="stylesheet" href="{{ asset('css/addpackage.css') }}">
-<script type="text/javascript" src="{{ asset('js/bussiness2.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/addPackage2.js') }}"></script>
+<!-- <link rel="stylesheet" href="{{ asset('css/addpackage.css') }}"> -->
+<!-- <script type="text/javascript" src="{{ asset('js/bussiness2.js') }}"></script> -->
+<!-- <script type="text/javascript" src="{{ asset('js/addPackage.js') }}"></script> -->
 <style>
     .dum
     {
@@ -26,11 +26,11 @@
                                 <!-- <p>Fill all form field to go to next step</p> -->
                                 <div class="row">
                                     <div class="col-md-12 mx-0">
-                                        <form id="msform" method="post" action="{{ url('/user/update_package') }}"
+                                        <form id="msform2" method="post" action="{{ url('/user/update_package') }}"
                                                 enctype="multipart/form-data">
                                             <!-- progressbar -->
                                             @csrf
-                                            <ul id="progressbar2" style="padding-left: 124px;">
+                                            <ul class="progressbar" style="padding-left: 124px;">
                                                 <li class="active" id="account"><strong>Welcome</strong>
                                                 </li>
                                                 <li id="personal"><strong>Offer</strong></li>
@@ -39,7 +39,7 @@
                                                 <!-- <li id="finish"><strong>Finish</strong></li> -->
                                             </ul>
                                             <!-- fieldsets -->
-                                            <fieldset class="active3">
+                                            <fieldset class="active">
                                                 <div class="form-card">
                                                     <h2 class="fs-title">Your Business</h2>
                                                     <select class="list-dt" id="selectBNS" name="restaurant">
@@ -53,14 +53,14 @@
                                                     </select>
 
                                                 </div>
-                                                <input type="button" name="next" class="next2 action-button"
+                                                <input type="button" name="next" class="next action-button"
                                                     value="Next Step" />
                                             </fieldset>
                                             <fieldset class="">
                                                 <div class="form-card">
                                                     <h2 class="fs-title">Package Name</h2>
 
-                                                    <input type="text" name="package" placeholder="Package Name"  value="{{ $pkg->pkg_name }}"/>
+                                                    <input type="text" name="package" placeholder="Package Name"  value="{{ $pkg->pkg_name }}" required require/>
                                                     <div class="mb-4">
                                                         <label for="allow"
                                                             class="label-text pb-2 font-17 fontw500">Allowed
@@ -98,12 +98,12 @@
                                                             </div>
                                                         </div>
                                                         <br>
-                                                        <input type="number" name="amount" placeholder="Enter package amount" value="{{ $pkg->amount }}"/>
+                                                        <input type="number" name="amount" placeholder="Enter package amount" value="{{ $pkg->amount }}"  required require/>
                                                     </div>
                                                 </div>
                                                 <input type="button" name="previous"
-                                                    class="previous2 action-button-previous" value="Previous" />
-                                                <input type="button" name="next" class="next2 action-button"
+                                                    class="previous action-button-previous" value="Previous" />
+                                                <input type="button" name="next" class="next action-button"
                                                     value="Next Step" />
                                             </fieldset>
                                             <fieldset class="custom_pre_model">
@@ -116,8 +116,8 @@
                                                     </div>
                                                 </div>
                                                 <input type="button" name="previous"
-                                                    class=" previous2 action-button-previous" value="Previous" />
-                                                <input type="button" name="next" class="next2 action-button"
+                                                    class=" previous action-button-previous" value="Previous" />
+                                                <input type="button" name="next" class="next action-button"
                                                     value="Next Step" />
                                             </fieldset>
                                             <fieldset class="custom_pre_model2">

@@ -979,7 +979,7 @@
                                                 enctype="multipart/form-data">
                                             <!-- progressbar -->
                                             @csrf
-                                            <ul id="progressbar" style="padding-left: 124px;">
+                                            <ul class="progressbar" style="padding-left: 124px;">
                                                 <li class="active" id="account"><strong>Welcome</strong>
                                                 </li>
                                                 <li id="personal"><strong>Offer</strong></li>
