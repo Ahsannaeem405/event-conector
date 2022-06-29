@@ -280,7 +280,7 @@
                             <h6>2016-2022 <span>&copy;</span> Emprise</h6>
                         </div>
                         <div class=" text-end">
-                            <img src="./img/method.png" class="img-fluid w-50" alt="">
+                            <img src="{{asset('img/method.png')}}" class="img-fluid w-50" alt="">
                         </div>
                     </div>
                 </div>

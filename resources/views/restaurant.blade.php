@@ -4,101 +4,10 @@
 @section('body')
     <link rel="stylesheet" href="{{ asset('css/event2.css') }}">
 
-    <script type="text/javascript"
-            src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY">
-    </script>
-
-
-    <script type="text/javascript">
-        var map = null;
-        var marker = null;
-
-        var infowindow = new google.maps.InfoWindow({
-            size: new google.maps.Size(150, 50)
-        });
-
-        function createMarker(latlng, name, html) {
-            var contentString = html;
-            var marker = new google.maps.Marker({
-                position: latlng,
-                map: map,
-                zIndex: Math.round(latlng.lat() * -
-                    100000) << 5
-            });
-
-            google.maps.event.addListener(marker, 'click',
-                function() {
-                    infowindow.setContent(contentString);
-                    infowindow.open(map, marker);
-                });
-            google.maps.event.trigger(marker, 'click');
-            return marker;
-        }
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY"></script>
 
 
 
-        function initialize() {
-
-
-            var myOptions = {
-                zoom: 8,
-                center: new google.maps.LatLng(43.907787, -
-                    79.359741),
-                mapTypeControl: true,
-                mapTypeControlOptions: {
-                    style: google.maps.MapTypeControlStyle
-                        .DROPDOWN_MENU
-                },
-                navigationControl: true,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-            map = new google.maps.Map(document.getElementById(
-                    "map_canvas"),
-                myOptions);
-
-            google.maps.event.addListener(map, 'click',
-                function() {
-                    infowindow.close();
-                });
-
-            google.maps.event.addListener(map, 'click',
-                function(event) {
-                    //call function to create marker
-
-
-
-
-
-                    var s = event.latLng;
-                    $("#lati").val(s);
-                    var lat = $("#lati").val();
-                    var divided = lat.split(" ");
-                    var divided2 = divided[0].split("(");
-                    var divided3 = divided2[1].split(",");
-                    var final_lat = divided3[0];
-
-
-
-
-
-
-                    var div_lag1 = divided[1].split(")");
-                    var final_log = div_lag1[0];
-
-
-
-
-                    if (marker) {
-                        marker.setMap(null);
-                        marker = null;
-                    }
-                    marker = createMarker(event.latLng,
-                        "name", "<b>Location</b><br>" +
-                        event.latLng);
-                });
-
-        }
-    </script>
     <style type="text/css">
         html,
         body {
@@ -375,7 +284,7 @@
 
 
                                                                 <body style="margin:0px; padding:0px;"
-                                                                    onload="initialize()">
+                                                                    onload="initialize('map_canvas')">
 
                                                                     <!-- you can use tables or divs for the overall layout -->
                                                                     <table border="1">
@@ -1505,190 +1414,7 @@
                                                 <p>Where is your busniess located</p>
                                             </div>
                                             <div class="map-section">
-                                                <div id="map">
-
-
-                                                    <input type="text" name="" id="lati" class="d-none">
-                                                    {{--                                    <div id="map1">--}}
-
-
-
-
-                                                    {{--                                        <meta name="viewport"--}}
-                                                    {{--                                            content="initial-scale=1.0, user-scalable=no" />--}}
-                                                    {{--                                        <meta http-equiv="content-type"--}}
-                                                    {{--                                            content="text/html; charset=UTF-8" />--}}
-                                                    {{--                                        <script type="text/javascript"--}}
-                                                    {{--                                            src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY">--}}
-                                                    {{--                                        </script>--}}
-                                                    {{--                                        <script type="text/javascript"--}}
-                                                    {{--                                            src="{{ asset('downloadxml.js') }}"></script>--}}
-                                                    {{--                                        <style type="text/css">--}}
-                                                    {{--                                        html,--}}
-                                                    {{--                                        body {--}}
-                                                    {{--                                            height: 100%;--}}
-                                                    {{--                                        }--}}
-
-                                                    {{--                                        .gm-style-iw-t {--}}
-                                                    {{--                                            display: none;--}}
-                                                    {{--                                        }--}}
-
-                                                    {{--                                        #map1 {--}}
-                                                    {{--                                            max-height: 200px;--}}
-                                                    {{--                                        }--}}
-                                                    {{--                                        </style>--}}
-                                                    {{--                                        <script type="text/javascript">--}}
-                                                    {{--                                        var map = null;--}}
-                                                    {{--                                        var marker = null;--}}
-
-                                                    {{--                                        var infowindow = new google.maps.InfoWindow({--}}
-                                                    {{--                                            size: new google.maps.Size(150, 50)--}}
-                                                    {{--                                        });--}}
-
-                                                    {{--                                        function createMarker(latlng, name, html) {--}}
-                                                    {{--                                            var contentString = html;--}}
-                                                    {{--                                            var marker = new google.maps.Marker({--}}
-                                                    {{--                                                position: latlng,--}}
-                                                    {{--                                                map: map,--}}
-                                                    {{--                                                zIndex: Math.round(latlng.lat() * ---}}
-                                                    {{--                                                    100000) << 5--}}
-                                                    {{--                                            });--}}
-
-                                                    {{--                                            google.maps.event.addListener(marker, 'click',--}}
-                                                    {{--                                                function() {--}}
-                                                    {{--                                                    infowindow.setContent(--}}
-                                                    {{--                                                        contentString);--}}
-                                                    {{--                                                    infowindow.open(map, marker);--}}
-                                                    {{--                                                });--}}
-                                                    {{--                                            google.maps.event.trigger(marker, 'click');--}}
-                                                    {{--                                            return marker;--}}
-                                                    {{--                                        }--}}
-
-
-
-                                                    {{--                                        function initialize() {--}}
-
-
-                                                    {{--                                            var myOptions = {--}}
-                                                    {{--                                                zoom: 8,--}}
-                                                    {{--                                                center: new google.maps.LatLng(--}}
-                                                    {{--                                                    43.907787, -79.359741),--}}
-                                                    {{--                                                mapTypeControl: true,--}}
-                                                    {{--                                                mapTypeControlOptions: {--}}
-                                                    {{--                                                    style: google.maps--}}
-                                                    {{--                                                        .MapTypeControlStyle--}}
-                                                    {{--                                                        .DROPDOWN_MENU--}}
-                                                    {{--                                                },--}}
-                                                    {{--                                                navigationControl: true,--}}
-                                                    {{--                                                mapTypeId: google.maps.MapTypeId.ROADMAP--}}
-                                                    {{--                                            }--}}
-                                                    {{--                                            map = new google.maps.Map(document--}}
-                                                    {{--                                                .getElementById("map_canvas"),--}}
-                                                    {{--                                                myOptions);--}}
-
-                                                    {{--                                            google.maps.event.addListener(map, 'click',--}}
-                                                    {{--                                                function() {--}}
-                                                    {{--                                                    infowindow.close();--}}
-                                                    {{--                                                });--}}
-
-                                                    {{--                                            google.maps.event.addListener(map, 'click',--}}
-                                                    {{--                                                function(event) {--}}
-                                                    {{--                                                    //call function to create marker--}}
-
-
-
-
-
-                                                    {{--                                                    var s = event.latLng;--}}
-                                                    {{--                                                    $("#lati").val(s);--}}
-                                                    {{--                                                    var lat = $("#lati").val();--}}
-                                                    {{--                                                    var divided = lat.split(" ");--}}
-                                                    {{--                                                    var divided2 = divided[0].split(--}}
-                                                    {{--                                                        "(");--}}
-                                                    {{--                                                    var divided3 = divided2[1].split(--}}
-                                                    {{--                                                        ",");--}}
-                                                    {{--                                                    var final_lat = divided3[0];--}}
-
-
-
-
-
-
-                                                    {{--                                                    var div_lag1 = divided[1].split(--}}
-                                                    {{--                                                        ")");--}}
-                                                    {{--                                                    var final_log = div_lag1[0];--}}
-
-
-
-
-                                                    {{--                                                    if (marker) {--}}
-                                                    {{--                                                        marker.setMap(null);--}}
-                                                    {{--                                                        marker = null;--}}
-                                                    {{--                                                    }--}}
-                                                    {{--                                                    marker = createMarker(event.latLng,--}}
-                                                    {{--                                                        "name",--}}
-                                                    {{--                                                        "<b>Location</b><br>" +--}}
-                                                    {{--                                                        event.latLng);--}}
-                                                    {{--                                                });--}}
-
-                                                    {{--                                        }--}}
-                                                    {{--                                        </script>--}}
-
-                                                    {{--                                        <body style="margin:0px; padding:0px;" onload="initialize()">--}}
-
-                                                    {{--                                            <!-- you can use tables or divs for the overall layout -->--}}
-                                                    {{--                                            <table border="1">--}}
-                                                    {{--                                                <tr>--}}
-                                                    {{--                                                    <td>--}}
-                                                    {{--                                                        <div id="map_canvas"--}}
-                                                    {{--                                                            style="width: 400px; height:200px">--}}
-                                                    {{--                                                        </div>--}}
-                                                    {{--                                                    </td>--}}
-
-                                                    {{--                                                </tr>--}}
-                                                    {{--                                            </table>--}}
-
-                                                    {{--                                            <noscript>--}}
-                                                    {{--                                                <p><b>JavaScript must be enabled in order--}}
-                                                    {{--                                                        for you to use Google Maps.</b>--}}
-                                                    {{--                                                    However, it seems JavaScript is either--}}
-                                                    {{--                                                    disabled or not supported by your--}}
-                                                    {{--                                                    browser.--}}
-                                                    {{--                                                    To view Google Maps, enable JavaScript--}}
-                                                    {{--                                                    by changing your browser options, and--}}
-                                                    {{--                                                    then--}}
-                                                    {{--                                                    try again.</p>--}}
-                                                    {{--                                            </noscript>--}}
-                                                    {{--                                            <script src="http://www.google-analytics.com/urchin.js"--}}
-                                                    {{--                                                type="text/javascript">--}}
-                                                    {{--                                            </script>--}}
-                                                    {{--                                            <script type="text/javascript">--}}
-                                                    {{--                                            _uacct = "UA-162157-1";--}}
-                                                    {{--                                            urchinTracker();--}}
-                                                    {{--                                            </script>--}}
-                                                    {{--                                            <script type="text/javascript">--}}
-                                                    {{--                                            <!----}}
-                                                    {{--                                            google_ad_client = "pub-8586773609818529";--}}
-                                                    {{--                                            google_ad_width = 728;--}}
-                                                    {{--                                            google_ad_height = 90;--}}
-                                                    {{--                                            google_ad_format = "728x90_as";--}}
-                                                    {{--                                            google_ad_type = "text";--}}
-                                                    {{--                                            google_ad_channel = "";--}}
-                                                    {{--                                            google_color_border = "CCCCCC";--}}
-                                                    {{--                                            google_color_bg = "FFFFFF";--}}
-                                                    {{--                                            google_color_link = "000000";--}}
-                                                    {{--                                            google_color_url = "666666";--}}
-                                                    {{--                                            google_color_text = "333333";--}}
-                                                    {{--                                            //--}}
-                                                    {{--                                            -->--}}
-                                                    {{--                                            </script>--}}
-                                                    {{--                                            <script type="text/javascript"--}}
-                                                    {{--                                                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">--}}
-                                                    {{--                                            </script>--}}
-                                                    {{--                                        </body>--}}
-
-                                                    {{--                                    </div>--}}
-                                                </div>
+{{--                                         mAP--}}
                                             </div>
                                             <div class="input-text">
                                                 <div class="input-div">
@@ -2484,12 +2210,14 @@ toastr.error("{{ $error }}");
                 type:'get',
                 url:'{{url('user/editrest')}}',
                 data:{'id':id},
+
                 success:function(data){
 
                     jQuery.noConflict();
 
-                        $('#modalbod').empty().append(data);
+                       $('#modalbod').empty().append(data);
                         $('#editmodel').click();
+                        initialize('map_canvas2');
 
                         // $('#staticBackdrop2').modal('show');
 
@@ -2532,31 +2260,90 @@ toastr.error("{{ $error }}");
 <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
 
 {{--   map--}}
+    <script type="text/javascript">
+        var map = null;
+        var marker = null;
 
-    <script
-        src="http://www.google-analytics.com/urchin.js"
-        type="text/javascript">
+
+
+        var infowindow = new google.maps.InfoWindow({
+            size: new google.maps.Size(150, 50)
+        });
+
+
+
+        function createMarker(latlng, name, html) {
+            var contentString = html;
+            var marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+                zIndex: Math.round(latlng.lat() * -100000) << 5
+            });
+
+            google.maps.event.addListener(marker, 'click',
+                function() {
+                    infowindow.setContent(contentString);
+                    infowindow.open(map, marker);
+                });
+            google.maps.event.trigger(marker, 'click');
+            return marker;
+        }
+
+
+
+        function initialize(data) {
+
+
+            var myOptions = {
+                zoom: 8,
+                center: new google.maps.LatLng(43.907787, -79.359741),
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle
+                        .DROPDOWN_MENU
+                },
+                navigationControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            map = new google.maps.Map(document.getElementById(data),
+                myOptions);
+
+
+            google.maps.event.addListener(map, 'click',
+                function() {
+                    infowindow.close();
+                });
+
+            google.maps.event.addListener(map, 'click',
+                function(event) {
+                    //call function to create marker
+
+                    var s = event.latLng;
+                    $("#lati").val(s);
+                    var lat = $("#lati").val();
+                    var divided = lat.split(" ");
+                    var divided2 = divided[0].split("(");
+                    var divided3 = divided2[1].split(",");
+                    var final_lat = divided3[0];
+
+                    var div_lag1 = divided[1].split(")");
+                    var final_log = div_lag1[0];
+
+
+
+
+                    if (marker) {
+                        marker.setMap(null);
+                        marker = null;
+                    }
+                    marker = createMarker(event.latLng,
+                        "name", "<b>Location</b><br>" +
+                        event.latLng);
+                });
+
+        }
     </script>
-    <script type="text/javascript">
-        _uacct = "UA-162157-1";
-        urchinTracker();
-    </script>
-    <script type="text/javascript">
-        <!--
-        google_ad_client = "pub-8586773609818529";
-        google_ad_width = 728;
-        google_ad_height = 90;
-        google_ad_format = "728x90_as";
-        google_ad_type = "text";
-        google_ad_channel = "";
-        google_color_border = "CCCCCC";
-        google_color_bg = "FFFFFF";
-        google_color_link = "000000";
-        google_color_url = "666666";
-        google_color_text = "333333";
-        //
-        -->
-    </script>
+{
 
 <script>
     $(document).ready(function(){
