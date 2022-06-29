@@ -19,12 +19,12 @@ class PackageController extends Controller
 
         $pkg = new Package;
         $pkg->planner_id = auth()->user()->id;
-        $pkg->restaurant_id = $request->restaurant;                    
+        $pkg->restaurant_id = $request->restaurant;
         $pkg->pkg_name = $request->package;
         $pkg->mem_allow = $request->quantity;
         $pkg->price_for = $request->person;
         $pkg->amount = $request->amount;
-        
+
         $files = [];
         if($request->hasfile('image'))
         {
@@ -32,8 +32,8 @@ class PackageController extends Controller
             foreach($request->file('image') as $file)
             {
                 $name = time().rand(1,100).'.'.$file->extension();
-                $file->move(public_path('upload'), $name);  
-                $files[] = $name;  
+                $file->move(public_path('upload'), $name);
+                $files[] = $name;
             }
             $pkg->logo = Json::encode($files);
         }
@@ -64,7 +64,7 @@ class PackageController extends Controller
             }
             $savepkg = $pkg->save();
             if($request->repeatt == 1)
-            {      
+            {
                 $maxlop = max($request->count);
                 for ($i = 0; $i <= $maxlop; $i++) {
                     // echo $i;
@@ -75,7 +75,7 @@ class PackageController extends Controller
                         $time->mondyopen = $request->mondayopen[$i];
 
                     }
-                    
+
                     if(isset($request->mondayclose[$i]))
                     {
                         $time->mondyclose = $request->mondayclose[$i];
@@ -120,7 +120,7 @@ class PackageController extends Controller
                     {
                         $time->satdyclose = $request->saturdayclose[$i];
                     }
-                    
+
                     if(isset($request->sundayopen[$i]))
                     {
                         $time->sundyopen = $request->sundayopen[$i];
@@ -129,16 +129,16 @@ class PackageController extends Controller
                     {
                         $time->sundyclose = $request->sundayclose[$i];
                     }
-                
+
                     $time->save();
-                
+
                 }
             }
 
 
-            
+
         }
-                    
+
         if($savepkg)
         {
             return redirect()->back()->with('success','Package Added Successfully');
@@ -154,8 +154,8 @@ class PackageController extends Controller
         // dd($rest->time);
         // dd($pkg->logo);
 
-        return view('edit_package', compact('rests', 'pkg'));
-        
+        return view('host.package.edit_package', compact('rests', 'pkg'));
+
     }
 
     public function update_package(Request $request)
@@ -163,12 +163,12 @@ class PackageController extends Controller
         dd($request);
         $pkg = new Package;
         $pkg->planner_id = auth()->user()->id;
-        $pkg->restaurant_id = $request->restaurant;                    
+        $pkg->restaurant_id = $request->restaurant;
         $pkg->pkg_name = $request->package;
         $pkg->mem_allow = $request->quantity;
         $pkg->price_for = $request->person;
         $pkg->amount = $request->amount;
-        
+
         $files = [];
         if($request->hasfile('image'))
         {
@@ -176,8 +176,8 @@ class PackageController extends Controller
             foreach($request->file('image') as $file)
             {
                 $name = time().rand(1,100).'.'.$file->extension();
-                $file->move(public_path('upload'), $name);  
-                $files[] = $name;  
+                $file->move(public_path('upload'), $name);
+                $files[] = $name;
             }
             $pkg->logo = Json::encode($files);
         }
@@ -208,7 +208,7 @@ class PackageController extends Controller
             }
             $savepkg = $pkg->save();
             if($request->repeatt == 1)
-            {      
+            {
                 $maxlop = max($request->count);
                 for ($i = 0; $i <= $maxlop; $i++) {
                     // echo $i;
@@ -219,7 +219,7 @@ class PackageController extends Controller
                         $time->mondyopen = $request->mondayopen[$i];
 
                     }
-                    
+
                     if(isset($request->mondayclose[$i]))
                     {
                         $time->mondyclose = $request->mondayclose[$i];
@@ -264,7 +264,7 @@ class PackageController extends Controller
                     {
                         $time->satdyclose = $request->saturdayclose[$i];
                     }
-                    
+
                     if(isset($request->sundayopen[$i]))
                     {
                         $time->sundyopen = $request->sundayopen[$i];
@@ -273,16 +273,16 @@ class PackageController extends Controller
                     {
                         $time->sundyclose = $request->sundayclose[$i];
                     }
-                
+
                     $time->save();
-                
+
                 }
             }
 
 
-            
+
         }
-                    
+
         if($savepkg)
         {
             return redirect()->back()->with('success','Package Added Successfully');

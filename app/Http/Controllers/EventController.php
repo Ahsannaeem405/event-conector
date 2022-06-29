@@ -331,7 +331,7 @@ class EventController extends Controller
         $restData =Restaurant::where('planner_id', auth()->user()->id)->first();
 
 
-        return view('restaurant', compact('catgs', 'rests', 'pkgs','restData'));
+        return view('host.resturent.restaurant', compact('catgs', 'rests', 'pkgs','restData'));
 
     }
 
@@ -470,7 +470,7 @@ class EventController extends Controller
         $catgs = Category::all();
         // dd($rest->time);
 
-        return view('edit_restaurant', compact('rest', 'catgs'));
+        return view('host.resturent.edit_restaurant', compact('rest', 'catgs'));
 
     }
     public function update_restaurant(Request $request)
