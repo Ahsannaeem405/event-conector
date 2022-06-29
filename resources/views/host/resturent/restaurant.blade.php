@@ -24,14 +24,18 @@
     </style>
     <style>
         .touch-fallback, .has-preview {
-           
+
             width:100% !important;
         }
 
-        .dropify-wrapper {
+        .dropify-render {
 
             width: 100%;
+            height: 100%;
 
+        }
+        .dropify-wrapper .dropify-preview .dropify-render img{
+            padding:20px;
         }
         .file-icon p {
             font-size: 25px !important;

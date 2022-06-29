@@ -80,27 +80,7 @@
                         <li class="nav-item">
                             <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/favourites') }}">favourites</a>
                         </li>
-						<!-- <li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle pt-md-3 fontw500 text-black" href="#"
-								id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-								aria-expanded="false">
-								More
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-								<li><a class="dropdown-item" href="./chatBoard.html">Inbox</a></li>
-								<li><a class="dropdown-item" href="./restaurant.html">My Restaurants</a></li>
-								<li><a class="dropdown-item" href="./page3.html">Favorite</a></li>
-							</ul>
-						</li> -->
-                        <!--
-                        <li>
-                            <div class="search-box ps-md-4">
-                                <input class="search-input mt-2 me-md-2" type="text" name="" placeholder="Search Venue">
-                                <div class="search-btn mt-2 mt-md-0 float-lg-right">
-                                    <i class="fas fa-search text-white"></i>
-                                </div>
-                            </div>
-                        </li> -->
+
                     </ul>
                     @guest
 
