@@ -103,6 +103,7 @@ $(document).ready(function(){
         // var validate_inputs=$('.'+form_id).find('fieldset.active input');
         // alert(validate_inputs);
         validate_inputs.forEach(function(vaildate_input){
+            // alert('hhh');
             vaildate_input.classList.remove('warning');
             if(vaildate_input.hasAttribute('require')){
                 if(vaildate_input.value.length==0){

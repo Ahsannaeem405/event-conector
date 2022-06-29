@@ -45,14 +45,22 @@ $(document).on("click", "._24byopen", function() {
 
 
 
-    $('.custom_pre').click(function() {
-        $('.custom_pre_model').css({"opacity": "1","position":"relative", "display":" block"});
-        $('.custom_pre_model2').css({"opacity": "0","position":"relative", "display":" none"});
+    // $('.custom_pre').click(function() {
+        $(document).on("click", ".custom_pre", function() {
+        var form_id=$('#current_form').val();
+        // alert(form_id);
+        if(form_id =="editPackageForm"){
+            $('.custom_pre_model3').css({"opacity": "1","position":"relative", "display":" block"});
+            $('.custom_pre_model4').css({"opacity": "0","position":"relative", "display":" none"});
+            $('#finish').removeClass('active');
+            $('.confirm2').removeClass('active');
 
-
-
-         $('#finish').removeClass('active');
-         $('#confirm').removeClass('active');
+        }else{
+            $('.custom_pre_model').css({"opacity": "1","position":"relative", "display":" block"});
+            $('.custom_pre_model2').css({"opacity": "0","position":"relative", "display":" none"});
+            $('#finish').removeClass('active');
+            $('#confirm').removeClass('active');
+        }
 
 
 

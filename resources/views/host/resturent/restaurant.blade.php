@@ -290,7 +290,7 @@
                     <h3 class="mb-3 fontw700">Packages </h3>
                 </div>
                 <div class="col-6 text-right d-flex justify-content-end py-4">
-                    <button class="btn btn-green rounded-pill change_model" data-bs-target="#packageSection" form-id="addpackageForm"  data-bs-toggle="modal"
+                    <button class="btn btn-green rounded-pill change_model" data-bs-target="#packageSection" form-id="addPackageForm"  data-bs-toggle="modal"
                             data-bs-dismiss="modal">Add New Package
                     </button>
                 </div>

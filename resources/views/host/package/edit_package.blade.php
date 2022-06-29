@@ -35,7 +35,7 @@
                                                 </li>
                                                 <li id="personal"><strong>Offer</strong></li>
                                                 <li id="payment"><strong>Upload Menu</strong></li>
-                                                <li id="confirm"><strong>Availability</strong></li>
+                                                <li id="confirm" class="confirm2"><strong>Availability</strong></li>
                                                 <!-- <li id="finish"><strong>Finish</strong></li> -->
                                             </ul>
                                             <!-- fieldsets -->
@@ -106,7 +106,7 @@
                                                 <input type="button" name="next" class="next action-button"
                                                     value="Next Step" />
                                             </fieldset>
-                                            <fieldset class="custom_pre_model">
+                                            <fieldset class="custom_pre_model3">
                                                 <div class="form-card">
                                                     <h2 class="fs-title">Upload Menu</h2>
                                                     <div class="dropi_parent row ">
@@ -120,7 +120,7 @@
                                                 <input type="button" name="next" class="next action-button"
                                                     value="Next Step" />
                                             </fieldset>
-                                            <fieldset class="custom_pre_model2">
+                                            <fieldset class="custom_pre_model4">
                                                 <div class="availability"  style="overflow-y: scroll; height: 460px;">
                                                     <div class="">
                                                         <div class="text">
@@ -128,7 +128,7 @@
                                                             <p>Please provide your restaurant opening and closing hours</p>
                                                         </div>
                                                         <div class="hoursmaindiv">
-                                                            <input type="hidden" value="0" name="repeatt" class="repeatt">
+                                                            <input type="number" value="{{ $pkg->pkgtime ? "1" : "0" }}" name="repeatt" class="repeatt">
 
                                                             <input type="radio" id="_24by74" name="_24by7" value="1" {{ $pkg->availalltime == 1 ? "checked" : "" }}
                                                                 class="_24by7open" >
@@ -600,7 +600,7 @@
                                                                     </div>
 
                                                                     <input type="number" name="count[]" class="count6 d-none"
-                                                                           value="0">
+                                                                           value="{{$count26}}">
                                                                 </div>
                                                                 <div class="div mb-2 text-end">
 
@@ -682,7 +682,7 @@
                                                                     </div>
 
                                                                     <input type="number" name="count[]" class="count7 d-none"
-                                                                           value="0">
+                                                                           value="{{$count27}}">
                                                                 </div>
                                                                 <div class="div mb-2 text-end">
 
