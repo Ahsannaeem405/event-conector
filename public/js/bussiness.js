@@ -1,8 +1,42 @@
 
 
-   $('.addbtn').click(function() {
 
-    });
+// add res
+$(document).on("click", "._24by7open", function() {
+
+
+
+    var val1 = $(this).val();
+    // alert(val1);
+    if( val1 == 1)
+    {
+        $('.hoursdiv').addClass('d-none');
+    }
+    else{
+        $('.hoursdiv').removeClass('d-none');
+    }
+
+
+});
+
+// edit red
+$(document).on("click", "._24byopen", function() {
+
+
+
+    var val1 = $(this).val();
+    // alert(val1);
+    if( val1 == 1)
+    {
+        $('.hoursdiv2').addClass('d-none');
+    }
+    else{
+        $('.hoursdiv2').removeClass('d-none');
+    }
+
+
+});
+
 
     $('.removbtn').click(function() {
         $('.hoursdiv1').remove();
@@ -67,18 +101,17 @@
 
 
 
-    $('.add_btn').click(function() {
+    $(document).on('click','.add_btn',function() {
+        var form_id=$('#current_form').val();
         if($(this).attr('att') == 1)
         {
-            $('.count1').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.count21').val( function(i, oldval) {
+            $('.'+form_id).find('.count1').val( function(i, oldval) {
                 return ++oldval;
             });
 
 
-            $('.monday').append(`<div class="main2 input-text mb-2 day1">
+
+            $('.'+form_id).find('.monday').append(`<div class="main2 input-text mb-2 day1">
             <div class="main3 input-div">
                 <input type="time" id="user_name" name="mondayopen[]" class="starttime">
                 <span>Opening</span>
@@ -94,13 +127,11 @@
         }
         else if($(this).attr('att') == 2)
         {
-            $('.count2').val( function(i, oldval) {
+            $('.'+form_id).find('.count2').val( function(i, oldval) {
                 return ++oldval;
             });
-            $('.count22').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.tuesday').append(`<div class="main2 input-text mb-2 day2">
+
+            $('.'+form_id).find('.tuesday').append(`<div class="main2 input-text mb-2 day2">
             <div class="main3 input-div">
                 <input type="time" id="user_name" name="tuesdayopen[]" class="starttime">
                 <span>Opening</span>
@@ -116,13 +147,11 @@
         }
         else if($(this).attr('att') == 3)
         {
-            $('.count3').val( function(i, oldval) {
+            $('.'+form_id).find('.count3').val( function(i, oldval) {
                 return ++oldval;
             });
-            $('.count23').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.wednesday').append(`<div class="main2 input-text mb-2 day3">
+
+            $('.'+form_id).find('.wednesday').append(`<div class="main2 input-text mb-2 day3">
             <div class="main3 input-div">
                 <input type="time" id="user_name" name="wednesdayopen[]" class="starttime">
                 <span>Opening</span>
@@ -138,13 +167,11 @@
         }
         else if($(this).attr('att') == 4)
         {
-            $('.count4').val( function(i, oldval) {
+            $('.'+form_id).find('.count4').val( function(i, oldval) {
                 return ++oldval;
             });
-            $('.count24').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.thursday').append(`<div class="main2 input-text mb-2 day4">
+
+            $('.'+form_id).find('.thursday').append(`<div class="main2 input-text mb-2 day4">
             <div class="main3 input-div">
                 <input type="time" id="user_name" name="thursdayopen[]" class="starttime">
                 <span>Opening</span>
@@ -160,13 +187,11 @@
         }
         else if($(this).attr('att') == 5)
         {
-            $('.count5').val( function(i, oldval) {
+            $('.'+form_id).find('.count5').val( function(i, oldval) {
                 return ++oldval;
             });
-            $('.count25').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.friday').append(`<div class="main2 input-text mb-2 day5">
+
+            $('.'+form_id).find('.friday').append(`<div class="main2 input-text mb-2 day5">
             <div class="main3 input-div">
                 <input type="time" id="user_name" name="fridayopen[]" class="starttime">
                 <span>Opening</span>
@@ -182,13 +207,11 @@
         }
         else if($(this).attr('att') == 6)
         {
-            $('.count6').val( function(i, oldval) {
+            $('.'+form_id).find('.count6').val( function(i, oldval) {
                 return ++oldval;
             });
-            $('.count26').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.saturday').append(`<div class="main2 input-text mb-2 day6">
+
+            $('.'+form_id).find('.saturday').append(`<div class="main2 input-text mb-2 day6">
             <div class="main3 input-div">
                 <input type="time" id="user_name" name="saturdayopen[]" class="starttime">
                 <span>Opening</span>
@@ -204,13 +227,11 @@
         }
         else if($(this).attr('att') == 7)
         {
-            $('.count7').val( function(i, oldval) {
+            $('.'+form_id).find('.count7').val( function(i, oldval) {
                 return ++oldval;
             });
-            $('.count27').val( function(i, oldval) {
-                return ++oldval;
-            });
-            $('.sunday').append(`<div class="main2 input-text mb-2 day7">
+
+            $('.'+form_id).find('.sunday').append(`<div class="main2 input-text mb-2 day7">
             <div class="main3 input-div">
                 <input type="time" id="user_name" name="sundayopen[]" class="starttime">
                 <span>Opening</span>
@@ -231,68 +252,55 @@
 
 
     $(document).on("click",".clos_icon",function() {
+        var form_id=$('#current_form').val();
         if($(this).attr('att') == 1)
         {
-            $('.count1').val( function(i, oldval) {
+            $('.'+form_id).find('.count1').val( function(i, oldval) {
                 return --oldval;
             });
-            $('.count21').val( function(i, oldval) {
-                return --oldval;
-            });
+
         }
         if($(this).attr('att') == 2)
         {
-            $('.count2').val( function(i, oldval) {
+            $('.'+form_id).find('.count2').val( function(i, oldval) {
                 return --oldval;
             });
-            $('.count22').val( function(i, oldval) {
-                return --oldval;
-            });
+
         }
         if($(this).attr('att') == 3)
         {
-            $('.count3').val( function(i, oldval) {
+            $('.'+form_id).find('.count3').val( function(i, oldval) {
                 return --oldval;
             });
-            $('.count23').val( function(i, oldval) {
-                return --oldval;
-            });
+
         }
         if($(this).attr('att') == 4)
         {
-            $('.count4').val( function(i, oldval) {
+            $('.'+form_id).find('.count4').val( function(i, oldval) {
                 return --oldval;
             });
-            $('.count24').val( function(i, oldval) {
-                return --oldval;
-            });
+
         }
         if($(this).attr('att') == 5)
         {
-            $('.count5').val( function(i, oldval) {
+            $('.'+form_id).find('.count5').val( function(i, oldval) {
                 return --oldval;
             });
-            $('.count25').val( function(i, oldval) {
-                return --oldval;
-            });
+
         }
         if($(this).attr('att') == 6)
         {
-            $('.count6').val( function(i, oldval) {
+            $('.'+form_id).find('.count6').val( function(i, oldval) {
                 return --oldval;
             });
-            $('.count26').val( function(i, oldval) {
-                return --oldval;
-            });
+
         }
         if($(this).attr('att') == 7)
         {
-            $('.count7').val( function(i, oldval) {
+            $('.'+form_id).find('.count7').val( function(i, oldval) {
                 return --oldval;
             });
-            $('.count27').val( function(i, oldval) {
-                return --oldval;
-            });
+
         }
 
         $(this).parent().remove();
@@ -321,8 +329,8 @@
     });
 
     $(document).on("click", ".testbtn", function(event) {
-
-        if ($(".errormsg")[0]){
+        var form_id=$('#current_form').val();
+        if ($('.'+form_id).find(".errormsg")[0]){
             event.preventDefault();
             toastr.error('Please select valid time for opening and closing');
         } else {

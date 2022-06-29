@@ -31,8 +31,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected function redirectTo(){
-      
-        
+
 
         if(Auth::user()->role=='1')
         {
@@ -46,8 +45,6 @@ class RegisterController extends Controller
             return 'user/';
         }
         else{
-
-
             return '/login';
 
         }
@@ -91,6 +88,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
+            'role'=>3,
             'address' => $data['address'],
             'password' => Hash::make($data['password']),
         ]);

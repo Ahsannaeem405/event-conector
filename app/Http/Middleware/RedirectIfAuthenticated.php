@@ -23,7 +23,26 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+
+                if(Auth::user()->role=='1')
+                {
+                    return redirect('admins/');
+                }
+                else if(Auth::user()->role=='2')
+                {
+                    return redirect('user/planner');
+                }
+                elseif (Auth::user()->role=='3') {
+                    return redirect('user/');
+                }
+                else{
+
+
+                    return redirect('/login');
+
+                }
+
+
             }
         }
 

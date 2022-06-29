@@ -28,7 +28,7 @@
                 </div>
                 <div class="right-side">
                     <form method="post" action="{{ url('/user/update_restaurant') }}/{{$rest->id}}"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data" class="editResturentForm">
                         @csrf
                         <div class="main2nd active2"  style="overflow-y: scroll; height: 496px;">
                             <div class="text">
@@ -57,7 +57,7 @@
                             <div class="input-text">
                                 <div class="input-div">
                                     <label>Business Logo</label>
-                                    <input id="logo" type="file" name="file" value="{{$rest->logo}}" class="dropify" 
+                                    <input id="logo" type="file" name="file" value="{{$rest->logo}}" class="dropify"
                                     data-default-file="{{asset('upload') }}/{{$rest->logo}}">
                                 </div>
                             </div>
@@ -341,7 +341,7 @@
                                                             <span>Closing</span>
                                                         </div>
                                                         @if($loop->first)
-                                                            <i att="1" class="fa fa-plus add_btn2"
+                                                            <i att="1" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
                                                             <i class="fa fa-plus dum"
@@ -363,7 +363,7 @@
                                                             class="endtime">
                                                         <span>Closing</span>
                                                     </div>
-                                                        <i att="1" class="fa fa-plus add_btn2"
+                                                        <i att="1" class="fa fa-plus add_btn"
                                                         aria-hidden="true"></i>
                                                 </div>
                                             @endif
@@ -372,7 +372,7 @@
 
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count21 d-none" value="{{$count21}}">
+                                    <input type="number" name="count2[]" class="count1 d-none" value="{{$count21}}">
 
 
                                     <div class="div mb-2 text-end">
@@ -416,7 +416,7 @@
                                                             <span>Closing</span>
                                                         </div>
                                                         @if($loop->first)
-                                                        <i att="2" class="fa fa-plus add_btn2"
+                                                        <i att="2" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
                                                         <i class="fa fa-plus dum"
@@ -439,7 +439,7 @@
                                                         <span>Closing</span>
                                                     </div>
 
-                                                    <i att="2" class="fa fa-plus add_btn2"
+                                                    <i att="2" class="fa fa-plus add_btn"
                                                         aria-hidden="true"></i>
 
                                                 </div>
@@ -447,7 +447,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count22 d-none" value="{{$count22}}">
+                                    <input type="number" name="count2[]" class="count2 d-none" value="{{$count22}}">
 
 
                                     <div class="div mb-2 text-end">
@@ -491,7 +491,7 @@
                                                             <span>Closing</span>
                                                         </div>
                                                         @if($loop->first)
-                                                            <i att="3" class="fa fa-plus add_btn2"
+                                                            <i att="3" class="fa fa-plus add_btn"
                                                                 aria-hidden="true"></i>
                                                             @else
                                                             <i class="fa fa-plus dum"
@@ -514,13 +514,13 @@
                                                             class="endtime" name="wednesdayclose[]">
                                                         <span>Closing</span>
                                                     </div>
-                                                        <i att="3" class="fa fa-plus add_btn2"
+                                                        <i att="3" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                 </div>
                                             @endif
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count23 d-none" value="{{$count23}}">
+                                    <input type="number" name="count2[]" class="count3 d-none" value="{{$count23}}">
 
                                     <div class="div mb-2 text-end">
 
@@ -563,7 +563,7 @@
                                                             <span>Closing</span>
                                                         </div>
                                                         @if($loop->first)
-                                                        <i att="4" class="fa fa-plus add_btn2"
+                                                        <i att="4" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
                                                         <i class="fa fa-plus dum"
@@ -585,14 +585,14 @@
                                                             class="endtime" name="thursdayclose[]">
                                                         <span>Closing</span>
                                                     </div>
-                                                    <i att="4" class="fa fa-plus add_btn2"
+                                                    <i att="4" class="fa fa-plus add_btn"
                                                         aria-hidden="true"></i>
                                                 </div>
 
                                             @endif
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count24 d-none" value="{{$count24}}">
+                                    <input type="number" name="count2[]" class="count4 d-none" value="{{$count24}}">
                                     <div class="div mb-2 text-end">
 
 
@@ -635,7 +635,7 @@
                                                             <span>Closing</span>
                                                         </div>
                                                         @if($loop->first)
-                                                        <i att="5" class="fa fa-plus add_btn2"
+                                                        <i att="5" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
                                                         <i class="fa fa-plus dum"
@@ -658,7 +658,7 @@
                                                         <span>Closing</span>
                                                     </div>
 
-                                                    <i att="5" class="fa fa-plus add_btn2"
+                                                    <i att="5" class="fa fa-plus add_btn"
                                                         aria-hidden="true"></i>
 
                                                 </div>
@@ -666,7 +666,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count25 d-none" value="{{$count25}}">
+                                    <input type="number" name="count2[]" class="count5 d-none" value="{{$count25}}">
 
                                     <div class="div mb-2 text-end">
 
@@ -710,7 +710,7 @@
                                                             <span>Closing</span>
                                                         </div>
                                                         @if($loop->first)
-                                                        <i att="6" class="fa fa-plus add_btn2"
+                                                        <i att="6" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
                                                         <i class="fa fa-plus dum"
@@ -734,14 +734,14 @@
                                                             <span>Closing</span>
                                                         </div>
 
-                                                        <i att="6" class="fa fa-plus add_btn2"
+                                                        <i att="6" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
 
                                                     </div>
                                             @endif
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count26 d-none" value="{{$count26}}">
+                                    <input type="number" name="count2[]" class="count6 d-none" value="{{$count26}}">
 
                                     <div class="div mb-2 text-end">
 
@@ -785,7 +785,7 @@
                                                             <span>Closing</span>
                                                         </div>
                                                         @if($loop->first)
-                                                        <i att="7" class="fa fa-plus add_btn2"
+                                                        <i att="7" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
                                                         <i class="fa fa-plus dum"
@@ -810,7 +810,7 @@
                                                             <span>Closing</span>
                                                         </div>
 
-                                                        <i att="7" class="fa fa-plus add_btn2"
+                                                        <i att="7" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
 
                                                     </div>
@@ -818,7 +818,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <input type="number" name="count2[]" class="count27 d-none" value="{{$count27}}">
+                                    <input type="number" name="count2[]" class="count7 d-none" value="{{$count27}}">
 
                                     <div class="div mb-2 text-end">
 
@@ -867,10 +867,10 @@
 <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
 <script>
 $(document).ready(function(){
-        
+
         // alert('fff');
         jQuery.noConflict();
-       
+
             $('.dropify').dropify();
 });
 

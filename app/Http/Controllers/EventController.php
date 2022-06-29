@@ -212,8 +212,8 @@ class EventController extends Controller
                     $request->file->move('upload/', $fileName2);
                     $rest->logo = $fileName2;
             }
-            
- 
+
+
             if($request->_24by7 == 1 )
             {
                 $rest->availalltime = 1;
@@ -328,7 +328,7 @@ class EventController extends Controller
         $pkgs = Package::where('planner_id', auth()->user()->id)->get();
         $restData =Restaurant::where('planner_id', auth()->user()->id)->first();
 
-        // dd($pkgs->getimage);
+
         return view('restaurant', compact('catgs', 'rests', 'pkgs','restData'));
 
     }

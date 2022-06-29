@@ -4,6 +4,115 @@
 @section('body')
     <link rel="stylesheet" href="{{ asset('css/event2.css') }}">
 
+    <script type="text/javascript"
+            src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY">
+    </script>
+
+
+    <script type="text/javascript">
+        var map = null;
+        var marker = null;
+
+        var infowindow = new google.maps.InfoWindow({
+            size: new google.maps.Size(150, 50)
+        });
+
+        function createMarker(latlng, name, html) {
+            var contentString = html;
+            var marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+                zIndex: Math.round(latlng.lat() * -
+                    100000) << 5
+            });
+
+            google.maps.event.addListener(marker, 'click',
+                function() {
+                    infowindow.setContent(contentString);
+                    infowindow.open(map, marker);
+                });
+            google.maps.event.trigger(marker, 'click');
+            return marker;
+        }
+
+
+
+        function initialize() {
+
+
+            var myOptions = {
+                zoom: 8,
+                center: new google.maps.LatLng(43.907787, -
+                    79.359741),
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle
+                        .DROPDOWN_MENU
+                },
+                navigationControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            map = new google.maps.Map(document.getElementById(
+                    "map_canvas"),
+                myOptions);
+
+            google.maps.event.addListener(map, 'click',
+                function() {
+                    infowindow.close();
+                });
+
+            google.maps.event.addListener(map, 'click',
+                function(event) {
+                    //call function to create marker
+
+
+
+
+
+                    var s = event.latLng;
+                    $("#lati").val(s);
+                    var lat = $("#lati").val();
+                    var divided = lat.split(" ");
+                    var divided2 = divided[0].split("(");
+                    var divided3 = divided2[1].split(",");
+                    var final_lat = divided3[0];
+
+
+
+
+
+
+                    var div_lag1 = divided[1].split(")");
+                    var final_log = div_lag1[0];
+
+
+
+
+                    if (marker) {
+                        marker.setMap(null);
+                        marker = null;
+                    }
+                    marker = createMarker(event.latLng,
+                        "name", "<b>Location</b><br>" +
+                        event.latLng);
+                });
+
+        }
+    </script>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+
+        .gm-style-iw-t {
+            display: none;
+        }
+
+        #map1 {
+            max-height: 200px;
+        }
+    </style>
     <style>
         .dum
         {
@@ -155,13 +264,14 @@
 <!-- restaurant -->
 
 <section class="restaurant my-5">
+    <input type="hidden" value="" id="current_form">
     <div class="container">
         <div class="row">
             <div class="col-6 py-4">
                 <h3 class="mb-3 fontw700">Restaurants</h3>
             </div>
             <div class="col-6 text-right d-flex justify-content-end py-4">
-                <button type="button" class="btn btn-green rounded-pill" data-bs-toggle="modal"
+                <button type="button" class="btn btn-green rounded-pill change_model" form-id="addResturentForm"  data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop">Add New Restaurant</button>
 
                     <button id="editmodel" type="button" class="d-none" data-bs-toggle="modal"
@@ -189,10 +299,7 @@
                                             </div>
                                             <div class="steps-content">
                                                 <h3>Step <span class="step-number">1</span></h3>
-                                                <!-- <p class="step-number-content active">Please provide the following information</p>
-                                                    <p class="step-number-content d-none">Where is your business located</p>
-                                                    <p class="step-number-content d-none">Please provide some of your information</p>
-                                                    <p class="step-number-content d-none">Processing your information to help you onboard</p> -->
+
                                             </div>
                                             <ul class="progress-bar-1 p-0 mt-0"
                                                 style="display: flex;flex-direction: column;justify-content: center;overflow: hidden;color: #fff;text-align: center;white-space: nowrap;transition: width .6s ease;">
@@ -206,8 +313,7 @@
 
                                         </div>
                                         <div class="right-side">
-                                            <form method="post" action="{{ url('/planner/addrest') }}"
-                                                enctype="multipart/form-data">
+                                            <form method="post" action="{{ url('/planner/addrest') }}" class="addResturentForm" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="main active" style="overflow-y: scroll; height: 498px;">
                                                     <div class="text">
@@ -268,120 +374,6 @@
 
 
 
-                                                                <meta name="viewport"
-                                                                    content="initial-scale=1.0, user-scalable=no" />
-                                                                <meta http-equiv="content-type"
-                                                                    content="text/html; charset=UTF-8" />
-                                                                <script type="text/javascript"
-                                                                    src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY">
-                                                                </script>
-                                                                <script type="text/javascript"
-                                                                    src="{{ asset('downloadxml.js') }}"></script>
-                                                                <style type="text/css">
-                                                                html,
-                                                                body {
-                                                                    height: 100%;
-                                                                }
-
-                                                                .gm-style-iw-t {
-                                                                    display: none;
-                                                                }
-
-                                                                #map1 {
-                                                                    max-height: 200px;
-                                                                }
-                                                                </style>
-                                                                <script type="text/javascript">
-                                                                var map = null;
-                                                                var marker = null;
-
-                                                                var infowindow = new google.maps.InfoWindow({
-                                                                    size: new google.maps.Size(150, 50)
-                                                                });
-
-                                                                function createMarker(latlng, name, html) {
-                                                                    var contentString = html;
-                                                                    var marker = new google.maps.Marker({
-                                                                        position: latlng,
-                                                                        map: map,
-                                                                        zIndex: Math.round(latlng.lat() * -
-                                                                            100000) << 5
-                                                                    });
-
-                                                                    google.maps.event.addListener(marker, 'click',
-                                                                        function() {
-                                                                            infowindow.setContent(contentString);
-                                                                            infowindow.open(map, marker);
-                                                                        });
-                                                                    google.maps.event.trigger(marker, 'click');
-                                                                    return marker;
-                                                                }
-
-
-
-                                                                function initialize() {
-
-
-                                                                    var myOptions = {
-                                                                        zoom: 8,
-                                                                        center: new google.maps.LatLng(43.907787, -
-                                                                            79.359741),
-                                                                        mapTypeControl: true,
-                                                                        mapTypeControlOptions: {
-                                                                            style: google.maps.MapTypeControlStyle
-                                                                                .DROPDOWN_MENU
-                                                                        },
-                                                                        navigationControl: true,
-                                                                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                                                                    }
-                                                                    map = new google.maps.Map(document.getElementById(
-                                                                            "map_canvas"),
-                                                                        myOptions);
-
-                                                                    google.maps.event.addListener(map, 'click',
-                                                                        function() {
-                                                                            infowindow.close();
-                                                                        });
-
-                                                                    google.maps.event.addListener(map, 'click',
-                                                                        function(event) {
-                                                                            //call function to create marker
-
-
-
-
-
-                                                                            var s = event.latLng;
-                                                                            $("#lati").val(s);
-                                                                            var lat = $("#lati").val();
-                                                                            var divided = lat.split(" ");
-                                                                            var divided2 = divided[0].split("(");
-                                                                            var divided3 = divided2[1].split(",");
-                                                                            var final_lat = divided3[0];
-
-
-
-
-
-
-                                                                            var div_lag1 = divided[1].split(")");
-                                                                            var final_log = div_lag1[0];
-
-
-
-
-                                                                            if (marker) {
-                                                                                marker.setMap(null);
-                                                                                marker = null;
-                                                                            }
-                                                                            marker = createMarker(event.latLng,
-                                                                                "name", "<b>Location</b><br>" +
-                                                                                event.latLng);
-                                                                        });
-
-                                                                }
-                                                                </script>
-
                                                                 <body style="margin:0px; padding:0px;"
                                                                     onload="initialize()">
 
@@ -397,44 +389,8 @@
                                                                         </tr>
                                                                     </table>
 
-                                                                    <noscript>
-                                                                        <p><b>JavaScript must be enabled in order for
-                                                                                you to use Google Maps.</b>
-                                                                            However, it seems JavaScript is either
-                                                                            disabled or not supported by your
-                                                                            browser.
-                                                                            To view Google Maps, enable JavaScript by
-                                                                            changing your browser options, and
-                                                                            then
-                                                                            try again.</p>
-                                                                    </noscript>
-                                                                    <script
-                                                                        src="http://www.google-analytics.com/urchin.js"
-                                                                        type="text/javascript">
-                                                                    </script>
-                                                                    <script type="text/javascript">
-                                                                    _uacct = "UA-162157-1";
-                                                                    urchinTracker();
-                                                                    </script>
-                                                                    <script type="text/javascript">
-                                                                    <!--
-                                                                    google_ad_client = "pub-8586773609818529";
-                                                                    google_ad_width = 728;
-                                                                    google_ad_height = 90;
-                                                                    google_ad_format = "728x90_as";
-                                                                    google_ad_type = "text";
-                                                                    google_ad_channel = "";
-                                                                    google_color_border = "CCCCCC";
-                                                                    google_color_bg = "FFFFFF";
-                                                                    google_color_link = "000000";
-                                                                    google_color_url = "666666";
-                                                                    google_color_text = "333333";
-                                                                    //
-                                                                    -->
-                                                                    </script>
-                                                                    <script type="text/javascript"
-                                                                        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-                                                                    </script>
+
+
                                                                 </body>
 
                                                             </div>
@@ -848,7 +804,7 @@
                         </div>
 
                         <div class="">
-                            <div restid="{{$rest->id}}" class="d-inline-block rounded-1 bg-green-two p-2 restedit">
+                            <div restid="{{$rest->id}}" class="d-inline-block rounded-1 bg-green-two p-2 restedit change_model" form-id="editResturentForm">
                                 <i class="fa fa-pencil-square-o text-white font-24 " aria-hidden="true"></i>
                             </div>
                         </div>
@@ -975,7 +931,7 @@
                                 <!-- <p>Fill all form field to go to next step</p> -->
                                 <div class="row">
                                     <div class="col-md-12 mx-0">
-                                        <form id="msform" method="post" action="{{ url('/user/add_package') }}"
+                                        <form id="msform" class="addPackageForm" method="post" action="{{ url('/user/add_package') }}"
                                                 enctype="multipart/form-data">
                                             <!-- progressbar -->
                                             @csrf
@@ -1496,7 +1452,7 @@
 
                                 </div>
                                 <div class="right-side">
-                                    <form method="post" action="{{ url('/user/update_restaurant') }}/{{$restData->id}}"
+                                    <form method="post" class="editResturentForm" action="{{ url('/user/update_restaurant') }}/{{$restData->id}}"
                                           enctype="multipart/form-data">
                                         @csrf
                                         <div class="main2nd active2"  style="overflow-y: scroll; height: 496px;">
@@ -2532,7 +2488,7 @@ toastr.error("{{ $error }}");
                 success:function(data){
 
                     jQuery.noConflict();
-                    
+
                         $('#modalbod').empty().append(data);
                         $('#editmodel').click();
 
@@ -2555,12 +2511,12 @@ toastr.error("{{ $error }}");
                 data:{'id':id},
                 success:function(data){
 
-                    
+
 
                         $('#modelbody2').empty().append(data);
                         $('.editpakkage').click();
                         // jQuery.noConflict();
-                        
+
 
                         // $('#staticBackdrop2').modal('show');
 
@@ -2576,9 +2532,41 @@ toastr.error("{{ $error }}");
 <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
 
+{{--   map--}}
+
+    <script
+        src="http://www.google-analytics.com/urchin.js"
+        type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        _uacct = "UA-162157-1";
+        urchinTracker();
+    </script>
+    <script type="text/javascript">
+        <!--
+        google_ad_client = "pub-8586773609818529";
+        google_ad_width = 728;
+        google_ad_height = 90;
+        google_ad_format = "728x90_as";
+        google_ad_type = "text";
+        google_ad_channel = "";
+        google_color_border = "CCCCCC";
+        google_color_bg = "FFFFFF";
+        google_color_link = "000000";
+        google_color_url = "666666";
+        google_color_text = "333333";
+        //
+        -->
+    </script>
+
 <script>
     $(document).ready(function(){
-        
+
+        $('.change_model').click(function () {
+           var id=$(this).attr('form-id');
+        $('#current_form').val(id);
+        });
+
         // alert('fff');
         jQuery.noConflict();
             $('.dropify2').dropify();
@@ -2614,15 +2602,7 @@ toastr.error("{{ $error }}");
             $(document).on("click",".croos_btn",function() {
                  formnumbert2=0;
                 $('#modalbod').empty()
-            //     alert('fgfg');
-            //     // if ( $('#_24_7thday').is(":checked"))
-            //     // {
-            //     //     $('.sunday').addClass('disableddiv');
-            //     // }
-            //     // else{
-            //     //     $('.sunday').removeClass('disableddiv');
 
-            //     // }
             });
 
     });

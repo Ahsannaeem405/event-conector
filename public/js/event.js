@@ -20,7 +20,7 @@ next_click.forEach(function(next_click_form){
        formnumber++;
        updateform();
        progress_forward();
-       contentchange();
+      // contentchange();
     });
 });
 
@@ -30,7 +30,7 @@ back_click.forEach(function(back_click_form){
        formnumber--;
        updateform();
        progress_backward();
-       contentchange();
+      // contentchange();
     });
 });
 
@@ -73,13 +73,13 @@ function progress_backward(){
 
 var step_num_content=document.querySelectorAll(".step-number-content");
 
- function contentchange(){
-     step_num_content.forEach(function(content){
-        content.classList.remove('active');
-        content.classList.add('d-none');
-     });
-     step_num_content[formnumber].classList.add('active');
- }
+ // function contentchange(){
+ //     step_num_content.forEach(function(content){
+ //        content.classList.remove('active');
+ //        content.classList.add('d-none');
+ //     });
+ //     step_num_content[formnumber].classList.add('active');
+ // }
 
 
 
