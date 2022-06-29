@@ -50,7 +50,7 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon "></span>
                 </button>
-                <a class="navbar-brand fontw700 font-24" href="./index.html">Emprise</a>
+                <a class="navbar-brand fontw700 font-24" href="{{url('/')}}">Emprise</a>
                 <div class="collapse navbar-collapse ps-md-3" id="navbarTogglerDemo03">
                     <ul class="navbar-nav  me-md-auto mb-2 mb-md-0" id="navbar-nav">
                         <li class="nav-item ">
@@ -359,13 +359,13 @@
             };
             setMinHeight();
 
-            $(".carousel").swipe({
-                swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-                    if (direction == 'left') $(this).carousel('next');
-                    if (direction == 'right') $(this).carousel('prev');
-                },
-                allowPageScroll: "vertical"
-            });
+            // $(".carousel").swipe({
+            //     swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+            //         if (direction == 'left') $(this).carousel('next');
+            //         if (direction == 'right') $(this).carousel('prev');
+            //     },
+            //     allowPageScroll: "vertical"
+            // });
         });
         $(document).on('resize', function () {
             setMinHeight();

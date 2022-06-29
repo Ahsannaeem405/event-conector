@@ -2329,7 +2329,6 @@
 
 
 <script src="{{ asset('js/event2.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/bussiness2.js') }}"></script>
 
 
 
