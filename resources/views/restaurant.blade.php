@@ -264,7 +264,7 @@
 <!-- restaurant -->
 
 <section class="restaurant my-5">
-    <input type="hidden" value="" id="current_form">
+    <input type="text" value="" id="current_form">
     <div class="container">
         <div class="row">
             <div class="col-6 py-4">
