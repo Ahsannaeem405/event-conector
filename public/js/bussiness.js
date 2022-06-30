@@ -110,6 +110,7 @@ $(document).on("click", "._24byopen", function() {
 
 
     $(document).on('click','.add_btn',function() {
+
         var form_id=$('#current_form').val();
         if($(this).attr('att') == 1)
         {

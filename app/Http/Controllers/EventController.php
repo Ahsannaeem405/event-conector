@@ -25,6 +25,7 @@ class EventController extends Controller
         $catgs = Category::all();
         return view('event', compact('catgs'));
     }
+
     public function login_event()
     {
 
@@ -48,135 +49,115 @@ class EventController extends Controller
             'categoryid' => $request->category,
             'business' => $request->business,
             'email' => $request->email,
-            'phone' =>  $request->contrycode,
+            'phone' => $request->contrycode,
             'address' => $request->address,
             'password' => Hash::make($request->password),
         ]);
         Auth()->login($user);
         $rest = new Restaurant;
-            $rest->planner_id = auth()->user()->id;
-            $rest->categoryid = $request->category;
-            $rest->business = $request->business;
-            $rest->address = $request->address;
+        $rest->planner_id = auth()->user()->id;
+        $rest->categoryid = $request->category;
+        $rest->business = $request->business;
+        $rest->address = $request->address;
 
-            if ($request->hasFile('file')) {
-
-
-                    $file = $request->file('file');
-                    $extension = $request->file->extension();
-                    $fileName2 = time(). "1_." .$extension;
-                    $request->file->move('upload/', $fileName2);
-                    $rest->logo = $fileName2;
-            }
+        if ($request->hasFile('file')) {
 
 
-            if($request->_24by7 == 1 )
-            {
-                $rest->availalltime = 1;
-                $saveresult = $rest->save();
-            }
-            else
-            {
-                $rest->availalltime = 0;
+            $file = $request->file('file');
+            $extension = $request->file->extension();
+            $fileName2 = time() . "1_." . $extension;
+            $request->file->move('upload/', $fileName2);
+            $rest->logo = $fileName2;
+        }
 
-                for($j = 1; $j < 8; $j++)
-                {
-                    $holiday='holiday'.$j;
-                    if($request->has($holiday))
-                    {
-                        $rest->$holiday = 1;
 
-                    }
-                    else{
-                        $rest->$holiday = 0;
-                    }
+        if ($request->_24by7 == 1) {
+            $rest->availalltime = 1;
+            $saveresult = $rest->save();
+        } else {
+            $rest->availalltime = 0;
 
+            for ($j = 1; $j < 8; $j++) {
+                $holiday = 'holiday' . $j;
+                $day24 = '_24_day' . $j;
+                if ($request->has($holiday)) {
+                    $rest->$holiday = 1;
+
+                } elseif ($request->has($day24)) {
+                    $rest->$holiday = 24;
                 }
-                $saveresult = $rest->save();
-                if($request->repeatt == 1)
-                {
-                    $maxlop = max($request->count);
-                    for ($i = 0; $i <= $maxlop; $i++) {
-                        // echo $i;
-                        $time = new Timing;
-                        $time->restaurant_id =  $rest->id;
-                        if(isset($request->mondayopen[$i]))
-                        {
-                            $time->mondyopen = $request->mondayopen[$i];
 
-                        }
+            }
+            $saveresult = $rest->save();
 
-                        if(isset($request->mondayclose[$i]))
-                        {
-                            $time->mondyclose = $request->mondayclose[$i];
-                        }
-                        if(isset($request->tuesdayopen[$i]))
-                        {
-                            $time->tuedyopen = $request->tuesdayopen[$i];
-                        }
-                        if(isset($request->tuesdayclose[$i]))
-                        {
-                            $time->tuedyclose = $request->tuesdayclose[$i];
-                        }
-                        if(isset($request->wednesdayopen[$i]))
-                        {
-                            $time->wedopen = $request->wednesdayopen[$i];
-                        }
-                        if(isset($request->wednesdayclose[$i]))
-                        {
-                            $time->wedclose = $request->wednesdayclose[$i];
-                        }
-                        if(isset($request->thursdayopen[$i]))
-                        {
-                            $time->thurdyopen = $request->thursdayopen[$i];
-                        }
-                        if(isset($request->thursdayclose[$i]))
-                        {
-                            $time->thurdyclose = $request->thursdayclose[$i];
-                        }
-                        if(isset($request->fridayopen[$i]))
-                        {
-                            $time->fridyopen = $request->fridayopen[$i];
-                        }
-                        if(isset($request->fridayclose[$i]))
-                        {
-                            $time-> fridyclose = $request->fridayclose[$i];
-                        }
-                        if(isset($request->saturdayopen[$i]))
-                        {
-                            $time->satdyopen = $request->saturdayopen[$i];
-                        }
-                        if(isset($request->saturdayclose[$i]))
-                        {
-                            $time->satdyclose = $request->saturdayclose[$i];
-                        }
+            $maxlop = max($request->count);
+            for ($i = 0; $i <= $maxlop; $i++) {
 
-                        if(isset($request->sundayopen[$i]))
-                        {
-                            $time->sundyopen = $request->sundayopen[$i];
-                        }
-                        if(isset($request->sundayclose[$i]))
-                        {
-                            $time->sundyclose = $request->sundayclose[$i];
-                        }
-
-                        $time->save();
-
-                    }
+                $check = 0;
+                // echo $i;
+                $time = new Timing;
+                $time->restaurant_id = $rest->id;
+                if (isset($request->mondayopen[$i])) {
+                    $time->mondyopen = $request->mondayopen[$i];
+                    $time->mondyclose = $request->mondayclose[$i];
+                    $check = 1;
                 }
 
 
+                if (isset($request->tuesdayopen[$i])) {
+                    $time->tuedyopen = $request->tuesdayopen[$i];
+                    $time->tuedyclose = $request->tuesdayclose[$i];
+                    $check = 1;
+                }
+
+                if (isset($request->wednesdayopen[$i])) {
+                    $time->wedopen = $request->wednesdayopen[$i];
+                    $time->wedclose = $request->wednesdayclose[$i];
+                    $check = 1;
+                }
+
+                if (isset($request->thursdayopen[$i])) {
+                    $time->thurdyopen = $request->thursdayopen[$i];
+                    $time->thurdyclose = $request->thursdayclose[$i];
+                    $check = 1;
+                }
+
+                if (isset($request->fridayopen[$i])) {
+                    $time->fridyopen = $request->fridayopen[$i];
+                    $time->fridyclose = $request->fridayclose[$i];
+                    $check = 1;
+                }
+
+                if (isset($request->saturdayopen[$i])) {
+                    $time->satdyopen = $request->saturdayopen[$i];
+                    $time->satdyclose = $request->saturdayclose[$i];
+                    $check = 1;
+                }
+
+
+                if (isset($request->sundayopen[$i])) {
+                    $time->sundyopen = $request->sundayopen[$i];
+                    $time->sundyclose = $request->sundayclose[$i];
+                    $check = 1;
+                }
+
+                if ($check == 1) {
+                    $time->save();
+                }
+
 
             }
 
 
+        }
 
 
-        if($user){
-            return redirect('/planner')->with('success','Planner Created Successfully');
+        if ($user) {
+            return redirect('/planner')->with('success', 'Planner Created Successfully');
         }
 
     }
+
     public function hostevent(Request $request)
     {
         // dd($request);
@@ -199,127 +180,36 @@ class EventController extends Controller
 
         Auth()->login($user);
         $rest = new Restaurant;
-            $rest->planner_id = auth()->user()->id;
-            $rest->categoryid = $request->category;
-            $rest->business = $request->business;
-            $rest->address = $request->address;
+        $rest->planner_id = auth()->user()->id;
+        $rest->categoryid = $request->category;
+        $rest->business = $request->business;
+        $rest->address = $request->address;
 
-            if($request->hasFile('file')) {
+        if ($request->hasFile('file')) {
 
-                    $file = $request->file('file');
-                    $extension = $request->file->extension();
-                    // dd($extension);
-                    $fileName2 = time(). "1_." .$extension;
-                    $request->file->move('upload/', $fileName2);
-                    $rest->logo = $fileName2;
-            }
-
-
-
-            if($request->_24by7 == 1 )
-            {
-                $rest->availalltime = 1;
-                $saveresult = $rest->save();
-            }
-            else
-            {
-                $rest->availalltime = 0;
-
-                for($j = 1; $j < 8; $j++)
-                {
-                    $holiday='holiday'.$j;
-                    if($request->has($holiday))
-                    {
-                        $rest->$holiday = 1;
-
-                    }
-                    else{
-                        $rest->$holiday = 0;
-                    }
-
-                }
-                $saveresult = $rest->save();
-                if($request->repeatt == 1)
-                {
-                    $maxlop = max($request->count);
-                    for ($i = 0; $i <= $maxlop; $i++) {
-                        // echo $i;
-                        $time = new Timing;
-                        $time->restaurant_id =  $rest->id;
-                        if(isset($request->mondayopen[$i]))
-                        {
-                            $time->mondyopen = $request->mondayopen[$i];
-
-                        }
-
-                        if(isset($request->mondayclose[$i]))
-                        {
-                            $time->mondyclose = $request->mondayclose[$i];
-                        }
-                        if(isset($request->tuesdayopen[$i]))
-                        {
-                            $time->tuedyopen = $request->tuesdayopen[$i];
-                        }
-                        if(isset($request->tuesdayclose[$i]))
-                        {
-                            $time->tuedyclose = $request->tuesdayclose[$i];
-                        }
-                        if(isset($request->wednesdayopen[$i]))
-                        {
-                            $time->wedopen = $request->wednesdayopen[$i];
-                        }
-                        if(isset($request->wednesdayclose[$i]))
-                        {
-                            $time->wedclose = $request->wednesdayclose[$i];
-                        }
-                        if(isset($request->thursdayopen[$i]))
-                        {
-                            $time->thurdyopen = $request->thursdayopen[$i];
-                        }
-                        if(isset($request->thursdayclose[$i]))
-                        {
-                            $time->thurdyclose = $request->thursdayclose[$i];
-                        }
-                        if(isset($request->fridayopen[$i]))
-                        {
-                            $time->fridyopen = $request->fridayopen[$i];
-                        }
-                        if(isset($request->fridayclose[$i]))
-                        {
-                            $time-> fridyclose = $request->fridayclose[$i];
-                        }
-                        if(isset($request->saturdayopen[$i]))
-                        {
-                            $time->satdyopen = $request->saturdayopen[$i];
-                        }
-                        if(isset($request->saturdayclose[$i]))
-                        {
-                            $time->satdyclose = $request->saturdayclose[$i];
-                        }
-
-                        if(isset($request->sundayopen[$i]))
-                        {
-                            $time->sundyopen = $request->sundayopen[$i];
-                        }
-                        if(isset($request->sundayclose[$i]))
-                        {
-                            $time->sundyclose = $request->sundayclose[$i];
-                        }
-
-                        $time->save();
-
-                    }
-                }
+            $file = $request->file('file');
+            $extension = $request->file->extension();
+            // dd($extension);
+            $fileName2 = time() . "1_." . $extension;
+            $request->file->move('upload/', $fileName2);
+            $rest->logo = $fileName2;
+        }
 
 
+        if ($request->_24by7 == 1) {
+            $rest->availalltime = 1;
+            $saveresult = $rest->save();
+        } else {
+            $rest->availalltime = 0;
 
-            }
+            $saveresult = $rest->save();
 
 
+        }
 
 
-        if($user){
-            return redirect('/planner')->with('success','Planner Created Successfully');
+        if ($user) {
+            return redirect('/planner')->with('success', 'Planner Created Successfully');
         }
     }
 
@@ -328,10 +218,10 @@ class EventController extends Controller
         $catgs = Category::all();
         $rests = Restaurant::where('planner_id', auth()->user()->id)->get();
         $pkgs = Package::where('planner_id', auth()->user()->id)->get();
-        $restData =Restaurant::where('planner_id', auth()->user()->id)->first();
+        $restData = Restaurant::where('planner_id', auth()->user()->id)->first();
 
 
-        return view('host.resturent.restaurant', compact('catgs', 'rests', 'pkgs','restData'));
+        return view('host.resturent.restaurant', compact('catgs', 'rests', 'pkgs', 'restData'));
 
     }
 
@@ -339,131 +229,110 @@ class EventController extends Controller
     {
         // dd($request);
 
-            $rest = new Restaurant;
-            $rest->planner_id = auth()->user()->id;
-            $rest->categoryid = $request->category;
-            $rest->business = $request->business;
-            $rest->address = $request->address;
+        $rest = new Restaurant;
+        $rest->planner_id = auth()->user()->id;
+        $rest->categoryid = $request->category;
+        $rest->business = $request->business;
+        $rest->address = $request->address;
 
-            if ($request->hasFile('file')) {
-
-
-                    $file = $request->file('file');
-                    $extension = $request->file->extension();
-                    $fileName2 = time(). "1_." .$extension;
-                    $request->file->move('upload/', $fileName2);
-                    $rest->logo = $fileName2;
-            }
+        if ($request->hasFile('file')) {
 
 
-            if($request->_24by7 == 1 )
-            {
-                $rest->availalltime = 1;
-                $saveresult = $rest->save();
-            }
-            else
-            {
-                $rest->availalltime = 0;
+            $file = $request->file('file');
+            $extension = $request->file->extension();
+            $fileName2 = time() . "1_." . $extension;
+            $request->file->move('upload/', $fileName2);
+            $rest->logo = $fileName2;
+        }
 
-                for($j = 1; $j < 8; $j++)
-                {
-                    $holiday='holiday'.$j;
-                    $day24='_24_day'.$j;
-                    if($request->has($holiday))
-                    {
-                        $rest->$holiday = 1;
 
-                    }
-                    elseif($request->has($day24)){
-                        $rest->$holiday = 24;
-                    }
+        if ($request->_24by7 == 1) {
+            $rest->availalltime = 1;
+            $saveresult = $rest->save();
+        } else {
+            $rest->availalltime = 0;
 
+            for ($j = 1; $j < 8; $j++) {
+                $holiday = 'holiday' . $j;
+                $day24 = '_24_day' . $j;
+                if ($request->has($holiday)) {
+                    $rest->$holiday = 1;
+
+                } elseif ($request->has($day24)) {
+                    $rest->$holiday = 24;
                 }
-                $saveresult = $rest->save();
-                if($request->repeatt == 1)
-                {
-                    $maxlop = max($request->count);
-                    for ($i = 0; $i <= $maxlop; $i++) {
-                        // echo $i;
-                        $time = new Timing;
-                        $time->restaurant_id =  $rest->id;
-                        if(isset($request->mondayopen[$i]))
-                        {
-                            $time->mondyopen = $request->mondayopen[$i];
 
-                        }
+            }
+            $saveresult = $rest->save();
 
-                        if(isset($request->mondayclose[$i]))
-                        {
-                            $time->mondyclose = $request->mondayclose[$i];
-                        }
-                        if(isset($request->tuesdayopen[$i]))
-                        {
-                            $time->tuedyopen = $request->tuesdayopen[$i];
-                        }
-                        if(isset($request->tuesdayclose[$i]))
-                        {
-                            $time->tuedyclose = $request->tuesdayclose[$i];
-                        }
-                        if(isset($request->wednesdayopen[$i]))
-                        {
-                            $time->wedopen = $request->wednesdayopen[$i];
-                        }
-                        if(isset($request->wednesdayclose[$i]))
-                        {
-                            $time->wedclose = $request->wednesdayclose[$i];
-                        }
-                        if(isset($request->thursdayopen[$i]))
-                        {
-                            $time->thurdyopen = $request->thursdayopen[$i];
-                        }
-                        if(isset($request->thursdayclose[$i]))
-                        {
-                            $time->thurdyclose = $request->thursdayclose[$i];
-                        }
-                        if(isset($request->fridayopen[$i]))
-                        {
-                            $time->fridyopen = $request->fridayopen[$i];
-                        }
-                        if(isset($request->fridayclose[$i]))
-                        {
-                            $time->	fridyclose = $request->fridayclose[$i];
-                        }
-                        if(isset($request->saturdayopen[$i]))
-                        {
-                            $time->satdyopen = $request->saturdayopen[$i];
-                        }
-                        if(isset($request->saturdayclose[$i]))
-                        {
-                            $time->satdyclose = $request->saturdayclose[$i];
-                        }
+            $maxlop = max($request->count);
+            for ($i = 0; $i <= $maxlop; $i++) {
 
-                        if(isset($request->sundayopen[$i]))
-                        {
-                            $time->sundyopen = $request->sundayopen[$i];
-                        }
-                        if(isset($request->sundayclose[$i]))
-                        {
-                            $time->sundyclose = $request->sundayclose[$i];
-                        }
-
-                        $time->save();
-
-                    }
+                $check = 0;
+                // echo $i;
+                $time = new Timing;
+                $time->restaurant_id = $rest->id;
+                if (isset($request->mondayopen[$i])) {
+                    $time->mondyopen = $request->mondayopen[$i];
+                    $time->mondyclose = $request->mondayclose[$i];
+                    $check = 1;
                 }
 
 
+                if (isset($request->tuesdayopen[$i])) {
+                    $time->tuedyopen = $request->tuesdayopen[$i];
+                    $time->tuedyclose = $request->tuesdayclose[$i];
+                    $check = 1;
+                }
+
+                if (isset($request->wednesdayopen[$i])) {
+                    $time->wedopen = $request->wednesdayopen[$i];
+                    $time->wedclose = $request->wednesdayclose[$i];
+                    $check = 1;
+                }
+
+                if (isset($request->thursdayopen[$i])) {
+                    $time->thurdyopen = $request->thursdayopen[$i];
+                    $time->thurdyclose = $request->thursdayclose[$i];
+                    $check = 1;
+                }
+
+                if (isset($request->fridayopen[$i])) {
+                    $time->fridyopen = $request->fridayopen[$i];
+                    $time->fridyclose = $request->fridayclose[$i];
+                    $check = 1;
+                }
+
+                if (isset($request->saturdayopen[$i])) {
+                    $time->satdyopen = $request->saturdayopen[$i];
+                    $time->satdyclose = $request->saturdayclose[$i];
+                    $check = 1;
+                }
+
+
+                if (isset($request->sundayopen[$i])) {
+                    $time->sundyopen = $request->sundayopen[$i];
+                    $time->sundyclose = $request->sundayclose[$i];
+                    $check = 1;
+                }
+
+                if ($check == 1) {
+                    $time->save();
+                }
+
 
             }
 
-            if($saveresult)
-            {
-                return redirect()->back()->with('success','Restaurant Added Successfully');
-            }
 
+        }
+
+        if ($saveresult) {
+            return redirect()->back()->with('success', 'Restaurant Added Successfully');
+        }
 
 
     }
+
     public function editrest(Request $request)
     {
         $rest = Restaurant::find($request->id);
@@ -473,138 +342,115 @@ class EventController extends Controller
         return view('host.resturent.edit_restaurant', compact('rest', 'catgs'));
 
     }
+
     public function update_restaurant(Request $request)
     {
 
 
         DB::table('timings')
-        ->where('restaurant_id', $request->id)
-        ->delete();
+            ->where('restaurant_id', $request->id)
+            ->delete();
 
         $rest = Restaurant::find($request->id);
-            // $rest->planner_id = auth()->user()->id;
-            $rest->categoryid = $request->category;
-            $rest->business = $request->business;
-            $rest->address = $request->address;
+        // $rest->planner_id = auth()->user()->id;
+        $rest->categoryid = $request->category;
+        $rest->business = $request->business;
+        $rest->address = $request->address;
 
-            if ($request->hasFile('file')) {
-
-
-                    $file = $request->file('file');
-                    $extension = $request->file->extension();
-                    $fileName2 = time(). "1_." .$extension;
-                    $request->file->move('upload/', $fileName2);
-                    $rest->logo = $fileName2;
-            }
+        if ($request->hasFile('file')) {
 
 
-            if($request->_24by == 1 )
-            {
-                $rest->availalltime = 1;
-                $result = $rest->update();
-            }
-            else
-            {
-                $rest->availalltime = 0;
+            $file = $request->file('file');
+            $extension = $request->file->extension();
+            $fileName2 = time() . "1_." . $extension;
+            $request->file->move('upload/', $fileName2);
+            $rest->logo = $fileName2;
+        }
 
-                for($j = 1; $j < 8; $j++)
-                {
-                    $holiday='holiday'.$j;
-                    $day24='_24_day'.$j;
-                    if($request->has($holiday))
-                    {
-                        $rest->$holiday = 1;
 
-                    }
-                    elseif($request->has($day24)){
-                        $rest->$holiday = 24;
-                    }
+        if ($request->_24by == 1) {
+            $rest->availalltime = 1;
+            $result = $rest->update();
+        } else {
+            $rest->availalltime = 0;
 
+            for ($j = 1; $j < 8; $j++) {
+                $holiday = 'holiday' . $j;
+                $day24 = '_24_day' . $j;
+                if ($request->has($holiday)) {
+                    $rest->$holiday = 1;
+
+                } elseif ($request->has($day24)) {
+                    $rest->$holiday = 24;
                 }
-                $result = $rest->update();
-                if($request->repeatt == 1)
-                {
-                    $maxlop = max($request->count);
-                    for ($i = 0; $i < $maxlop; $i++) {
-                        // echo $i;
-                        $time = new Timing;
-                        $time->restaurant_id =  $rest->id;
-                        if(isset($request->mondayopen[$i]))
-                        {
-                            $time->mondyopen = $request->mondayopen[$i];
 
-                        }
+            }
+            $result = $rest->update();
 
-                        if(isset($request->mondayclose[$i]))
-                        {
-                            $time->mondyclose = $request->mondayclose[$i];
-                        }
-                        if(isset($request->tuesdayopen[$i]))
-                        {
-                            $time->tuedyopen = $request->tuesdayopen[$i];
-                        }
-                        if(isset($request->tuesdayclose[$i]))
-                        {
-                            $time->tuedyclose = $request->tuesdayclose[$i];
-                        }
-                        if(isset($request->wednesdayopen[$i]))
-                        {
-                            $time->wedopen = $request->wednesdayopen[$i];
-                        }
-                        if(isset($request->wednesdayclose[$i]))
-                        {
-                            $time->wedclose = $request->wednesdayclose[$i];
-                        }
-                        if(isset($request->thursdayopen[$i]))
-                        {
-                            $time->thurdyopen = $request->thursdayopen[$i];
-                        }
-                        if(isset($request->thursdayclose[$i]))
-                        {
-                            $time->thurdyclose = $request->thursdayclose[$i];
-                        }
-                        if(isset($request->fridayopen[$i]))
-                        {
-                            $time->fridyopen = $request->fridayopen[$i];
-                        }
-                        if(isset($request->fridayclose[$i]))
-                        {
-                            $time->	fridyclose = $request->fridayclose[$i];
-                        }
-                        if(isset($request->saturdayopen[$i]))
-                        {
-                            $time->satdyopen = $request->saturdayopen[$i];
-                        }
-                        if(isset($request->saturdayclose[$i]))
-                        {
-                            $time->satdyclose = $request->saturdayclose[$i];
-                        }
+                $maxlop = max($request->count);
+                for ($i = 0; $i <= $maxlop; $i++) {
 
-                        if(isset($request->sundayopen[$i]))
-                        {
-                            $time->sundyopen = $request->sundayopen[$i];
-                        }
-                        if(isset($request->sundayclose[$i]))
-                        {
-                            $time->sundyclose = $request->sundayclose[$i];
-                        }
+                    $check = 0;
+                    // echo $i;
+                    $time = new Timing;
+                    $time->restaurant_id = $rest->id;
+                    if (isset($request->mondayopen[$i])) {
+                        $time->mondyopen = $request->mondayopen[$i];
+                        $time->mondyclose = $request->mondayclose[$i];
+                        $check = 1;
+                    }
 
+
+                    if (isset($request->tuesdayopen[$i])) {
+                        $time->tuedyopen = $request->tuesdayopen[$i];
+                        $time->tuedyclose = $request->tuesdayclose[$i];
+                        $check = 1;
+                    }
+
+                    if (isset($request->wednesdayopen[$i])) {
+                        $time->wedopen = $request->wednesdayopen[$i];
+                        $time->wedclose = $request->wednesdayclose[$i];
+                        $check = 1;
+                    }
+
+                    if (isset($request->thursdayopen[$i])) {
+                        $time->thurdyopen = $request->thursdayopen[$i];
+                        $time->thurdyclose = $request->thursdayclose[$i];
+                        $check = 1;
+                    }
+
+                    if (isset($request->fridayopen[$i])) {
+                        $time->fridyopen = $request->fridayopen[$i];
+                        $time->fridyclose = $request->fridayclose[$i];
+                        $check = 1;
+                    }
+
+                    if (isset($request->saturdayopen[$i])) {
+                        $time->satdyopen = $request->saturdayopen[$i];
+                        $time->satdyclose = $request->saturdayclose[$i];
+                        $check = 1;
+                    }
+
+
+                    if (isset($request->sundayopen[$i])) {
+                        $time->sundyopen = $request->sundayopen[$i];
+                        $time->sundyclose = $request->sundayclose[$i];
+                        $check = 1;
+                    }
+
+                    if ($check == 1) {
                         $time->save();
-
                     }
                 }
 
 
 
-            }
 
-            if($result)
-            {
-                return redirect()->back()->with('success','Restaurant updated Successfully');
+            if ($result) {
+                return redirect()->back()->with('success', 'Restaurant updated Successfully');
             }
+        }
+
+
     }
-
-
-
-
 }
