@@ -81,7 +81,7 @@
                             <li>Personal Information</li>
                             <li>Location</li>
                             <li>Opening Hours</li>
-                            <li>Processing</li>
+
                         </ul>
 
 
@@ -704,34 +704,11 @@
 
                                                     <div class="buttons button_space">
                                                         <button class="back_button" type="button">Back</button>
-                                                        <button class="next_button" type="submit">Next Step</button>
+                                                        <button class="testbtn" type="submit">Next Step</button>
                                                     </div>
                                                 </div>
                                             </form>
 
-
-                                            <div class="main">
-                                                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 52 52">
-                                                    <circle class="checkmark__circle" cx="26" cy="26" r="25"
-                                                        fill="none" />
-                                                    <path class="checkmark__check" fill="none"
-                                                        d="M14.1 27.2l7.1 7.2 16.7-16.8" />
-                                                </svg>
-
-                                                <div class="text congrats">
-                                                    <h2>Congratulations!</h2>
-                                                    <p>Your Business has been in our record. Please give sometime for
-                                                        review.</p>
-                                                </div>
-
-
-                                                <div
-                                                    class="dashBoard d-flex justify-content-end align-items-end mt-5 pt-5">
-                                                    <a href=""><button class="btn btn-green">Add New
-                                                            Package</button></a>
-                                                </div>
-                                            </div>
                                         </div>
 
                 </div>

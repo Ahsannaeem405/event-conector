@@ -7,35 +7,19 @@ $(document).on("click", "._24by7open", function() {
 
 
     var val1 = $(this).val();
-    // alert(val1);
+    var form_id=$('#current_form').val();
     if( val1 == 1)
     {
-        $('.hoursdiv').addClass('d-none');
+        $('.'+form_id).find('.hoursdiv').addClass('d-none');
     }
     else{
-        $('.hoursdiv').removeClass('d-none');
+        $('.'+form_id).find('.hoursdiv').removeClass('d-none');
     }
 
 
 });
 
-// edit red
-$(document).on("click", "._24byopen", function() {
 
-
-
-    var val1 = $(this).val();
-    // alert(val1);
-    if( val1 == 1)
-    {
-        $('.hoursdiv2').addClass('d-none');
-    }
-    else{
-        $('.hoursdiv2').removeClass('d-none');
-    }
-
-
-});
 
 
     $('.removbtn').click(function() {
@@ -339,10 +323,13 @@ $(document).on("click", "._24byopen", function() {
 
     $(document).on("click", ".testbtn", function(event) {
         var form_id=$('#current_form').val();
+
+
         if ($('.'+form_id).find(".errormsg")[0]){
             event.preventDefault();
             toastr.error('Please select valid time for opening and closing');
         } else {
+
             // Do something if class does not exist
         }
     });
@@ -397,6 +384,9 @@ $(document).on('click', '.setbtn', function () {
     if ($(this).attr("atty") == 1) {
         if ($(this).is(":checked")) {
             $(this).closest(".disabl_prnt").children(".main1").addClass('disableddiv');
+            $(this).closest(".disabl_prnt").find(".errormsg").remove();
+            $(this).closest(".disabl_prnt").find(".endtime").removeAttr("required");
+
         } else {
             $(this).closest(".disabl_prnt").children(".main1").removeClass('disableddiv');
         }

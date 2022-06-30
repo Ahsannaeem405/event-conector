@@ -13,4 +13,10 @@ class Restaurant extends Model
     {
         return $this->hasMany(Timing::class, 'restaurant_id', 'id');
     }
+
+    public function getResturentdata($id)
+    {
+     $res=$this->wherePlannerId($id)->count();
+     return ['resturent'=>$res];
+    }
 }
