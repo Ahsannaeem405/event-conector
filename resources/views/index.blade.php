@@ -203,150 +203,31 @@
                     <div id="carouselExampleIndicators2" class="carousel slide">
 
                         <div class="carousel-inner">
-                            <div class="carousel-item p-4 active">
-                                <div class="row">
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
+                            @foreach($catgs as $catg)
+                                    <div class="carousel-item p-4 {{$loop->first ? "active": ""}}">
+                                        <div class="row">
+                                            @foreach($catg as $item)
+                                                <div class="col-md-3 mb-3">
+                                                    <div class="card shadowDiv rounded-3">
+                                                        <div class="reviewTag text-end pe-3 py-3">
+                                                            <span class="badge bg-creamy text-creamy">4.9</span>
+                                                        </div>
+                                                        <div class="" style="height:20px; width:20px;">
+                                                        <img src="{{ asset('upload/categoryimages') }}/{{$item->logo}}">
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <h4 class="card-title font-23">{{$item->name}}</h4>
+                                                            <p class="card-text text-grey-three font-12">196 Activity</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @endforeach
                                         </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Bungee Jump</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item p-4">
-                                <div class="row">
-
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item p-4">
-                                <div class="row">
-
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="card shadowDiv rounded-3">
-                                            <div class="reviewTag text-end pe-3 py-3">
-                                                <span class="badge bg-creamy text-creamy">4.9</span>
-                                            </div>
-                                            <a href="#" class="ps-4 pt-4"><i
-                                                    class="fa-solid fa-umbrella-beach font-34 text-seagreen1"></i></a>
-                                            <div class="card-body">
-                                                <h4 class="card-title font-23">Beach Activity</h4>
-                                                <p class="card-text text-grey-three font-12">196 Activity</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        
+                                    </div>                                
+                                
+                            
+                            @endforeach
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,11 @@
 @extends('admin.layout2.main')
 
 @section('body')
-
+<style>
+  .file-icon{
+    font-size: 30px !important;
+  }
+</style>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -123,12 +127,14 @@
                   <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form method="POST" action="{{ url('/admins/addcategory') }}">
+            <form method="POST" action="{{ url('/admins/addcategory') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
 
                   <label> Name</label>
                   <input type="text" required name="catgname" value="" class="form-control"></input>
+                  <label class="mt-4"> logo</label>
+                  <input type="file" required name="file" value="" class="form-control dropify" data-height="100"></input>
 
                 </div>
                 <div class="modal-footer justify-content-between">
@@ -161,14 +167,30 @@
 
 </script>
 <script>
-  $(function () {
+      <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
+
+      $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
   });
+
+
 </script>
-  
+  // <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
+<script>
+$(document).ready(function(){
+
+        // alert('fff');
+        // jQuery.noConflict();
+
+            $('.dropify').dropify();
+});
+</script>
 
 @endsection
