@@ -39,7 +39,7 @@
     }
     .setbtn {
         margin-top: 5px !important;
-        margin-left: 12px !important;   
+        margin-left: 12px !important;
     }
     .days {
         margin-right: 17px !important;
@@ -70,10 +70,7 @@
                         </div>
                         <div class="steps-content">
                             <h3>Step <span class="step-number">1</span></h3>
-                            <!-- <p class="step-number-content active">Please provide the following information</p>
-                            <p class="step-number-content d-none">Where is your business located</p>
-                            <p class="step-number-content d-none">Please provide some of your information</p>
-                            <p class="step-number-content d-none">Processing your information to help you onboard</p> -->
+
                         </div>
                         <ul class="progress-bar-1"
                             style="display: flex;flex-direction: column;justify-content: center;overflow: hidden;color: #fff;text-align: center;white-space: nowrap;transition: width .6s ease;">
@@ -88,8 +85,8 @@
 
                     </div>
                       <div class="right-side">
-                                            <form method="post" action="{{ url('/addplanner') }}" enctype="multipart/form-data">
-                                                @csrf 
+                       <form method="post" action="{{ url('/addplanner') }}" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="main mainy active">
                                                     <div class="text">
                                                         <h2>Welcome Onboard</h2>
@@ -98,7 +95,7 @@
 
                                                     <div class="input-text">
                                                         <div class="input-div">
-                                                            
+
                                                             <label>Business Category</label>
                                                             <select name="category" required require >
                                                                 @foreach($catgs as $catg)
@@ -126,11 +123,11 @@
 
                                                             <label>Phone No</label>
                                                     </div>
-                                                  
-                                                        
+
+
                                                     <input type="number" class="form-control" placeholder="Phone #" required require name="phone"  id="phone" value="{{ old('phone') }}">
                                                     <input type="hidden" id="contrycode" name="contrycode">
-                                                  
+
 
 
 
@@ -144,17 +141,17 @@
 
 
 
-                                                    
-                                                
+
+
                                                 <div class="main">
-                           
+
                                                     <div class="text">
                                                         <h2>Almost There!</h2>
                                                         <p>Please provide some of your information</p>
                                                     </div>
                                                     <div class="input-text  input-text2">
                                                         <div class="input-div">
-                                                          
+
                                                             <input type="text" name="name" required="" require="" id="user_name">
                                                             <span>First Name</span>
                                                         </div>
@@ -179,12 +176,12 @@
                                                             <span>Confirm password</span>
                                                         </div>
                                                     </div>
-                                                    
+
                                                     <div class="buttons button_space">
                                                         <button class="back_button">Back</button>
                                                         <button type="button" class="next_button">Next Step</button>
                                                     </div>
-                                                </div>      
+                                                </div>
                                                 <div class="main">
 
                                                     <div class="text">
@@ -193,7 +190,7 @@
                                                     </div>
                                                     <div class="map-section">
                                                         <div id="map">
-                                                           
+
 
                                                             <input type="text" name="" id="lati" class="d-none">
                                                             <div id="map1">
@@ -281,7 +278,7 @@
                                                                             var divided3 = divided2[1].split(",");
                                                                             var final_lat = divided3[0];
 
-                                                                           
+
 
 
 
@@ -289,7 +286,7 @@
                                                                             var div_lag1 = divided[1].split(")");
                                                                             var final_log = div_lag1[0];
 
-                                                                            
+
 
 
                                                                             if (marker) {
@@ -380,24 +377,24 @@
                                                         <label for="time"> Open in specific hours</label>
 
                                                         <div class="hoursdiv d-none">
-                                                            
+
                                                                 <h4 class="mb-0 days">Monday</h4>
                                                                 <div class="d-flex checkbtn">
                                                                     <input type="checkbox" id="_24_1stday" name="_24_1stday"  class="setbtn">
                                                                     <label for="_24_1stday"> Available 24 Hours </label>
-                                                                
-                                                                
+
+
                                                                     <input type="checkbox" id="holiday1" name="holiday1"  class="setbtn">
                                                                     <label for="holiday1"> Holiday </label>
                                                                 </div>
-                                                            
+
                                                             <input type="number" name="count[]" class="count1 d-none" value="0">
 
                                                             <div class="monday main1">
                                                                 <div class="main2 input-text mb-2" >
                                                                     <div class="main3 input-div">
 
-                                                                        <input type="time" id="user_name" name="mondayopen[]" class="starttime"> 
+                                                                        <input type="time" id="user_name" name="mondayopen[]" class="starttime">
                                                                         <span>Opening</span>
                                                                     </div>
 
@@ -411,10 +408,10 @@
                                                             </div>
 
                                                             <div class="div mb-2 text-end">
-                                                                
-                                                                
+
+
                                                             </div>
-                                                            
+
                                                                 <h4 class="mb-0 days">Tuesday</h4>
                                                                 <div class="d-flex checkbtn">
                                                                     <input type="checkbox" id="_24_2ndday" name="_24_2ndday" class="setbtn">
@@ -422,7 +419,7 @@
                                                                     <input type="checkbox" id="holiday2" name="holiday2" class="setbtn">
                                                                     <label for="holiday2"> Holiday </label>
                                                                 </div>
-                                                            
+
                                                             <input type="number" name="count[]" class="count2 d-none" value="0">
 
                                                             <div class="tuesday main1">
@@ -441,10 +438,10 @@
                                                                 </div>
                                                             </div>
                                                             <div class="div mb-2 text-end">
-                                                                
-                                                               
+
+
                                                             </div>
-                                                            
+
                                                                 <h4 class="mb-0 days">Wednesday</h4>
                                                                 <div class="d-flex checkbtn">
                                                                     <input type="checkbox" id="_24_3rdday" name="_24_3rdday" class="setbtn">
@@ -452,7 +449,7 @@
                                                                     <input type="checkbox" id="holiday3" name="holiday3" class="setbtn">
                                                                     <label for="holiday3"> Holiday </label>
                                                                 </div>
-                                                            
+
                                                             <input type="number" name="count[]" class="count3 d-none" value="0">
                                                             <div class="wednesday main1">
                                                                 <div class="main2 input-text mb-2">
@@ -471,19 +468,19 @@
                                                                 </div>
                                                             </div>
                                                             <div class="div mb-2 text-end">
-                                                            
-                                                            
+
+
                                                             </div>
-                                                            
+
                                                                 <h4 class="mb-0 days">Thursday</h4>
                                                                 <div class="d-flex checkbtn">
                                                                     <input type="checkbox" id="_24_4thday" name="_24_4thday" class="setbtn">
                                                                     <label for="_24_4thday"> Available 24 Hours </label>
-                                                                
+
                                                                     <input type="checkbox" id="holiday4" name="holiday4" class="setbtn">
                                                                     <label for="holiday4"> Holiday </label>
                                                                 </div>
-                                                            
+
                                                             <input type="number" name="count[]" class="count4 d-none" value="0">
                                                             <div class="thursday main1">
                                                                 <div class="main2 input-text mb-2">
@@ -502,19 +499,19 @@
                                                                 </div>
                                                             </div>
                                                             <div class="div mb-2 text-end">
-                                                            
-                                                            
+
+
                                                             </div>
-                                                            
+
                                                                 <h4 class="mb-0 days">Friday</h4>
                                                                 <div class="d-flex checkbtn">
                                                                     <input type="checkbox" id="_24_5thday" name="_24_5thday" class="setbtn">
                                                                     <label for="_24_5thday"> Available 24 Hours </label>
-                                                            
+
                                                                     <input type="checkbox" id="holiday5" name="holiday5" class="setbtn">
                                                                     <label for="holiday5"> Holiday </label>
                                                                 </div>
-                                                            
+
                                                             <input type="number" name="count[]" class="count5 d-none" value="0">
 
                                                             <div class="friday main1">
@@ -533,19 +530,19 @@
                                                                 </div>
                                                             </div>
                                                             <div class="div mb-2 text-end">
-                                                            
-                                                            
+
+
                                                             </div>
-                                                            
+
                                                                 <h4 class="mb-0 days">Saturday</h4>
                                                                 <div class="d-flex checkbtn">
                                                                     <input type="checkbox" id="_24_6thday" name="_24_6thday" class="setbtn">
                                                                     <label for="_24_6thday"> Available 24 Hours </label>
-                                                                
+
                                                                     <input type="checkbox" id="holiday6" name="holiday6" class="setbtn">
                                                                     <label for="holiday6"> Holiday </label>
                                                                 </div>
-                                                            
+
                                                             <input type="number" name="count[]" class="count6 d-none" value="0">
 
                                                             <div class="saturday main1">
@@ -565,19 +562,19 @@
                                                                 </div>
                                                             </div>
                                                             <div class="div mb-2 text-end">
-                                                            
-                                                            
+
+
                                                             </div>
-                                                           
+
                                                                 <h4 class="mb-0 days">Sunday</h4>
                                                                 <div class="d-flex checkbtn">
                                                                     <input type="checkbox" id="_24_7thday" name="_24_7thday" class="setbtn">
                                                                     <label for="_24_7thday"> Available 24 Hours </label>
-                                                                
+
                                                                     <input type="checkbox" id="holiday7" name="holiday7" class="setbtn">
                                                                     <label for="holiday7"> Holiday </label>
                                                                 </div>
-                                                            
+
                                                             <input type="number" name="count[]" class="count7 d-none" value="0">
 
                                                             <div class="sunday main1">
@@ -597,12 +594,12 @@
                                                                 </div>
                                                             </div>
                                                             <div class="div mb-2 text-end">
-                                                                
-                                                                
+
+
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
 
                                                     <div class="buttons button_space">
                                                         <button class="back_button" type="button">Back</button>
@@ -635,14 +632,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                    
+
                 </div>
             </div>
         </div>
     </section>
 
 
-   
+
 
 
    <!-- Bootstrap5 CDN -->
@@ -656,13 +653,13 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script> -->
     <!-- Jquery CDN -->
-   
- 
+
+
 
     <script src="{{ asset('js/event.js') }}"></script>
 
 <script>
-    
+
   @if(Session::has('success'))
 
   toastr.success("{{ session('success') }}");
@@ -679,11 +676,11 @@
 
 
 @if($errors->any())
-    
-    
+
+
         @foreach ($errors->all() as $error)
             toastr.error("{{ $error }}");
-    
+
         @endforeach
 @endif
 
@@ -705,7 +702,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
     <script>
         var telInput = $("#phone"),
-        
+
   errorMsg = $("#error-msg"),
   validMsg = $("#valid-msg");
 // initialise plugin
@@ -758,9 +755,9 @@ telInput.on("keyup change", reset);
 <script>
 
 $( document ).ready(function() {
-       
+
         $(".selected-flag").bind("DOMSubtreeModified",function(){
-            
+
             $("#contrycode").val($(this).text()+$("#phone").val());
         });
 
@@ -769,7 +766,7 @@ $( document ).ready(function() {
         });
 
 
-        
+
 
 });
 
