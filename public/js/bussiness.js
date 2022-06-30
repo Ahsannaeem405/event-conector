@@ -387,7 +387,33 @@ $(document).on("click", "._24byopen", function() {
     });
 
 
+//Near checkboxes
+$(document).on('click', '.setbtn', function () {
 
+
+    $(this).siblings('input:checkbox').prop('checked', false);
+
+
+    if ($(this).attr("atty") == 1) {
+        if ($(this).is(":checked")) {
+            $(this).closest(".disabl_prnt").children(".main1").addClass('disableddiv');
+        } else {
+            $(this).closest(".disabl_prnt").children(".main1").removeClass('disableddiv');
+        }
+    } else {
+        $(this).closest(".disabl_prnt").children(".main1").removeClass('disableddiv');
+    }
+
+
+});
+
+
+$(document).on("click", ".croos_btn", function () {
+    formnumbert2 = 0;
+    $('#modalbod').empty();
+    $('#modelbody2').empty();
+
+});
 
 
 
