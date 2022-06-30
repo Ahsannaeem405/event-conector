@@ -26,7 +26,7 @@
                                 <!-- <p>Fill all form field to go to next step</p> -->
                                 <div class="row">
                                     <div class="col-md-12 mx-0">
-                                        <form id="msform2" method="post" class="editPackageForm" action="{{ url('/user/update_package') }}"
+                                        <form id="msform2" method="post" class="editPackageForm" action="{{ url('/user/update_package') }}/{{$pkg->id}}"
                                                 enctype="multipart/form-data">
                                             <!-- progressbar -->
                                             @csrf
@@ -128,7 +128,7 @@
                                                             <p>Please provide your restaurant opening and closing hours</p>
                                                         </div>
                                                         <div class="hoursmaindiv">
-                                                            <input type="number" value="{{ $pkg->pkgtime ? "1" : "0" }}" name="repeatt" class="repeatt">
+                                                           
 
                                                             <input type="radio" id="_24by74" name="_24by7" value="1" {{ $pkg->availalltime == 1 ? "checked" : "" }}
                                                                 class="_24by7open" >
@@ -159,16 +159,18 @@
                                                                             @php
                                                                             $k1=0;
                                                                             $j1=0;
+                                                                            $l=0;
                                                                             $count21=0;
 
                                                                             @endphp
                                                                         @foreach($pkg->pkgtime as $time)
-
+                                                                        @php
+                                                                        $l=1;
+                                                                        @endphp
                                                                             @if($time->mondyopen != null)
                                                                                 @php
                                                                                 $k1=1;
                                                                                 $j1++;
-                                                                                $count21++;
                                                                                 @endphp
                                                                                 <div class="main2 input-text mb-2">
                                                                                     <div class="main3 input-div">
@@ -187,12 +189,17 @@
                                                                                         <i att="1" class="fa fa-plus add_btn"
                                                                                         aria-hidden="true"></i>
                                                                                     @else
-                                                                                        <i class="fa fa-plus dum"
+                                                                                        @php
+                                                                                        $count21++;
+                                                                                        @endphp
+                                                                                        <i att="1" class="fa fa-close clos_icon"
                                                                                         aria-hidden="true"></i>
 
                                                                                     @endif
                                                                                 </div>
+                                                                                
                                                                             @endif
+                                                                            
                                                                         @endforeach
                                                                         @if($k1 != 1)
                                                                             <div class="main2 input-text mb-2">
@@ -211,6 +218,7 @@
                                                                             </div>
                                                                         @endif
                                                                     </div>
+                                                                    <input type="number" value="{{ $l}}" name="repeatt" class="repeatt">
                                                                     <input type="number" name="count[]" class="count1 d-none"
                                                                         value="{{$count21}}">
                                                                 </div>
@@ -244,7 +252,7 @@
                                                                                 @php
                                                                                 $k2=1;
                                                                                 $j2++;
-                                                                                $count22++;
+                                                                                
                                                                                 @endphp
                                                                                 <div class="main2 input-text mb-2">
                                                                                     <div class="main3 input-div">
@@ -262,7 +270,10 @@
                                                                                         <i att="2" class="fa fa-plus add_btn"
                                                                                         aria-hidden="true"></i>
                                                                                     @else
-                                                                                        <i class="fa fa-plus dum"
+                                                                                        @php
+                                                                                        $count22++;
+                                                                                        @endphp
+                                                                                        <i att="2" class="fa fa-close clos_icon"
                                                                                         aria-hidden="true"></i>
 
                                                                                     @endif
@@ -321,7 +332,7 @@
                                                                                 @php
                                                                                 $k3=1;
                                                                                 $j3++;
-                                                                                $count23++;
+                                                                                
                                                                                 @endphp
                                                                                     <div class="main2 input-text mb-2">
 
@@ -340,7 +351,10 @@
                                                                                             <i att="3" class="fa fa-plus add_btn"
                                                                                             aria-hidden="true"></i>
                                                                                         @else
-                                                                                            <i class="fa fa-plus dum"
+                                                                                            @php
+                                                                                            $count23++;
+                                                                                            @endphp
+                                                                                            <i att="3" class="fa fa-close clos_icon"
                                                                                             aria-hidden="true"></i>
 
                                                                                         @endif
@@ -396,7 +410,6 @@
                                                                                 @php
                                                                                 $k4=1;
                                                                                 $j4++;
-                                                                                $count24++;
                                                                                 @endphp
                                                                                     <div class="main2 input-text mb-2">
 
@@ -415,7 +428,10 @@
                                                                                             <i att="4" class="fa fa-plus add_btn"
                                                                                             aria-hidden="true"></i>
                                                                                         @else
-                                                                                            <i class="fa fa-plus dum"
+                                                                                            @php
+                                                                                            $count24++;
+                                                                                            @endphp
+                                                                                            <i att="4" class="fa fa-close clos_icon"
                                                                                             aria-hidden="true"></i>
 
                                                                                         @endif
@@ -473,7 +489,6 @@
                                                                                 @php
                                                                                 $k5=1;
                                                                                 $j5++;
-                                                                                $count25++;
                                                                                 @endphp
                                                                                     <div class="main2 input-text mb-2">
 
@@ -492,7 +507,10 @@
                                                                                             <i att="5" class="fa fa-plus add_btn"
                                                                                             aria-hidden="true"></i>
                                                                                         @else
-                                                                                            <i class="fa fa-plus dum"
+                                                                                            @php
+                                                                                            $count25++;
+                                                                                            @endphp
+                                                                                            <i att="5" class="fa fa-close clos_icon"
                                                                                             aria-hidden="true"></i>
 
                                                                                         @endif
@@ -553,7 +571,7 @@
                                                                                 @php
                                                                                 $k6=1;
                                                                                 $j6++;
-                                                                                $count26++;
+                                                                                
                                                                                 @endphp
                                                                                     <div class="main2 input-text mb-2">
 
@@ -571,7 +589,10 @@
                                                                                             <i att="6" class="fa fa-plus add_btn"
                                                                                             aria-hidden="true"></i>
                                                                                         @else
-                                                                                            <i class="fa fa-plus dum"
+                                                                                            @php
+                                                                                            $count26++;
+                                                                                            @endphp
+                                                                                            <i att="6" class="fa fa-close clos_icon"
                                                                                             aria-hidden="true"></i>
 
                                                                                         @endif
@@ -632,7 +653,7 @@
                                                                                 @php
                                                                                 $k7=1;
                                                                                 $j7++;
-                                                                                $count27++;
+                                                                                
                                                                                 @endphp
                                                                                     <div class="main2 input-text mb-2">
 
@@ -649,10 +670,14 @@
                                                                                             <span>Closing</span>
                                                                                         </div>
                                                                                         @if($j7==1)
+                                                                                            
                                                                                             <i att="7" class="fa fa-plus add_btn"
                                                                                             aria-hidden="true"></i>
                                                                                         @else
-                                                                                            <i class="fa fa-plus dum"
+                                                                                            @php
+                                                                                            $count27++;
+                                                                                            @endphp
+                                                                                            <i att="7" class="fa fa-close clos_icon"
                                                                                             aria-hidden="true"></i>
 
                                                                                         @endif

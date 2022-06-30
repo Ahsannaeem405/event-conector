@@ -306,7 +306,7 @@
                 @foreach($pkgs as $pkg)
                     <div class="col-lg-3 col-12 col-sm-6 my-2">
                         <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                            <img src="{{ asset('img/banner.jpg') }}" alt=""
+                            <img src="{{ asset('upload') }}/{{$pkg->getimage()}}" alt=""
                                  class="img-fluid position-relative border-rounded p-2">
                             <div class="reviewTag text-end pe-3 py-3 position-absolute" style="left: 80%;">
                                 <span class="badge bg-creamy text-danger font-9">4.9</span>

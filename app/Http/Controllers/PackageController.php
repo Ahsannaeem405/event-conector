@@ -8,7 +8,7 @@ use App\Models\Package;
 use App\Models\PackageTiming;
 use App\Models\Restaurant;
 use App\Models\Category;
-
+use DB;
 use Eastwest\Json\Json;
 use Eastwest\Json\JsonException;
 
@@ -160,9 +160,10 @@ class PackageController extends Controller
 
     public function update_package(Request $request)
     {
-        dd($request);
-        $pkg = new Package;
-        $pkg->planner_id = auth()->user()->id;
+        
+        DB::table('package_timings')->where('package_id', $request->id)->delete();
+
+        $pkg = Package::find($request->id);
         $pkg->restaurant_id = $request->restaurant;
         $pkg->pkg_name = $request->package;
         $pkg->mem_allow = $request->quantity;
@@ -185,7 +186,7 @@ class PackageController extends Controller
         if($request->_24by7 == 1 )
         {
             $pkg->availalltime = 1;
-            $savepkg = $pkg->save();
+            $savepkg = $pkg->update();
         }
         else
         {
@@ -206,7 +207,7 @@ class PackageController extends Controller
                 }
 
             }
-            $savepkg = $pkg->save();
+            $savepkg = $pkg->update();
             if($request->repeatt == 1)
             {
                 $maxlop = max($request->count);
@@ -285,7 +286,7 @@ class PackageController extends Controller
 
         if($savepkg)
         {
-            return redirect()->back()->with('success','Package Added Successfully');
+            return redirect()->back()->with('success','Package Updated Successfully');
         }
 
     }

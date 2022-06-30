@@ -349,7 +349,7 @@ $(document).on("click", "._24byopen", function() {
     $(document).on("blur", ".starttime", function() {
         if($(this).val()){
             $(this).closest('.main2').children('.input-div').children('.endtime').attr("required", "true");
-
+            // $(this).closest('.main1').children('.add').removeClass('d-none');
             $('.repeatt').val("1");
 
         } else{

@@ -187,7 +187,7 @@
                                                             <i att="1" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
-                                                            <i class="fa fa-plus dum"
+                                                            <i att="1" class="fa fa-close clos_icon"
                                                             aria-hidden="true"></i>
 
                                                         @endif
@@ -262,7 +262,7 @@
                                                         <i att="2" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
-                                                        <i class="fa fa-plus dum"
+                                                        <i att="2" class="fa fa-close clos_icon"
                                                             aria-hidden="true"></i>
 
                                                         @endif
@@ -337,7 +337,7 @@
                                                             <i att="3" class="fa fa-plus add_btn"
                                                                 aria-hidden="true"></i>
                                                             @else
-                                                            <i class="fa fa-plus dum"
+                                                            <i att="3" class="fa fa-close clos_icon"
                                                                 aria-hidden="true"></i>
 
                                                             @endif
@@ -409,7 +409,7 @@
                                                         <i att="4" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
-                                                        <i class="fa fa-plus dum"
+                                                        <i att="4" class="fa fa-close clos_icon"
                                                             aria-hidden="true"></i>
 
                                                         @endif
@@ -481,7 +481,7 @@
                                                         <i att="5" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
-                                                        <i class="fa fa-plus dum"
+                                                        <i att="5" class="fa fa-close clos_icon"
                                                             aria-hidden="true"></i>
 
                                                         @endif
@@ -556,7 +556,7 @@
                                                         <i att="6" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
-                                                        <i class="fa fa-plus dum"
+                                                        <i att="6" class="fa fa-close clos_icon"
                                                             aria-hidden="true"></i>
 
                                                         @endif
@@ -631,7 +631,7 @@
                                                         <i att="7" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
-                                                        <i class="fa fa-plus dum"
+                                                        <i att="7" class="fa fa-close clos_icon"
                                                             aria-hidden="true"></i>
 
                                                         @endif
