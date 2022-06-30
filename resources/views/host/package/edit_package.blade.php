@@ -218,7 +218,7 @@
                                                                             </div>
                                                                         @endif
                                                                     </div>
-                                                                    <input type="number" value="{{ $l}}" name="repeatt" class="repeatt">
+                                                                    <input type="hidden" value="{{ $l}}" name="repeatt" class="repeatt">
                                                                     <input type="number" name="count[]" class="count1 d-none"
                                                                         value="{{$count21}}">
                                                                 </div>

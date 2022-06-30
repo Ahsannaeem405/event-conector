@@ -160,6 +160,7 @@
                                         <div class="monday main1 {{ $rest->holiday1 == 24 ? "disableddiv" : "" }}">
                                                 @php
                                                 $k1=0;
+                                                $e1=0;
                                                 $count21=0;
 
                                                 @endphp
@@ -168,7 +169,7 @@
                                                 @if($time->mondyopen != null)
                                                     @php
                                                     $k1=1;
-                                                    $count21++;
+                                                    $e1++;
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
                                                         <div class="main3 input-div">
@@ -183,10 +184,14 @@
                                                                 class="endtime">
                                                             <span>Closing</span>
                                                         </div>
-                                                        @if($loop->first)
+                                                        @if($e1==1)
+                                                        
                                                             <i att="1" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
+                                                            @php
+                                                            $count21++;
+                                                            @endphp
                                                             <i att="1" class="fa fa-close clos_icon"
                                                             aria-hidden="true"></i>
 
@@ -237,6 +242,7 @@
                                         <div class="tuesday main1  {{ $rest->holiday2 == 24 ? "disableddiv" : "" }}">
                                                 @php
                                                 $k2=0;
+                                                $e2=0;
                                                 $count22=0;
 
                                                 @endphp
@@ -245,7 +251,8 @@
                                                 @if($time->tuedyopen != null)
                                                 @php
                                                 $k2=1;
-                                                $count22++;
+                                                $e2++;
+                                                
                                                 @endphp
                                                     <div class="main2 input-text mb-2">
                                                         <div class="main3 input-div">
@@ -258,10 +265,13 @@
                                                                 class="endtime" name="tuesdayclose[]">
                                                             <span>Closing</span>
                                                         </div>
-                                                        @if($loop->first)
+                                                        @if($e2==1)
                                                         <i att="2" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
+                                                            @php
+                                                            $count22++;
+                                                            @endphp
                                                         <i att="2" class="fa fa-close clos_icon"
                                                             aria-hidden="true"></i>
 
@@ -312,6 +322,7 @@
                                         <div class="wednesday main1  {{ $rest->holiday3 == 24 ? "disableddiv" : "" }}">
                                                 @php
                                                 $k3=0;
+                                                $e3=0;
                                                 $count23=0;
                                                 @endphp
                                             @foreach($rest->time as $time)
@@ -319,7 +330,8 @@
                                                 @if($time->wedopen != null)
                                                     @php
                                                     $k3=1;
-                                                    $count23++;
+                                                    $e3++;
+                                                    
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
@@ -333,14 +345,16 @@
                                                                 class="endtime" name="wednesdayclose[]">
                                                             <span>Closing</span>
                                                         </div>
-                                                        @if($loop->first)
+                                                        @if($e3==1)
                                                             <i att="3" class="fa fa-plus add_btn"
                                                                 aria-hidden="true"></i>
                                                             @else
+                                                                @php
+                                                                $count23++;
+                                                                @endphp
                                                             <i att="3" class="fa fa-close clos_icon"
                                                                 aria-hidden="true"></i>
-
-                                                            @endif
+                                                        @endif
                                                     </div>
 
                                                 @endif
@@ -385,13 +399,15 @@
                                         <div class="thursday main1  {{ $rest->holiday4 == 24 ? "disableddiv" : "" }}">
                                                 @php
                                                 $k4=0;
+                                                $e4=0;
                                                 $count24=0;
                                                 @endphp
                                             @foreach($rest->time as $time)
                                                 @if($time->thurdyopen != null)
                                                     @php
                                                     $k4=1;
-                                                    $count24++;
+                                                    $e4++;
+                                                    
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
@@ -405,10 +421,13 @@
                                                                 class="endtime" name="thursdayclose[]">
                                                             <span>Closing</span>
                                                         </div>
-                                                        @if($loop->first)
+                                                        @if($e4==1)
                                                         <i att="4" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
+                                                            @php
+                                                            $count24++;
+                                                            @endphp
                                                         <i att="4" class="fa fa-close clos_icon"
                                                             aria-hidden="true"></i>
 
@@ -457,13 +476,15 @@
                                         <div class="friday main1 {{ $rest->holiday5 == 24 ? "disableddiv" : "" }}">
                                                 @php
                                                 $k5=0;
+                                                $e5=0;
                                                 $count25=0;
                                                 @endphp
                                             @foreach($rest->time as $time)
                                                 @if($time->fridyopen != null)
                                                     @php
                                                     $k5=1;
-                                                    $count25++;
+                                                    $e5++;
+                                                    
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
@@ -477,10 +498,13 @@
                                                                 class="endtime" name="fridayclose[]">
                                                             <span>Closing</span>
                                                         </div>
-                                                        @if($loop->first)
+                                                        @if($e5==1)
                                                         <i att="5" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
+                                                            @php
+                                                            $count25++;
+                                                            @endphp
                                                         <i att="5" class="fa fa-close clos_icon"
                                                             aria-hidden="true"></i>
 
@@ -532,13 +556,14 @@
                                         <div class="saturday main1 {{ $rest->holiday6 == 24 ? "disableddiv" : "" }}">
                                                 @php
                                                 $k6=0;
+                                                $e6=0;
                                                 $count26=0;
                                                 @endphp
                                             @foreach($rest->time as $time)
                                                 @if($time->satdyopen != null)
                                                     @php
                                                     $k6=1;
-                                                    $count26++;
+                                                    $e6++;
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
@@ -552,10 +577,13 @@
                                                                 name="saturdayclose[]">
                                                             <span>Closing</span>
                                                         </div>
-                                                        @if($loop->first)
+                                                        @if($e6==1)
                                                         <i att="6" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
+                                                            @php
+                                                            $count26++;
+                                                            @endphp
                                                         <i att="6" class="fa fa-close clos_icon"
                                                             aria-hidden="true"></i>
 
@@ -607,13 +635,15 @@
                                         <div class="sunday main1 {{ $rest->holiday7 == 24 ? "disableddiv" : "" }}">
                                                 @php
                                                 $k7=0;
+                                                $e7=0;
                                                 $count27=0;
                                                 @endphp
                                             @foreach($rest->time as $time)
                                                 @if($time->sundyopen != null)
                                                     @php
                                                     $k7=1;
-                                                    $count27++;
+                                                    $e7++;
+                                                    
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
@@ -627,10 +657,13 @@
                                                                 class="endtime" name="sundayclose[]">
                                                             <span>Closing</span>
                                                         </div>
-                                                        @if($loop->first)
+                                                        @if($e7==1)
                                                         <i att="7" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
+                                                            @php
+                                                            $count27++;
+                                                            @endphp
                                                         <i att="7" class="fa fa-close clos_icon"
                                                             aria-hidden="true"></i>
 
