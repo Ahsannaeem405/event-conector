@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="{{ asset('css/restaurant.css') }}">
     <link rel="stylesheet" href="{{ asset('css/chatboard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page2.css') }}">
+    <style>
+        .disableddiv {
+            pointer-events: none;
+            opacity: 0.4;
+        }
+    </style>
 
     <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
 

@@ -41,10 +41,7 @@
             font-size: 25px !important;
         }
 
-        .disableddiv {
-            pointer-events: none;
-            opacity: 0.4;
-        }
+
 
         .clos_icon {
             color: red;
@@ -749,34 +746,7 @@
             $('.dropify2').dropify();
             $('.dropify2nd').dropify();
 
-            //Near checkboxes
-            $(document).on('click', '.setbtn', function () {
 
-
-                $(this).siblings('input:checkbox').prop('checked', false);
-                // alert($(this).attr("name"));
-
-                // $(this).closest(".disabl_prnt").children(".main1").addClass('disableddiv');
-
-                if ($(this).attr("atty") == 1) {
-                    if ($(this).is(":checked")) {
-                        $(this).closest(".disabl_prnt").children(".main1").addClass('disableddiv');
-                    } else {
-                        $(this).closest(".disabl_prnt").children(".main1").removeClass('disableddiv');
-                    }
-                } else {
-                    $(this).closest(".disabl_prnt").children(".main1").removeClass('disableddiv');
-                }
-
-
-            });
-
-
-            $(document).on("click", ".croos_btn", function () {
-                formnumbert2 = 0;
-                $('#modalbod').empty()
-
-            });
 
         });
     </script>

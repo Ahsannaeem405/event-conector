@@ -16,7 +16,7 @@
 
 </style>
 <div class="closeBtn text-end pt-3">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close croos_btn" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="container-fluid" id="grad1">
                     <div class="row justify-content-center mt-0">
@@ -128,7 +128,7 @@
                                                             <p>Please provide your restaurant opening and closing hours</p>
                                                         </div>
                                                         <div class="hoursmaindiv">
-                                                           
+
 
                                                             <input type="radio" id="_24by74" name="_24by7" value="1" {{ $pkg->availalltime == 1 ? "checked" : "" }}
                                                                 class="_24by7open" >
@@ -197,9 +197,9 @@
 
                                                                                     @endif
                                                                                 </div>
-                                                                                
+
                                                                             @endif
-                                                                            
+
                                                                         @endforeach
                                                                         @if($k1 != 1)
                                                                             <div class="main2 input-text mb-2">
@@ -252,7 +252,7 @@
                                                                                 @php
                                                                                 $k2=1;
                                                                                 $j2++;
-                                                                                
+
                                                                                 @endphp
                                                                                 <div class="main2 input-text mb-2">
                                                                                     <div class="main3 input-div">
@@ -332,7 +332,7 @@
                                                                                 @php
                                                                                 $k3=1;
                                                                                 $j3++;
-                                                                                
+
                                                                                 @endphp
                                                                                     <div class="main2 input-text mb-2">
 
@@ -571,7 +571,7 @@
                                                                                 @php
                                                                                 $k6=1;
                                                                                 $j6++;
-                                                                                
+
                                                                                 @endphp
                                                                                     <div class="main2 input-text mb-2">
 
@@ -653,7 +653,7 @@
                                                                                 @php
                                                                                 $k7=1;
                                                                                 $j7++;
-                                                                                
+
                                                                                 @endphp
                                                                                     <div class="main2 input-text mb-2">
 
@@ -670,7 +670,7 @@
                                                                                             <span>Closing</span>
                                                                                         </div>
                                                                                         @if($j7==1)
-                                                                                            
+
                                                                                             <i att="7" class="fa fa-plus add_btn"
                                                                                             aria-hidden="true"></i>
                                                                                         @else
@@ -749,47 +749,5 @@
                     </div>
                 </div>
 
-<!-- <script src="{{ asset('js/event2.js') }}"></script> -->
 
-
-<script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
-
-<script>
-    $(document).ready(function(){
-        // jQuery.noConflict();
-            // $('.dropify2n').dropify();
-            $('.setbtn').click(function(){
-
-
-                $(this).siblings('input:checkbox').prop('checked',false);
-                // alert($(this).attr("name"));
-
-                // $(this).closest(".disabl_prnt").children(".main1").addClass('disableddiv');
-
-                if($(this).attr("atty")== 1)
-                {
-                    if($(this).is(":checked"))
-                    {
-                        $(this).closest(".disabl_prnt").children(".main1").addClass('disableddiv');
-                    }
-                    else{
-                        $(this).closest(".disabl_prnt").children(".main1").removeClass('disableddiv');
-                    }
-                }
-                else{
-                    $(this).closest(".disabl_prnt").children(".main1").removeClass('disableddiv');
-                }
-
-
-            });
-
-
-
-
-
-
-
-        });
-</script>
 

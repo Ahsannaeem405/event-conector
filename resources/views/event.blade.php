@@ -61,6 +61,9 @@
     <link rel="stylesheet" href="{{ asset('css/event.css') }}">
 
     <section class="event-step" style="background-image: url('{{ asset('img/banner4.jpg') }}'); background-position: center; background-size: cover;">
+
+        <input type="hidden" id="current_form" value="hostevent">
+
         <div class="container bg-transparent">
             <div class="card border-0">
                 <div class="form">
@@ -85,7 +88,7 @@
 
                     </div>
                       <div class="right-side">
-                       <form method="post" action="{{ url('/addplanner') }}" enctype="multipart/form-data">
+                       <form method="post" action="{{ url('/addplanner') }}" class="hostevent" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="main mainy active">
                                                     <div class="text">
@@ -376,34 +379,48 @@
                                                         <input type="radio" id="time" name="_24by7" value="0"  class="_24by7open">
                                                         <label for="time"> Open in specific hours</label>
 
-                                                        <div class="hoursdiv d-none">
+                                                        <div class="hoursdiv d-none col-12 col-md-12"
+                                                             style="margin: auto;">
 
-                                                                <h4 class="mb-0 days">Monday</h4>
+                                                            <h4 class="mb-0 mt-4 days">Monday</h4>
+                                                            <div class="disabl_prnt">
                                                                 <div class="d-flex checkbtn">
-                                                                    <input type="checkbox" id="_24_1stday" name="_24_1stday"  class="setbtn">
-                                                                    <label for="_24_1stday"> Available 24 Hours </label>
+                                                                    <input type="checkbox" id="_24_day1"
+                                                                           name="_24_day1" atty="1"
+                                                                           class="setbtn">
+                                                                    <label for="_24_day1"> Available 24
+                                                                        Hours </label>
 
 
-                                                                    <input type="checkbox" id="holiday1" name="holiday1"  class="setbtn">
-                                                                    <label for="holiday1"> Holiday </label>
+                                                                    <input type="checkbox" id="holiday31"
+                                                                           name="holiday1"
+                                                                           class="setbtn">
+                                                                    <label for="holiday31"> Holiday </label>
                                                                 </div>
 
-                                                            <input type="number" name="count[]" class="count1 d-none" value="0">
+                                                                <input type="number" name="count[]"
+                                                                       class="count1 d-none"
+                                                                       value="0">
 
-                                                            <div class="monday main1">
-                                                                <div class="main2 input-text mb-2" >
-                                                                    <div class="main3 input-div">
+                                                                <div class="monday main1">
+                                                                    <div class="main2 input-text mb-2">
+                                                                        <div class="main3 input-div">
 
-                                                                        <input type="time" id="user_name" name="mondayopen[]" class="starttime">
-                                                                        <span>Opening</span>
+                                                                            <input type="time" id="user_name"
+                                                                                   name="mondayopen[]"
+                                                                                   class="starttime">
+                                                                            <span>Opening</span>
+                                                                        </div>
+
+                                                                        <div class="input-div">
+                                                                            <input type="time" id="user_name"
+                                                                                   name="mondayclose[]"
+                                                                                   class="endtime">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        <i att="1" class="fa fa-plus add_btn"
+                                                                           aria-hidden="true"></i>
                                                                     </div>
-
-                                                                    <div class="input-div">
-                                                                        <input type="time" id="user_name"
-                                                                            name="mondayclose[]" class="endtime">
-                                                                        <span>Closing</span>
-                                                                    </div>
-                                                                    <i att="1" class="fa fa-plus add_btn" aria-hidden="true"></i>
                                                                 </div>
                                                             </div>
 
@@ -412,29 +429,43 @@
 
                                                             </div>
 
-                                                                <h4 class="mb-0 days">Tuesday</h4>
+                                                            <h4 class="mb-0 days">Tuesday</h4>
+                                                            <div class="disabl_prnt">
                                                                 <div class="d-flex checkbtn">
-                                                                    <input type="checkbox" id="_24_2ndday" name="_24_2ndday" class="setbtn">
-                                                                    <label for="_24_2ndday"> Available 24 Hours </label>
-                                                                    <input type="checkbox" id="holiday2" name="holiday2" class="setbtn">
-                                                                    <label for="holiday2"> Holiday </label>
+                                                                    <input type="checkbox" id="_24_day2"
+                                                                           name="_24_day2" atty="1"
+                                                                           class="setbtn">
+                                                                    <label for="_24_day2"> Available 24
+                                                                        Hours </label>
+                                                                    <input type="checkbox" id="holiday32"
+                                                                           name="holiday2"
+                                                                           class="setbtn">
+                                                                    <label for="holiday32"> Holiday </label>
                                                                 </div>
 
-                                                            <input type="number" name="count[]" class="count2 d-none" value="0">
+                                                                <input type="number" name="count[]"
+                                                                       class="count2 d-none"
+                                                                       value="0">
 
-                                                            <div class="tuesday main1">
-                                                                <div class="main2 input-text mb-2">
-                                                                    <div class="main3 input-div">
-                                                                        <input type="time" id="user_name" class="starttime"
-                                                                            name="tuesdayopen[]">
-                                                                        <span>Opening</span>
+                                                                <div class="tuesday main1">
+                                                                    <div class="main2 input-text mb-2">
+                                                                        <div class="main3 input-div">
+                                                                            <input type="time" id="user_name"
+                                                                                   class="starttime"
+                                                                                   name="tuesdayopen[]">
+                                                                            <span>Opening</span>
+                                                                        </div>
+                                                                        <div class="input-div">
+                                                                            <input type="time"
+                                                                                   placeholder="none"
+                                                                                   id="user_name"
+                                                                                   class="endtime"
+                                                                                   name="tuesdayclose[]">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        <i att="2" class="fa fa-plus add_btn"
+                                                                           aria-hidden="true"></i>
                                                                     </div>
-                                                                    <div class="input-div">
-                                                                        <input type="time" placeholder="none" id="user_name" class="endtime"
-                                                                            name="tuesdayclose[]">
-                                                                        <span>Closing</span>
-                                                                    </div>
-                                                                    <i att="2" class="fa fa-plus add_btn" aria-hidden="true"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="div mb-2 text-end">
@@ -442,29 +473,43 @@
 
                                                             </div>
 
-                                                                <h4 class="mb-0 days">Wednesday</h4>
+                                                            <h4 class="mb-0 days">Wednesday</h4>
+                                                            <div class="disabl_prnt">
                                                                 <div class="d-flex checkbtn">
-                                                                    <input type="checkbox" id="_24_3rdday" name="_24_3rdday" class="setbtn">
-                                                                    <label for="_24_3rdday"> Available 24 Hours </label>
-                                                                    <input type="checkbox" id="holiday3" name="holiday3" class="setbtn">
-                                                                    <label for="holiday3"> Holiday </label>
+                                                                    <input type="checkbox" id="_24_day3"
+                                                                           name="_24_day3" atty="1"
+                                                                           class="setbtn">
+                                                                    <label for="_24_day3"> Available 24
+                                                                        Hours </label>
+                                                                    <input type="checkbox" id="holiday33"
+                                                                           name="holiday3"
+                                                                           class="setbtn">
+                                                                    <label for="holiday33"> Holiday </label>
                                                                 </div>
 
-                                                            <input type="number" name="count[]" class="count3 d-none" value="0">
-                                                            <div class="wednesday main1">
-                                                                <div class="main2 input-text mb-2">
+                                                                <input type="number" name="count[]"
+                                                                       class="count3 d-none"
+                                                                       value="0">
+                                                                <div class="wednesday main1">
+                                                                    <div class="main2 input-text mb-2">
 
-                                                                    <div class="main3 input-div">
-                                                                        <input type="time" id="user_name" class="starttime"
-                                                                            name="wednesdayopen[]">
-                                                                        <span>Opening</span>
+                                                                        <div class="main3 input-div">
+                                                                            <input type="time" id="user_name"
+                                                                                   class="starttime"
+                                                                                   name="wednesdayopen[]">
+                                                                            <span>Opening</span>
+                                                                        </div>
+                                                                        <div class="input-div">
+                                                                            <input type="time"
+                                                                                   placeholder="none"
+                                                                                   id="user_name"
+                                                                                   class="endtime"
+                                                                                   name="wednesdayclose[]">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        <i att="3" class="fa fa-plus add_btn"
+                                                                           aria-hidden="true"></i>
                                                                     </div>
-                                                                    <div class="input-div">
-                                                                        <input type="time" placeholder="none" id="user_name" class="endtime"
-                                                                            name="wednesdayclose[]">
-                                                                        <span>Closing</span>
-                                                                    </div>
-                                                                    <i att="3" class="fa fa-plus add_btn" aria-hidden="true"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="div mb-2 text-end">
@@ -472,30 +517,44 @@
 
                                                             </div>
 
-                                                                <h4 class="mb-0 days">Thursday</h4>
+                                                            <h4 class="mb-0 days">Thursday</h4>
+                                                            <div class="disabl_prnt">
                                                                 <div class="d-flex checkbtn">
-                                                                    <input type="checkbox" id="_24_4thday" name="_24_4thday" class="setbtn">
-                                                                    <label for="_24_4thday"> Available 24 Hours </label>
+                                                                    <input type="checkbox" id="_24_day4"
+                                                                           name="_24_day4" atty="1"
+                                                                           class="setbtn">
+                                                                    <label for="_24_day4"> Available 24
+                                                                        Hours </label>
 
-                                                                    <input type="checkbox" id="holiday4" name="holiday4" class="setbtn">
-                                                                    <label for="holiday4"> Holiday </label>
+                                                                    <input type="checkbox" id="holiday34"
+                                                                           name="holiday4"
+                                                                           class="setbtn">
+                                                                    <label for="holiday34"> Holiday </label>
                                                                 </div>
 
-                                                            <input type="number" name="count[]" class="count4 d-none" value="0">
-                                                            <div class="thursday main1">
-                                                                <div class="main2 input-text mb-2">
+                                                                <input type="number" name="count[]"
+                                                                       class="count4 d-none"
+                                                                       value="0">
+                                                                <div class="thursday main1">
+                                                                    <div class="main2 input-text mb-2">
 
-                                                                    <div class="main3 input-div">
-                                                                        <input type="time" id="user_name" class="starttime"
-                                                                            name="thursdayopen[]">
-                                                                        <span>Opening</span>
+                                                                        <div class="main3 input-div">
+                                                                            <input type="time" id="user_name"
+                                                                                   class="starttime"
+                                                                                   name="thursdayopen[]">
+                                                                            <span>Opening</span>
+                                                                        </div>
+                                                                        <div class="input-div">
+                                                                            <input type="time"
+                                                                                   placeholder="none"
+                                                                                   id="user_name"
+                                                                                   class="endtime"
+                                                                                   name="thursdayclose[]">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        <i att="4" class="fa fa-plus add_btn"
+                                                                           aria-hidden="true"></i>
                                                                     </div>
-                                                                    <div class="input-div">
-                                                                        <input type="time" placeholder="none" id="user_name" class="endtime"
-                                                                            name="thursdayclose[]">
-                                                                        <span>Closing</span>
-                                                                    </div>
-                                                                    <i att="4" class="fa fa-plus add_btn" aria-hidden="true"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="div mb-2 text-end">
@@ -503,30 +562,45 @@
 
                                                             </div>
 
-                                                                <h4 class="mb-0 days">Friday</h4>
+                                                            <h4 class="mb-0 days">Friday</h4>
+                                                            <div class="disabl_prnt">
                                                                 <div class="d-flex checkbtn">
-                                                                    <input type="checkbox" id="_24_5thday" name="_24_5thday" class="setbtn">
-                                                                    <label for="_24_5thday"> Available 24 Hours </label>
+                                                                    <input type="checkbox" id="_24_day5"
+                                                                           name="_24_day5" atty="1"
+                                                                           class="setbtn">
+                                                                    <label for="_24_day5"> Available 24
+                                                                        Hours </label>
 
-                                                                    <input type="checkbox" id="holiday5" name="holiday5" class="setbtn">
-                                                                    <label for="holiday5"> Holiday </label>
+                                                                    <input type="checkbox" id="holiday35"
+                                                                           name="holiday5"
+                                                                           class="setbtn">
+                                                                    <label for="holiday35"> Holiday </label>
                                                                 </div>
 
-                                                            <input type="number" name="count[]" class="count5 d-none" value="0">
+                                                                <input type="number" name="count[]"
+                                                                       class="count5 d-none"
+                                                                       value="0">
 
-                                                            <div class="friday main1">
-                                                                <div class="main2 input-text mb-2">
+                                                                <div class="friday main1">
+                                                                    <div class="main2 input-text mb-2">
 
-                                                                    <div class="main3 input-div">
-                                                                        <input type="time" id="user_name" name="fridayopen[]" class="starttime">
-                                                                        <span>Opening</span>
+                                                                        <div class="main3 input-div">
+                                                                            <input type="time" id="user_name"
+                                                                                   name="fridayopen[]"
+                                                                                   class="starttime">
+                                                                            <span>Opening</span>
+                                                                        </div>
+                                                                        <div class="input-div">
+                                                                            <input type="time"
+                                                                                   placeholder="none"
+                                                                                   id="user_name"
+                                                                                   class="endtime"
+                                                                                   name="fridayclose[]">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        <i att="5" class="fa fa-plus add_btn"
+                                                                           aria-hidden="true"></i>
                                                                     </div>
-                                                                    <div class="input-div">
-                                                                        <input type="time" placeholder="none" id="user_name" class="endtime"
-                                                                            name="fridayclose[]">
-                                                                        <span>Closing</span>
-                                                                    </div>
-                                                                    <i att="5" class="fa fa-plus add_btn" aria-hidden="true"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="div mb-2 text-end">
@@ -534,31 +608,43 @@
 
                                                             </div>
 
-                                                                <h4 class="mb-0 days">Saturday</h4>
+                                                            <h4 class="mb-0 days">Saturday</h4>
+                                                            <div class="disabl_prnt">
                                                                 <div class="d-flex checkbtn">
-                                                                    <input type="checkbox" id="_24_6thday" name="_24_6thday" class="setbtn">
-                                                                    <label for="_24_6thday"> Available 24 Hours </label>
+                                                                    <input type="checkbox" id="_24_day6"
+                                                                           name="_24_day6" atty="1"
+                                                                           class="setbtn">
+                                                                    <label for="_24_day6"> Available 24
+                                                                        Hours </label>
 
-                                                                    <input type="checkbox" id="holiday6" name="holiday6" class="setbtn">
-                                                                    <label for="holiday6"> Holiday </label>
+                                                                    <input type="checkbox" id="holiday36"
+                                                                           name="holiday6"
+                                                                           class="setbtn">
+                                                                    <label for="holiday36"> Holiday </label>
                                                                 </div>
 
-                                                            <input type="number" name="count[]" class="count6 d-none" value="0">
+                                                                <input type="number" name="count[]"
+                                                                       class="count6 d-none"
+                                                                       value="0">
 
-                                                            <div class="saturday main1">
-                                                                <div class="main2 input-text mb-2">
+                                                                <div class="saturday main1">
+                                                                    <div class="main2 input-text mb-2">
 
-                                                                    <div class="main3 input-div">
-                                                                        <input type="time" id="user_name" class="starttime"
-                                                                            name="saturdayopen[]">
-                                                                        <span>Opening</span>
+                                                                        <div class="main3 input-div">
+                                                                            <input type="time" id="user_name"
+                                                                                   class="starttime"
+                                                                                   name="saturdayopen[]">
+                                                                            <span>Opening</span>
+                                                                        </div>
+                                                                        <div class="input-div">
+                                                                            <input type="time" id="user_name"
+                                                                                   class="endtime"
+                                                                                   name="saturdayclose[]">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        <i att="6" class="fa fa-plus add_btn"
+                                                                           aria-hidden="true"></i>
                                                                     </div>
-                                                                    <div class="input-div">
-                                                                        <input type="time" id="user_name" class="endtime"
-                                                                            name="saturdayclose[]">
-                                                                        <span>Closing</span>
-                                                                    </div>
-                                                                    <i att="6" class="fa fa-plus add_btn" aria-hidden="true"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="div mb-2 text-end">
@@ -566,31 +652,46 @@
 
                                                             </div>
 
-                                                                <h4 class="mb-0 days">Sunday</h4>
+                                                            <h4 class="mb-0 days">Sunday</h4>
+                                                            <div class="disabl_prnt">
                                                                 <div class="d-flex checkbtn">
-                                                                    <input type="checkbox" id="_24_7thday" name="_24_7thday" class="setbtn">
-                                                                    <label for="_24_7thday"> Available 24 Hours </label>
+                                                                    <input type="checkbox" id="_24_day7"
+                                                                           name="_24_day7" atty="1"
+                                                                           class="setbtn">
+                                                                    <label for="_24_day7"> Available 24
+                                                                        Hours </label>
 
-                                                                    <input type="checkbox" id="holiday7" name="holiday7" class="setbtn">
-                                                                    <label for="holiday7"> Holiday </label>
+                                                                    <input type="checkbox" id="holiday37"
+                                                                           name="holiday7"
+                                                                           class="setbtn">
+                                                                    <label for="holiday37"> Holiday </label>
                                                                 </div>
 
-                                                            <input type="number" name="count[]" class="count7 d-none" value="0">
+                                                                <input type="number" name="count[]"
+                                                                       class="count7 d-none"
+                                                                       value="0">
 
-                                                            <div class="sunday main1">
-                                                                <div class="main2 input-text mb-2">
+                                                                <div class="sunday main1">
+                                                                    <div class="main2 input-text mb-2">
 
-                                                                    <div class="main3 input-div">
-                                                                        <input type="time" placeholder="dss" id="user_name" class="starttime"
-                                                                            name="sundayopen[]">
-                                                                        <span>Opening</span>
+                                                                        <div class="main3 input-div">
+                                                                            <input type="time" placeholder="dss"
+                                                                                   id="user_name"
+                                                                                   class="starttime"
+                                                                                   name="sundayopen[]">
+                                                                            <span>Opening</span>
+                                                                        </div>
+                                                                        <div class="input-div">
+                                                                            <input type="time"
+                                                                                   placeholder="none"
+                                                                                   id="user_name"
+                                                                                   class="endtime"
+                                                                                   name="sundayclose[]">
+                                                                            <span>Closing</span>
+                                                                        </div>
+                                                                        <i att="7"
+                                                                           class="fa fa-plus add_btn"></i>
                                                                     </div>
-                                                                    <div class="input-div">
-                                                                        <input type="time" placeholder="none" id="user_name" class="endtime"
-                                                                            name="sundayclose[]">
-                                                                        <span>Closing</span>
-                                                                    </div>
-                                                                    <i  att="7" class="fa fa-plus add_btn"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="div mb-2 text-end">
@@ -749,8 +850,6 @@ telInput.blur(function() {
 // on keyup / change flag: reset
 telInput.on("keyup change", reset);
 </script>
-
-
 
 <script>
 
