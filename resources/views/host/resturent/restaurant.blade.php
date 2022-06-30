@@ -145,7 +145,7 @@
                 <div class="col-md-4 col-6">
                     <div class="counter border-rounded-40">
                         <p class="count-text fontw700">Total Restaurants</p>
-                        <h2 class="timer count-title count-number" data-to="50" data-speed="1500"></h2>
+                        <h2 class="timer count-title count-number" data-to="{{$response['resturent']}}" data-speed="1500"></h2>
                         <p class="count-text fontw500">All</p>
                     </div>
                 </div>

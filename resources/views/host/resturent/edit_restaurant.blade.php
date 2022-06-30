@@ -139,13 +139,13 @@
                                             @endforeach
                                 <input type="hidden" value="{{$countval}}" name="repeatt" class="repeatt">
 
-                                <input type="radio" id="_24by" name="_24by" value="1" {{ $rest->availalltime == 1 ? "checked" : "" }} class="_24byopen" >
+                                <input type="radio" id="_24by" name="_24by" value="1" {{ $rest->availalltime == 1 ? "checked" : "" }} class="_24by7open" >
                                 <label for="_24by"> Available 24/7 </label>
 
-                                <input type="radio" id="timet" name="_24by" value="0" {{ $rest->availalltime != 1 ? "checked" : "" }} class="_24byopen">
+                                <input type="radio" id="timet" name="_24by" value="0" {{ $rest->availalltime != 1 ? "checked" : "" }} class="_24by7open">
                                 <label for="timet"> Open in specific hours</label>
 
-                                <div class="hoursdiv2 {{ $rest->availalltime == 1 ? "d-none" : "" }}">
+                                <div class="hoursdiv {{ $rest->availalltime == 1 ? "d-none" : "" }}">
                                     <h4 class="mb-0 days">Monday</h4>
                                     <div class="disabl_prnt">
                                         <div class="d-flex checkbtn">
@@ -185,7 +185,7 @@
                                                             <span>Closing</span>
                                                         </div>
                                                         @if($e1==1)
-                                                        
+
                                                             <i att="1" class="fa fa-plus add_btn"
                                                             aria-hidden="true"></i>
                                                         @else
@@ -252,7 +252,7 @@
                                                 @php
                                                 $k2=1;
                                                 $e2++;
-                                                
+
                                                 @endphp
                                                     <div class="main2 input-text mb-2">
                                                         <div class="main3 input-div">
@@ -331,7 +331,7 @@
                                                     @php
                                                     $k3=1;
                                                     $e3++;
-                                                    
+
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
@@ -407,7 +407,7 @@
                                                     @php
                                                     $k4=1;
                                                     $e4++;
-                                                    
+
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
@@ -484,7 +484,7 @@
                                                     @php
                                                     $k5=1;
                                                     $e5++;
-                                                    
+
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
@@ -643,7 +643,7 @@
                                                     @php
                                                     $k7=1;
                                                     $e7++;
-                                                    
+
                                                     @endphp
                                                     <div class="main2 input-text mb-2">
 
