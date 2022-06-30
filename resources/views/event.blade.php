@@ -168,11 +168,11 @@
                                                     </div>
                                                     <div class="input-text input-text2">
                                                         <div class="input-div">
-                                                             <input id="password" type="password" required  name="password" autocomplete="new-password">
+                                                             <input id="password" type="password" required require  name="password" autocomplete="new-password">
                                                             <span>Password</span>
                                                         </div>
                                                         <div class="input-div">
-                                                            <input id="password-confirm" type="password"  required autocomplete="new-password" name="password_confirmation">
+                                                            <input id="password-confirm" type="password"  required require autocomplete="new-password" name="password_confirmation">
                                                             <span>Confirm password</span>
                                                         </div>
                                                     </div>

@@ -77,9 +77,76 @@ class EventController extends Controller
         } else {
             $rest->availalltime = 0;
 
+            for ($j = 1; $j < 8; $j++) {
+                $holiday = 'holiday' . $j;
+                $day24 = '_24_day' . $j;
+                if ($request->has($holiday)) {
+                    $rest->$holiday = 1;
 
+                } elseif ($request->has($day24)) {
+                    $rest->$holiday = 24;
+                }
+
+            }
             $saveresult = $rest->save();
 
+            $maxlop = max($request->count);
+            for ($i = 0; $i <= $maxlop; $i++) {
+
+                $check = 0;
+                // echo $i;
+                $time = new Timing;
+                $time->restaurant_id = $rest->id;
+                if (isset($request->mondayopen[$i])) {
+                    $time->mondyopen = $request->mondayopen[$i];
+                    $time->mondyclose = $request->mondayclose[$i];
+                    $check = 1;
+                }
+
+
+                if (isset($request->tuesdayopen[$i])) {
+                    $time->tuedyopen = $request->tuesdayopen[$i];
+                    $time->tuedyclose = $request->tuesdayclose[$i];
+                    $check = 1;
+                }
+
+                if (isset($request->wednesdayopen[$i])) {
+                    $time->wedopen = $request->wednesdayopen[$i];
+                    $time->wedclose = $request->wednesdayclose[$i];
+                    $check = 1;
+                }
+
+                if (isset($request->thursdayopen[$i])) {
+                    $time->thurdyopen = $request->thursdayopen[$i];
+                    $time->thurdyclose = $request->thursdayclose[$i];
+                    $check = 1;
+                }
+
+                if (isset($request->fridayopen[$i])) {
+                    $time->fridyopen = $request->fridayopen[$i];
+                    $time->fridyclose = $request->fridayclose[$i];
+                    $check = 1;
+                }
+
+                if (isset($request->saturdayopen[$i])) {
+                    $time->satdyopen = $request->saturdayopen[$i];
+                    $time->satdyclose = $request->saturdayclose[$i];
+                    $check = 1;
+                }
+
+
+                if (isset($request->sundayopen[$i])) {
+                    $time->sundyopen = $request->sundayopen[$i];
+                    $time->sundyclose = $request->sundayclose[$i];
+                    $check = 1;
+                }
+
+                if ($check == 1) {
+                    $time->save();
+                }
+
+
+            }
 
 
         }
