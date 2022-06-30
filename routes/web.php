@@ -95,7 +95,7 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
     Route::get('/editrest', [EventController::class, 'editrest'])->withoutMiddleware(['user'])->middleware(['planner']);
     Route::get('/edit_package', [PackageController::class, 'edit_package'])->withoutMiddleware(['user'])->middleware(['planner']);
-    Route::post('/update_package', [PackageController::class, 'update_package'])->withoutMiddleware(['user'])->middleware(['planner']);
+    Route::post('/update_package/{id}', [PackageController::class, 'update_package'])->withoutMiddleware(['user'])->middleware(['planner']);
 
     Route::post('/update_restaurant/{id}', [EventController::class, 'update_restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
 
