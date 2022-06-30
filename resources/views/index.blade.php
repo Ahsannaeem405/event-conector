@@ -144,7 +144,7 @@
                                          <form class="location-input" action="">
                                             <button class="btn btn-green p-3" type="button"><i class="fa fa-search font-30"
                                                     aria-hidden="true"></i></button>
-                                        </form> 
+                                        </form>
                                     </div> -->
 
                                 <div class="col-lg-4">
@@ -209,11 +209,11 @@
                                             @foreach($catg as $item)
                                                 <div class="col-md-3 mb-3">
                                                     <div class="card shadowDiv rounded-3">
-                                                        <div class="reviewTag text-end pe-3 py-3">
+                                                        <div class="reviewTag text-end pe-3 py-3 position-absolute " style="right: 0">
                                                             <span class="badge bg-creamy text-creamy">4.9</span>
                                                         </div>
-                                                        <div class="" style="height:20px; width:20px;">
-                                                        <img src="{{ asset('upload/categoryimages') }}/{{$item->logo}}">
+                                                        <div class="" >
+                                                        <img src="{{ asset('upload/categoryimages') }}/{{$item->logo}}" class="w-100">
                                                         </div>
                                                         <div class="card-body">
                                                             <h4 class="card-title font-23">{{$item->name}}</h4>
@@ -223,10 +223,10 @@
                                                 </div>
                                                 @endforeach
                                         </div>
-                                        
-                                    </div>                                
-                                
-                            
+
+                                    </div>
+
+
                             @endforeach
                         </div>
                     </div>
