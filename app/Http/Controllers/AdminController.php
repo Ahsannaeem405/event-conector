@@ -78,6 +78,18 @@ class AdminController extends Controller
     {
         $catg = Category::find($request->id);
         $catg->name = $request->name;
+        // dd($request->file);
+        if ($request->hasFile('file')) {
+// dd('file');
+            $file = $request->file('file');
+            $extension = $request->file->extension();
+            $fileName2 = time() . "1_." . $extension;
+            $request->file->move('upload/categoryimages', $fileName2);
+            $catg->logo = $fileName2;
+        }else{
+// dd('ddd');
+
+        }
         $catg->update();
         return redirect()->back()->with('success','Category Updated Successfully');
         

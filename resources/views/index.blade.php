@@ -221,7 +221,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                @endforeach
+                                            @endforeach
                                         </div>
                                         
                                     </div>                                
@@ -262,598 +262,79 @@
                     <div id="carouselExampleIndicators21" class="carousel slide">
 
                         <div class="carousel-inner">
-                            <div class="carousel-item p-4 active">
+                        @foreach($pkgs as $pkg)
+                            <div class="carousel-item p-4 {{$loop->first ? "active": ""}}">
                                 <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
+                                    @foreach($pkg as $item2)
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card shadowDiv border-rounded-1 border-1 pb-3">
+                                                <img src="{{ asset('upload') }}/{{$item2->getimage()}}" alt=""
+                                                    class="img-fluid position-relative border-rounded p-2">
+                                                <div class="reviewTag text-end pe-3 py-3 position-absolute"
+                                                    style="left: 80%;">
+                                                    <span class="badge bg-creamy text-danger">4.9</span>
                                                 </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
+                                                <div class="card-body pb-0">
+                                                    <div class="d-flex justify-content-between">
+                                                        <h4 class="card-title font-23">{{$item2->pkg_name}}</h4>
+                                                        <i class="fa fa-heart text-grey-three pt-2"></i>
                                                     </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
+                                                    <div class="div">
+                                                        <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
+                                                            Trent</p>
+                                                    </div>
+
+                                                    <div>
+                                                        <p class="font-9 mb-0 my-3">From</p>
+
+                                                    </div>
+
+                                                    <div class="pricing-review d-flex justify-content-between">
+                                                        <div class="pricing">
+                                                            <h4>${{$item2->amount}}</h4>
+                                                        </div>
+                                                        <div class="font-10">
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <div class="varies">
+                                                                <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
+                                                <div class="variesDiv px-3">
+                                                    <div class="pricing-varies">
+                                                        <p class="mb-3 text-grey-one">Price Varies</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
+                                                <div class="proceding px-3 d-flex">
                                                     <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
+                                                    <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
+                                                </div>
+                                                <div class="proceding px-3 d-flex">
+                                                    <div class="div d-flex pe-3">
+                                                        <a href="#" class=""><i
+                                                                class="fa fa-star text-center checked text-grey-one font-9"></i></a>
+                                                        <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="div d-flex">
+                                                        <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
+                                                        <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner1.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner3.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    @endforeach
                                 </div>
                             </div>
-                            <div class="carousel-item p-4">
-                                <div class="row">
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner2.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner1.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item p-4">
-                                <div class="row">
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner3.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                            <img src="./img/banner.jpg" alt=""
-                                                class="img-fluid position-relative border-rounded p-2">
-                                            <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                style="left: 80%;">
-                                                <span class="badge bg-creamy text-danger">4.9</span>
-                                            </div>
-                                            <div class="card-body pb-0">
-                                                <div class="d-flex justify-content-between">
-                                                    <h4 class="card-title font-23">Montain Hiking Tour</h4>
-                                                    <i class="fa fa-heart text-grey-three pt-2"></i>
-                                                </div>
-                                                <div class="div">
-                                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                                        Trent</p>
-                                                </div>
-
-                                                <div>
-                                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                                </div>
-
-                                                <div class="pricing-review d-flex justify-content-between">
-                                                    <div class="pricing">
-                                                        <h4>$895.44</h4>
-                                                    </div>
-                                                    <div class="font-10">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <div class="varies">
-                                                            <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="variesDiv px-3">
-                                                <div class="pricing-varies">
-                                                    <p class="mb-3 text-grey-one">Price Varies</p>
-                                                </div>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                            </div>
-                                            <div class="proceding px-3 d-flex">
-                                                <div class="div d-flex pe-3">
-                                                    <a href="#" class=""><i
-                                                            class="fa fa-star text-center checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation
-                                                    </p>
-                                                </div>
-
-                                                <div class="div d-flex">
-                                                    <a><i class="fa fa-star checked text-grey-one font-9"></i></a>
-                                                    <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach
+                            
                         </div>
                     </div>
                 </div>
@@ -1203,72 +684,31 @@
                         <button class="btn btn-green border-rounded-50">Check All</button>
                     </div>
                 </div>
-                <div class="col-md-4 col-12 mt-2">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('./img/hall.webp');">
-                        <div class="row">
-                            <div class="col-12">
-                                <span class="badge bg-green float-end">30%</span>
+                @foreach($rests as $rest)
+                    <div class="col-md-4 col-12 mt-2">
+                        <div class="image_div py-3 px-3 position-relative" style="background-image:url('{{ asset('upload') }}/{{$rest->logo}}');">
+                            <div class="row">
+                                <div class="col-12">
+                                    <span class="badge bg-green float-end">30%</span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-end mt-30">
+                                <div>
+                                    <h6 class="text-light">10 Days | 9 Nights</h6>
+                                    <h3 class="text-light">$200</h3>
+                                </div>
+                                <div class="d-flex ms-4">
+                                    <button class="btn btn-green px-3 py-1 h-50 border-rounded-50">Explore</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between align-items-end mt-30">
-                            <div>
-                                <h6 class="text-light">10 Days | 9 Nights</h6>
-                                <h3 class="text-light">$200</h3>
-                            </div>
-                            <div class="d-flex ms-4">
-                                <button class="btn btn-green px-3 py-1 h-50 border-rounded-50">Explore</button>
-                            </div>
+                        <div class="text-center py-3">
+                            <h5 class="text-blue">{{$rest->business}}</h5>
+                            <p class="text-grey-three">Checkout daily Deal</p>
                         </div>
                     </div>
-                    <div class="text-center py-3">
-                        <h5 class="text-blue">Product 1</h5>
-                        <p class="text-grey-three">Checkout daily Deal</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12 mt-2">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('./img/hall.webp');">
-                        <div class="row">
-                            <div class="col-12">
-                                <span class="badge bg-green float-end">30%</span>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-end mt-30">
-                            <div>
-                                <h6 class="text-light">10 Days | 9 Nights</h6>
-                                <h3 class="text-light">$200</h3>
-                            </div>
-                            <div class="d-flex ms-4">
-                                <button class="btn btn-green px-3 py-1 h-50 border-rounded-50">Explore</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center py-3">
-                        <h5 class="text-blue">Product 1</h5>
-                        <p class="text-grey-three">Checkout daily Deal</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12 mt-2">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('./img/hall.webp');">
-                        <div class="row">
-                            <div class="col-12">
-                                <span class="badge bg-green float-end">30%</span>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-end mt-30">
-                            <div>
-                                <h6 class="text-light">10 Days | 9 Nights</h6>
-                                <h3 class="text-light">$200</h3>
-                            </div>
-                            <div class="d-flex ms-4">
-                                <button class="btn btn-green px-3 py-1 h-50 border-rounded-50">Explore</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center py-3">
-                        <h5 class="text-blue">Product 1</h5>
-                        <p class="text-grey-three">Checkout daily Deal</p>
-                    </div>
-                </div>
+                @endforeach
+                
             </div>
         </div>
     </section>

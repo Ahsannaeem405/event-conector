@@ -7,6 +7,7 @@ use App\Models\Package;
 use App\Models\PackageTiming;
 use App\Models\Restaurant;
 use App\Models\Category;
+use DB;
 
 class userController extends Controller
 {
@@ -14,8 +15,10 @@ class userController extends Controller
     {
         $catgs = Category::all()->chunk(4);
         // dd($catgs);
-        $rests = Restaurant::all();
-        $pkgs = Package::all();
+        $rests =  DB::table('restaurants')->take(3)->orderBy('id', 'desc')->get();
+        
+        // dd($rests[2]->business);
+        $pkgs = Package::all()->chunk(3);
          return view('/index', compact('catgs','rests','pkgs'));
     }
     public function featured_rest()
