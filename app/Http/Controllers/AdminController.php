@@ -55,8 +55,20 @@ class AdminController extends Controller
 
     public function addcategory(Request $request)
     {
+
+        // dd($request);
         $catg = new Category;
         $catg->name = $request->catgname;
+
+        if ($request->hasFile('file')) {
+
+            $file = $request->file('file');
+            $extension = $request->file->extension();
+            $fileName2 = time() . "1_." . $extension;
+            $request->file->move('upload/categoryimages', $fileName2);
+            $catg->logo = $fileName2;
+        }
+
         $catg->save();
 
         return redirect()->back()->with('success','Cateory added Successfully');
