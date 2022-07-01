@@ -3,6 +3,8 @@
 
 @section('body')
     <link rel="stylesheet" href="{{ asset('css/event2.css') }}">
+    
+
     <style type="text/css">
         html,
         body {
@@ -209,7 +211,7 @@
                             <div class="card-body pb-0">
                                 <div class="d-flex justify-content-between">
                                     <h4 class="card-title font-16">{{$rest->business}}</h4>
-                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                    <i class="fa fa-heart text-grey-one pt-2 addfav" id="{{$rest->id}}" businessid="restaurant"></i>
                                 </div>
                                 <!-- <div class="div">
                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -309,8 +311,8 @@
                             </div>
                             <div class="card-body pb-0">
                                 <div class="d-flex justify-content-between">
-                                    <h4 class="card-title font-16">{{$pkg->pkg_name}}</h4>
-                                    <i class="fa fa-heart-o text-grey-three pt-2"></i>
+                                    <h4 class="card-title font-16">{{$pkg->id}}{{$pkg->pkg_name}}</h4>
+                                    <i class="fa fa-heart text-grey-three pt-2 addfav" id="{{$pkg->id}}" businessid="package"></i>
                                 </div>
                                 <div class="div">
                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -690,7 +692,7 @@
 
         }
     </script>
-
+<script type="text/javascript" src="{{ asset('js/favourite.js') }}"></script>
 
     <script>
         $(document).ready(function () {

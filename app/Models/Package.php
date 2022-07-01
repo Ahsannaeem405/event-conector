@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\PackageTiming;
+use App\Models\Favourite;
 
 use Eastwest\Json\Json;
 use Eastwest\Json\JsonException;
@@ -21,5 +22,10 @@ class Package extends Model
     public function pkgtime()
     {
         return $this->hasMany(PackageTiming::class, 'package_id', 'id');
+    }
+
+    public function favourite()
+    {
+        return $this->hasOne(Favourite::class, 'pakgresttid', 'id')->where('parent', 'package');
     }
 }

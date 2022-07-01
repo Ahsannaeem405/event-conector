@@ -226,6 +226,7 @@ class EventController extends Controller
         $rests = Restaurant::where('planner_id', auth()->user()->id)->get();
         $pkgs = Package::where('planner_id', auth()->user()->id)->get();
 
+        // dd($pkgs[0]->favourite);
       $response=  $this->resturent->getResturentdata(auth()->user()->id);
 
 
