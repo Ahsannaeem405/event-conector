@@ -57,9 +57,10 @@ Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
     Route::post('/dltcatg/{id}', [AdminController::class, 'dltcatg']);
     Route::get('/categories', [AdminController::class, 'categories']);
     Route::post('/addcategory', [AdminController::class, 'addcategory']);
+    Route::get('/category_edit', [AdminController::class, 'category_edit']);
 
 
-
+    
 
 });
 
@@ -92,7 +93,10 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
     Route::get('/planner', [EventController::class, 'restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
     Route::get('/restaurant', [EventController::class, 'restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
     Route::post('/addrest', [EventController::class, 'addrest'])->withoutMiddleware(['user'])->middleware(['planner']);
+    Route::get('/add_favorite', [EventController::class, 'add_favorite'])->withoutMiddleware(['user']);
 
+
+    
     Route::get('/editrest', [EventController::class, 'editrest'])->withoutMiddleware(['user'])->middleware(['planner']);
     Route::get('/edit_package', [PackageController::class, 'edit_package'])->withoutMiddleware(['user'])->middleware(['planner']);
     Route::post('/update_package/{id}', [PackageController::class, 'update_package'])->withoutMiddleware(['user'])->middleware(['planner']);

@@ -277,7 +277,7 @@
                                                 <div class="card-body pb-0">
                                                     <div class="d-flex justify-content-between">
                                                         <h4 class="card-title font-23">{{$item2->pkg_name}}</h4>
-                                                        <i class="fa fa-heart text-grey-three pt-2"></i>
+                                                        <i class="fa fa-heart text-grey-one pt-2 addfav" id="{{$item2->id}}" businessid="package"></i>
                                                     </div>
                                                     <div class="div">
                                                         <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -887,4 +887,45 @@
 <!-- Best seller -->
 
 <!-- Still have a question -->
+
+<script>
+    $(document).ready(function () {
+        $(document).on("click", ".addfav", function () {
+
+            var id = $(this).attr('id');
+            var businessid = $(this).attr('businessid');
+            alert(id);
+
+            $.ajax({
+                type: 'get',
+                url: '{{url('user/add_favorite')}}',
+                data: {'id': id, 'businessid':businessid},
+
+                success: function (data) {
+                    alert(data.msg);
+                    if(data.msg == 'delete')
+                    {
+                        $(this).removeClass('text-danger');
+                        $(this).addClass('text-grey-one');
+                    }
+                    else{
+                        $(this).removeClass('text-grey-one');
+                        $(this).addClass('text-danger');
+                    }
+// alert(data.msg);
+                    // jQuery.noConflict();
+
+                    // $('#modalbod').empty().append(data);
+                    // $('#editmodel').click();
+                    // initialize('map_canvas2');
+
+                    // $('#staticBackdrop2').modal('show');
+
+
+                },
+
+            });
+        });
+    });
+</script>
 @endsection

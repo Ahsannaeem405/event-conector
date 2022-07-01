@@ -78,21 +78,15 @@ class AdminController extends Controller
     {
         $catg = Category::find($request->id);
         $catg->name = $request->name;
-        // dd($request->file);
         if ($request->hasFile('file')) {
-// dd('file');
             $file = $request->file('file');
             $extension = $request->file->extension();
             $fileName2 = time() . "1_." . $extension;
             $request->file->move('upload/categoryimages', $fileName2);
             $catg->logo = $fileName2;
-        }else{
-// dd('ddd');
-
         }
         $catg->update();
         return redirect()->back()->with('success','Category Updated Successfully');
-        
     }
 
     public function dltcatg(Request $request)
@@ -100,6 +94,11 @@ class AdminController extends Controller
         $user = Category::where('id', $request->id)->delete();
         return redirect()->back()->with('success','Category Deleted Successfully');
         
+    }
+    public function category_edit(Request $request)
+    {
+        $catg=Category::find($request->id);
+        return view('admin.editcategory', compact('catg'));
     }
 
     
