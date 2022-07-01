@@ -19,12 +19,14 @@ class SearchController extends Controller
             ->when($request->category, function ($q) use ($request) {
                 $q->whereCategoryid($request->category);
             })
+
+            ->whereHas('package', function ($q){
+               //$q->whereHas('pkgtime');
+            })
             ->with('package')
-            ->whereHas('package')
             ->get();
 
         $category = Category::all();
-
         return view('featured_rest', compact('resturents', 'category'));
 
     }
