@@ -31,7 +31,7 @@
 
                                 </div>
                                 <div class="right-side">
-                                    <form method="post" action="{{ url('user/planner/addrest') }}"
+                                    <form method="post" action="{{ url('user/addrest') }}"
                                           class="addResturentForm" enctype="multipart/form-data">
                                         @csrf
                                         <div class="main active" style="overflow-y: scroll; height: 498px;">

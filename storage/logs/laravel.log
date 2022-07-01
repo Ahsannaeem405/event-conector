@@ -2960,9 +2960,11 @@ esources\\views//index.blade.php(218): Illuminate\\Support\\Collection->__get('n
 #60 E:\\xamp\\htdocs\\event-conector\\server.php(21): require_once('E:\\\\xamp\\\\htdocs\\\\...')
 #61 {main}
 "} 
-[2022-07-01 05:47:26] local.ERROR: Property [name] does not exist on this collection instance. (View: E:\xamp\htdocs\event-conector\resources\views\index.blade.php) {"view":{"view":"E:\\xamp\\htdocs\\event-conector\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Traits\\EnumeratesValues.php","data":[]},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Property [name] does not exist on this collection instance. (View: E:\\xamp\\htdocs\\event-conector\esources\\views\\index.blade.php) at E:\\xamp\\htdocs\\event-conector\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Traits\\EnumeratesValues.php:969)
+[2022-07-01 05:47:26] local.ERROR: Property [name] does not exist on this collection instance. (View: E:\xamp\htdocs\event-conector\resources\views\index.blade.php) {"view":{"view":"E:\\xamp\\htdocs\\event-conector\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Traits\\EnumeratesValues.php","data":[]},"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Property [name] does not exist on this collection instance. (View: E:\\xamp\\htdocs\\event-conector\
+esources\\views\\index.blade.php) at E:\\xamp\\htdocs\\event-conector\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Traits\\EnumeratesValues.php:969)
 [stacktrace]
-#0 E:\\xamp\\htdocs\\event-conector\esources\\views/index.blade.php(116): Illuminate\\Support\\Collection->__get('name')
+#0 E:\\xamp\\htdocs\\event-conector\
+esources\\views/index.blade.php(116): Illuminate\\Support\\Collection->__get('name')
 #1 E:\\xamp\\htdocs\\event-conector\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('E:\\\\xamp\\\\htdocs\\\\...')
 #2 E:\\xamp\\htdocs\\event-conector\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 E:\\xamp\\htdocs\\event-conector\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('E:\\\\xamp\\\\htdocs\\\\...', Array)

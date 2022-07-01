@@ -86,13 +86,15 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 </div>
-                                <form method="POST" action="{{ url('/admins/editcatg') }}/{{ ($catg->id) }}">
+                                <form method="POST" action="{{ url('/admins/editcatg') }}/{{ ($catg->id) }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-body">
 
                                     <label> Name</label>
                                     <input type="text" required name="name" value="{{ $catg->name }}" class="form-control"></input>
-                                    
+                                    <label class="mt-4"> logo</label>
+                                    <input type="file" required name="file" value="{{$catg->logo}}" class="form-control dropify2" data-height="100" data-default-file="{{asset('upload/categoryimages') }}/{{$catg->logo}}"></input>
+
                                     </div>
                                     <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -190,6 +192,7 @@ $(document).ready(function(){
         // jQuery.noConflict();
 
             $('.dropify').dropify();
+            $('.dropify2').dropify();
 });
 </script>
 
