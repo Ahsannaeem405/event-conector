@@ -84,7 +84,7 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
     Route::get('/', [userController::class, 'index'])->withoutMiddleware(['auth','user']);
     Route::get('/featured_rest', [\App\Http\Controllers\SearchController::class, 'search'])->withoutMiddleware(['auth','user']);
     Route::get('/chatBoard', [userController::class, 'chatBoard'])->withoutMiddleware(['user']);
-    Route::get('/favourites', [userController::class, 'favourites']);
+    Route::get('/favourites', [userController::class, 'favourites'])->withoutMiddleware(['user']);
 
 
     Route::get('/event', [EventController::class, 'event'])->withoutMiddleware(['auth','user']);

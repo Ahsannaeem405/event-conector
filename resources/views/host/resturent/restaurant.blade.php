@@ -211,7 +211,7 @@
                             <div class="card-body pb-0">
                                 <div class="d-flex justify-content-between">
                                     <h4 class="card-title font-16">{{$rest->business}}</h4>
-                                    <i class="fa fa-heart text-grey-one pt-2 addfav" id="{{$rest->id}}" businessid="restaurant"></i>
+                                    <i class="fa fa-heart  {{ $rest->favouriterest ? "text-danger" : "text-grey-three" }}  pt-2 addfav" id="{{$rest->id}}" businessid="restaurant"></i>
                                 </div>
                                 <!-- <div class="div">
                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -311,8 +311,8 @@
                             </div>
                             <div class="card-body pb-0">
                                 <div class="d-flex justify-content-between">
-                                    <h4 class="card-title font-16">{{$pkg->id}}{{$pkg->pkg_name}}</h4>
-                                    <i class="fa fa-heart text-grey-three pt-2 addfav" id="{{$pkg->id}}" businessid="package"></i>
+                                    <h4 class="card-title font-16">{{$pkg->pkg_name}}</h4>
+                                    <i class="fa fa-heart {{ $pkg->favourite ? "text-danger" : "text-grey-three" }} pt-2 addfav" id="{{$pkg->id}}" businessid="package"></i>
                                 </div>
                                 <div class="div">
                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
@@ -692,7 +692,7 @@
 
         }
     </script>
-<script type="text/javascript" src="{{ asset('js/favourite.js') }}"></script>
+
 
     <script>
         $(document).ready(function () {
@@ -711,4 +711,5 @@
 
         });
     </script>
+    <script type="text/javascript" src="{{ asset('js/favourite.js') }}"></script>
 @endsection

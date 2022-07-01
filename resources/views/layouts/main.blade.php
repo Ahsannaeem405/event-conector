@@ -76,16 +76,22 @@
                         <li class="nav-item">
                             <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/planner') }}">My Restaurants</a>
                         </li>
+                        
+
+
+
                         @endif
 
-                        @endauth
-
-							<li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/chatBoard') }}">Inbox</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/favourites') }}">favourites</a>
                         </li>
+
+                        @endauth
+
+						
 
                     </ul>
                     @guest

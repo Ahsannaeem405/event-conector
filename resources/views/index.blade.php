@@ -273,27 +273,22 @@
                     <div id="carouselExampleIndicators21" class="carousel slide">
 
                         <div class="carousel-inner">
-                        @foreach($pkgs as $pkg)
-                            <div class="carousel-item p-4 {{$loop->first ? "active": ""}}">
-                                <div class="row">
-                                    @foreach($pkg as $item2)
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card shadowDiv border-rounded-1 border-1 pb-3">
-                                                <img src="{{ asset('upload') }}/{{$item2->getimage()}}" alt=""
-                                                    class="img-fluid position-relative border-rounded p-2">
-                                                <div class="reviewTag text-end pe-3 py-3 position-absolute"
-                                                    style="left: 80%;">
-                                                    <span class="badge bg-creamy text-danger">4.9</span>
-                                                </div>
-                                                <div class="card-body pb-0">
-                                                    <div class="d-flex justify-content-between">
-                                                        <h4 class="card-title font-23">{{$item2->pkg_name}}</h4>
-                                                        <i class="fa fa-heart text-grey-one pt-2 addfav" id="{{$item2->id}}" businessid="package"></i>
+                            @foreach($pkgs as $pkg)
+                                <div class="carousel-item p-4 {{$loop->first ? "active": ""}}">
+                                    <div class="row">
+                                        @foreach($pkg as $item2)
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card shadowDiv border-rounded-1 border-1 pb-3">
+                                                    <img src="{{ asset('upload') }}/{{$item2->getimage()}}" alt=""
+                                                         class="img-fluid position-relative border-rounded p-2">
+                                                    <div class="reviewTag text-end pe-3 py-3 position-absolute"
+                                                         style="left: 80%;">
+                                                        <span class="badge bg-creamy text-danger">4.9</span>
                                                     </div>
                                                     <div class="card-body pb-0">
                                                         <div class="d-flex justify-content-between">
                                                             <h4 class="card-title font-23">{{$item2->pkg_name}}</h4>
-                                                            <i class="fa fa-heart text-grey-three pt-2"></i>
+                                                            <i class="fa fa-heart @auth {{ $item2->favouriteauth ? "text-danger" : "text-grey-three" }} addfav @endauth pt-2 " id="{{$item2->id}}" businessid="package"></i>
                                                         </div>
                                                         <div class="div">
                                                             <p class="card-text text-grey-three font-12">Hiking tour |
