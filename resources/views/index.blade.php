@@ -1,9 +1,12 @@
 @extends('layouts.main')
 
 @section('body')
+{{--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--}}
+    <!-- Google Maps JavaScript library -->
 
 
-<style type="text/css">
+
+    <style type="text/css">
 .form-control,
 .form-select {
     border: 1px solid #fff;
@@ -96,7 +99,7 @@
                                 <h3 class="font-20 fontw700 mb-0">Location:</h3>
                             </div>
                             <div class="input-group mb-3 mt-2">
-                                <input type="text" placeholder="Enter Location"
+                                <input type="text" id="search_input" placeholder="Enter Location"
                                     class="form-control border-right-0 hasDatepicker" aria-describedby="basic-addon2">
                                 <span class="input-group-text btn bg-transparent border" id="basic-addon2"><i
                                         class="fa fa-map-marker"></i></span>
@@ -108,13 +111,15 @@
                                     <div class="location-heading">
                                         <h3 class="font-20 fontw700 mb-0">Category:</h3>
                                     </div>
+
                                     <div class="input-group mb-3 mt-2">
                                         <select class="form-select" id="inputGroupSelect03"
                                             aria-label="Example select with button addon">
-                                            <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option selected value="">Choose...</option>
+                                            @foreach($category as $cat)
+                                                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                            @endforeach
+
                                         </select>
                                     </div>
                                 </div>
@@ -124,11 +129,6 @@
                                         <h3 class="font-20 fontw700 mb-0">Date:</h3>
                                     </div>
 
-                                    <!-- <div class="input-group mb-3 py-3">
-                                            <input type="text" placeholder="Enter Date" class="form-control border-right-0 hasDatepicker" id="datepicker" aria-describedby="basic-addon2">
-                                            <span class="input-group-text bg-transparent border-left-0" id="basic-addon2"><i
-                                         class="fa fa-calendar text-grey-three"></i></span>
-                                        </div> -->
 
                                     <div class="input-group mb-3 mt-2">
                                         <input type="text" placeholder="dd-mm-yyyy" class="form-control border-right-0"
@@ -140,12 +140,6 @@
                                 </div>
 
 
-                                <!-- <div class="col-md-3 searchbtn d-flex justify-content-center align-items-center">
-                                         <form class="location-input" action="">
-                                            <button class="btn btn-green p-3" type="button"><i class="fa fa-search font-30"
-                                                    aria-hidden="true"></i></button>
-                                        </form>
-                                    </div> -->
 
                                 <div class="col-lg-4">
                                     <div class="time-heading">
@@ -155,6 +149,8 @@
                                         <input type="time" class="pe-0 py-0 form-control time-fotm">
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
 
@@ -871,61 +867,40 @@
     <!-- Still have a question -->
 
 
-<!-- Trending -->
+@endsection
+@section('js')
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBDbX4wlNnjUXFCQhPEFf7_UNsn8WIiDNU"></script>
+{{--    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>--}}
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <!-- Jquery CDN -->
 
+    <script>
 
-<!-- Trending -->
+        $(function () {
+            $("#datepicker").datepicker({
+                dateFormat: 'dd-MM-yy',
+                showOtherMonths: true,
+                selectOtherMonths: true
+            });
 
-<!-- TopVenue -->
+        });
+    </script>
 
-<!-- TopVenue -->
+    <script>
+        var searchInput = 'search_input';
+        $(document).ready(function () {
 
-<!-- Menu Guides -->
-
-<!-- Menu Guide -->
-
-<!-- Best seller -->
-
-<!-- Still have a question -->
-
-<script>
-    $(document).ready(function () {
-        $(document).on("click", ".addfav", function () {
-
-            var id = $(this).attr('id');
-            var businessid = $(this).attr('businessid');
-            alert(id);
-
-            $.ajax({
-                type: 'get',
-                url: '{{url('user/add_favorite')}}',
-                data: {'id': id, 'businessid':businessid},
-
-                success: function (data) {
-                    alert(data.msg);
-                    if(data.msg == 'delete')
-                    {
-                        $(this).removeClass('text-danger');
-                        $(this).addClass('text-grey-one');
-                    }
-                    else{
-                        $(this).removeClass('text-grey-one');
-                        $(this).addClass('text-danger');
-                    }
-// alert(data.msg);
-                    // jQuery.noConflict();
-
-                    // $('#modalbod').empty().append(data);
-                    // $('#editmodel').click();
-                    // initialize('map_canvas2');
-
-                    // $('#staticBackdrop2').modal('show');
-
-
-                },
+            var autocomplete;
+            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+                types: ['geocode'],
 
             });
+
+            // google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            //     var near_place = autocomplete.getPlace();
+            // });
         });
-    });
-</script>
+    </script>
+    
+    <script type="text/javascript" src="{{ asset('js/favourite.js') }}"></script>
 @endsection

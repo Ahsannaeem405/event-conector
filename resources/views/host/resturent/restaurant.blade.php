@@ -116,7 +116,6 @@
     <link rel="stylesheet" href="{{ asset('css/event.css') }}">
     <link rel="stylesheet" href="{{ asset('css/addpackage.css')}}">
 
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY"></script>
 
 
 
@@ -436,29 +435,13 @@
     <!-- Still have a question -->
 
 
-    <!-- Bootstrap5 CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+
     <!-- Bootstrap5 CDN -->
 
-    <!-- Jquery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-    <!-- Jquery CDN -->
+@endsection
+@section('js')
 
-    <script src="{{ asset('js/addPackage.js')}}"></script>
-    <script src="{{ asset('js/event.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/bussiness.js') }}"></script>
-    <script src="{{ asset('js/event2.js') }}"></script>
-    <!-- owl carousel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-
-
-
-
+ 
 
     <script>
         $(document).ready(function () {
@@ -570,31 +553,6 @@
     </script>
 
 
-
-    <script>
-        @if(Session::has('success'))
-
-        toastr.success("{{ session('success') }}");
-
-        @endif
-
-        @if(Session::has('error'))
-
-        toastr.error("{{ session('error') }}");
-
-        @endif
-
-
-
-
-        @if($errors-> any())
-
-        @foreach($errors-> all() as $error)
-        toastr.error("{{ $error }}");
-
-        @endforeach
-        @endif
-    </script>
     <script>
         $(document).ready(function () {
             $(document).on("click", ".restedit", function () {
@@ -609,7 +567,7 @@
 
                     success: function (data) {
 
-                        jQuery.noConflict();
+                        //jQuery.noConflict();
 
                         $('#modalbod').empty().append(data);
                         $('#editmodel').click();
@@ -637,7 +595,7 @@
 
                         $('#modelbody2').empty().append(data);
                         $('.editpakkage').click();
-                        // jQuery.noConflict();
+                        // //jQuery.noConflict();
 
 
                         // $('#staticBackdrop2').modal('show');
@@ -650,9 +608,10 @@
 
         });
     </script>
-    <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
 
     {{--   map--}}
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBQ7SLGk0rhZBFdEEqKym949WqDeWNZGzY"></script>
+
     <script type="text/javascript">
         var map = null;
         var marker = null;
@@ -742,7 +701,7 @@
             });
 
             // alert('fff');
-            jQuery.noConflict();
+            //jQuery.noConflict();
             $('.dropify2').dropify();
             $('.dropify2nd').dropify();
 
@@ -750,5 +709,4 @@
 
         });
     </script>
-
 @endsection

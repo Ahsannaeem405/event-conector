@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/restaurant.css') }}">
     <link rel="stylesheet" href="{{ asset('css/chatboard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page2.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jqueryui.css') }}">
     <style>
         .disableddiv {
             pointer-events: none;
@@ -24,26 +25,25 @@
         }
     </style>
 
+
+{{--    dropify--}}
     <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
 
+{{--   bootstrap 5--}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{{ asset('css/jqueryui.css') }}">
-
     <script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
-    <!--  font awesome cdn  -->
-    <!-- owl  -->
+{{--    owl carusal--}}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
-        <!-- <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script> -->
-    <!-- <script src="{{ asset('plugins/sweetalert2/sweetalert2.min.js') }}"></script> -->
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{--toster--}}
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+{{--    google places api--}}
 
 
 </head>
@@ -127,7 +127,7 @@
             </div>
         </nav>
     </section>
-@show
+
     <!-- NavBar section end -->
 
 
@@ -275,8 +275,11 @@
             </div>
         </div>
     </section>
-
+    {{--    jquery--}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{{--    carusal--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
 
     <!-- Bootstrap5 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -285,66 +288,46 @@
     <!-- Bootstrap5 CDN -->
 
     <!-- Jquery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-    <!-- Jquery CDN -->
 
 
-
-
-
-    <script>
-
-        $(function () {
-            $("#datepicker").datepicker({
-                dateFormat: 'dd-MM-yy',
-                showOtherMonths: true,
-                selectOtherMonths: true
-            });
-
-        });
-    </script>
-
-
-
+@yield('js')
 
     <!-- owl carousel -->
     <script>
-        $(document).ready(function () {
-            $('.owl-carousel').owlCarousel({
-                nav: false,
-                dots: true,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                margin: 20,
-                slideSpeed: 3000,
-                animateIn: 'fadeIn',
-                animateOut: 'fadeOut',
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 3
-                    },
-                    960: {
-                        items: 3
-                    }
-                }
-            });
-            var setMinHeight = function (minheight = 0) {
-                jQuery('.owl-carousel').each(function (i, e) {
-                    var oldminheight = minheight;
-                    jQuery(e).find('.owl-item').each(function (i, e) {
-                        minheight = jQuery(e).height() > minheight ? jQuery(e).height() : minheight;
-                    });
-                    jQuery(e).find('.item').css("min-height", minheight + "px");
-                    minheight = oldminheight;
-                });
-            };
-            setMinHeight();
+        // $(document).ready(function () {
+            // $('.owl-carousel').owlCarousel({
+            //     nav: false,
+            //     dots: true,
+            //     loop: true,
+            //     autoplay: true,
+            //     autoplayTimeout: 5000,
+            //     margin: 20,
+            //     slideSpeed: 3000,
+            //     animateIn: 'fadeIn',
+            //     animateOut: 'fadeOut',
+            //     responsive: {
+            //         0: {
+            //             items: 1
+            //         },
+            //         600: {
+            //             items: 3
+            //         },
+            //         960: {
+            //             items: 3
+            //         }
+            //     }
+            // });
+            // var setMinHeight = function (minheight = 0) {
+            //     jQuery('.owl-carousel').each(function (i, e) {
+            //         var oldminheight = minheight;
+            //         jQuery(e).find('.owl-item').each(function (i, e) {
+            //             minheight = jQuery(e).height() > minheight ? jQuery(e).height() : minheight;
+            //         });
+            //         jQuery(e).find('.item').css("min-height", minheight + "px");
+            //         minheight = oldminheight;
+            //     });
+            // };
+            // setMinHeight();
 
             // $(".carousel").swipe({
             //     swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
@@ -353,10 +336,10 @@
             //     },
             //     allowPageScroll: "vertical"
             // });
-        });
-        $(document).on('resize', function () {
-            setMinHeight();
-        });
+        // });
+        // $(document).on('resize', function () {
+        //     setMinHeight();
+        // });
     </script>
 
 
@@ -364,4 +347,4 @@
 </body>
 
 </html>
-@show
+

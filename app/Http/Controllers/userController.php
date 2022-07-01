@@ -14,12 +14,11 @@ class userController extends Controller
     public function index()
     {
         $catgs = Category::all()->chunk(4);
+        $category = Category::all();
         // dd($catgs);
-        $rests =  DB::table('restaurants')->take(3)->orderBy('id', 'desc')->get();
-        
-        // dd($rests[2]->business);
-        $pkgs = Package::all()->chunk(3);
-         return view('/index', compact('catgs','rests','pkgs'));
+$rests =  DB::table('restaurants')->take(3)->orderBy('id', 'desc')->get();
+$pkgs = Package::all()->chunk(3);
+         return view('index', compact('catgs','rests','pkgs','category'));
     }
     public function featured_rest()
     {
@@ -33,5 +32,5 @@ class userController extends Controller
     {
         return view('/favourites');
     }
-    
+
 }
