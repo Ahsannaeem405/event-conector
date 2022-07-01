@@ -42,7 +42,7 @@ Route::get('auth/facebook/callback', [App\Http\Controllers\social::class, 'handl
 
 Route::post('/addplanner', [App\Http\Controllers\EventController::class, 'addplanner']);
 
-
+Route::post('search',[\App\Http\Controllers\SearchController::class,'search']);
 
 Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
 
@@ -81,7 +81,7 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
 
     Route::get('/', [userController::class, 'index'])->withoutMiddleware(['auth','user']);
-    Route::get('/featured_rest', [userController::class, 'featured_rest'])->withoutMiddleware(['auth','user']);
+    Route::get('/featured_rest', [\App\Http\Controllers\SearchController::class, 'search'])->withoutMiddleware(['auth','user']);
     Route::get('/chatBoard', [userController::class, 'chatBoard'])->withoutMiddleware(['user']);
     Route::get('/favourites', [userController::class, 'favourites']);
 

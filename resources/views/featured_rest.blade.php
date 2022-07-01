@@ -115,9 +115,10 @@
                                 <select class="form-select" id="inputGroupSelect03"
                                     aria-label="Example select with button addon">
                                     <option selected>Choose...</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    @foreach($category as $cat)
+                                        <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                    @endforeach
+
                                 </select>
                             </div>
                         </div>
@@ -159,8 +160,8 @@
                                         class="fa fa-calendar text-grey-three"></i></span>
                             </div>
                         </div>
-                    
-                        
+
+
                         <!-- multirange -->
 
                         <!-- multirange -->
@@ -284,124 +285,74 @@
                 </div>
                 <div class="col-md-9 col-12 pt-4">
                     <div class="row px-3">
-                        <div class="col-md-6 col-12 mb-3">
-                            <div class="card p-3 shadowDiv border-rounded-1  pb-3">
-                                <div class="image_div py-3 px-3 position-relative"
-                                    style="background-image:url('{{ asset('img/hall.webp') }}');">
-                                    <span class="badge bg-danger float-end">30%</span>
 
 
-                                </div>
-                                <div class="card-body pb-0">
-                                    <div class="d-flex justify-content-between">
-                                        <h4 class="card-title font-23">Montain Hiking Tour</h4>
+                        @foreach($resturents as $resturent)
 
-                                        <i class="far fa-heart text-grey-three pt-2"></i>
-                                    </div>
-                                    <div class="div">
-                                        <p class="card-text text-grey-three font-12">Hiking tour | Stoke on Trent</p>
-                                    </div>
-                                    <div>
-                                        <p class="font-9 mb-0 my-3">From</p>
-                                    </div>
-                                    <div class="pricing-review d-flex justify-content-between">
-                                        <div class="pricing">
-                                            <h4>$895.44</h4>
+                            @foreach($resturent->package as $package)
+                                <div class="col-md-6 col-12 mb-3">
+                                    <div class="card p-3 shadowDiv border-rounded-1  pb-3">
+                                        <div class="image_div py-3 px-3 position-relative"
+                                             style="background-image:url('{{ asset('upload') }}/{{$package->getimage()}}');">
+                                            <span class="badge bg-danger float-end">30%</span>
+
+
                                         </div>
-                                        <div class="font-10">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <div class="varies">
-                                                <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
+                                        <div class="card-body pb-0">
+                                            <div class="d-flex justify-content-between">
+                                                <h4 class="card-title font-23">{{$package->pkg_name}}</h4>
+
+                                                <i class="far fa-heart text-grey-three pt-2"></i>
+                                            </div>
+                                            <div class="div">
+                                                <p class="card-text text-grey-three font-12">Hiking tour | Stoke on Trent</p>
+                                            </div>
+                                            <div>
+                                                <p class="font-9 mb-0 my-3">From</p>
+                                            </div>
+                                            <div class="pricing-review d-flex justify-content-between">
+                                                <div class="pricing">
+                                                    <h4>${{$package->amount}}</h4>
+                                                </div>
+                                                <div class="font-10">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <div class="varies">
+                                                        <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="variesDiv px-3">
+                                            <div class="pricing-varies">
+                                                <p class="mb-3 text-grey-one">Price Varies</p>
+                                            </div>
+                                        </div>
+                                        <div class="proceding px-3 d-flex">
+                                            <a>
+                                                <i class="far fa-clock font-14 text-green"></i>
+                                            </a>
+                                            <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
+                                        </div>
+                                        <div class="proceding px-3 d-flex">
+                                            <div class="div d-flex pe-3">
+                                                <a href="#" class=""><i class="fas fa-check text-green font-14"></i></a>
+                                                <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation</p>
+                                            </div>
+                                            <div class="div d-flex">
+                                                <a><i class="fas fa-check text-green font-14"></i></a>
+                                                <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="variesDiv px-3">
-                                    <div class="pricing-varies">
-                                        <p class="mb-3 text-grey-one">Price Varies</p>
-                                    </div>
-                                </div>
-                                <div class="proceding px-3 d-flex">
-                                    <a>
-                                        <i class="far fa-clock font-14 text-green"></i>
-                                    </a>
-                                    <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                </div>
-                                <div class="proceding px-3 d-flex">
-                                    <div class="div d-flex pe-3">
-                                        <a href="#" class=""><i class="fas fa-check text-green font-14"></i></a>
-                                        <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation</p>
-                                    </div>
-                                    <div class="div d-flex">
-                                        <a><i class="fas fa-check text-green font-14"></i></a>
-                                        <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12 mb-3">
-                            <div class="card shadowDiv border-rounded-1 p-3  pb-3">
-                                <div class="image_div py-3 px-3 position-relative"
-                                    style="background-image:url('{{ asset('img/hall.webp') }}');">
-                                    <span class="badge bg-danger float-end">30%</span>
+                            @endforeach
+                            @endforeach
 
 
-                                </div>
-                                <div class="card-body pb-0">
-                                    <div class="d-flex justify-content-between">
-                                        <h4 class="card-title font-23">Montain Hiking Tour</h4>
-
-                                        <i class="far fa-heart text-grey-three pt-2"></i>
-                                    </div>
-                                    <div class="div">
-                                        <p class="card-text text-grey-three font-12">Hiking tour | Stoke on Trent</p>
-                                    </div>
-                                    <div>
-                                        <p class="font-9 mb-0 my-3">From</p>
-                                    </div>
-                                    <div class="pricing-review d-flex justify-content-between">
-                                        <div class="pricing">
-                                            <h4>$895.44</h4>
-                                        </div>
-                                        <div class="font-10">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <div class="varies">
-                                                <p class="mb-0 pt-2 text-end text-grey-one">4.7(108)</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="variesDiv px-3">
-                                    <div class="pricing-varies">
-                                        <p class="mb-3 text-grey-one">Price Varies</p>
-                                    </div>
-                                </div>
-                                <div class="proceding px-3 d-flex">
-                                    <a>
-                                        <i class="far fa-clock font-14 text-green"></i>
-                                    </a>
-                                    <p class="text-grey-one mb-0 font-15 mb-0 pt-1 ps-1">7 Days</p>
-                                </div>
-                                <div class="proceding px-3 d-flex">
-                                    <div class="div d-flex pe-3">
-                                        <a href="#" class=""><i class="fas fa-check text-green font-14"></i></a>
-                                        <p class="text-grey-one font-15 mb-0 pt-1 ps-1">Free Cancellation</p>
-                                    </div>
-                                    <div class="div d-flex">
-                                        <a><i class="fas fa-check text-green font-14"></i></a>
-                                        <p class="text-grey-one font-15 mb-0 pt-1 ps-1">New on Entrada</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
@@ -419,59 +370,55 @@
 
 
             <div class="owl-carousel">
-                <div class="item">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('{{ asset('img/hall.webp') }}');">
-                        <div class="row">
-                            <div class="col-12">
-                                <span class="badge bg-green float-end">30%</span>
 
+
+
+                        <div class="item">
+                            <div class="image_div py-3 px-3 position-relative" style="background-image:url('{{ asset('img/hall.webp') }}');">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span class="badge bg-green float-end">30%</span>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="d-flex justify-content-between align-items-end mt-30">
+                                    <div>
+                                        <h6 class="text-light fontw400">10 Days | 9 Nights</h6>
+                                        <h3 class="text-light"> $200</h3>
+                                    </div>
+                                    <div class="d-flex ms-4">
+
+                                        <button class="btn btn-green px-3 py-1 h-50 border-rounded-50">Explore</button>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                            </div>
+                            <div class="text-center py-3">
+                                <h5 class="text-blue font-16 fontw400">Product 1</h5>
+                                <p class="text-grey-three font-14">Checkout daily Deal</p>
                             </div>
                         </div>
 
 
-                        <div class="d-flex justify-content-between align-items-end mt-30">
-                            <div>
-                                <h6 class="text-light fontw400">10 Days | 9 Nights</h6>
-                                <h3 class="text-light"> $200</h3>
-                            </div>
-                            <div class="d-flex ms-4">
 
-                                <button class="btn btn-green px-3 py-1 h-50 border-rounded-50">Explore</button>
-                            </div>
-
-                        </div>
-
-
-
-
-
-                    </div>
-                    <div class="text-center py-3">
-                        <h5 class="text-blue font-16 fontw400">Product 1</h5>
-                        <p class="text-grey-three font-14">Checkout daily Deal</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="image_div py-3 px-3 position-relative" style="background-image:url('{{ asset('img/hall.webp') }}');">
-
-                    </div>
-                    <div class="text-center py-3">
-                        <h5 class="text-blue font-16 fontw400">Product 2</h5>
-                        <p class="text-grey-three font-14">Checkout daily Deal</p>
-                    </div>
-
-                </div>
 
             </div>
 
 
         </div>
-        </div>
+
 
     </section>
 
     <!-- footer section -->
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
