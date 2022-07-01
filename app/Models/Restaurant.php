@@ -19,4 +19,9 @@ class Restaurant extends Model
      $res=$this->wherePlannerId($id)->count();
      return ['resturent'=>$res];
     }
+
+    public function package()
+    {
+        return $this->hasMany(Package::class,'restaurant_id');
+    }
 }
