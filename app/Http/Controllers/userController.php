@@ -13,10 +13,11 @@ class userController extends Controller
     public function index()
     {
         $catgs = Category::all()->chunk(4);
+        $category = Category::all();
         // dd($catgs);
         $rests = Restaurant::all();
         $pkgs = Package::all();
-         return view('/index', compact('catgs','rests','pkgs'));
+         return view('index', compact('catgs','rests','pkgs','category'));
     }
     public function featured_rest()
     {
@@ -30,5 +31,5 @@ class userController extends Controller
     {
         return view('/favourites');
     }
-    
+
 }

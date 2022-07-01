@@ -739,18 +739,17 @@
 </section>
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
+{{--<script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>--}}
 <script>
 $(document).ready(function(){
 
         // alert('fff');
-        jQuery.noConflict();
+       // jQuery.noConflict();
 
             $('.dropify').dropify();
 });
 
 
-
+</script>
 
 
