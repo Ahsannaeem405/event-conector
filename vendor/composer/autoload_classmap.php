@@ -34,6 +34,7 @@ return array(
     'App\\Http\\Middleware\\planner' => $baseDir . '/app/Http/Middleware/planner.php',
     'App\\Http\\Middleware\\user' => $baseDir . '/app/Http/Middleware/user.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
+    'App\\Models\\Favourite' => $baseDir . '/app/Models/Favourite.php',
     'App\\Models\\Package' => $baseDir . '/app/Models/Package.php',
     'App\\Models\\PackageTiming' => $baseDir . '/app/Models/PackageTiming.php',
     'App\\Models\\Restaurant' => $baseDir . '/app/Models/Restaurant.php',

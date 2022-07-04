@@ -24,4 +24,9 @@ class Restaurant extends Model
     {
         return $this->hasMany(Package::class,'restaurant_id');
     }
+
+    public function favouriterest()
+    {
+        return $this->hasOne(Favourite::class, 'pakgresttid', 'id')->where('parent', 'restaurant');
+    }
 }

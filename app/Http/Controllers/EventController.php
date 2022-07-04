@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Restaurant;
 use App\Models\Timing;
 use App\Models\Package;
+use App\Models\Favourite;
 
 use DB;
 use Illuminate\Support\Facades\Hash;
@@ -225,6 +226,7 @@ class EventController extends Controller
         $rests = Restaurant::where('planner_id', auth()->user()->id)->get();
         $pkgs = Package::where('planner_id', auth()->user()->id)->get();
 
+        // dd($pkgs[0]->favourite);
       $response=  $this->resturent->getResturentdata(auth()->user()->id);
 
 
@@ -458,4 +460,24 @@ class EventController extends Controller
 
 
     }
+    public function add_favorite(Request $request)
+    {
+        // dd($request->businessid, $request->id);
+
+        $favourite = Favourite::where('user_id', auth()->user()->id)->where('pakgresttid', $request->id)->where('parent', $request->businessid)->first();
+        if($favourite){
+            $favourite->delete();
+            return response()->json(['msg'=>'delete']);
+        }else{
+            $favr = new Favourite;
+            $favr->user_id = auth()->user()->id;
+            $favr->pakgresttid = $request->id;
+            $favr->parent = $request->businessid;
+            $favr->save();
+            return response()->json(['msg'=>'add']);
+
+        }
+        
+    }
 }
+

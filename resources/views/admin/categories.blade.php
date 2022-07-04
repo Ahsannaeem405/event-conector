@@ -70,42 +70,14 @@
                     <tr>
                       <td>{{$k}}</td>
                       <td>{{ $catg->name }}</td>
-                      <td class="d-flex"><a class="btn rounded-pill btn-info" href="#" data-toggle="modal" data-target="#modal-{{ $catg->id }}">Edit</a>
+                      <td class="d-flex"><a class="btn rounded-pill btn-info categoryedit"  catgid="{{ $catg->id }}">Edit</a>
                       <form action="{{ url('/admins/dltcatg') }}/{{ ($catg->id) }}" method="POST">
                         @csrf
                         <button type="submit" class="btn rounded-pill btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete </button></td>
                       </form>
                     </tr>
                     
-                    <div class="modal fade" id="modal-{{ $catg->id }}">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h4 class="modal-title">Edit Category</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <form method="POST" action="{{ url('/admins/editcatg') }}/{{ ($catg->id) }}" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="modal-body">
-
-                                    <label> Name</label>
-                                    <input type="text" required name="name" value="{{ $catg->name }}" class="form-control"></input>
-                                    <label class="mt-4"> logo</label>
-                                    <input type="file" required name="file" value="{{$catg->logo}}" class="form-control dropify2" data-height="100" data-default-file="{{asset('upload/categoryimages') }}/{{$catg->logo}}"></input>
-
-                                    </div>
-                                    <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
+                    
                     <!-- /.modal -->
                     @endforeach
                   </tbody>
@@ -153,6 +125,26 @@
 
 
 
+  <div class="modal fade" id="modal-editcategory">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+              <h4 class="modal-title">Edit Category</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+                <div class="modal-body" id="editcategory">
+                  
+                </div>  
+          </div>
+          <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+  </div>
+
+
+
 
   <script>
   @if(Session::has('success'))
@@ -168,10 +160,10 @@
   @endif
 
 </script>
-<script>
+
       <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
-
+<script>
       $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
@@ -182,17 +174,25 @@
 
 
 </script>
-  // <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  -->
 <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
+
 <script>
 $(document).ready(function(){
-
-        // alert('fff');
-        // jQuery.noConflict();
-
             $('.dropify').dropify();
-            $('.dropify2').dropify();
+            $(document).on("click", ".categoryedit", function () {
+              var id = $(this).attr('catgid');
+              $.ajax({
+                  type: 'get',
+                  url: '{{url('admins/category_edit')}}',
+                  data: {'id': id},
+                  success: function (data) {
+                      $('#editcategory').empty().append(data);
+                      $('#modal-editcategory').modal('show');
+                  },
+              });
+            });
 });
 </script>
 
