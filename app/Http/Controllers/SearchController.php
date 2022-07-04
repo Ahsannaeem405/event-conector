@@ -15,11 +15,9 @@ class SearchController extends Controller
         $resturents = Restaurant::
         when($request->location, function ($q) use ($request) {
             $q->where('address', 'like', '%' . $request->location . '%');
-        })
-            ->when($request->category, function ($q) use ($request) {
+        })->when($request->category, function ($q) use ($request) {
                 $q->whereCategoryid($request->category);
             })
-
             ->whereHas('package', function ($q){
                //$q->whereHas('pkgtime');
             })
@@ -31,3 +29,4 @@ class SearchController extends Controller
 
     }
 }
+
