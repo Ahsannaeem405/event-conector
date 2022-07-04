@@ -23,6 +23,9 @@
             pointer-events: none;
             opacity: 0.4;
         }
+        .pointer {
+            cursor: pointer;
+        }
     </style>
 
 

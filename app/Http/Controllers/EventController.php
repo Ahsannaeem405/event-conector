@@ -12,6 +12,8 @@ use App\Models\Package;
 use App\Models\Favourite;
 
 use DB;
+use Eastwest\Json\Json;
+use Eastwest\Json\JsonException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Auth;
@@ -478,6 +480,29 @@ class EventController extends Controller
 
         }
         
+    }
+
+
+    public function favourites()
+    {
+        // $catgs = Category::all();
+        $rests = Restaurant::where('planner_id', auth()->user()->id)->whereHas('favouriterest')->get();
+        $pkgs = Package::where('planner_id', auth()->user()->id)->whereHas('favourite')->get();
+
+        // $response=  $this->resturent->getResturentdata(auth()->user()->id);
+
+
+        return view('host.favourites', compact('rests', 'pkgs'));
+    }
+    public function details(Request $request)
+    {
+        // dd('ggg');
+        $pkg = Package::find($request->id);
+        // $imgs = json_decode($pkg->logo);
+        $imgs =$pkg->logo;
+// dd($pkg->pkgtime);
+// dd(json_decode($pkg->logo));
+        return view('host.details', compact('pkg', 'imgs'));
     }
 }
 

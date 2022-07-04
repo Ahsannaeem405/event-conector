@@ -28,9 +28,9 @@ $pkgs = Package::all()->chunk(3);
     {
         return view('/chatBoard');
     }
-    public function favourites()
-    {
-        return view('/favourites');
-    }
+    // public function favourites()
+    // {
+    //     return view('/favourites');
+    // }
 
 }

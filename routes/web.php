@@ -7,6 +7,10 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\PackageController;
 
 
+use App\Http\Controllers\SearchController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,11 +84,11 @@ Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
 
 Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
-
     Route::get('/', [userController::class, 'index'])->withoutMiddleware(['auth','user']);
-    Route::get('/featured_rest', [\App\Http\Controllers\SearchController::class, 'search'])->withoutMiddleware(['auth','user']);
+    Route::get('/featured_rest', [SearchController::class, 'search'])->withoutMiddleware(['auth','user']);
     Route::get('/chatBoard', [userController::class, 'chatBoard'])->withoutMiddleware(['user']);
-    Route::get('/favourites', [userController::class, 'favourites'])->withoutMiddleware(['user']);
+    // Route::get('/favourites', [userController::class, 'favourites'])->withoutMiddleware(['user']);
+    Route::get('/favourites', [EventController::class, 'favourites'])->withoutMiddleware(['user']);
 
 
     Route::get('/event', [EventController::class, 'event'])->withoutMiddleware(['auth','user']);
@@ -105,7 +109,8 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
     Route::post('/add_package', [PackageController::class, 'add_package'])->withoutMiddleware(['user'])->middleware(['planner']);
 
-    Route::post('/hostevent', [App\Http\Controllers\EventController::class, 'hostevent']);
+    Route::post('/hostevent', [EventController::class, 'hostevent']);
+    Route::get('/details/{id}', [EventController::class, 'details'])->withoutMiddleware(['user']);
 
 
 

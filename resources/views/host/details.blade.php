@@ -422,13 +422,13 @@
                         </div>
 
 
-                        <div class="accordion my-3" id="accordionExample">
+                        <div class="accordion my-3 {{ $pkg->availalltime == 1 ? 'd-none' : ''}} " id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button p-2" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         <span class="bg-blue px-2 py-1 rounded-circle text-light">1</span> &nbsp; <span
-                                            class="font-13 fontw600">Day1</span>
+                                            class="font-13 fontw600">Monday</span>
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show"
@@ -441,24 +441,28 @@
                                             Styling where guests go wow. A room which allows you to celebrate.</p>
                                         <div class="row py-2">
                                             <div class="col-md-7 col-5">
-                                                <img src="{{ asset('img/hall.webp') }}" class="img-fluid rounded-2" alt="">
+                                                <img src="{{ asset('upload') }}/{{$pkg->getimage()}}" class="img-fluid rounded-2" alt="">
                                             </div>
                                             <div class="col-md-5 col-7">
                                                 <div class="d-flex justify-content-between">
                                                     <p class="font-13 fontw600 text-blue mb-2"><i
                                                             class="fa fa-user"></i> Per Person:</p>
-                                                    <p class="font-13 fontw600 text-blue mb-2">$150</p>
+                                                    <p class="font-13 fontw600 text-blue mb-2">${{$pkg->amount}}</p>
                                                 </div>
+                                                @foreach($pkg->pkgtime as $time)
+                                                    @if($time->mondyopen != null)
+                                                        <div class="d-flex justify-content-between">
+                                                            <p class="font-13 fontw600 text-blue mb-2"><i
+                                                                    class="fa fa-clock"></i> Timings:</p>
+                                                            <p class="font-13 fontw600 text-blue mb-2">{{ date('h:i A', strtotime($time->mondyopen)) }}-{{date('h:i A', strtotime($time->mondyclose))}}</p>
+                                                        </div>
+                                                    @endif
+                                                @endforeach
                                                 <div class="d-flex justify-content-between">
-                                                    <p class="font-13 fontw600 text-blue mb-2"><i
-                                                            class="fa fa-clock"></i> Timings:</p>
-                                                    <p class="font-13 fontw600 text-blue mb-2">7pm-10pm</p>
-                                                </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <p class="font-13 fontw600 text-blue mb-2"><i
-                                                            class="fa fa-users"></i> Capacity</p>
-                                                    <p class="font-13 fontw600 text-blue mb-2">500/Persons</p>
-                                                </div>
+                                                            <p class="font-13 fontw600 text-blue mb-2"><i
+                                                                    class="fa fa-users"></i> Capacity</p>
+                                                            <p class="font-13 fontw600 text-blue mb-2">500/Persons</p>
+                                                        </div>
 
                                             </div>
                                             <div class="col-12">
@@ -483,7 +487,7 @@
                                         data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
                                         aria-controls="collapseTwo">
                                         <span class="bg-blue rounded-circle text-light">2</span> &nbsp; <span
-                                            class="font-13 fontw600">Day2</span>
+                                            class="font-13 fontw600">Tuesday</span>
                                     </button>
                                 </h2>
                                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
@@ -496,19 +500,23 @@
                                             Styling where guests go wow. A room which allows you to celebrate.</p>
                                         <div class="row py-2">
                                             <div class="col-md-7 col-5">
-                                                <img src="{{ asset('img/hall.webp') }}" class="img-fluid rounded-2" alt="">
+                                                <img src="{{ asset('upload') }}/{{$pkg->getimage()}}" class="img-fluid rounded-2" alt="">
                                             </div>
                                             <div class="col-md-5 col-7">
                                                 <div class="d-flex justify-content-between">
                                                     <p class="font-13 fontw600 text-blue mb-2"><i
                                                             class="fa fa-user"></i> Per Person:</p>
-                                                    <p class="font-13 fontw600 text-blue mb-2">$150</p>
+                                                    <p class="font-13 fontw600 text-blue mb-2">${{$pkg->amount}}</p>
                                                 </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <p class="font-13 fontw600 text-blue mb-2"><i
-                                                            class="fa fa-clock"></i> Timings:</p>
-                                                    <p class="font-13 fontw600 text-blue mb-2">7pm-10pm</p>
-                                                </div>
+                                                @foreach($pkg->pkgtime as $time)
+                                                    @if($time->tuedyopen != null)
+                                                        <div class="d-flex justify-content-between">
+                                                            <p class="font-13 fontw600 text-blue mb-2"><i
+                                                                    class="fa fa-clock"></i> Timings:</p>
+                                                            <p class="font-13 fontw600 text-blue mb-2">{{date('h:i A', strtotime($time->tuedyopen))}}-{{date('h:i A', strtotime($time->tuedyclose))}}</p>
+                                                        </div>
+                                                    @endif
+                                                @endforeach
                                                 <div class="d-flex justify-content-between">
                                                     <p class="font-13 fontw600 text-blue mb-2"><i
                                                             class="fa fa-users"></i> Capacity</p>
@@ -538,7 +546,7 @@
                                         data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
                                         aria-controls="collapseThree">
                                         <span class="bg-blue px-2 py-1 rounded-circle text-light">3</span> &nbsp; <span
-                                            class="font-13 fontw600">Day3</span>
+                                            class="font-13 fontw600">Wednesday</span>
                                     </button>
                                 </h2>
                                 <div id="collapseThree" class="accordion-collapse collapse"
@@ -551,19 +559,271 @@
                                             Styling where guests go wow. A room which allows you to celebrate.</p>
                                         <div class="row py-2">
                                             <div class="col-md-7 col-5">
-                                                <img src="{{ asset('img/hall.webp') }}" class="img-fluid rounded-2" alt="">
+                                                <img src="{{ asset('upload') }}/{{$pkg->getimage()}}" class="img-fluid rounded-2" alt="">
                                             </div>
                                             <div class="col-md-5 col-7">
                                                 <div class="d-flex justify-content-between">
                                                     <p class="font-13 fontw600 text-blue mb-2"><i
                                                             class="fa fa-user"></i> Per Person:</p>
-                                                    <p class="font-13 fontw600 text-blue mb-2">$150</p>
+                                                    <p class="font-13 fontw600 text-blue mb-2">${{$pkg->amount}}</p>
                                                 </div>
+                                                @foreach($pkg->pkgtime as $time)
+                                                    @if($time->wedopen != null)
+
+                                                        <div class="d-flex justify-content-between">
+                                                            <p class="font-13 fontw600 text-blue mb-2"><i
+                                                                    class="fa fa-clock"></i> Timings:</p>
+                                                            <p class="font-13 fontw600 text-blue mb-2">{{ date('h:i A', strtotime($time->wedopen)) }}-{{ date('h:i A', strtotime($time->wedclose)) }}</p>
+                                                        </div>
+                                                        @endif
+                                                @endforeach
+
                                                 <div class="d-flex justify-content-between">
                                                     <p class="font-13 fontw600 text-blue mb-2"><i
-                                                            class="fa fa-clock"></i> Timings:</p>
-                                                    <p class="font-13 fontw600 text-blue mb-2">7pm-10pm</p>
+                                                            class="fa fa-users"></i> Capacity</p>
+                                                    <p class="font-13 fontw600 text-blue mb-2">500/Persons</p>
                                                 </div>
+
+                                            </div>
+                                            <div class="col-12">
+                                                <p class="font-14 pt-3 text-blue fontw600">Images</p>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
+                                            </div>
+                                            <div class="col-4 ">
+                                                <img src="{{ asset('img/hall3.jpg') }}" class="img-fluid rounded-3" alt="">
+                                            </div>
+                                            <div class="col-4 ">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed p-2" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                                        aria-controls="collapseFour">
+                                        <span class="bg-blue px-2 py-1 rounded-circle text-light">3</span> &nbsp; <span
+                                            class="font-13 fontw600">Thursday</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse"
+                                    aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <h6 class="text-blue">You're Engaged, Congratulations! We know this dream to get
+                                            Married is special.</h6>
+                                        <p class="font-14">You want the wedding of your dreams without compromise. A
+                                            ceremony expressing the heart. Food which is delicious and tempts seconds.
+                                            Styling where guests go wow. A room which allows you to celebrate.</p>
+                                        <div class="row py-2">
+                                            <div class="col-md-7 col-5">
+                                                <img src="{{ asset('upload') }}/{{$pkg->getimage()}}" class="img-fluid rounded-2" alt="">
+                                            </div>
+                                            <div class="col-md-5 col-7">
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="font-13 fontw600 text-blue mb-2"><i
+                                                            class="fa fa-user"></i> Per Person:</p>
+                                                    <p class="font-13 fontw600 text-blue mb-2">${{$pkg->amount}}</p>
+                                                </div>
+
+                                                @foreach($pkg->pkgtime as $time)
+                                                    @if($time->thurdyopen != null)
+
+                                                        <div class="d-flex justify-content-between">
+                                                            <p class="font-13 fontw600 text-blue mb-2"><i
+                                                                    class="fa fa-clock"></i> Timings:</p>
+                                                            <p class="font-13 fontw600 text-blue mb-2">{{ date('h:i A', strtotime($time->thurdyopen)) }}-{{ date('h:i A', strtotime($time->thurdyclose)) }}</p>
+                                                        </div>
+                                                        @endif
+                                                @endforeach
+
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="font-13 fontw600 text-blue mb-2"><i
+                                                            class="fa fa-users"></i> Capacity</p>
+                                                    <p class="font-13 fontw600 text-blue mb-2">500/Persons</p>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12">
+                                                <p class="font-14 pt-3 text-blue fontw600">Images</p>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
+                                            </div>
+                                            <div class="col-4 ">
+                                                <img src="{{ asset('img/hall3.jpg') }}" class="img-fluid rounded-3" alt="">
+                                            </div>
+                                            <div class="col-4 ">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed p-2" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
+                                        aria-controls="collapseFive">
+                                        <span class="bg-blue px-2 py-1 rounded-circle text-light">3</span> &nbsp; <span
+                                            class="font-13 fontw600">Friday</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse"
+                                    aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <h6 class="text-blue">You're Engaged, Congratulations! We know this dream to get
+                                            Married is special.</h6>
+                                        <p class="font-14">You want the wedding of your dreams without compromise. A
+                                            ceremony expressing the heart. Food which is delicious and tempts seconds.
+                                            Styling where guests go wow. A room which allows you to celebrate.</p>
+                                        <div class="row py-2">
+                                            <div class="col-md-7 col-5">
+                                                <img src="{{ asset('upload') }}/{{$pkg->getimage()}}" class="img-fluid rounded-2" alt="">
+                                            </div>
+                                            <div class="col-md-5 col-7">
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="font-13 fontw600 text-blue mb-2"><i
+                                                            class="fa fa-user"></i> Per Person:</p>
+                                                    <p class="font-13 fontw600 text-blue mb-2">${{$pkg->amount}}</p>
+                                                </div>
+                                                @foreach($pkg->pkgtime as $time)
+                                                    @if($time->fridyopen != null)
+
+                                                        <div class="d-flex justify-content-between">
+                                                            <p class="font-13 fontw600 text-blue mb-2"><i
+                                                                    class="fa fa-clock"></i> Timings:</p>
+                                                            <p class="font-13 fontw600 text-blue mb-2">{{ date('h:i A', strtotime($time->fridyopen)) }}-{{ date('h:i A', strtotime($time->fridyclose)) }}</p>
+                                                        </div>
+                                                        @endif
+                                                @endforeach
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="font-13 fontw600 text-blue mb-2"><i
+                                                            class="fa fa-users"></i> Capacity</p>
+                                                    <p class="font-13 fontw600 text-blue mb-2">500/Persons</p>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12">
+                                                <p class="font-14 pt-3 text-blue fontw600">Images</p>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
+                                            </div>
+                                            <div class="col-4 ">
+                                                <img src="{{ asset('img/hall3.jpg') }}" class="img-fluid rounded-3" alt="">
+                                            </div>
+                                            <div class="col-4 ">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button collapsed p-2" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false"
+                                        aria-controls="collapseSix">
+                                        <span class="bg-blue px-2 py-1 rounded-circle text-light">3</span> &nbsp; <span
+                                            class="font-13 fontw600">Saturday</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse"
+                                    aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <h6 class="text-blue">You're Engaged, Congratulations! We know this dream to get
+                                            Married is special.</h6>
+                                        <p class="font-14">You want the wedding of your dreams without compromise. A
+                                            ceremony expressing the heart. Food which is delicious and tempts seconds.
+                                            Styling where guests go wow. A room which allows you to celebrate.</p>
+                                        <div class="row py-2">
+                                            <div class="col-md-7 col-5">
+                                                <img src="{{ asset('upload') }}/{{$pkg->getimage()}}" class="img-fluid rounded-2" alt="">
+                                            </div>
+                                            <div class="col-md-5 col-7">
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="font-13 fontw600 text-blue mb-2"><i
+                                                            class="fa fa-user"></i> Per Person:</p>
+                                                    <p class="font-13 fontw600 text-blue mb-2">${{$pkg->amount}}</p>
+                                                </div>
+                                                @foreach($pkg->pkgtime as $time)
+                                                    @if($time->satdyopen != null)
+
+                                                        <div class="d-flex justify-content-between">
+                                                            <p class="font-13 fontw600 text-blue mb-2"><i
+                                                                    class="fa fa-clock"></i> Timings:</p>
+                                                            <p class="font-13 fontw600 text-blue mb-2">{{ date('h:i A', strtotime($time->satdyopen)) }}-{{ date('h:i A', strtotime($time->satdyclose)) }}</p>
+                                                        </div>
+                                                        @endif
+                                                @endforeach
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="font-13 fontw600 text-blue mb-2"><i
+                                                            class="fa fa-users"></i> Capacity</p>
+                                                    <p class="font-13 fontw600 text-blue mb-2">500/Persons</p>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12">
+                                                <p class="font-14 pt-3 text-blue fontw600">Images</p>
+                                            </div>
+                                            <div class="col-4 ">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
+                                            </div>
+                                            <div class="col-4 ">
+                                                <img src="{{ asset('img/hall3.jpg') }}" class="img-fluid rounded-3" alt="">
+                                            </div>
+                                            <div class="col-4 ">
+                                                <img src="{{ asset('img/hall4.jpg') }}" class="img-fluid rounded-3" alt="">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSeven">
+                                    <button class="accordion-button collapsed p-2" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false"
+                                        aria-controls="collapseSeven">
+                                        <span class="bg-blue px-2 py-1 rounded-circle text-light">3</span> &nbsp; <span
+                                            class="font-13 fontw600">Sunday</span>
+                                    </button>
+                                </h2>
+                                <div id="collapseSeven" class="accordion-collapse collapse"
+                                    aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <h6 class="text-blue">You're Engaged, Congratulations! We know this dream to get
+                                            Married is special.</h6>
+                                        <p class="font-14">You want the wedding of your dreams without compromise. A
+                                            ceremony expressing the heart. Food which is delicious and tempts seconds.
+                                            Styling where guests go wow. A room which allows you to celebrate.</p>
+                                        <div class="row py-2">
+                                            <div class="col-md-7 col-5">
+                                                <img src="{{ asset('upload') }}/{{$pkg->getimage()}}" class="img-fluid rounded-2" alt="">
+                                            </div>
+                                            <div class="col-md-5 col-7">
+                                                <div class="d-flex justify-content-between">
+                                                    <p class="font-13 fontw600 text-blue mb-2"><i
+                                                            class="fa fa-user"></i> Per Person:</p>
+                                                    <p class="font-13 fontw600 text-blue mb-2">${{$pkg->amount}}</p>
+                                                </div>
+                                                @foreach($pkg->pkgtime as $time)
+                                                    @if($time->sundyopen != null)
+
+                                                        <div class="d-flex justify-content-between">
+                                                            <p class="font-13 fontw600 text-blue mb-2"><i
+                                                                    class="fa fa-clock"></i> Timings:</p>
+                                                            <p class="font-13 fontw600 text-blue mb-2">{{ date('h:i A', strtotime($time->sundyopen)) }}-{{ date('h:i A', strtotime($time->sundyclose)) }}</p>
+                                                        </div>
+                                                        @endif
+                                                @endforeach
                                                 <div class="d-flex justify-content-between">
                                                     <p class="font-13 fontw600 text-blue mb-2"><i
                                                             class="fa fa-users"></i> Capacity</p>
@@ -959,19 +1219,18 @@
     </script>
 
     <script>
-        let images = [{
-            url: 'https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80',
-            // caption: '404 wallpaper',
-            info: 'Sample info'
-        }, {
-            url: 'https://images.unsplash.com/photo-1521846562476-9c2446539e47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80',
-            // caption: '404 second wallpaper',
-            info: 'Sample info'
-        }, {
-            url: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869',
-            // caption: '404 third wallpaper',
-            info: 'Sample info'
-        },];
+        var JS_Obj = '<?php echo $imgs ?>';
+        var obj = JSON.parse(JS_Obj);
+            var res = [];
+            for(var i in obj)
+            {
+                res.push(obj[i]);
+            }
+            var base_url = window.location.origin;
+            let images = [{}];
+                for (let k = 0; k < res.length; k++) {
+                    images[k] = {url: base_url+'/upload/'+res[k], info: 'Sample info'};
+                }
         const mainView = document.getElementById('main-view');
         const caption = document.getElementById('caption');
         const info = document.getElementById('info');

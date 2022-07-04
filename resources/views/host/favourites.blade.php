@@ -2,7 +2,7 @@
 
 
 @section('body')
-    <link rel="stylesheet" href="{{ asset('css/event2.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/event2.css') }}"> -->
     
 
     <style type="text/css">
@@ -119,14 +119,8 @@
         }
     </style>
     <link rel="stylesheet" href="{{ asset('css/event.css') }}">
-   
-
     <link rel="stylesheet" href="{{ asset('css/addpackage.css')}}">
 
-
-
-
-@include('host.resturent.modals')
 
 
     <!-- NavBar section end -->
@@ -137,7 +131,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ ('/user') }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Restaurant</li>
+                            <li class="breadcrumb-item active" aria-current="page">favourites</li>
                         </ol>
                     </nav>
                 </div>
@@ -145,42 +139,7 @@
         </div>
     </section>
     <!-- Counter div -->
-    <section>
-        <div class="container">
-            <div class="row text-center mt-5">
-                <div class="col-md-4 col-6">
-                    <div class="counter border-rounded-40">
-                        <p class="count-text fontw700">Total Restaurants</p>
-                        <h2 class="timer count-title count-number" data-to="{{$response['resturent']}}" data-speed="1500"></h2>
-                        <p class="count-text fontw500">All</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-6">
-                    <div class="counter border-rounded-40">
-                        <p class="count-text fontw700">Booking</p>
-                        <h2 class="timer count-title count-number" data-to="100" data-speed="1500"></h2>
-                        <p class="count-text fontw500">Last 30 Days</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-6 pt-3 pt-md-0">
-                    <div class="counter border-rounded-40">
-                        <p class="count-text fontw700">Impression</p>
-                        <h2 class="timer count-title count-number" data-to="6789" data-speed="1500"></h2>
-                        <p class="count-text fontw500">Last 30 Days</p>
-                    </div>
-                </div>
-                <!-- <div class="col-md-3 col-6">
-            <div class="counter">
-              <i class="fa fa-bug fa-2x"></i>
-              <h2 class="timer count-title count-number" data-to="157" data-speed="1500"></h2>
-              <p class="count-text ">Coffee With Clients</p>
-            </div>
-          </div> -->
-            </div>
-        </div>
-    </section>
-    <!-- Counter div -->
-
+ 
     <!-- restaurant -->
 
     <section class="restaurant my-5">
@@ -190,16 +149,7 @@
                 <div class="col-6 py-4">
                     <h3 class="mb-3 fontw700">Restaurants</h3>
                 </div>
-                <div class="col-6 text-right d-flex justify-content-end py-4">
-                    <button type="button" class="btn btn-green rounded-pill change_model" form-id="addResturentForm"
-                            data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">Add New Restaurant
-                    </button>
-
-                    <button id="editmodel" type="button" class="d-none" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop2">test btn
-                    </button>
-                </div>
+                
             </div>
 
             <!-- Modal -->
@@ -251,12 +201,7 @@
                                 </div>
                             </div>
                             <div class="proceding px-3 d-flex justify-content-evenly">
-                                <div class="">
-                                    <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                         data-bs-placement="right" title="Add">
-                                        <i class="fa fa-plus-circle  text-white font-24" aria-hidden="true"></i>
-                                    </div>
-                                </div>
+                                
 
                                 <div class="">
                                     <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
@@ -265,23 +210,13 @@
                                     </div>
                                 </div>
 
-                                <div class="">
-                                    <div restid="{{$rest->id}}"
-                                         class="d-inline-block rounded-1 bg-green-two p-2 restedit change_model"
-                                         form-id="editResturentForm">
-                                        <i class="fa fa-pencil-square-o text-white font-24 pointer" aria-hidden="true"></i>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
 
                 @endforeach
-
-
             </div>
-
-
         </div>
     </section>
 
@@ -292,18 +227,6 @@
                 <div class="col-6 py-4">
                     <h3 class="mb-3 fontw700">Packages </h3>
                 </div>
-                <div class="col-6 text-right d-flex justify-content-end py-4">
-                    <button class="btn btn-green rounded-pill change_model" data-bs-target="#packageSection" form-id="addPackageForm"  data-bs-toggle="modal"
-                            data-bs-dismiss="modal">Add New Package
-                    </button>
-                </div>
-                <div class="col-6 text-right d-flex justify-content-end py-4">
-                    <button class="btn btn-green rounded-pill editpakkage d-none"  data-bs-target="#packageSection2"
-                            data-bs-toggle="modal"
-                            data-bs-dismiss="modal">editPackage
-                    </button>
-                </div>
-
             </div>
             <div class="row py-3">
                 @foreach($pkgs as $pkg)
@@ -323,12 +246,9 @@
                                     <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
                                         Trent</p>
                                 </div>
-
                                 <div>
                                     <p class="font-9 mb-0 my-3">From</p>
-
                                 </div>
-
                                 <div class="pricing-review d-flex justify-content-between">
                                     <div class="pricing">
                                         <h4 class="font-15">$895.44</h4>
@@ -345,7 +265,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="variesDiv px-3">
                                 <div class="pricing-varies">
                                     <p class="mb-3 text-grey-one font-13">Price Varies</p>
@@ -353,25 +272,10 @@
                             </div>
                             <div class="proceding px-3 d-flex justify-content-evenly">
                                 <div class="">
-                                    <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                         data-bs-placement="right" title="Add">
-                                        <i class="fa fa-plus-circle  text-white font-24" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-
-                                <div class="">
-                                    <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
+                                    <a href="{{ url('/user/details') }}/{{$pkg->id}}"><div class="d-inline-block rounded-1 bg-green-two p-2 detailss" pkgid="{{$pkg->id}}" data-bs-toggle="tooltip"
                                          data-bs-placement="right" title="View">
                                         <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-
-                                <div class="">
-                                    <div pkgid="{{$pkg->id}}" class="d-inline-block rounded-1 bg-green-two p-2 pkgedit change_model" form-id="editPackageForm"
-                                         data-bs-toggle="tooltip"
-                                         data-bs-placement="left" title="Edit">
-                                        <i class="fa fa-pencil-square-o text-white font-24 pointer" aria-hidden="true"></i>
-                                    </div>
+                                    </div></a>
                                 </div>
                             </div>
                         </div>
@@ -717,8 +621,4 @@
         });
     </script>
     <script type="text/javascript" src="{{ asset('js/favourite.js') }}"></script>
-    <script src="{{ asset('js/event.js') }}"></script>
-    <script src="{{ asset('js/event2.js') }}"></script>
-    <script src="{{ asset('js/addpackage.js') }}"></script>
-    <script src="{{ asset('js/bussiness.js') }}"></script>
 @endsection
