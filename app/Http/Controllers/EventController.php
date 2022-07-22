@@ -162,7 +162,7 @@ class EventController extends Controller
 
 
         if ($user) {
-            return redirect('/planner')->with('success', 'Planner Created Successfully');
+            return redirect('/')->with('success', 'Planner Created Successfully');
         }
 
     }
@@ -229,7 +229,7 @@ class EventController extends Controller
         $pkgs = Package::where('planner_id', auth()->user()->id)->get();
 
         // dd($pkgs[0]->favourite);
-      $response=  $this->resturent->getResturentdata(auth()->user()->id);
+        $response = $this->resturent->getResturentdata(auth()->user()->id);
 
 
         return view('host.resturent.restaurant', compact('catgs', 'rests', 'pkgs', 'response'));
@@ -462,24 +462,33 @@ class EventController extends Controller
 
 
     }
+
+    public function delete_resturent($id)
+    {
+        $id = decrypt($id);
+        $del=Restaurant::findorFail($id)->delete();
+        return back()->with('success','Record deleted successfully');
+
+    }
+
     public function add_favorite(Request $request)
     {
         // dd($request->businessid, $request->id);
 
         $favourite = Favourite::where('user_id', auth()->user()->id)->where('pakgresttid', $request->id)->where('parent', $request->businessid)->first();
-        if($favourite){
+        if ($favourite) {
             $favourite->delete();
-            return response()->json(['msg'=>'delete']);
-        }else{
+            return response()->json(['msg' => 'delete']);
+        } else {
             $favr = new Favourite;
             $favr->user_id = auth()->user()->id;
             $favr->pakgresttid = $request->id;
             $favr->parent = $request->businessid;
             $favr->save();
-            return response()->json(['msg'=>'add']);
+            return response()->json(['msg' => 'add']);
 
         }
-        
+
     }
 
 
@@ -494,12 +503,13 @@ class EventController extends Controller
 
         return view('host.favourites', compact('rests', 'pkgs'));
     }
+
     public function details(Request $request)
     {
         // dd('ggg');
         $pkg = Package::find($request->id);
         // $imgs = json_decode($pkg->logo);
-        $imgs =$pkg->logo;
+        $imgs = $pkg->logo;
 // dd($pkg->pkgtime);
 // dd(json_decode($pkg->logo));
         return view('host.details', compact('pkg', 'imgs'));

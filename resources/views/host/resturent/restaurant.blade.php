@@ -3,7 +3,7 @@
 
 @section('body')
     <link rel="stylesheet" href="{{ asset('css/event2.css') }}">
-    
+
 
     <style type="text/css">
         html,
@@ -114,12 +114,10 @@
         .checkbtn {
             justify-content: right;
         }
-        .pointer {
-            cursor: pointer;
-        }
+
     </style>
     <link rel="stylesheet" href="{{ asset('css/event.css') }}">
-   
+
 
     <link rel="stylesheet" href="{{ asset('css/addpackage.css')}}">
 
@@ -218,15 +216,7 @@
                                     <h4 class="card-title font-16">{{$rest->business}}</h4>
                                     <i class="pointer fa fa-heart  {{ $rest->favouriterest ? "text-danger" : "text-grey-three" }}  pt-2 addfav" id="{{$rest->id}}" businessid="restaurant"></i>
                                 </div>
-                                <!-- <div class="div">
-                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                        Trent</p>
-                                </div> -->
 
-                                <!-- <div>
-                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                </div> -->
 
                                 <div class="pricing-review d-flex justify-content-between">
                                     <div class="pricing">
@@ -253,8 +243,8 @@
                             <div class="proceding px-3 d-flex justify-content-evenly">
                                 <div class="">
                                     <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                         data-bs-placement="right" title="Add">
-                                        <i class="fa fa-plus-circle  text-white font-24" aria-hidden="true"></i>
+                                         data-bs-placement="right" title="delete">
+                                        <i class="fa fa-trash  delete pointer text-white font-24" aria-hidden="true" url="{{url('user/resturent/delete/'.encrypt($rest->id).'')}}"></i>
                                     </div>
                                 </div>
 
@@ -355,7 +345,7 @@
                                 <div class="">
                                     <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
                                          data-bs-placement="right" title="Add">
-                                        <i class="fa fa-plus-circle  text-white font-24" aria-hidden="true"></i>
+                                        <i class="fa fa-trash  delete pointer text-white font-24" aria-hidden="true" url="{{url('user/package/delete/'.encrypt($pkg->id).'')}}"></i>
                                     </div>
                                 </div>
 
@@ -721,4 +711,5 @@
     <script src="{{ asset('js/event2.js') }}"></script>
     <script src="{{ asset('js/addpackage.js') }}"></script>
     <script src="{{ asset('js/bussiness.js') }}"></script>
+    <script src="{{ asset('js/index.js') }}"></script>
 @endsection

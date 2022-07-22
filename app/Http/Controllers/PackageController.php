@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\PackageTags;
 use Illuminate\Http\Request;
 use App\Models\Package;
 use App\Models\PackageTiming;
@@ -17,6 +18,7 @@ class PackageController extends Controller
     public function add_package(Request $request)
     {
 
+
         $pkg = new Package;
         $pkg->planner_id = auth()->user()->id;
         $pkg->restaurant_id = $request->restaurant;
@@ -24,6 +26,7 @@ class PackageController extends Controller
         $pkg->mem_allow = $request->quantity;
         $pkg->price_for = $request->person;
         $pkg->amount = $request->amount;
+        $pkg->desc = $request->desc;
 
         $files = [];
         if($request->hasfile('image'))
@@ -63,6 +66,9 @@ class PackageController extends Controller
 
             }
             $savepkg = $pkg->save();
+
+
+
             if($request->repeatt == 1)
             {
                 $maxlop = max($request->count);
@@ -137,6 +143,18 @@ class PackageController extends Controller
 
 
 
+        }
+
+        if ($request->tags)
+        {
+            foreach ($request->tags as $tags)
+            {
+
+                $pakgtag=new PackageTags();
+                $pakgtag->package_id=$pkg->id;
+                $pakgtag->tag=$tags;
+                $pakgtag->save();
+            }
         }
 
         if($savepkg)
@@ -160,8 +178,9 @@ class PackageController extends Controller
 
     public function update_package(Request $request)
     {
-        
+
         DB::table('package_timings')->where('package_id', $request->id)->delete();
+        $pakgtags=PackageTags::where('package_id',$request->id)->delete();
 
         $pkg = Package::find($request->id);
         $pkg->restaurant_id = $request->restaurant;
@@ -169,6 +188,7 @@ class PackageController extends Controller
         $pkg->mem_allow = $request->quantity;
         $pkg->price_for = $request->person;
         $pkg->amount = $request->amount;
+        $pkg->desc = $request->desc;
 
         $files = [];
         if($request->hasfile('image'))
@@ -284,10 +304,31 @@ class PackageController extends Controller
 
         }
 
+
+        if ($request->tags)
+        {
+            foreach ($request->tags as $tags)
+            {
+
+                $pakgtag=new PackageTags();
+                $pakgtag->package_id=$pkg->id;
+                $pakgtag->tag=$tags;
+                $pakgtag->save();
+            }
+        }
+
         if($savepkg)
         {
             return redirect()->back()->with('success','Package Updated Successfully');
         }
+
+    }
+
+    public function delete_package($id)
+    {
+        $id = decrypt($id);
+        $del=Package::findorFail($id)->delete();
+        return back()->with('success','Record deleted successfully');
 
     }
 }

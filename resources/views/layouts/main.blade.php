@@ -1,5 +1,5 @@
 @section("head")
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport"
-          content="initial-scale=1.0, user-scalable=no" />
+          content="initial-scale=1.0, user-scalable=no"/>
     <meta http-equiv="content-type"
-          content="text/html; charset=UTF-8" />
+          content="text/html; charset=UTF-8"/>
     <title>Event Management</title>
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
@@ -18,70 +18,88 @@
     <link rel="stylesheet" href="{{ asset('css/chatboard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page2.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jqueryui.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js">
+    </script>
     <style>
         .disableddiv {
             pointer-events: none;
             opacity: 0.4;
         }
+
         .pointer {
             cursor: pointer;
+        }
+
+        .select2-container {
+            width: 100% !important;
+        }
+
+        .select2-search__field {
+            position: absolute;
+            margin:10px !important;
+        }
+        .select2-selection__rendered li{
+
+            border-radius: 25px !important;
+
         }
     </style>
 
 
-{{--    dropify--}}
+    {{--    dropify--}}
     <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
 
-{{--   bootstrap 5--}}
+    {{--   bootstrap 5--}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <script src="https://kit.fontawesome.com/9838783293.js" crossorigin="anonymous"></script>
-{{--    owl carusal--}}
+    {{--    owl carusal--}}
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
 
 
-{{--toster--}}
+    {{--toster--}}
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-{{--    google places api--}}
+    {{--    google places api--}}
 
 
 </head>
 
 <body class="">
-    <section class="navigationBar mb-5 pb-5">
-        <nav class="navbar navbar-expand-lg shadowDiv fixed-top bg-white navbar-light py-md-3 text-black px-lg-3">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+@include('partials.component2')
+<section class="navigationBar mb-5 pb-5">
+    <nav class="navbar navbar-expand-lg shadowDiv fixed-top bg-white navbar-light py-md-3 text-black px-lg-3">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
                     aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon "></span>
-                </button>
-                <a class="navbar-brand fontw700 font-24" href="{{url('/')}}">Emprise</a>
-                <div class="collapse navbar-collapse ps-md-3" id="navbarTogglerDemo03">
-                    <ul class="navbar-nav  me-md-auto mb-2 mb-md-0" id="navbar-nav">
-                        <li class="nav-item ">
-                            <a class="nav-link active pt-md-3 fontw500" aria-current="page"
-                                href="{{ url('/user') }}">Home</a>
-                        </li>
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <a class="navbar-brand fontw700 font-24" href="{{url('/')}}">Emprise</a>
+            <div class="collapse navbar-collapse ps-md-3" id="navbarTogglerDemo03">
+                <ul class="navbar-nav  me-md-auto mb-2 mb-md-0" id="navbar-nav">
+                    <li class="nav-item ">
+                        <a class="nav-link active pt-md-3 fontw500" aria-current="page"
+                           href="{{ url('/user') }}">Home</a>
+                    </li>
 
 
+                    <li class="nav-item">
+                        <a class="nav-link active pt-md-3 fontw500" href="{{ url('search') }}">Find
+                            restaurants</a>
+                    </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/featured_rest') }}">Featured restaurants</a>
-                            </li>
-
-                        @auth
+                    @auth
                         @if(auth()->user()->role=='2')
-                        <li class="nav-item">
-                            <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/planner') }}">My Restaurants</a>
-                        </li>
-                        
-
-
+                            <li class="nav-item">
+                                <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/planner') }}">My
+                                    Restaurants</a>
+                            </li>
 
                         @endif
 
@@ -89,55 +107,57 @@
                             <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/chatBoard') }}">Inbox</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/favourites') }}">favourites</a>
+                            <a class="nav-link active pt-md-3 fontw500"
+                               href="{{ url('/user/favourites') }}">favourites</a>
                         </li>
 
-                        @endauth
+                    @endauth
 
-						
 
-                    </ul>
-                    @guest
-
+                </ul>
+                @guest
 
                     <div class="hostEvent">
                         <h6 class="pe-3 pt-2 fontw700 font-18"><a href="{{ url('/user/event') }}">Host An Event</a></h6>
                     </div>
-                    @endguest
+                @endguest
 
-                    @auth
+                @auth
                     @if(auth()->user()->role=='3')
 
-
-                    <div class="hostEvent">
-                        <h6 class="pe-3 pt-2 fontw700 font-18"><a href="{{ url('/user/login/event') }}">Host An Event</a></h6>
-                    </div>
+                        <div class="hostEvent">
+                            <h6 class="pe-3 pt-2 fontw700 font-18"><a href="{{ url('/user/login/event') }}">Host An
+                                    Event</a></h6>
+                        </div>
                     @endif
-                    @endauth
+                @endauth
 
-                        @auth
+                @auth
 
-
-                        <a class="btn rounded-pill btn-danger" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
+                    <a class="btn rounded-pill btn-danger" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                        {{ __('Logout') }}
+                    </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                        @else
-                        <a href="{{ url('/login') }}"><button class="btn" type="submit">Login</button></a>
-                        <a href="{{ url('/register') }}"><button class="btn rounded-pill btn-green" type="button">Sign up</button></a>
-                        @endauth
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                @else
+                    <a href="{{ url('/login') }}">
+                        <button class="btn" type="submit">Login</button>
+                    </a>
+                    <a href="{{ url('/register') }}">
+                        <button class="btn rounded-pill btn-green" type="button">Sign up</button>
+                    </a>
+                @endauth
 
-                </div>
             </div>
-        </nav>
-    </section>
+        </div>
+    </nav>
+</section>
 
-    <!-- NavBar section end -->
+<!-- NavBar section end -->
 
 
 @yield('body')
@@ -178,21 +198,21 @@
                 </div>
                 <div class="col-md-6 z1">
                     <div class="temp">
-                        <h2 class="fontw700">Adventures Calling <br />You guys!</h2>
+                        <h2 class="fontw700">Adventures Calling <br/>You guys!</h2>
                     </div>
                 </div>
                 <div class="offset-md-2 col-md-4 z1 my-3">
                     <div class="banking d-flex justify-content-center">
                         <div class="bankingCard pe-3 ">
                             <a href="#"><i class="fa fa-credit-card-alt p-3 faa-icon text-seagreen1"
-                                    aria-hidden="true"></i></a>
+                                           aria-hidden="true"></i></a>
                         </div>
-                        <p class="pb-0 mb-0 fontw500">Our Office <br /> <span class="fontw700"> Lahore, Pakistan</span>
+                        <p class="pb-0 mb-0 fontw500">Our Office <br/> <span class="fontw700"> Lahore, Pakistan</span>
                         </p>
                     </div>
                     <div class=" py-2 me-4 text-center">
                         <a href="#" class="z1 text-white fontw500"><i class="fa fa-long-arrow-right"
-                                aria-hidden="true"></i></a>
+                                                                      aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -236,7 +256,7 @@
                         <div class="col-lg-10 offset-lg-2 col-12">
                             <h4 class="my-3">Get in touch</h4>
                             <h3 class="fontw700">Lets Talk <span class="fa fa-long-arrow-right ps-3"
-                                    aria-hidden="true"></span></h3>
+                                                                 aria-hidden="true"></span></h3>
                         </div>
 
                         <div class="col-lg-10 offset-lg-2 col-12">
@@ -244,12 +264,13 @@
                                 <form class="shadowDiv">
                                     <div class="input-group border-round-00">
                                         <input type="text" class="form-control form-control-lg"
-                                            style="border-radius: unset;" placeholder="Email Address"
-                                            aria-label="Example text with button addon"
-                                            aria-describedby="button-addon1">
+                                               style="border-radius: unset;" placeholder="Email Address"
+                                               aria-label="Example text with button addon"
+                                               aria-describedby="button-addon1">
                                         <button class="btn btn-green" style="border-radius: unset;" type="button"
-                                            id="button-addon1">Send
-                                            Now</button>
+                                                id="button-addon1">Send
+                                            Now
+                                        </button>
                                     </div>
                                 </form>
                             </div>
@@ -286,71 +307,78 @@
     </section>
     {{--    jquery--}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-{{--    carusal--}}
+    {{--    carusal--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
 
     <!-- Bootstrap5 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        $(".tag-select").select2({
+            tags: true,
+            tokenSeparators: [',', ' ']
+        })
+    </script>
     <!-- Bootstrap5 CDN -->
 
     <!-- Jquery CDN -->
 
 
-@yield('js')
+    @yield('js')
 
     <!-- owl carousel -->
     <script>
         // $(document).ready(function () {
-            // $('.owl-carousel').owlCarousel({
-            //     nav: false,
-            //     dots: true,
-            //     loop: true,
-            //     autoplay: true,
-            //     autoplayTimeout: 5000,
-            //     margin: 20,
-            //     slideSpeed: 3000,
-            //     animateIn: 'fadeIn',
-            //     animateOut: 'fadeOut',
-            //     responsive: {
-            //         0: {
-            //             items: 1
-            //         },
-            //         600: {
-            //             items: 3
-            //         },
-            //         960: {
-            //             items: 3
-            //         }
-            //     }
-            // });
-            // var setMinHeight = function (minheight = 0) {
-            //     jQuery('.owl-carousel').each(function (i, e) {
-            //         var oldminheight = minheight;
-            //         jQuery(e).find('.owl-item').each(function (i, e) {
-            //             minheight = jQuery(e).height() > minheight ? jQuery(e).height() : minheight;
-            //         });
-            //         jQuery(e).find('.item').css("min-height", minheight + "px");
-            //         minheight = oldminheight;
-            //     });
-            // };
-            // setMinHeight();
+        // $('.owl-carousel').owlCarousel({
+        //     nav: false,
+        //     dots: true,
+        //     loop: true,
+        //     autoplay: true,
+        //     autoplayTimeout: 5000,
+        //     margin: 20,
+        //     slideSpeed: 3000,
+        //     animateIn: 'fadeIn',
+        //     animateOut: 'fadeOut',
+        //     responsive: {
+        //         0: {
+        //             items: 1
+        //         },
+        //         600: {
+        //             items: 3
+        //         },
+        //         960: {
+        //             items: 3
+        //         }
+        //     }
+        // });
+        // var setMinHeight = function (minheight = 0) {
+        //     jQuery('.owl-carousel').each(function (i, e) {
+        //         var oldminheight = minheight;
+        //         jQuery(e).find('.owl-item').each(function (i, e) {
+        //             minheight = jQuery(e).height() > minheight ? jQuery(e).height() : minheight;
+        //         });
+        //         jQuery(e).find('.item').css("min-height", minheight + "px");
+        //         minheight = oldminheight;
+        //     });
+        // };
+        // setMinHeight();
 
-            // $(".carousel").swipe({
-            //     swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-            //         if (direction == 'left') $(this).carousel('next');
-            //         if (direction == 'right') $(this).carousel('prev');
-            //     },
-            //     allowPageScroll: "vertical"
-            // });
+        // $(".carousel").swipe({
+        //     swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+        //         if (direction == 'left') $(this).carousel('next');
+        //         if (direction == 'right') $(this).carousel('prev');
+        //     },
+        //     allowPageScroll: "vertical"
+        // });
         // });
         // $(document).on('resize', function () {
         //     setMinHeight();
         // });
     </script>
-
 
 
 </body>

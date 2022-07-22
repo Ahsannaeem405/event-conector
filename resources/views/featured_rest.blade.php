@@ -10,7 +10,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ ('/user') }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Featured restaurants</li>
+                            <li class="breadcrumb-item active" aria-current="page">Find restaurants</li>
                         </ol>
                     </nav>
                 </div>
@@ -97,12 +97,23 @@
                 </div>
 
                 <div class="col-md-3 col-12 px-2 pt-4">
+
+
                     <div class="border rounded-2 p-2">
+                        <form action="{{url('search')}}" method="post">
+                            @csrf
+
+
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-green px-3 py-2" type="submit"><i
+                                    class="fa fa-search font-30" aria-hidden="true"></i></button>
+                        </div>
+
                         <div class="Keywords">
                             <h6 class="mt-3 font-15">Keywords</h6>
                             <div class="inputKeywords mb-3">
 
-                                <input type="text" class="form-control"
+                                <input type="text" name="keywords" value="{{$request->keywords}}" class="form-control"
                                     aria-describedby="basic-addon2">
                             </div>
                         </div>
@@ -112,11 +123,11 @@
                                 <h6 class="mt-3 font-15">Add Category</h6>
                             </div>
                             <div class="input-group mb-3 py-3">
-                                <select class="form-select" id="inputGroupSelect03"
+                                <select name="category" class="form-select" id="inputGroupSelect03"
                                     aria-label="Example select with button addon">
-                                    <option selected>Choose...</option>
+                                    <option selected value="">Choose...</option>
                                     @foreach($category as $cat)
-                                        <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                        <option {{$request->category==$cat->id ? 'selected' : ''}} value="{{$cat->id}}">{{$cat->name}}</option>
                                     @endforeach
 
                                 </select>
@@ -124,37 +135,22 @@
                         </div>
                         <div class="popularTags">
                             <h6 class=" font-15">Popular Tags</h6>
+                       @foreach($tags as $tag)
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <input class="form-check-input" type="checkbox" name="tagsarray[]" {{in_array($tag->tag,$request->tagsarray ? $request->tagsarray : []) ? 'checked' : ''}} value="{{$tag->tag}}" id="flexCheckChecked">
                             <label class="form-check-label font-13 font-13" for="flexCheckChecked">
-                                Child Friendly
+                                {{$tag->tag}}
                             </label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                            <label class="form-check-label font-13 font-13" for="flexCheckChecked">
-                                Taking Extra Precautions
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                            <label class="form-check-label font-13 font-13" for="flexCheckChecked">
-                                Virtual Experiences
-                            </label>
-                        </div>
+                            @endforeach
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                            <label class="form-check-label font-13 font-13" for="flexCheckChecked">
-                                Epic Challenges
-                            </label>
-                        </div>
+
                         </div>
                         <div class="eventDate">
                             <h6 class="mt-3 font-15">Event Date</h6>
                             <div class="input-group mb-3">
 
-                                <input type="text" class="form-control border-right-0" id="datepicker2"
+                                <input type="text" name="search_date" value="{{$request->search_date}}" class="form-control border-right-0" id="datepicker2"
                                     aria-describedby="basic-addon2">
                                 <span class="input-group-text bg-transparent border-left-0" id="basic-addon2"><i
                                         class="fa fa-calendar text-grey-three"></i></span>
@@ -168,15 +164,9 @@
                         <h6 class="mt-3 font-15">Reservation Time</h6>
                         <div class="d-flex align-items-center">
                             <label class="form-check-label font-13 font-13" for="flexCheckChecked">
-                                From
+                                Time
                             </label>
-                            <input type="time" class="form-control mt-2 ms-1">
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <label class="form-check-label font-13 font-13 ps-1" for="flexCheckChecked">
-                                To
-                            </label>
-                            <input type="time" class="form-control mt-2 ms-3">
+                            <input type="time" name="search_time" value="{{$request->search_time}}" class="form-control mt-2 ms-1">
                         </div>
 
                         <h6 class="mt-3 font-15">No. of Persons</h6>
@@ -187,7 +177,7 @@
                             </div>
                             <div class="quantity">
                                 <a href="#" class="quantity__minus"><span>-</span></a>
-                                <input name="quantity" type="text" class="quantity__input" value="1">
+                                <input name="person" type="text" class="quantity__input" value="{{$request->person ? $request->person : 1 }}">
                                 <a href="#" class="quantity__plus"><span>+</span></a>
                             </div>
                         </div>
@@ -199,10 +189,6 @@
                         </p>
 
                         <div id="slider-range" class="mx-2"></div>
-
-
-
-
 
 
                         <h6 class="mt-3 font-15">Event Rating</h6>
@@ -279,7 +265,7 @@
                         </div>
 
 
-
+                        </form>
                     </div>
 
                 </div>
@@ -287,9 +273,9 @@
                     <div class="row px-3">
 
 
-                        @foreach($resturents as $resturent)
+                        @foreach($packages as $package)
 
-                            @foreach($resturent->package as $package)
+
                                 <div class="col-md-6 col-12 mb-3">
                                     <div class="card p-3 shadowDiv border-rounded-1  pb-3">
                                         <div class="image_div py-3 px-3 position-relative"
@@ -350,7 +336,7 @@
                                     </div>
                                 </div>
                             @endforeach
-                            @endforeach
+
 
 
 
@@ -419,8 +405,13 @@
 
     <!-- footer section -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+@endsection
+
+@section('js')
+
+
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
     <script>
@@ -437,8 +428,8 @@
             $("#slider-range").slider({
                 range: true,
                 min: 0,
-                max: 500,
-                values: [75, 300],
+                max: 5000,
+                values: [100, 500],
                 slide: function (event, ui) {
                     $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
                 }
@@ -470,7 +461,7 @@
         });
     </script>
     <!-- Jquery CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $('.owl-carousel').owlCarousel({
@@ -517,8 +508,9 @@
             setMinHeight();
         });
     </script>
-
 @endsection
+
+
 
 
 

@@ -539,6 +539,11 @@
 
                                                     <input type="text" name="package" placeholder="Package Name"
                                                            required require/>
+
+                                                    <h2 class="fs-title">Package Description</h2>
+
+                                                    <textarea name="desc" class="mt-2" id="" cols="5" rows="3"  required require></textarea>
+
                                                     <div class="mb-4">
                                                         <label for="allow"
                                                                class="label-text pb-2 font-17 fontw500">Allowed
@@ -581,9 +586,11 @@
                                                             </div>
                                                         </div>
                                                         <br>
-                                                        <input type="number" name="amount"
+                                                        <input type="number" class="form-control" name="amount"
                                                                placeholder="Enter package amount" required require/>
                                                     </div>
+
+
                                                 </div>
                                                 <input type="button" name="previous"
                                                        class="previous action-button-previous" value="Previous"/>
@@ -599,6 +606,15 @@
                                                                data-width="60" data-height="40"/>
                                                         <i class="fa fa-plus add_btnpkg col-1"></i>
                                                     </div>
+
+                                                    <div>
+                                                        <h2 class="fs-title mt-4">Add Tags</h2>
+                                                        <select class="form-control w-100 tag-select" multiple="multiple" name="tags[]">
+
+                                                        </select>
+                                                    </div>
+
+
                                                 </div>
                                                 <input type="button" name="previous"
                                                        class=" previous action-button-previous" value="Previous"/>

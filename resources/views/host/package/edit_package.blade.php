@@ -61,6 +61,13 @@
                                                     <h2 class="fs-title">Package Name</h2>
 
                                                     <input type="text" name="package" placeholder="Package Name"  value="{{ $pkg->pkg_name }}" required require/>
+
+
+                                                    <h2 class="fs-title">Package Description</h2>
+
+                                                    <textarea name="desc" class="mt-2" id="" cols="5" rows="3"  required require>{{$pkg->desc}}</textarea>
+
+
                                                     <div class="mb-4">
                                                         <label for="allow"
                                                             class="label-text pb-2 font-17 fontw500">Allowed
@@ -98,7 +105,7 @@
                                                             </div>
                                                         </div>
                                                         <br>
-                                                        <input type="number" name="amount" placeholder="Enter package amount" value="{{ $pkg->amount }}"  required require/>
+                                                        <input class="form-control" type="number" name="amount" placeholder="Enter package amount" value="{{ $pkg->amount }}"  required require/>
                                                     </div>
                                                 </div>
                                                 <input type="button" name="previous"
@@ -114,6 +121,18 @@
                                                             data-width="60" data-height="40" value="{{ $pkg->getimage() }}" />
                                                             <i class="fa fa-plus add_btnpkg col-3"></i>
                                                     </div>
+
+                                                    <div>
+                                                        <h2 class="fs-title mt-4">Add Tags</h2>
+                                                        <select class="form-control w-100 tag-select" multiple="multiple" name="tags[]">
+
+                                                            @foreach($pkg->tags as $tags)
+
+                                                                <option selected value="{{$tags->tag}}">{{$tags->tag}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+
                                                 </div>
                                                 <input type="button" name="previous"
                                                     class=" previous action-button-previous" value="Previous" />
@@ -750,4 +769,14 @@
                 </div>
 
 
+<script>
+    $(document).ready(function(){
 
+        $(".tag-select").select2({
+            tags: true,
+            tokenSeparators: [',', ' ']
+        })
+    });
+
+
+</script>

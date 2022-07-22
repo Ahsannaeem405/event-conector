@@ -4,8 +4,6 @@
     {{--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--}}
     <!-- Google Maps JavaScript library -->
 
-
-
     <style type="text/css">
         .form-control,
         .form-select {
@@ -78,17 +76,8 @@
                         <p class="text-white">-02<sup class="font-15 p-0">&deg;</sup>C very Cold</p>
                     </div>
                 </div>
-                <!-- <div class="offset-lg-2 col-lg-4 z1">
-                            <div class="banking d-flex">
-                                <div class="bankingCard pe-3">
-                                    <a href="#"><i class="fa fa-credit-card-alt p-3 faa-icon" aria-hidden="true"></i></a>
-                                </div>
-                                <p class="text-white pb-0 mb-0">We Accept Payment Through All Cards & Banking</p>
-                            </div>
-                            <div class=" pt-0 ps-5 ms-3">
-                                <a href="#" class="z1 text-white fontw500">Book Now!</a>
-                            </div>
-                        </div> -->
+
+
             </div>
 
             <div class="row z1 selectDestination d-flex justify-content-center position-relative">
@@ -112,8 +101,7 @@
                             <div class="col-lg-8">
 
 
-
-                                        <div class="row">
+                                <div class="row">
 
 
                                             <div class="col-lg-4 activities">
@@ -140,7 +128,7 @@
 
 
                                                 <div class="input-group mb-3 mt-2">
-                                                    <input type="text" placeholder="dd-mm-yyyy"
+                                                    <input type="text" name="search_date" value="{{date('d-M-Y')}}" placeholder="dd-mm-yyyy"
                                                            class="form-control border-right-0"
                                                            id="datepicker" aria-describedby="basic-addon2"
                                                            autocomplete="off">
@@ -156,7 +144,7 @@
                                                     <h3 class="font-20 fontw700 mb-0">Time:</h3>
                                                 </div>
                                                 <div class="time mb-3">
-                                                    <input type="time" class="pe-0 py-0 form-control time-fotm">
+                                                    <input type="time" name="search_time" class="pe-0 py-0 form-control time-fotm">
                                                 </div>
                                             </div>
 
@@ -923,6 +911,6 @@
             // });
         });
     </script>
-    
+
     <script type="text/javascript" src="{{ asset('js/favourite.js') }}"></script>
 @endsection

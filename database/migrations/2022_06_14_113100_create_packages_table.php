@@ -17,14 +17,15 @@ class CreatePackagesTable extends Migration
             $table->id();
             $table->bigInteger('planner_id')->unsigned()->index()->nullable();
             $table->foreign('planner_id')->references('id')->on('users')->onDelete('cascade');
-            
+
             $table->bigInteger('restaurant_id')->unsigned()->index()->nullable();
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
-            
+
             $table->string('pkg_name')->nullable();
             $table->integer('mem_allow')->nullable();
             $table->string('price_for')->nullable();
             $table->string('amount')->nullable();
+            $table->text('desc')->nullable();
             $table->text('logo')->nullable();
             $table->string('holiday1')->nullable();
             $table->string('holiday2')->nullable();

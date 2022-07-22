@@ -40,5 +40,14 @@ class Package extends Model
 
         }
     }
-    
+
+    public function tags(){
+        return $this->hasMany(PackageTags::class,'package_id');
+    }
+
+    public function resturent()
+    {
+        return $this->belongsTo(Restaurant::class,'restaurant_id');
+    }
+
 }

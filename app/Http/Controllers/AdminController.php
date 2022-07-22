@@ -12,7 +12,7 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::where('role', '3')->orderBy('id', 'DESC')->get();
-        return view('admin/index', compact('users'));
+        return view('admin.index', compact('users'));
     }
 
     public function users()
@@ -40,10 +40,10 @@ class AdminController extends Controller
     }
 
     public function dltuser(Request $request)
-    {      
+    {
         $user = User::where('id', $request->id)->delete();
         return redirect()->back()->with('error','Record Deleted Successfully');
-        
+
     }
 
     public function categories()
@@ -90,10 +90,10 @@ class AdminController extends Controller
     }
 
     public function dltcatg(Request $request)
-    {      
+    {
         $user = Category::where('id', $request->id)->delete();
         return redirect()->back()->with('success','Category Deleted Successfully');
-        
+
     }
     public function category_edit(Request $request)
     {
@@ -101,8 +101,8 @@ class AdminController extends Controller
         return view('admin.editcategory', compact('catg'));
     }
 
-    
-        
-    
-    
+
+
+
+
 }

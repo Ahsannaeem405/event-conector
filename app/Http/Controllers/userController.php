@@ -16,14 +16,16 @@ class userController extends Controller
         $catgs = Category::all()->chunk(4);
         $category = Category::all();
         // dd($catgs);
-$rests =  DB::table('restaurants')->take(3)->orderBy('id', 'desc')->get();
-$pkgs = Package::all()->chunk(3);
-         return view('index', compact('catgs','rests','pkgs','category'));
+        $rests = DB::table('restaurants')->take(3)->orderBy('id', 'desc')->get();
+        $pkgs = Package::all()->chunk(3);
+        return view('index', compact('catgs', 'rests', 'pkgs', 'category'));
     }
+
     public function featured_rest()
     {
         return view('/featured_rest');
     }
+
     public function chatBoard()
     {
         return view('/chatBoard');
