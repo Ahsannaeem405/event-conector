@@ -37,24 +37,24 @@ class SearchController extends Controller
         $weekClose = $weekClose[$dayOfTheWeek];
 
 
-        $packages=Package::whereHas('resturent', function ($q) use ($request) {
-           $q->when($request->location, function ($q) use ($request) {
-//address
+        $packages = Package::whereHas('resturent', function ($q) use ($request) {
+            $q->when($request->location, function ($q) use ($request) {
+            //address
                 $q->where('address', 'like', '%' . $request->location . '%');
             });
-           //category
-               $q->when($request->category, function ($q) use ($request) {
+            //category
+            $q->when($request->category, function ($q) use ($request) {
 
                 $q->whereCategoryid($request->category);
             });
 
         })
-//keywords
-         ->when($request->keywords, function ($q) use ($request) {
+            //keywords
+            ->when($request->keywords, function ($q) use ($request) {
 
-                   $q->where('pkg_name', 'like', '%' . $request->keywords . '%');
-                   $q->ORwhere('desc', 'like', '%' . $request->keywords . '%');
-               })
+                $q->where('pkg_name', 'like', '%' . $request->keywords . '%');
+                $q->ORwhere('desc', 'like', '%' . $request->keywords . '%');
+            })
 
             //tags
 
@@ -62,33 +62,28 @@ class SearchController extends Controller
 
                 $q->whereHas('tags', function ($q) use ($request) {
 
-                    $q->whereIn('tag',$request->tagsarray);
+                    $q->whereIn('tag', $request->tagsarray);
                 });
-               })
-
-            ->when($request->search_time,function ($q) use ($request,$weekOpen,$weekClose){
-              $q->whereHas('pkgtime', function ($q) use ($weekOpen,$request,$weekClose) {
-                  $q->whereTime($weekOpen,'<=',$request->search_time)
-                      ->whereTime($weekClose,'>=',$request->search_time);
-              });
-          })
-
-
+            })
+            ->when($request->search_time, function ($q) use ($request, $weekOpen, $weekClose) {
+                $q->whereHas('pkgtime', function ($q) use ($weekOpen, $request, $weekClose) {
+                    $q->whereTime($weekOpen, '<=', $request->search_time)
+                        ->whereTime($weekClose, '>=', $request->search_time);
+                });
+            })
             ->get();
-
 
 
         $category = Category::all();
 
-        $tags=PackageTags::select('*',\DB::raw('COUNT(tag) as tagdata'))
+        $tags = PackageTags::select('*', \DB::raw('COUNT(tag) as tagdata'))
             ->groupBy('tag')
-            ->orderBy('tagdata','DESC')
+            ->orderBy('tagdata', 'DESC')
             ->take(5)
             ->get();
 
 
-
-        return view('featured_rest', compact('packages', 'category','request','tags'));
+        return view('featured_rest', compact('packages', 'category', 'request', 'tags'));
 
     }
 }
