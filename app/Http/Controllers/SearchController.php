@@ -11,8 +11,18 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
+    public $package;
+
+    public function __construct(Package $package)
+    {
+        $this->package = $package;
+    }
+
     public function search(Request $request)
     {
+        $price = $request->price ? $request->price : '$100 - $500';
+        $price = $this->package->amountExplode($price);
+
         $weekOpen = [
             0 => 'sundyopen',
             1 => 'mondyopen',
@@ -39,7 +49,7 @@ class SearchController extends Controller
 
         $packages = Package::whereHas('resturent', function ($q) use ($request) {
             $q->when($request->location, function ($q) use ($request) {
-            //address
+                //address
                 $q->where('address', 'like', '%' . $request->location . '%');
             });
             //category
@@ -49,7 +59,19 @@ class SearchController extends Controller
             });
 
         })
-            //keywords
+            //persons
+            ->when($request->person, function ($q) use ($request) {
+
+                $q->where('mem_allow', '>=', $request->person);
+
+            })
+            //price range
+            ->when($price, function ($q) use ($price) {
+
+                $q->where('amount', '>=', $price['min'] );
+                $q->where('amount', '<=', $price['max'] );
+
+            })   //keywords
             ->when($request->keywords, function ($q) use ($request) {
 
                 $q->where('pkg_name', 'like', '%' . $request->keywords . '%');
@@ -71,8 +93,32 @@ class SearchController extends Controller
                         ->whereTime($weekClose, '>=', $request->search_time);
                 });
             })
-            ->get();
 
+            ->when($request->sort_by, function ($q) use ($request) {
+//dd(1);
+                if ($request->sort_by==1)
+                {
+                    $q->orderBy('id','DESC');
+                }
+                if ($request->sort_by==2)
+                {
+                    $q->orderBy('amount','ASC');
+                }
+                if ($request->sort_by==3)
+                {
+                    $q->orderBy('amount','DESC');
+                }
+                if ($request->sort_by==4)
+                {
+
+                }
+                if ($request->sort_by==5)
+                {
+
+                }
+
+            })
+            ->get();
 
         $category = Category::all();
 
@@ -83,7 +129,7 @@ class SearchController extends Controller
             ->get();
 
 
-        return view('featured_rest', compact('packages', 'category', 'request', 'tags'));
+        return view('featured_rest', compact('packages', 'price','category', 'request', 'tags'));
 
     }
 }

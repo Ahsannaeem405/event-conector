@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ ('/user') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ ('/') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Find restaurants</li>
                         </ol>
                     </nav>
@@ -18,24 +18,24 @@
         </div>
     </section>
     <section class="pb-5">
+        <form action="{{url('search')}}" method="post">
+            @csrf
         <div class="container">
             <div class="row">
                 <div class="col-12 py-4">
                     <div class="d-flex justify-content-between align-items-center border rounded-2 p-2">
                         <div>
-                            <p class="text-grey-three font-13 mb-0">Showing 1-10 of 1000 Results for "Restaurants" </p>
+                            <p class="text-grey-three font-13 mb-0">Showing 1-{{$packages->count()}} of {{$packages->count()}} Results for "Restaurants" </p>
                         </div>
                         <div class="d-flex">
 
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option selected>Sort By </option>
-                                <option value="1">Recent</option>
-                                <option value="2">Price Low to High</option>
-                                <option value="3">Price High to Low</option>
-                                <option value="4">Rating Low to High</option>
-                                <option value="5">Rating High to Low</option>
-                                <option value="6">Listed Date</option>
-
+                            <select name="sort_by" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected value=""> Sort By </option>
+                                <option value="1" {{$request->sort_by==1 ? 'selected' : ''}}>Recent</option>
+                                <option value="2" {{$request->sort_by==2 ? 'selected' : ''}}>Price Low to High</option>
+                                <option value="3" {{$request->sort_by==3 ? 'selected' : ''}}>Price High to Low</option>
+                                <option value="4" {{$request->sort_by==4 ? 'selected' : ''}}>Rating Low to High</option>
+                                <option value="5" {{$request->sort_by==5 ? 'selected' : ''}}>Rating High to Low</option>
                             </select>
                         </div>
                     </div>
@@ -100,8 +100,7 @@
 
 
                     <div class="border rounded-2 p-2">
-                        <form action="{{url('search')}}" method="post">
-                            @csrf
+
 
 
                         <div class="d-flex justify-content-center">
@@ -156,11 +155,6 @@
                                         class="fa fa-calendar text-grey-three"></i></span>
                             </div>
                         </div>
-
-
-                        <!-- multirange -->
-
-                        <!-- multirange -->
                         <h6 class="mt-3 font-15">Reservation Time</h6>
                         <div class="d-flex align-items-center">
                             <label class="form-check-label font-13 font-13" for="flexCheckChecked">
@@ -184,7 +178,7 @@
                         <h6 class="mt-3 font-15">Price Range</h6>
                         <p>
 
-                            <input type="text" class="text-blue form-control bg-transparent" id="amount" readonly
+                            <input type="text" name="price"  class="text-blue form-control bg-transparent" id="amount" readonly
                                 style="border:0;  font-weight:bold;">
                         </p>
 
@@ -192,7 +186,8 @@
 
 
                         <h6 class="mt-3 font-15">Event Rating</h6>
-                        <div class="form-check">
+
+                            <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
                             <label class="form-check-label font-13 font-13" for="flexCheckChecked">
                                 <span class="fa fa-star font-12 checked"></span>
@@ -202,8 +197,7 @@
                                 <span class="fa fa-star font-12"></span>
                             </label>
                         </div>
-
-                        <div class="form-check">
+                            <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                             <label class="form-check-label font-13 font-13" for="flexCheckChecked">
                                 <span class="fa fa-star font-12 checked"></span>
@@ -213,7 +207,7 @@
                                 <span class="fa fa-star font-12"></span>
                             </label>
                         </div>
-                        <div class="form-check">
+                            <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                             <label class="form-check-label font-13 font-13" for="flexCheckChecked">
                                 <span class="fa fa-star font-12 checked"></span>
@@ -222,8 +216,7 @@
                                 <span class="fa fa-star font-12"></span>
                                 <span class="fa fa-star font-12"></span> </label>
                         </div>
-
-                        <div class="form-check">
+                            <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                             <label class="form-check-label font-13 font-13" for="flexCheckChecked">
                                 <span class="fa fa-star font-12 checked"></span>
@@ -232,9 +225,7 @@
                                 <span class="fa fa-star font-12 checked"></span>
                                 <span class="fa fa-star font-12"></span> </label>
                         </div>
-
-
-                        <div class="form-check">
+                            <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                             <label class="form-check-label font-13 font-13" for="flexCheckChecked">
                                 <span class="fa fa-star font-12 checked"></span>
@@ -265,7 +256,7 @@
                         </div>
 
 
-                        </form>
+
                     </div>
 
                 </div>
@@ -400,7 +391,7 @@
 
         </div>
 
-
+        </form>
     </section>
 
     <!-- footer section -->
@@ -429,7 +420,7 @@
                 range: true,
                 min: 0,
                 max: 5000,
-                values: [100, 500],
+                values: [{{$price['min']}}, {{$price['max']}}],
                 slide: function (event, ui) {
                     $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
                 }
@@ -486,8 +477,6 @@
                     }
                 }
             });
-
-
 
 
             var setMinHeight = function (minheight = 0) {

@@ -85,7 +85,7 @@
                 <ul class="navbar-nav  me-md-auto mb-2 mb-md-0" id="navbar-nav">
                     <li class="nav-item ">
                         <a class="nav-link active pt-md-3 fontw500" aria-current="page"
-                           href="{{ url('/user') }}">Home</a>
+                           href="{{ url('/') }}">Home</a>
                     </li>
 
 
