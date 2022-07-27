@@ -3,7 +3,7 @@
 
 @section('body')
     <!-- <link rel="stylesheet" href="{{ asset('css/event2.css') }}"> -->
-    
+
 
     <style type="text/css">
         html,
@@ -139,7 +139,7 @@
         </div>
     </section>
     <!-- Counter div -->
- 
+
     <!-- restaurant -->
 
     <section class="restaurant my-5">
@@ -149,7 +149,7 @@
                 <div class="col-6 py-4">
                     <h3 class="mb-3 fontw700">Restaurants</h3>
                 </div>
-                
+
             </div>
 
             <!-- Modal -->
@@ -168,15 +168,7 @@
                                     <h4 class="card-title font-16">{{$rest->business}}</h4>
                                     <i class="pointer fa fa-heart  {{ $rest->favouriterest ? "text-danger" : "text-grey-three" }}  pt-2 addfav" id="{{$rest->id}}" businessid="restaurant"></i>
                                 </div>
-                                <!-- <div class="div">
-                                    <p class="card-text text-grey-three font-12">Hiking tour | Stoke on
-                                        Trent</p>
-                                </div> -->
 
-                                <!-- <div>
-                                    <p class="font-9 mb-0 my-3">From</p>
-
-                                </div> -->
 
                                 <div class="pricing-review d-flex justify-content-between">
                                     <div class="pricing">
@@ -201,7 +193,7 @@
                                 </div>
                             </div>
                             <div class="proceding px-3 d-flex justify-content-evenly">
-                                
+
 
                                 <div class="">
                                     <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
@@ -210,7 +202,7 @@
                                     </div>
                                 </div>
 
-                                
+
                             </div>
                         </div>
                     </div>
@@ -251,7 +243,7 @@
                                 </div>
                                 <div class="pricing-review d-flex justify-content-between">
                                     <div class="pricing">
-                                        <h4 class="font-15">$895.44</h4>
+                                        <h4 class="font-15">${{$pkg->amount}}</h4>
                                     </div>
                                     <div class="font-10">
                                         <span class="fa fa-star checked"></span>
@@ -265,14 +257,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="variesDiv px-3">
-                                <div class="pricing-varies">
-                                    <p class="mb-3 text-grey-one font-13">Price Varies</p>
-                                </div>
-                            </div>
+
                             <div class="proceding px-3 d-flex justify-content-evenly">
                                 <div class="">
-                                    <a href="{{ url('/user/details') }}/{{$pkg->id}}"><div class="d-inline-block rounded-1 bg-green-two p-2 detailss" pkgid="{{$pkg->id}}" data-bs-toggle="tooltip"
+                                    <a href="{{ url('/user/package/detail') }}/{{encrypt($pkg->id)}}"><div class="d-inline-block rounded-1 bg-green-two p-2 detailss" pkgid="{{$pkg->id}}" data-bs-toggle="tooltip"
                                          data-bs-placement="right" title="View">
                                         <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
                                     </div></a>

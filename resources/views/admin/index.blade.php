@@ -30,7 +30,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{$planner}}</h3>
                 <p>Planners</p>
               </div>
               <div class="icon">
@@ -44,7 +44,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53</h3>
+                <h3>{{$category}}</h3>
 
                 <p>Categories</p>
               </div>
@@ -59,7 +59,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{$usersall}}</h3>
 
                 <p>Users</p>
               </div>
@@ -126,7 +126,7 @@
                               <button type="submit" class="btn rounded-pill btn-danger">Delete </button></td>
                             </form>
                           </tr>
-                          
+
                           <div class="modal fade" id="modal-{{ $user->id }}">
                               <div class="modal-dialog">
                                   <div class="modal-content">

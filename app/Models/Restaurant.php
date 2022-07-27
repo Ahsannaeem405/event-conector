@@ -29,4 +29,8 @@ class Restaurant extends Model
     {
         return $this->hasOne(Favourite::class, 'pakgresttid', 'id')->where('parent', 'restaurant');
     }
+
+    public function category(){
+        return $this->belongsTo(Category::class,'categoryid');
+    }
 }

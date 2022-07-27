@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\booking;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\User;
@@ -466,8 +468,8 @@ class EventController extends Controller
     public function delete_resturent($id)
     {
         $id = decrypt($id);
-        $del=Restaurant::findorFail($id)->delete();
-        return back()->with('success','Record deleted successfully');
+        $del = Restaurant::findorFail($id)->delete();
+        return back()->with('success', 'Record deleted successfully');
 
     }
 
@@ -504,15 +506,86 @@ class EventController extends Controller
         return view('host.favourites', compact('rests', 'pkgs'));
     }
 
-    public function details(Request $request)
+    public function details($id, Request $request)
     {
-        // dd('ggg');
-        $pkg = Package::find($request->id);
-        // $imgs = json_decode($pkg->logo);
+
+        $user = \Illuminate\Support\Facades\Auth::user();
+        $pkg = Package::findOrFail(decrypt($id));
         $imgs = $pkg->logo;
-// dd($pkg->pkgtime);
-// dd(json_decode($pkg->logo));
-        return view('host.details', compact('pkg', 'imgs'));
+
+        return view('host.package.details', compact('pkg', 'imgs', 'user'));
+    }
+
+    public function avibility(Request $request)
+    {
+
+        $holiday = [
+            0 => 'holiday7',
+            1 => 'holiday1',
+            2 => 'holiday2',
+            3 => 'holiday3',
+            4 => 'holiday4',
+            5 => 'holiday5',
+            6 => 'holiday6',
+        ];
+
+        $weekOpen = [
+            0 => 'sundyopen',
+            1 => 'mondyopen',
+            2 => 'tuedyopen',
+            3 => 'wedopen',
+            4 => 'thurdyopen',
+            5 => 'fridyopen',
+            6 => 'satdyopen',
+        ];
+        $weekClose = [
+            0 => 'sundyclose',
+            1 => 'mondyclose',
+            2 => 'tuedyclose',
+            3 => 'wedclose',
+            4 => 'thurdyclose',
+            5 => 'fridyclose',
+            6 => 'satdyclose',
+        ];
+        $check = 1;
+        $date = Carbon::parse($request->date)->format('Y-m-d');
+        $dayOfTheWeek = Carbon::createFromFormat('Y-m-d', $date)->dayOfWeek;
+        $weekOpen = $weekOpen[$dayOfTheWeek];
+        $weekClose = $weekClose[$dayOfTheWeek];
+        $holiday = $holiday[$dayOfTheWeek];
+
+
+        $package = Package::find($request->id);
+
+        if ($package->availalltime == 0 && $package->$holiday != 24) {
+
+            $package = Package::whereId($request->id)
+                ->whereHas('pkgtime', function ($q) use ($weekOpen, $request, $weekClose) {
+                    $q->whereTime($weekOpen, '<=', $request->time_start)
+                        ->whereTime($weekClose, '>=', $request->time_end);
+                })->count();
+
+            $check = $package == 1 ? 1 : 0;
+
+        }
+        if ($check == 1) {
+            $booking = booking::where('package_id', $request->id)
+                ->whereDate('event_date', $request->date)
+                ->whereTime('event_end', '>', $request->time_start)
+                ->exists();
+
+            $check = $booking ? 0 : 1;
+
+        }
+
+
+        if ($check == 1) {
+            return response()->json(['available' => true, 'message' => 'Available for Booking']);
+
+        } else {
+            return response()->json(['available' => false, 'error' => 'Not available for Booking']);
+
+        }
     }
 }
 

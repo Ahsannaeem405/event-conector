@@ -11,20 +11,25 @@ class AdminController extends Controller
     //
     public function index()
     {
-        $users = User::where('role', '3')->orderBy('id', 'DESC')->get();
-        return view('admin.index', compact('users'));
+        $users = User::where('role', '3')->orderBy('id', 'DESC')->take(5)->get();
+
+        $planner=User::whereRole(2)->count();
+        $category=Category::count();
+        $usersall=User::whereRole(3)->count();
+
+        return view('admin.index', compact('users','planner','category','usersall'));
     }
 
     public function users()
     {
         $users = User::where('role', '3')->get();
-        return view('admin/users', compact('users'));
+        return view('admin.users', compact('users'));
     }
 
     public function planners()
     {
         $users = User::where('role', '2')->get();
-        return view('admin/planners', compact('users'));
+        return view('admin.planners', compact('users'));
     }
 
     public function edituser(Request $request)

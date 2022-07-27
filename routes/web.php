@@ -53,17 +53,23 @@ Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
 
     Route::get('/', [AdminController::class, 'index']);
 
+//    users
     Route::get('/users', [AdminController::class, 'users']);
     Route::get('/planners', [AdminController::class, 'planners']);
     Route::post('/edituser/{id}', [AdminController::class, 'edituser']);
-    Route::post('/editcatg/{id}', [AdminController::class, 'editcatg']);
     Route::post('/dltuser/{id}', [AdminController::class, 'dltuser']);
-    Route::post('/dltcatg/{id}', [AdminController::class, 'dltcatg']);
+
+//    category
     Route::get('/categories', [AdminController::class, 'categories']);
+    Route::post('/editcatg/{id}', [AdminController::class, 'editcatg']);
+    Route::post('/dltcatg/{id}', [AdminController::class, 'dltcatg']);
     Route::post('/addcategory', [AdminController::class, 'addcategory']);
     Route::get('/category_edit', [AdminController::class, 'category_edit']);
 
+//restaurant
 
+    Route::get('restaurants',[\App\Http\Controllers\ResturentController::class,'index']);
+    Route::post('delete/restaurant/{id}',[\App\Http\Controllers\ResturentController::class,'delete']);
 
 
 });
@@ -103,7 +109,9 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
 
     Route::post('/hostevent', [EventController::class, 'hostevent']);
-    Route::get('/details/{id}', [EventController::class, 'details'])->withoutMiddleware(['user']);
+    Route::get('package/detail/{id}', [EventController::class, 'details'])->withoutMiddleware(['user']);
+    Route::post('check/avibility', [EventController::class, 'avibility'])->withoutMiddleware(['user']);
+    Route::post('book/package', [\App\Http\Controllers\BookingController::class, 'book'])->withoutMiddleware(['user'])->name('user.book.package');
 
 
 

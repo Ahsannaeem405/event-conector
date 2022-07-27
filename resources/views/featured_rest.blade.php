@@ -43,8 +43,8 @@
                         <div class="col-lg-2 col-md-4 col-12 mt-2">
                             <div class="p-2  border rounded-3">
                                 <p class="mb-0">
-                                    <i class="fa fa-tag font-20 text-blue"></i> &nbsp; <span
-                                        class="fontw600 font-14">Discounted Deals</span>
+                                    <i class="fa fa-tag font-20 text-blue"></i> &nbsp;
+                                    <span class="fontw600 font-14">Discounted Deals</span>
                                 </p>
                             </div>
                         </div>

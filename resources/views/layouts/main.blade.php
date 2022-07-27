@@ -18,8 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/chatboard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/page2.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jqueryui.css') }}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js">
-    </script>
+
     <style>
         .disableddiv {
             pointer-events: none;
@@ -64,7 +63,8 @@
 
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
     {{--    google places api--}}
 
 
@@ -316,7 +316,9 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
         $(".tag-select").select2({
             tags: true,
@@ -326,59 +328,51 @@
     <!-- Bootstrap5 CDN -->
 
     <!-- Jquery CDN -->
+    <script>
+        @if (Session::has('success'))
+            toastr.options = {
 
+            "progressBar": true
+        }
+        toastr.success("{{ session('success') }}");
+        @endif
+
+            @if (Session::has('info'))
+            toastr.options = {
+
+            "progressBar": true
+        }
+        toastr.info("{{ session('info') }}");
+        @endif
+
+            @if($errors->any())
+            toastr.options = {
+
+            "progressBar": true
+        }
+
+        @foreach ($errors->all() as $error)
+        toastr.error("{{ $error }}");
+
+        @endforeach
+            @endif
+
+            @if (Session::has('warning'))
+            toastr.options = {
+
+            "progressBar": true
+        }
+        toastr.warning("{{ session('warning') }}");
+        @endif
+        $(document).ready(function(){
+
+        });
+    </script>
 
     @yield('js')
 
     <!-- owl carousel -->
-    <script>
-        // $(document).ready(function () {
-        // $('.owl-carousel').owlCarousel({
-        //     nav: false,
-        //     dots: true,
-        //     loop: true,
-        //     autoplay: true,
-        //     autoplayTimeout: 5000,
-        //     margin: 20,
-        //     slideSpeed: 3000,
-        //     animateIn: 'fadeIn',
-        //     animateOut: 'fadeOut',
-        //     responsive: {
-        //         0: {
-        //             items: 1
-        //         },
-        //         600: {
-        //             items: 3
-        //         },
-        //         960: {
-        //             items: 3
-        //         }
-        //     }
-        // });
-        // var setMinHeight = function (minheight = 0) {
-        //     jQuery('.owl-carousel').each(function (i, e) {
-        //         var oldminheight = minheight;
-        //         jQuery(e).find('.owl-item').each(function (i, e) {
-        //             minheight = jQuery(e).height() > minheight ? jQuery(e).height() : minheight;
-        //         });
-        //         jQuery(e).find('.item').css("min-height", minheight + "px");
-        //         minheight = oldminheight;
-        //     });
-        // };
-        // setMinHeight();
 
-        // $(".carousel").swipe({
-        //     swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-        //         if (direction == 'left') $(this).carousel('next');
-        //         if (direction == 'right') $(this).carousel('prev');
-        //     },
-        //     allowPageScroll: "vertical"
-        // });
-        // });
-        // $(document).on('resize', function () {
-        //     setMinHeight();
-        // });
-    </script>
 
 
 </body>

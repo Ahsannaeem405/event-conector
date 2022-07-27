@@ -58,7 +58,7 @@
     <!-- <script src="{{ asset('dist/js/demo.js') }}"></script> -->
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
-  
+
     <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
     <!-- <script src="{{ asset('plugins/sweetalert2/sweetalert2.min.js') }}"></script> -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -88,12 +88,12 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
-      
+
 
       <!-- Messages Dropdown Menu -->
-      
+
       <!-- Notifications Dropdown Menu -->
-      
+
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -116,7 +116,7 @@
       <span class="brand-text font-weight-light">Admin</span>
     </a>
     <div class="sidebar">
-      
+
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
@@ -147,10 +147,28 @@
             <a href="{{ url('/admins/categories') }}" class="nav-link">
               <i class="nav-icon fas fa-list-alt"></i>
               <p>
-                Categories                
+                Categories
               </p>
             </a>
           </li>
+
+            <li class="nav-item">
+                <a href="{{ url('/admins/restaurants') }}" class="nav-link">
+                    <i class="nav-icon fas fa-list-alt"></i>
+                    <p>
+                        Restaurants
+                    </p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ url('/admins/packages') }}" class="nav-link">
+                    <i class="nav-icon fas fa-list-alt"></i>
+                    <p>
+                        Packages
+                    </p>
+                </a>
+            </li>
         </ul>
       </nav>
     </div>
@@ -161,11 +179,11 @@
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021.</strong>
     All rights reserved.
-    
-  </footer>
-  
 
- 
+  </footer>
+
+
+
 </div>
 
 <!-- jQuery UI 1.11.4 -->
