@@ -42,6 +42,9 @@
             border-radius: 25px !important;
 
         }
+        .border-radios-25{
+            border-radius: 25px !important;
+        }
     </style>
 
 
@@ -104,11 +107,11 @@
                         @endif
 
                         <li class="nav-item">
-                            <a class="nav-link active pt-md-3 fontw500" href="{{ url('/user/chatBoard') }}">Inbox</a>
+                            <a class="nav-link active pt-md-3 fontw500" href="{{ url('user/booking') }}">My Booking</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active pt-md-3 fontw500"
-                               href="{{ url('/user/favourites') }}">favourites</a>
+                               href="{{ url('/user/favourites')}}">favourites</a>
                         </li>
 
                     @endauth
@@ -319,6 +322,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/favourite.js') }}"></script>
     <script>
         $(".tag-select").select2({
             tags: true,

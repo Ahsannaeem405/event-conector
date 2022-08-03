@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\BraodCast;
 use Illuminate\Http\Request;
 use App\Models\Package;
 use App\Models\PackageTiming;
@@ -13,6 +14,8 @@ class userController extends Controller
 {
     public function index()
     {
+
+
         $catgs = Category::all()->chunk(4);
         $category = Category::all();
         // dd($catgs);

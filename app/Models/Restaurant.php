@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Timing;
+use Illuminate\Support\Facades\Auth;
+
 class Restaurant extends Model
 {
     use HasFactory;
@@ -27,7 +29,7 @@ class Restaurant extends Model
 
     public function favouriterest()
     {
-        return $this->hasOne(Favourite::class, 'pakgresttid', 'id')->where('parent', 'restaurant');
+        return $this->hasOne(Favourite::class, 'pakgresttid', 'id')->where('parent', 'restaurant')->where('user_id',Auth::id());
     }
 
     public function category(){

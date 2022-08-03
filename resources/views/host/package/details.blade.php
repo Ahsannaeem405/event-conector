@@ -75,15 +75,13 @@
                             <lable class="label"><b>Total Person:</b> <span class="total_person"></span></lable>
                         </div>
 
-                        <div class="col-6 my-2">
-                            <lable class="label"><b>Total Bill:</b> $<span class="total_bill"></span></lable>
-                        </div>
+
 
                         <input type="hidden" name="event_date" class="event_date">
                         <input type="hidden" name="event_start_time" class="event_start_time">
                         <input type="hidden" name="event_end_time" class="event_end_time">
                         <input type="hidden" name="total_person" class="total_person">
-                        <input type="hidden" name="total_bill" class="total_bill">
+
                         <input type="hidden" name="package_id" value="{{$pkg->id}}">
                     </div>
 
@@ -1275,13 +1273,13 @@
                             $('.event_date').empty().append(date).val(date);
                             $('.event_start_time').empty().append(time_start).val(time_start);
                             $('.event_end_time').empty().append(time_end).val(time_end);
-                            $('.total_person').empty().append(person).val(person);
+
 
 
 
                           var per=  @if($pkg->price_for=='Menu'){{$pkg->amount}} @else person *{{$pkg->amount}}@endif;
 
-                            $('.total_bill').empty().append(per).val(per);
+
                             $('#booking').modal('show');
                         } else {
                             toastr.error(response.error);

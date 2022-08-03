@@ -99,7 +99,7 @@ body{margin-top:20px;}
 }
 @media (max-width:450px) {
     .chat-messages{
-        max-height: 238px;
+        height: 238px;
     }
 }
 /* side bar */

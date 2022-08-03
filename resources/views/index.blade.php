@@ -910,5 +910,5 @@
         });
     </script>
 
-    <script type="text/javascript" src="{{ asset('js/favourite.js') }}"></script>
+
 @endsection

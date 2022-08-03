@@ -20,6 +20,13 @@
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1",
         "vue": "^2.6.12",
+        "vue-loader": "^15.9.8",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "express": "^4.18.1",
+        "laravel-echo": "^1.13.0",
+        "pusher-js": "^7.3.0",
+        "socket.io": "^4.5.1"
     }
 }

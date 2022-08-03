@@ -110,8 +110,17 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
 
     Route::post('/hostevent', [EventController::class, 'hostevent']);
     Route::get('package/detail/{id}', [EventController::class, 'details'])->withoutMiddleware(['user']);
+
+    //booking
     Route::post('check/avibility', [EventController::class, 'avibility'])->withoutMiddleware(['user']);
     Route::post('book/package', [\App\Http\Controllers\BookingController::class, 'book'])->withoutMiddleware(['user'])->name('user.book.package');
+    Route::get('booking', [\App\Http\Controllers\BookingController::class, 'mybook'])->withoutMiddleware(['user']);
+    Route::get('booking/detail/{id}', [\App\Http\Controllers\BookingController::class, 'bookingDetail'])->withoutMiddleware(['user']);
+    Route::post('booking/status/{id}', [\App\Http\Controllers\BookingController::class, 'bookingStaus'])->withoutMiddleware(['user'])->name('booking.status');
+    Route::post('note/store', [\App\Http\Controllers\NoteController::class, 'store'])->withoutMiddleware(['user'])->name('note.store');
+    Route::get('note/delete/{id}', [\App\Http\Controllers\NoteController::class, 'delete'])->withoutMiddleware(['user'])->name('note.delete');
+    Route::post('sendMSG', [\App\Http\Controllers\MessageController::class, 'send'])->withoutMiddleware(['user'])->name('note.delete');
+
 
 
 

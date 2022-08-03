@@ -497,8 +497,8 @@ class EventController extends Controller
     public function favourites()
     {
         // $catgs = Category::all();
-        $rests = Restaurant::where('planner_id', auth()->user()->id)->whereHas('favouriterest')->get();
-        $pkgs = Package::where('planner_id', auth()->user()->id)->whereHas('favourite')->get();
+        $rests = Restaurant::whereHas('favouriterest')->get();
+        $pkgs = Package::whereHas('favourite')->get();
 
         // $response=  $this->resturent->getResturentdata(auth()->user()->id);
 

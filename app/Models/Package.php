@@ -9,6 +9,7 @@ use App\Models\Favourite;
 
 use Eastwest\Json\Json;
 use Eastwest\Json\JsonException;
+use Illuminate\Support\Facades\Auth;
 
 class Package extends Model
 {
@@ -29,6 +30,11 @@ class Package extends Model
         $images = json_decode($this->logo);
         return $images[0];
     }
+    public function getAllimage()
+    {
+        $images = json_decode($this->logo);
+        return $images;
+    }
 
     public function pkgtime()
     {
@@ -38,7 +44,7 @@ class Package extends Model
     public function favourite()
     {
         if (auth()->user()) {
-            return $this->hasOne(Favourite::class, 'pakgresttid', 'id')->where('parent', 'package');
+            return $this->hasOne(Favourite::class, 'pakgresttid', 'id')->where('parent', 'package')->where('user_id',Auth::id());
         }
     }
 
