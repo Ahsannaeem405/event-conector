@@ -71,6 +71,17 @@ Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
     Route::get('restaurants',[\App\Http\Controllers\ResturentController::class,'index']);
     Route::post('delete/restaurant/{id}',[\App\Http\Controllers\ResturentController::class,'delete']);
 
+//
+
+    Route::get('packages',[\App\Http\Controllers\PackageController::class,'index']);
+    Route::post('delete/package/{id}',[\App\Http\Controllers\PackageController::class,'delete_package']);
+
+
+    //bookings
+    Route::get('bookings',[\App\Http\Controllers\BookingController::class,'index']);
+    Route::post('delete/booking/{id}',[\App\Http\Controllers\BookingController::class,'delete']);
+
+
 
 });
 

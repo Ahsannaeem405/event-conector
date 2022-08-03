@@ -11,4 +11,12 @@ class ResturentController extends Controller
         $resturents=Restaurant::OrderBY('id','DESC')->get();
         return view('admin.resturent.index',compact('resturents'));
     }
+
+    public function delete($id){
+        $resturent=Restaurant::findOrFail($id)->delete();
+
+        if ($resturent){
+            return back()->with('success','Restaurant deleted successfully');
+        }
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\booking;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Category;
@@ -16,8 +17,9 @@ class AdminController extends Controller
         $planner=User::whereRole(2)->count();
         $category=Category::count();
         $usersall=User::whereRole(3)->count();
+        $bookings=booking::count();
 
-        return view('admin.index', compact('users','planner','category','usersall'));
+        return view('admin.index', compact('users','planner','category','usersall','bookings'));
     }
 
     public function users()

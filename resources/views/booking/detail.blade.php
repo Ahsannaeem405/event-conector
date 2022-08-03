@@ -88,7 +88,7 @@
                                     </div>
                                     <div class="flex-grow-1 ps-3">
                                         <strong>{{$booking->getUser()->name}}</strong>
-                                        <div class="text-success small"><em>online</em></div>
+{{--                                        <div class="text-success small"><em>online</em></div>--}}
                                     </div>
 
                                 </div>

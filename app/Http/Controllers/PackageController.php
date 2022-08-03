@@ -331,4 +331,13 @@ class PackageController extends Controller
         return back()->with('success','Record deleted successfully');
 
     }
+
+    public function index(){
+
+        $packages=Package::all();
+
+        return view('admin.packages.index',compact('packages'));
+
+
+    }
 }

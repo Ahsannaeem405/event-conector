@@ -169,6 +169,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ url('/admins/bookings') }}" class="nav-link">
+                    <i class="nav-icon fas fa-list-alt"></i>
+                    <p>
+                        Bookings
+                    </p>
+                </a>
+            </li>
         </ul>
       </nav>
     </div>

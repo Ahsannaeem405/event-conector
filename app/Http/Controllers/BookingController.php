@@ -65,4 +65,16 @@ class BookingController extends Controller
     }
 
 
+    public function index()
+    {
+        $bookings=booking::all();
+        return view('admin.bookings.index',compact('bookings'));
+    }
+
+    public function delete($id)
+    {
+        $id=decrypt($id);
+        $booking=booking::findOrFail($id);
+        return back()->with('success','Booking deleted successfully');
+    }
 }
