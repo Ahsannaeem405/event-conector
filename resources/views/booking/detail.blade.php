@@ -3,7 +3,7 @@
 @section('body')
     <style>
         .notes {
-            height: 350px;
+            height: 385px;
             overflow: auto;
         }
 
@@ -99,7 +99,7 @@
 
                                     @foreach($messages as $message)
                                         <div
-                                            class="{{$message->from_id==\Illuminate\Support\Facades\Auth::id() ? 'chat-message-right' : 'chat-message-left'}} pb-4">
+                                            class="{{$message->from_id==\Auth::id() ? 'chat-message-right' : 'chat-message-left'}} pb-4">
                                             <div>
                                                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
                                                      class="rounded-circle me-1" alt="Chris Wood" width="40"
@@ -107,7 +107,7 @@
                                                 <div class="text-muted small text-nowrap mt-2">{{$message->created_at}}</div>
                                             </div>
                                             <div class="flex-shrink-1 bg-light rounded py-2 px-3 me-3">
-                                                <div class="font-weight-bold mb-1">You</div>
+                                                <div class="font-weight-bold mb-1">{{$message->from_id==\Auth::id() ? 'You' : $message->fromUser->name}}</div>
                                                 {{$message->message}}
                                             </div>
                                         </div>

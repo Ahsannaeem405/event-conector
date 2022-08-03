@@ -15,7 +15,7 @@ body{margin-top:20px;}
 .chat-messages {
     display: flex;
     flex-direction: column;
-    max-height: 290px;
+    height: 290px;
     overflow-y: scroll;
 }
 
@@ -99,7 +99,7 @@ body{margin-top:20px;}
 }
 @media (max-width:450px) {
     .chat-messages{
-        height: 238px;
+      /*height: 238px;*/
     }
 }
 /* side bar */

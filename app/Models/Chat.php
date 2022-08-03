@@ -14,4 +14,8 @@ class Chat extends Model
     {
         return Carbon::parse($val)->format('h:i A');
     }
+
+    public function fromUser(){
+        return $this->belongsTo(User::class,'from_id');
+    }
 }
