@@ -113,6 +113,7 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function (){
     Route::get('/editrest', [EventController::class, 'editrest'])->withoutMiddleware(['user'])->middleware(['planner']);
     Route::post('/update_restaurant/{id}', [EventController::class, 'update_restaurant'])->withoutMiddleware(['user'])->middleware(['planner']);
     Route::get('/resturent/delete/{id}', [EventController::class, 'delete_resturent'])->withoutMiddleware(['user'])->middleware(['planner']);
+    Route::get('restaurant/packages/{id}', [\App\Http\Controllers\ResturentController::class, 'all_packages'])->withoutMiddleware(['user'])->middleware(['planner']);
 
 
     Route::get('/add_favorite', [EventController::class, 'add_favorite'])->withoutMiddleware(['user']);

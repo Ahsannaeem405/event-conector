@@ -229,7 +229,6 @@ class EventController extends Controller
         $catgs = Category::all();
         $rests = Restaurant::where('planner_id', auth()->user()->id)->get();
         $pkgs = Package::where('planner_id', auth()->user()->id)->get();
-
         $response = $this->resturent->getResturentdata(auth()->user()->id);
         $bookings=booking::whereOwnerId(auth()->user()->id)->count();
 
@@ -569,8 +568,8 @@ class EventController extends Controller
         }
         if ($check == 1) {
             $booking = booking::where('package_id', $request->id)
-                ->whereDate('event_date', $request->date)
-                ->whereTime('event_end', '>', $request->time_start)
+                ->whereDate('event_date', Carbon::parse($request->date)->format('Y-m-d'))
+                ->whereTime('event_end', '>=', $request->time_start)
                 ->exists();
 
             $check = $booking ? 0 : 1;

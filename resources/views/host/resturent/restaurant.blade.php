@@ -248,12 +248,7 @@
                                     </div>
                                 </div>
 
-                                <div class="">
-                                    <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                         data-bs-placement="right" title="View">
-                                        <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
-                                    </div>
-                                </div>
+
 
                                 <div class="">
                                     <div restid="{{$rest->id}}"
@@ -350,12 +345,6 @@
                                     </div>
                                 </div>
 
-                                <div class="">
-                                    <div class="d-inline-block rounded-1 bg-green-two p-2" data-bs-toggle="tooltip"
-                                         data-bs-placement="right" title="View">
-                                        <i class="fa fa-eye text-white font-24" aria-hidden="true"></i>
-                                    </div>
-                                </div>
 
                                 <div class="">
                                     <div pkgid="{{$pkg->id}}" class="d-inline-block rounded-1 bg-green-two p-2 pkgedit change_model" form-id="editPackageForm"

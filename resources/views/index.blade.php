@@ -272,7 +272,7 @@
                                                     </div>
                                                     <div class="card-body pb-0">
                                                         <div class="d-flex justify-content-between">
-                                                            <h4 class="card-title font-23">{{$item2->pkg_name}}</h4>
+                                                           <a href="{{url("user/package/detail/".encrypt($item2->id))}}"> <h4 class="card-title font-23">{{$item2->pkg_name}}</h4></a>
                                                             <i class="pointer fa fa-heart  @auth{{ $item2->favourite ? "text-danger" : "text-grey-three" }}   addfav @endauth pt-2 " id="{{$item2->id}}" businessid="package"></i>
                                                         </div>
                                                         <div class="div">

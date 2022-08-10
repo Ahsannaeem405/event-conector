@@ -20,6 +20,9 @@ class SearchController extends Controller
 
     public function search(Request $request)
     {
+
+        $resturents=Restaurant::inRandomOrder()->limit(3)->get();
+
         $price = $request->price ? $request->price : '$100 - $500';
         $price = $this->package->amountExplode($price);
 
@@ -71,15 +74,14 @@ class SearchController extends Controller
                 $q->where('amount', '>=', $price['min'] );
                 $q->where('amount', '<=', $price['max'] );
 
-            })   //keywords
+            })
+            //keywords
             ->when($request->keywords, function ($q) use ($request) {
 
                 $q->where('pkg_name', 'like', '%' . $request->keywords . '%');
                 $q->ORwhere('desc', 'like', '%' . $request->keywords . '%');
             })
-
             //tags
-
             ->when($request->tagsarray, function ($q) use ($request) {
 
                 $q->whereHas('tags', function ($q) use ($request) {
@@ -129,7 +131,7 @@ class SearchController extends Controller
             ->get();
 
 
-        return view('featured_rest', compact('packages', 'price','category', 'request', 'tags'));
+        return view('featured_rest', compact('packages', 'price','category', 'request', 'tags','resturents'));
 
     }
 }

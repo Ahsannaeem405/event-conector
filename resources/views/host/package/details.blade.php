@@ -1273,6 +1273,7 @@
                             $('.event_date').empty().append(date).val(date);
                             $('.event_start_time').empty().append(time_start).val(time_start);
                             $('.event_end_time').empty().append(time_end).val(time_end);
+                            $('.total_person').empty().append(person).val(person);
 
 
 
