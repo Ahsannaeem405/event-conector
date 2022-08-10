@@ -71,7 +71,7 @@ Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
     Route::get('restaurants',[\App\Http\Controllers\ResturentController::class,'index']);
     Route::post('delete/restaurant/{id}',[\App\Http\Controllers\ResturentController::class,'delete']);
 
-//
+//packages
 
     Route::get('packages',[\App\Http\Controllers\PackageController::class,'index']);
     Route::post('delete/package/{id}',[\App\Http\Controllers\PackageController::class,'delete_package']);
@@ -81,6 +81,13 @@ Route::prefix('/admins')->middleware(['auth','admin'])->group(function (){
     Route::get('bookings',[\App\Http\Controllers\BookingController::class,'index']);
     Route::post('delete/booking/{id}',[\App\Http\Controllers\BookingController::class,'delete']);
 
+
+    //roles
+    Route::get('roles',[\App\Http\Controllers\RolePermissionController::class,'index']);
+    Route::get('role/create',[\App\Http\Controllers\RolePermissionController::class,'create'])->name('role.create');
+    Route::post('role/store',[\App\Http\Controllers\RolePermissionController::class,'store'])->name('roles.store');
+    Route::get('role/edit/{id}',[\App\Http\Controllers\RolePermissionController::class,'edit'])->name('roles.edit');
+    Route::post('role/update/{id}',[\App\Http\Controllers\RolePermissionController::class,'update'])->name('roles.update');
 
 
 });

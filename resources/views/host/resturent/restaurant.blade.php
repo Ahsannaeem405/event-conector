@@ -156,7 +156,7 @@
                 <div class="col-md-4 col-6">
                     <div class="counter border-rounded-40">
                         <p class="count-text fontw700">Booking</p>
-                        <h2 class="timer count-title count-number" data-to="100" data-speed="1500"></h2>
+                        <h2 class="timer count-title count-number" data-to="{{$bookings}}" data-speed="1500"></h2>
                         <p class="count-text fontw500">Last 30 Days</p>
                     </div>
                 </div>
@@ -307,6 +307,7 @@
                             <div class="card-body pb-0">
                                 <div class="d-flex justify-content-between">
                                     <h4 class="card-title font-16">{{$pkg->pkg_name}}</h4>
+
                                     <i class="pointer fa fa-heart {{ $pkg->favourite ? "text-danger" : "text-grey-three" }} pt-2 addfav" id="{{$pkg->id}}" businessid="package"></i>
                                 </div>
                                 <div class="div">
@@ -706,10 +707,19 @@
 
         });
     </script>
-    <script type="text/javascript" src="{{ asset('js/favourite.js') }}"></script>
+
+{{--    add resturent--}}
     <script src="{{ asset('js/event.js') }}"></script>
+
+{{--    edit resturent--}}
     <script src="{{ asset('js/event2.js') }}"></script>
+
+{{--    add package--}}
     <script src="{{ asset('js/addpackage.js') }}"></script>
+
+{{--    manage restuarant and package time--}}
     <script src="{{ asset('js/bussiness.js') }}"></script>
+
+{{--    delete record sweat alert--}}
     <script src="{{ asset('js/index.js') }}"></script>
 @endsection

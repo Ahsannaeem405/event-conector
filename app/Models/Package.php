@@ -43,18 +43,12 @@ class Package extends Model
 
     public function favourite()
     {
-        if (auth()->user()) {
+
             return $this->hasOne(Favourite::class, 'pakgresttid', 'id')->where('parent', 'package')->where('user_id',Auth::id());
-        }
+
     }
 
-    public function favouriteauth()
-    {
-        if (auth()->user()) {
-            return $this->hasOne(Favourite::class, 'pakgresttid', 'id')->where('parent', 'package')->where('user_id', auth()->user()->id);
 
-        }
-    }
 
     public function tags()
     {

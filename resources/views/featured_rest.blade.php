@@ -279,7 +279,7 @@
                                             <div class="d-flex justify-content-between">
                                                 <h4 class="card-title font-23">{{$package->pkg_name}}</h4>
 
-                                                <i class="far fa-heart text-grey-three pt-2"></i>
+                                                <i class="pointer fa fa-heart {{ $package->favourite ? "text-danger" : "text-grey-three" }} pt-2 addfav" id="{{$package->id}}" businessid="package"></i>
                                             </div>
                                             <div class="div">
                                                 <p class="card-text text-grey-three font-12">Hiking tour | Stoke on Trent</p>

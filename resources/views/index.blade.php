@@ -169,7 +169,6 @@
             </div>
         </div>
 
-
     </section>
 
     <section class="categories pt-5 my-5">
@@ -274,7 +273,7 @@
                                                     <div class="card-body pb-0">
                                                         <div class="d-flex justify-content-between">
                                                             <h4 class="card-title font-23">{{$item2->pkg_name}}</h4>
-                                                            <i class="pointer fa fa-heart @auth {{ $item2->favouriteauth ? "text-danger" : "text-grey-three" }} addfav @endauth pt-2 " id="{{$item2->id}}" businessid="package"></i>
+                                                            <i class="pointer fa fa-heart  @auth{{ $item2->favourite ? "text-danger" : "text-grey-three" }}   addfav @endauth pt-2 " id="{{$item2->id}}" businessid="package"></i>
                                                         </div>
                                                         <div class="div">
                                                             <p class="card-text text-grey-three font-12">Hiking tour |

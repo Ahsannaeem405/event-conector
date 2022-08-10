@@ -230,11 +230,10 @@ class EventController extends Controller
         $rests = Restaurant::where('planner_id', auth()->user()->id)->get();
         $pkgs = Package::where('planner_id', auth()->user()->id)->get();
 
-        // dd($pkgs[0]->favourite);
         $response = $this->resturent->getResturentdata(auth()->user()->id);
+        $bookings=booking::whereOwnerId(auth()->user()->id)->count();
 
-
-        return view('host.resturent.restaurant', compact('catgs', 'rests', 'pkgs', 'response'));
+        return view('host.resturent.restaurant', compact('bookings','catgs', 'rests', 'pkgs', 'response'));
 
     }
 

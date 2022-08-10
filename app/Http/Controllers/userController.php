@@ -9,12 +9,12 @@ use App\Models\PackageTiming;
 use App\Models\Restaurant;
 use App\Models\Category;
 use DB;
+use Spatie\Permission\Models\Permission;
 
 class userController extends Controller
 {
     public function index()
     {
-
 
         $catgs = Category::all()->chunk(4);
         $category = Category::all();
@@ -33,9 +33,6 @@ class userController extends Controller
     {
         return view('/chatBoard');
     }
-    // public function favourites()
-    // {
-    //     return view('/favourites');
-    // }
+
 
 }

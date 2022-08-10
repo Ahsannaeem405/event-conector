@@ -127,6 +127,25 @@
               </p>
             </a>
           </li>
+
+            <li class="nav-item">
+                <a href="{{ url('/admins/roles') }}" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Roles & Permissions
+                    </p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ url('/admins/administration') }}" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Administration
+                    </p>
+                </a>
+            </li>
+
           <li class="nav-item">
             <a href="{{ url('/admins/users') }}" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
